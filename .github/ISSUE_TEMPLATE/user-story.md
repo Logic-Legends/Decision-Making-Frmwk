@@ -1,9 +1,10 @@
 ---
-name: "👥 User story"
+name: "\U0001F465 User story"
 about: Create a new user story
-title: ""
+title: ''
 labels: enhancement
-assignees: ""
+assignees: ''
+
 ---
 
 ## Story
