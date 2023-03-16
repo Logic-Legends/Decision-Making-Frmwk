@@ -94,5 +94,3 @@ See the guidance in the [wiki].
 [Winston]: https://github.com/winstonjs/winston
 
 
-
-test
