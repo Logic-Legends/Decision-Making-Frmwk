@@ -90,4 +90,3 @@ See the guidance in the [wiki].
 [wiki]: https://github.com/textbook/starter-kit/wiki
 [Winston]: https://github.com/winstonjs/winston
 
-test
