@@ -8,6 +8,7 @@ export const start = () => {
         <ul>
             <li>It for team of 2 or more people</li>
         </ul>
+        <h4>sdkj</h4>
     </div>
   );
 };
