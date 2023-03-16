@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import Start from "../components/start-page/Start";
 import "./Home.css";
 import logo from "./logo.svg";
 
@@ -35,6 +35,7 @@ export function Home() {
 				<h1 className="message" data-qa="message">
 					{message}
 				</h1>
+				<Start />
 				<Link to="/about/this/site">About</Link>
 			</div>
 		</main>
