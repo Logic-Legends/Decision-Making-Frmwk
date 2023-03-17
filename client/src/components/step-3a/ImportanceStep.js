@@ -3,26 +3,55 @@ import { Link } from "react-router-dom";
 import "./importance.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import tooltipIcon from "./images/tooltipicon.png";
+
 
 
 
 const ImportanceStep=()=>{
 	const [isStarted, setIsStarted] = useState(false);
+	const [isTooltipVisible, setIsTooltipVisible] = useState(false);
+
 	const navigate = useNavigate();
 
 	const handleStartClick = () => {
 		setIsStarted(true);
 		navigate("/CapacityStep");
 	};
+	const handleTooltipClick = () => {
+		setIsTooltipVisible(!isTooltipVisible);
+	};
      return (
 				<div className="header">
 					<h1>
-						Importance <img src="" alt="" className="tooltip-icon"></img>
+						Importance{" "}
+						<button className="btn-tooltip" onClick={handleTooltipClick}>
+							<img src={tooltipIcon} alt="Tooltip" className="tooltip-icon" />
+						</button>
+						{isTooltipVisible && (
+							<div
+								className={`tooltip ${isTooltipVisible ? "show" : ""}`}
+							>
+								Importance = the significance and/or value of the decision at
+								hand
+							</div>
+						)}
 					</h1>
 					<section className="question-container">
 						<p className="question">
 							How important is the decision?
-							<img src="tooltipicon.PNG" alt="" className="tooltip-icon"></img>
+							<button className="btn-tooltip" onClick={handleTooltipClick}>
+								<img src={tooltipIcon} alt="Tooltip" className="tooltip-icon" />
+							</button>
+							{isTooltipVisible && (
+								<div
+									className={`tooltip ${
+										isTooltipVisible ? "show" : ""
+									}`}
+								>
+									Loading....
+								</div>
+							)}
 						</p>
 						<form className="radio-btn-section">
 							<label>
@@ -30,7 +59,7 @@ const ImportanceStep=()=>{
 								Low
 							</label>
 							<label>
-								<input type="radio" name="importance" value="low" />
+								<input type="radio" name="importance" value="high" />
 								High
 							</label>
 						</form>
@@ -39,9 +68,8 @@ const ImportanceStep=()=>{
 						<button>
 							<Link to="/"></Link>Back
 						</button>
-						{isStarted}<button onClick={handleStartClick}>
-							Next
-						</button>
+						{isStarted}
+						<button onClick={handleStartClick}>Next</button>
 					</section>
 				</div>
 			);
