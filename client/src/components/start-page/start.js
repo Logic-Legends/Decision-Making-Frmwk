@@ -1,6 +1,6 @@
 import React from "react";
 
-export const start = () => {
+export const Start = () => {
   return (
     <div>
         <h4>Voting Method For Group Decision</h4>
@@ -12,3 +12,4 @@ export const start = () => {
     </div>
   );
 };
+export default Start;
