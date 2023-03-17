@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Start = () => {
   return (
     <div>
-        <h4>Voting Method For Group Decision</h4>
+        <h1>Voting Method For Group Decision</h1>
         <p>This tool is designed to help facilities group decision that involve voting.</p>
         <ul>
             <li>It for team of 2 or more people.</li>
