@@ -1,0 +1,40 @@
+h1{
+    font-family: "proxima-nova-condensed";
+    font-size: 45px;
+}
+.header{
+margin-top: 150px;   
+margin-left: 75px; 
+}
+.question-container{
+    border: 1px solid gray;
+    width: 500px;
+}
+.question{
+    font-family: "proxima-nova";
+    font-weight: 400px;
+    font-size: 18px;
+    margin-left: 20px;
+}
+form label {
+    margin-left: 20px;
+    
+}
+.radio-btn-section{
+margin-bottom: 20px;
+}
+.btn-container{
+    margin-top: 25px;
+    position: absolute;
+    left:20%
+}
+.btn-container button:last-child{
+    margin-left: 20px;
+}
+button{
+    background-color: #36939C;
+    color: white;
+    width: 50px;
+    border: none;
+    height: 25px;
+}

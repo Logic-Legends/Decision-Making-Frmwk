@@ -4,30 +4,32 @@ import "./capacity.css";
 
 const CapacityStep = () => {
 	return (
-		<div className="header_title">
+		<div className="header">
 			<h1>
-				Capacity <span className="tooltip-icon">i</span>
+				Capacity <img src="" alt="" className="tooltip-icon"></img>
 			</h1>
-			<section>
-				<p>
-					What is the decision-making teams capacity?{" "}
-					<span className="tooltip-icon">i</span>
+			<section className="question-container">
+				<p className="question">
+					What is the decision-making teams capacity?
+					<img src="" alt="" className="tooltip-icon"></img>
 				</p>
 				<form className="radio-btn-section">
 					<label>
-						<input type="radio" value="low" />
+						<input type="radio" name="capacity" value="low" checked />
 						Low
 					</label>
 					<label>
-						<input type="radio" value="low" />
+						<input type="radio" name="capacity" value="low" />
 						High
 					</label>
 				</form>
+			</section>
+			<section className="btn-container">
 				<button>
-					<Link to="/"></Link>Back
+					<Link to="/ImportanceStep"></Link>Back
 				</button>
 				<button>
-					<Link to="/TimeResourceAllocation"></Link>Next
+					<Link to="/"></Link>Next
 				</button>
 			</section>
 		</div>

@@ -6,25 +6,27 @@ import "./importance.css";
 
 const ImportanceStep=()=>{
      return (
-				<div className="header_title">
+				<div className="header">
 					<h1>
-						Capacity <span className="tooltip-icon">i</span>
+						Importance <img src="" alt="" className="tooltip-icon"></img>
 					</h1>
-					<section>
-						<p>
+					<section className="question-container">
+						<p className="question" >
 							How important is the decision?
-							<span className="tooltip-icon">i</span>
+							<img src="tooltipicon.PNG" alt="" className="tooltip-icon"></img>
 						</p>
 						<form className="radio-btn-section">
 							<label>
-								<input type="radio" value="low" />
+								<input type="radio" name="importance" value="low" checked />
 								Low
 							</label>
 							<label>
-								<input type="radio" value="low" />
+								<input type="radio" name="importance" value="low" />
 								High
 							</label>
 						</form>
+					</section>
+					<section className="btn-container">
 						<button>
 							<Link to="/"></Link>Back
 						</button>
