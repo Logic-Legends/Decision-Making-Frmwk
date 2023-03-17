@@ -1,17 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./importance.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 
 const ImportanceStep=()=>{
+	const [isStarted, setIsStarted] = useState(false);
+	const navigate = useNavigate();
+
+	const handleStartClick = () => {
+		setIsStarted(true);
+		navigate("/CapacityStep");
+	};
      return (
 				<div className="header">
 					<h1>
 						Importance <img src="" alt="" className="tooltip-icon"></img>
 					</h1>
 					<section className="question-container">
-						<p className="question" >
+						<p className="question">
 							How important is the decision?
 							<img src="tooltipicon.PNG" alt="" className="tooltip-icon"></img>
 						</p>
@@ -30,8 +39,8 @@ const ImportanceStep=()=>{
 						<button>
 							<Link to="/"></Link>Back
 						</button>
-						<button>
-							<Link to="/CapacityStep"></Link>Next
+						{isStarted}<button onClick={handleStartClick}>
+							Next
 						</button>
 					</section>
 				</div>

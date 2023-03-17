@@ -1,8 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./capacity.css";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
 
 const CapacityStep = () => {
+	const [isStarted, setIsStarted] = useState(false);
+	const navigate = useNavigate();
+
+	const handleStartClick = () => {
+		setIsStarted(true);
+		navigate("/ImportanceStep");
+	};
 	return (
 		<div className="header">
 			<h1>
@@ -25,9 +35,7 @@ const CapacityStep = () => {
 				</form>
 			</section>
 			<section className="btn-container">
-				<button>
-					<Link to="/ImportanceStep"></Link>Back
-				</button>
+				{isStarted}<button onClick={handleStartClick}>Back</button>
 				<button>
 					<Link to="/"></Link>Next
 				</button>
