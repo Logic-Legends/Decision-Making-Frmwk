@@ -37,6 +37,8 @@ export function Home() {
 				</h1>
 				<Start />
 				<Link to="/about/this/site">About</Link>
+				<Link to="/ImportanceStep">importance</Link>
+				<Link to="/CapacityStep">capacity</Link>
 			</div>
 		</main>
 	);
