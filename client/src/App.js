@@ -1,15 +1,18 @@
 import { Route, Routes } from "react-router-dom";
-import "./components/step-2/DecisionMakers.css";
-import About from "./pages/About";
-import Home from "./pages/Home";
-import DecisionMakers from "./components/step-2/DecisionMakers";
+import Start from "./components/start-page/Start";
 
 const App = () => (
+	<div>
+	<header>
+
+	</header>
 	<Routes>
-		<Route path="/" element={<Home />} />
-		<Route path="/about/this/site" element={<About />} />
-		<Route path="/Decision-Makers" element={<DecisionMakers />} />
+		<Route path="/" element={<Start />} />
 	</Routes>
+<footer>
+
+</footer>
+	</div>
 );
 
 export default App;
