@@ -1,16 +1,14 @@
 import { Route, Routes } from "react-router-dom";
-import ImportanceStep from "./components/step-3a/ImportanceStep";
-import CapacityStep from "./components/step-3b/CapacityStep";
-
+import "./components/step-2/DecisionMakers.css";
 import About from "./pages/About";
 import Home from "./pages/Home";
+import DecisionMakers from "./components/step-2/DecisionMakers";
 
 const App = () => (
 	<Routes>
 		<Route path="/" element={<Home />} />
 		<Route path="/about/this/site" element={<About />} />
-		<Route path="/ImportanceStep" element={<ImportanceStep />} />
-		<Route path="/CapacityStep" element={<CapacityStep />} />
+		<Route path="/Decision-Makers" element={<DecisionMakers />} />
 	</Routes>
 );
 
