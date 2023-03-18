@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Start from "./components/start-page/Start";
+
 const App = () => (
 	<div>
 	<header>
