@@ -10,10 +10,10 @@ margin-left: 75px;
     width: 15px;
     margin-left: 8px;
 }
-.tooltip{
+/* .tooltip{
     position: absolute;
     top: 255px;
-}
+} */
 .question-container{
     border: 1px solid gray;
     width: 500px;
@@ -45,4 +45,24 @@ button{
     width: 50px;
     border: none;
     height: 25px;
+}
+.btn-tooltip{
+    background-color: white;
+}
+.tooltip {
+  position: absolute;
+  z-index: 1;
+  visibility: hidden;
+  background-color: lightgray;
+  color: black;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.tooltip.show {
+  visibility: visible;
+  opacity: 1;
 }

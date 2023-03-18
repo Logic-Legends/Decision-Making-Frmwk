@@ -10,15 +10,25 @@ import tooltipIcon from "./images/tooltipicon.png";
 const CapacityStep = () => {
 	const [isStarted, setIsStarted] = useState(false);
 	const [isTooltipVisible, setIsTooltipVisible] = useState(false);
+	const [selectedOption, setSelectedOption] = useState(null);
+	const [error, setError] = useState(null);
+
 
 	const navigate = useNavigate();
 
 	const handleStartClick = () => {
-		setIsStarted(true);
-		navigate("/ImportanceStep");
+			if (selectedOption === null) {
+			setError("Please select a response");
+		} else {
+			setIsStarted(true);
+			navigate("/ImportanceStep");
+			}
 	};
 	const handleTooltipClick = () => {
 		setIsTooltipVisible(!isTooltipVisible);
+	};
+	const handleOptionChange = (event) => {
+		setSelectedOption(event.target.value);
 	};
 	return (
 		<div className="header">
@@ -46,11 +56,23 @@ const CapacityStep = () => {
 				</p>
 				<form className="radio-btn-section">
 					<label>
-						<input type="radio" name="capacity" value="low" checked />
+						<input
+							type="radio"
+							name="capacity"
+							value="low"
+							checked={selectedOption === "low"}
+							onChange={handleOptionChange}
+						/>
 						Low
 					</label>
 					<label>
-						<input type="radio" name="capacity" value="high" />
+						<input
+							type="radio"
+							name="capacity"
+							value="high"
+							checked={selectedOption === "high"}
+							onChange={handleOptionChange}
+						/>
 						High
 					</label>
 				</form>
@@ -58,9 +80,11 @@ const CapacityStep = () => {
 			<section className="btn-container">
 				{isStarted}
 				<button onClick={handleStartClick}>Back</button>
+
 				<button>
 					<Link to="/"></Link>Next
 				</button>
+				{error && <div className="error-message">{error}</div>}
 			</section>
 		</div>
 	);
