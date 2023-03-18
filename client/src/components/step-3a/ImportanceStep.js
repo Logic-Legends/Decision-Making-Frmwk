@@ -49,7 +49,7 @@ const ImportanceStep=()=>{
 										isTooltipVisible ? "show" : ""
 									}`}
 								>
-									Loading....
+									Loading..
 								</div>
 							)}
 						</p>
