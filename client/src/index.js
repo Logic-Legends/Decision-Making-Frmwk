@@ -7,6 +7,5 @@ import Capacity from "./components/step-3b/Capacity";
 createRoot(document.getElementById("root")).render(
 	<BrowserRouter>
 		<App />
-		<Capacity />
 	</BrowserRouter>
 );
