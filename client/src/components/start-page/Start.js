@@ -2,10 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
+
+
 const Start = () => {
   return (
     <div>
-        <h4>Voting Method For Group Decision</h4>
+        <h1>Voting Method For Group Decision</h1>
         <p>This tool is designed to help facilities group decision that involve voting.</p>
         <ul>
             <li>It for team of 2 or more people.</li>
@@ -16,7 +18,8 @@ const Start = () => {
           <p>You will receive a recommendation of the type of voting method to use in your group decision. </p>
           <h4>How much time will I need? </h4>
           <p>We advise you spend up to 30 minutes in using the tool. </p>
-      <Button variant="outline-secondary"><Link to="/decision-making-framework">Start</Link></Button>
+
+      <Button variant="outline-secondary"><Link to="/goal">Start</Link></Button>
     </div>
   );
 };
