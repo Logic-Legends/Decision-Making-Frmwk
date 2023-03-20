@@ -38,7 +38,7 @@ const Capacity = () => {
 			setIsModalOpen(true);
 		} else {
 			setIsStarted(true);
-			navigate("/Capacity");
+			navigate("/timeAndResource");
 		}
 	};
 	//first tooltip handler
@@ -133,7 +133,7 @@ const Capacity = () => {
 					<Link to="/Importance"></Link>Back
 				</button>
 				<button onClick={handleNextClick} className="btn-next">
-					<Link to="/Step4"></Link>Next
+					<Link to="/timeAndResource"></Link>Next
 				</button>
 				{isModalOpen && (
 					<div className="modal">
