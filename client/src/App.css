@@ -8304,6 +8304,7 @@ Charts and graphs
 
   .button-group .button {
     padding: 0.5em 0 0.3em 0;
+  
   }
 
   .grid-item .two-fourths {
@@ -8765,6 +8766,17 @@ h1{
     form * {
     font-size: 1em;
   }
+  
+  .link-start{
+  width: auto;
+  height: auto;
+  text-decoration: none;
+  color: white;
+  margin: auto;
+  padding: auto;
+  justify-content: center;
+  border-radius:10%;
+}
 
     /* Leila CSS -3b */
 
@@ -8865,5 +8877,4 @@ h1{
   .modal-content p {
     margin-bottom: 10px;
   }
-  
-  
+

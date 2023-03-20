@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./start-page.css";
-
 
 const Start = () => {
   return (
@@ -18,7 +16,11 @@ const Start = () => {
           <h4>How much time will I need? </h4>
           <p>We advise you spend up to 30 minutes in using the tool. </p>
 
-      <button><Link to="/define-goal">Start</Link></button>
+
+      <button className="link-start">
+      <Link className="link-start" to="/define-goal">Start</Link>
+      </button>
+
     </div>
   );
 };
