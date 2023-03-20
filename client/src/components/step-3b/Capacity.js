@@ -21,7 +21,7 @@ const Capacity = () => {
 	const [selectedOption, setSelectedOption] = useState(null);
 
 	//state for error handling
-	const [error, setError] = useState(null);
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
 
 	const navigate = useNavigate();
@@ -33,14 +33,14 @@ const Capacity = () => {
 
 	};
 	//click next btn handler
-	const handleNextClick=()=>{
-		if(selectedOption===null){
-			setError("please select a response")
-		}else{
+	const handleNextClick = () => {
+		if (selectedOption === null) {
+			setIsModalOpen(true);
+		} else {
 			setIsStarted(true);
-			navigate("/Step4");
+			navigate("/Capacity");
 		}
-	}
+	};
 	//first tooltip handler
 	const handleTooltipClick = () => {
 		setIsTooltipVisible(!isTooltipVisible);
@@ -109,6 +109,7 @@ const Capacity = () => {
 							value="low"
 							checked={selectedOption === "low"}
 							onChange={handleOptionChange}
+							className="radio-input"
 						/>
 						Low
 					</label>
@@ -119,6 +120,7 @@ const Capacity = () => {
 							value="high"
 							checked={selectedOption === "high"}
 							onChange={handleOptionChange}
+							className="radio-input"
 						/>
 						High
 					</label>
@@ -127,12 +129,20 @@ const Capacity = () => {
 			{/* btn sections */}
 			<section className="btn-container">
 				{isStarted}
-				<button onClick={handleBackClick}>Back</button>
-
-				<button onClick={handleNextClick}>
+				<button onClick={handleBackClick} className="btn-back">
+					<Link to="/Importance"></Link>Back
+				</button>
+				<button onClick={handleNextClick} className="btn-next">
 					<Link to="/Step4"></Link>Next
 				</button>
-				{error && <div className="error-message">{error}</div>}
+				{isModalOpen && (
+					<div className="modal">
+						<div className="modal-content">
+							<p>Please select a response</p>
+							<button onClick={() => setIsModalOpen(false)}>OK</button>
+						</div>
+					</div>
+				)}{" "}
 			</section>
 		</div>
 	);

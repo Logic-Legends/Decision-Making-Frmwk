@@ -4,6 +4,7 @@ import "./importance.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import tooltipIcon from "./images/tooltipicon.png";
+import { Modal } from "react-modal";
 
 const Importance = () => {
 	//state for navigation on page by next and back btn
@@ -19,24 +20,26 @@ const Importance = () => {
 	const [selectedOption, setSelectedOption] = useState(null);
 
 	//state for error handling
-	const [error, setError] = useState(null);
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
 
 	const navigate = useNavigate();
 
 	//click back btn handler
 	const handleBackClick = () => {
 		setIsStarted(true);
-		navigate("/Step2");
+		navigate("/DecisionMakers");
 	};
-	//click next btn handler
+	
 	const handleNextClick = () => {
 		if (selectedOption === null) {
-			setError("please select a response");
+			setIsModalOpen(true);
 		} else {
 			setIsStarted(true);
 			navigate("/Capacity");
 		}
 	};
+
 	//first tooltip handler
 	const handleTooltipClick = () => {
 		setIsTooltipVisible(!isTooltipVisible);
@@ -77,7 +80,7 @@ const Importance = () => {
 							<br />
 							Will it affect how we operate as an organization or as a team
 							within the organization? Will it affect how we interact with other
-							organizations? 
+							organizations?
 							<br />
 							<br /> <strong>Example of low importance:</strong> The decision
 							will not likely affect the broader organization or how we interact
@@ -101,6 +104,7 @@ const Importance = () => {
 							value="low"
 							checked={selectedOption === "low"}
 							onChange={handleOptionChange}
+							className="radio-input"
 						/>
 						Low
 					</label>
@@ -111,6 +115,7 @@ const Importance = () => {
 							value="high"
 							checked={selectedOption === "high"}
 							onChange={handleOptionChange}
+							className="radio-input"
 						/>
 						High
 					</label>
@@ -119,12 +124,21 @@ const Importance = () => {
 			{/* btn sections */}
 			<section className="btn-container">
 				{isStarted}
-				<button onClick={handleBackClick}>Back</button>
-
-				<button onClick={handleNextClick}>
-					<Link to="/Step4"></Link>Next
+				<button onClick={handleBackClick} className="btn-back">
+					<Link to="/DecisionMakers"></Link>
+					Back
 				</button>
-				{error && <div className="error-message">{error}</div>}
+				<button onClick={handleNextClick} className="btn-next">
+					<Link to="/Capacity"></Link>Next
+				</button>
+				{isModalOpen && (
+					<div className="modal">
+						<div className="modal-content">
+							<p>Please select a response</p>
+							<button onClick={() => setIsModalOpen(false)}>OK</button>
+						</div>
+					</div>
+				)}
 			</section>
 		</div>
 	);
