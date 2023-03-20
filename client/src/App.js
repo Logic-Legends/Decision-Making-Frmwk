@@ -13,6 +13,7 @@ const App = () => (
 		<Route path="/decision-makers" element={<DecisionMakers />} />
 		<Route path="/" element={<Start />} exact />
 		<Route path="/goal" element={<Step1 />} />
+		<Route path="/decision-makers" element={<DecisionMakers />} />
 	</Routes>
 <footer>
 
