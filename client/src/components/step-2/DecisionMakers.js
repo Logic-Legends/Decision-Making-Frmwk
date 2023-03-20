@@ -3,6 +3,7 @@ import DecisionMakersForm from "./DicisionMakersForm";
 import { Container, Table, Button } from "react-bootstrap";
 import QuestionMark from "../step-1/images/question-mark.png";
 import ModalComponent from "./ModalComponent";
+import { Link } from "react-router-dom#";
 function DecisionMakers() {
   const [users, setUsers] = useState([]);
   const [editIndex, setEditIndex] = useState(-1);
@@ -87,12 +88,14 @@ function DecisionMakers() {
         </tbody>
       </Table>
       <div className="d-flex justify-content-center mt-5">
-      <Button variant="success"  className="px-3">
-Previous
-            </Button>
-            <Button variant="success"  className="ms-2 px-4">
+
+      <Link to="/goal"><Button variant="success"  className="px-3"> Previous </Button></Link>
+
+      <Link to="/ImportanceStep"><Button variant="success"  className="ms-2 px-4"> Next </Button></Link>
+
+            {/* <Button variant="success"  className="ms-2 px-4">
 Next
-            </Button>
+            </Button> */}
             </div>
     </Container>
   );
