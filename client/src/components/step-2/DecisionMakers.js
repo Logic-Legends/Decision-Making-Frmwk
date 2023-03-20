@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import DecisionMakersForm from "./DicisionMakersForm";
 import { Container, Table, Button } from "react-bootstrap";
-
+import QuestionMark from "../step-1/images/question-mark.png";
+import ModalComponent from "./ModalComponent";
 function DecisionMakers() {
   const [users, setUsers] = useState([]);
   const [editIndex, setEditIndex] = useState(-1);
+  const [showModal, setShowModal] = useState(false);
 
   const addUser = (newUser) => {
     if (editIndex === -1) {
@@ -25,9 +27,31 @@ function DecisionMakers() {
 
   };
 
+
+  const handleShow = () => {
+    setShowModal(true);
+  };
+
+  const handleClose = () => {
+    setShowModal(false);
+  };
+
+
+  const qIconStyle = {
+    width:"1.5em",
+    height:"1.5em",
+    cursor:"pointer",
+  };
+
   return (
+
     <Container  className="pt-5">
-      <h1 className="mb-5">Who are the decision-makers?</h1>
+      {showModal&&<ModalComponent showModal={showModal} handleClose={handleClose} />}
+
+      <div className="d-flex">
+      <h1 className="mb-5">Who are the decision-makers</h1>
+      <img style={qIconStyle} src={QuestionMark} alt="Qusestion Mark" border="0" onClick={ handleShow }></img>
+      </div>
       <DecisionMakersForm
         addUser={addUser}
         editUser={users[editIndex]}
