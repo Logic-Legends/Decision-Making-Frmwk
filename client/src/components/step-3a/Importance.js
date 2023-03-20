@@ -28,7 +28,7 @@ const Importance = () => {
 	//click back btn handler
 	const handleBackClick = () => {
 		setIsStarted(true);
-		navigate("/DecisionMakers");
+		navigate("/decision-makers");
 	};
 	
 	const handleNextClick = () => {
@@ -125,7 +125,7 @@ const Importance = () => {
 			<section className="btn-container">
 				{isStarted}
 				<button onClick={handleBackClick} className="btn-back">
-					<Link to="/DecisionMakers"></Link>
+					<Link to="/decision-makers"></Link>
 					Back
 				</button>
 				<button onClick={handleNextClick} className="btn-next">
