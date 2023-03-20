@@ -2,6 +2,7 @@ import React from "react";
 import QuestionMark from "./images/question-mark.png";
 import Modal from "react-bootstrap/Modal";
 import { Link } from "react-router-dom";
+import "./Step-1.css";
 
 //function that calls the popup on the screen
 
@@ -57,9 +58,10 @@ const Step1 = () => {
               required
             />
 
-
-          <Link to="/decision-makers" ><button className = "add-goal">NEXT</button></Link>
-
+          <div>
+            <Link to="/">	<button className="inner">BACK</button></Link>
+            <Link to="/decision-makers" ><button className = "add-goal">NEXT</button></Link>
+          </div>
         </div>
     </div>
   );

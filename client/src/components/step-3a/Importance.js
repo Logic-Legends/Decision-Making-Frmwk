@@ -4,7 +4,7 @@ import "./importance.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import tooltipIcon from "./images/tooltipicon.png";
-import { Modal } from "react-modal";
+// import { Modal } from "react-modal";
 
 const Importance = () => {
 	//state for navigation on page by next and back btn
@@ -30,7 +30,7 @@ const Importance = () => {
 		setIsStarted(true);
 		navigate("/decision-makers");
 	};
-	
+
 	const handleNextClick = () => {
 		if (selectedOption === null) {
 			setIsModalOpen(true);
