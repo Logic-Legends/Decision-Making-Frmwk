@@ -57,7 +57,9 @@ const Step1 = () => {
               required
             />
 
+
           <Link to="/decision-makers" ><button className = "add-goal">NEXT</button></Link>
+
         </div>
     </div>
   );
