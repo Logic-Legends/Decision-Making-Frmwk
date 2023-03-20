@@ -30,6 +30,7 @@ function MyVerticallyCenteredModal(props) {
   );
 }
 
+
 const Step1 = () => {
 
   const [modalShow, setModalShow] = React.useState(false);
@@ -55,12 +56,13 @@ const Step1 = () => {
               id="goal"
               type="text"
               name="input-goal"
+              maxLength ="500"
               required
             />
 
           <div>
             <Link to="/">	<button className="inner">BACK</button></Link>
-            <Link to="/decision-makers" ><button className = "add-goal">NEXT</button></Link>
+            <Link to="/decision-makers"><button className = "add-goal" onClick="IsEmpty()">NEXT</button></Link>
           </div>
         </div>
     </div>
