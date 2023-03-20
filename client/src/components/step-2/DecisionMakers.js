@@ -89,9 +89,9 @@ function DecisionMakers() {
       </Table>
       <div className="d-flex justify-content-center mt-5">
 
-      <Link to="/goal"><Button variant="success"  className="px-3"> Previous </Button></Link>
+      <Link to="/goal"><Button variant="success"  className="px-3"> Back </Button></Link>
 
-      <Link to="/ImportanceStep"><Button variant="success"  className="ms-2 px-4"> Next </Button></Link>
+      <Link to="/Importance"><Button variant="success"  className="ms-2 px-4"> Next </Button></Link>
 
             {/* <Button variant="success"  className="ms-2 px-4">
 Next
