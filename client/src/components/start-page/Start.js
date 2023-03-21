@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import Pdf from "../pdf-generation/Pdf";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 const Start = () => {
   return (
     <div>
@@ -15,12 +16,15 @@ const Start = () => {
           <p>You will receive a recommendation of the type of voting method to use in your group decision. </p>
           <h4>How much time will I need? </h4>
           <p>We advise you spend up to 30 minutes in using the tool. </p>
-
-
-      <button className="link-start">
-      <Link className="link-start" to="/define-goal">Start</Link>
-      </button>
-
+<div>
+      <Link className="inner" to="/define-goal"><button className="inner">Start </button></Link>
+      </div>
+      <br></br>
+      <PDFDownloadLink document={<Pdf />} fileName="decision.pdf">
+        {({ loading }) =>
+          loading ? "Loading document..." : "Download as a PDF!"
+        }
+      </PDFDownloadLink>
     </div>
   );
 };
