@@ -8718,6 +8718,12 @@ Luan CSS
     background-color: #D9D9D9;
   }
 
+  /* Ekrem CSS */
+.start-btn{
+  justify-content: center;
+  display: flex;
+}
+
   /* Mohammed CSS */
   /* .step-container {
     display: flex;
