@@ -82,7 +82,7 @@ function DecisionMakers() {
                   Edit
                 </Button> */}
                 <button className="inner" onClick={() => editUser(index)}>EDIT</button>
-                <button className="inner button2" onClick={() => deleteUser(index)}>DELETE</button>
+                <button className="inner button-delete-team" onClick={() => deleteUser(index)}>DELETE</button>
                 {/* <Button className="ms-2 "  variant="danger" onClick={() => deleteUser(index)}>
                   Delete
                 </Button> */}
