@@ -17,7 +17,7 @@ function HandleSecondTooltipClick(props) {
 			</Modal.Header>
 			<Modal.Body>
 				<p>
-					<br />
+				
 					Will it affect how we operate as an organization or as a team within
 					the organization? Will it affect how we interact with other
 					organizations?

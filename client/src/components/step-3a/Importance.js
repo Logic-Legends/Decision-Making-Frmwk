@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import tooltipIcon from "./images/tooltipicon.png";
-import HandleFirstTooltipClick from "./HandleFirstTooltipClick";
-import HandleSecondTooltipClick from "./HandleSecondTooltipClick";
+import HandleFirstTooltipClick from "./HandleFirstTooltipImportance";
+import HandleSecondTooltipClick from "./HandleSecondTooltipImportance";
 
 
 const Importance = () => {
@@ -76,7 +76,7 @@ const Importance = () => {
 						className="question-mark-pages"
 						onClick={() => setsecondModalShow(true)}
 					/>
-					
+
 				</p>
 				{/* Radio btn section */}
 				<form className="radio-btn-section">
