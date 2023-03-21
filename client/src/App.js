@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Start from "./components/start-page/Start";
 import DecisionMakers from "./components/step-2/DecisionMakers";
-import Step4 from "./components/step-4/Step-4";
+import TimeResource from "./components/step-4/Step-4";
 import "./App.css";
 import Importance from "./components/step-3a/Importance";
 import Capacity from "./components/step-3b/Capacity";
@@ -17,7 +17,7 @@ const App = () => (
 			<Route path="/decision-makers" element={<DecisionMakers />} />
 			<Route path="/Importance" element={<Importance />} />
 			<Route path="/Capacity" element={<Capacity />} />
-			<Route path="/time-resource" element={<Step4 />} />
+			<Route path="/time-resource" element={<TimeResource />} />
 		</Routes>
 		<footer></footer>
 	</div>

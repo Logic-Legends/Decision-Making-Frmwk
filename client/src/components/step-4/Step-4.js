@@ -3,7 +3,7 @@ import QuestionMark from "./images/question-mark.png";
 import { Link } from "react-router-dom";
 import HandleTooltip from "./HandleTooltip";
 
-const Step4 = () => {
+const TimeResource = () => {
 
   const [modalShow, setModalShow] = React.useState(false);
 
@@ -50,4 +50,4 @@ const Step4 = () => {
 	);
 };
 
-export default Step4;
+export default TimeResource;
