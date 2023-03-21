@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./capacity.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import tooltipIcon from "./images/tooltipicon.png";
@@ -54,12 +53,15 @@ const Capacity = () => {
 		setSelectedOption(event.target.value);
 	};
 	return (
-		<div className="header">
+		<div className="container">
 			<h1>
 				Capacity{" "}
-				<button className="btn-tooltip" onClick={handleTooltipClick}>
-					<img src={tooltipIcon} alt="Tooltip" className="tooltip-icon" />
-				</button>
+				<img
+					src={tooltipIcon}
+					alt="Tooltip"
+					className="question-mark-pages"
+					onClick={handleTooltipClick}
+				/>
 				{/* tooltip for topic */}
 				{isTooltipVisible && (
 					<div className={`tooltip ${isTooltipVisible ? "show" : ""}`}>
@@ -68,12 +70,17 @@ const Capacity = () => {
 					</div>
 				)}
 			</h1>
-			<section className="question-container">
-				<p className="question">
+			<section className="border-decision-framework-pages">
+				<p>
 					What is the decision-making teams capacity?
-					<button className="btn-tooltip" onClick={handleSecondTooltipClick}>
-						<img src={tooltipIcon} alt="Tooltip" className="tooltip-icon" />
-					</button>
+					
+						<img
+							src={tooltipIcon}
+							alt="Tooltip"
+							className="question-mark-pages"
+							onClick={handleSecondTooltipClick}
+						/>
+					
 					{/* tooltip for question */}
 					{isTooltipOpen && (
 						<div className={`tooltip ${isTooltipOpen ? "show" : ""}`}>
@@ -109,7 +116,7 @@ const Capacity = () => {
 							value="low"
 							checked={selectedOption === "low"}
 							onChange={handleOptionChange}
-							className="radio-input"
+							className="radio-input low-rdb"
 						/>
 						Low
 					</label>
@@ -120,26 +127,27 @@ const Capacity = () => {
 							value="high"
 							checked={selectedOption === "high"}
 							onChange={handleOptionChange}
-							className="radio-input"
+							className="radio-input high-rdb"
 						/>
 						High
 					</label>
 				</form>
 			</section>
 			{/* btn sections */}
-			<section className="btn-container">
+			<section id="button-same-line">
 				{isStarted}
-				<button onClick={handleBackClick} className="btn-back">
+				<button onClick={handleBackClick} className="inner">
 					<Link to="/Importance"></Link>Back
 				</button>
-				<button onClick={handleNextClick} className="btn-next">
-					<Link to="/time-resource"></Link>Next
+				<button onClick={handleNextClick} className="inner">
+					<Link to="/timeAndResource"></Link>Next
+
 				</button>
 				{isModalOpen && (
 					<div className="modal">
 						<div className="modal-content">
 							<p>Please select a response</p>
-							<button onClick={() => setIsModalOpen(false)}>OK</button>
+							<button onClick={() => setIsModalOpen(false)} className="modal-btn">OK</button>
 						</div>
 					</div>
 				)}{" "}
