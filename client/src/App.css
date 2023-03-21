@@ -8719,7 +8719,10 @@ Luan CSS
   }
 
   /* Ekrem CSS */
-
+.start-btn{
+  justify-content: center;
+  display: flex;
+}
 
   /* Mohammed CSS */
   /* .step-container {
