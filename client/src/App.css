@@ -8716,8 +8716,12 @@ table {
 	background-color: #d9d9d9;
 }
 
-.button-delete-team {
-	background-color: #e61c1c;
+  .button-delete-team {background-color: #e61c1c;}
+  
+  /* Ekrem CSS */
+.start-btn{
+  justify-content: center;
+  display: flex;
 }
 
 /* Mohammed CSS */
