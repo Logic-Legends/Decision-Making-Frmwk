@@ -2,7 +2,6 @@ import React from "react";
 import QuestionMark from "./images/question-mark.png";
 import Modal from "react-bootstrap/Modal";
 import { Link } from "react-router-dom";
-import "./Step-1.css";
 
 //function that calls the popup on the screen
 
