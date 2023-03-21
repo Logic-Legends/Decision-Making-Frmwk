@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import QuestionMark from "./images/question-mark.png";
 import HandleTooltip from "./HandleTooltip";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { Alert } from "react-bootstrap";
 
 const DefineGoal = () => {
+
+  //Go to webpage
+  const navigate = useNavigate();
 
   //Used for message error
   const [error, setError] = useState("");
@@ -22,7 +25,8 @@ const DefineGoal = () => {
     event.preventDefault();
 
     if (message.trim().length !== 0) {
-      window.location.href = "/decision-makers";
+      // window.location.href = "/decision-makers";
+      navigate("/decision-makers");
     } else {
       // show the error message when field is empty
       setError("Please define your goals before you continue.");
