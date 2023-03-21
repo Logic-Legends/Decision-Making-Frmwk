@@ -13,11 +13,11 @@ const App = () => (
 		<Routes>
 			{/* <Route path="/decision-makers" element={<DecisionMakers />} /> */}
 			<Route path="/" element={<Start />} exact />
-			<Route path="/goal" element={<Step1 />} />
+			<Route path="/define-goal" element={<Step1 />} />
 			<Route path="/decision-makers" element={<DecisionMakers />} />
 			<Route path="/Importance" element={<Importance />} />
 			<Route path="/Capacity" element={<Capacity />} />
-			<Route path="/timeAndResource" element={<Step4 />} />
+			<Route path="/time-resource" element={<Step4 />} />
 		</Routes>
 		<footer></footer>
 	</div>
