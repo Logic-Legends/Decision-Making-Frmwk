@@ -137,7 +137,7 @@ const Importance = () => {
 				</button>
 				{isModalOpen && (
 					<div className="modal">
-						<div className="modal-content">
+						<div className="modal-display">
 							<p>Please select a response</p>
 							<button
 								onClick={() => setIsModalOpen(false)}

@@ -8718,21 +8718,8 @@ Luan CSS
     background-color: #D9D9D9;
   }
 
-  /* Ekrem CSS */
-  button{
-    background-color: #36939C;
-    color: white;
-    width: 50px;
-    border: none;
-    height: 25px;
-}
-h1{
-    font-family: "proxima-nova-condensed";
-    font-size: 45px;
-}
-
   /* Mohammed CSS */
-  .step-container {
+  /* .step-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -8776,7 +8763,7 @@ h1{
   padding: auto;
   justify-content: center;
   border-radius:10%;
-}
+} */
 /* Leila CSS -3b */
 .radio-btn-section{
 margin-bottom: 20px;
@@ -8801,7 +8788,7 @@ margin-bottom: 20px;
 	justify-content: center;
 }
 
-.modal-content {
+.modal-display {
 	background-color: white;
 	padding: 20px;
 	border-radius: 5px;
@@ -8809,7 +8796,7 @@ margin-bottom: 20px;
      width: 280px;
 }
 
-.modal-content p {
+.modal-display p {
 	margin-bottom: 15px;
 }
 .modal-btn {
