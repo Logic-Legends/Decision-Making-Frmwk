@@ -1,37 +1,10 @@
 import React, { useState } from "react";
 import QuestionMark from "./images/question-mark.png";
-import Modal from "react-bootstrap/Modal";
+import HandleTooltip from "./HandleTooltip";
 import { Link } from "react-router-dom";
 import { Alert } from "react-bootstrap";
 
-//function that calls the popup on the screen
-
-function ShowPopup(props) {
-  return (
-    <Modal
-      {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          <h6>Your goal needs to be SMART:</h6>
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <p>Specific</p>
-        <p>Measurable</p>
-        <p>Achievable</p>
-        <p>Realistic</p>
-        <p>Time-based</p>
-      </Modal.Body>
-    </Modal>
-  );
-}
-
-
-const Step1 = () => {
+const DefineGoal = () => {
 
   //Used for message error
   const [error, setError] = useState("");
@@ -41,7 +14,6 @@ const Step1 = () => {
   //Used for Popup
   const [modalShow, setModalShow] = React.useState(false);
 
-  //
   const handleChange = (event) => {
     setMessage(event.target.value);
   };
@@ -63,12 +35,10 @@ const Step1 = () => {
   <div className="container">
 
       {/* Call popup function - tooltip*/}
-      <ShowPopup
+      <HandleTooltip
         show={modalShow}
         onHide={() => setModalShow(false)}
       />
-
-      {/* Call popup function - tooltip*/}
 
         <h1>What is the goal?</h1>
         <div className="border-decision-framework-pages">
@@ -102,4 +72,4 @@ const Step1 = () => {
   );
 };
 
-export default Step1;
+export default DefineGoal;
