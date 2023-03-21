@@ -1,10 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./importance.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import tooltipIcon from "./images/tooltipicon.png";
-// import { Modal } from "react-modal";
 
 const Importance = () => {
 	//state for navigation on page by next and back btn
@@ -53,12 +51,15 @@ const Importance = () => {
 		setSelectedOption(event.target.value);
 	};
 	return (
-		<div className="header">
+		<div className="container">
 			<h1>
 				Importance{" "}
-				<button className="btn-tooltip" onClick={handleTooltipClick}>
-					<img src={tooltipIcon} alt="Tooltip" className="tooltip-icon" />
-				</button>
+				<img
+					src={tooltipIcon}
+					alt="Tooltip"
+					className="question-mark-pages"
+					onClick={handleTooltipClick}
+				/>
 				{/* tooltip for topic */}
 				{isTooltipVisible && (
 					<div className={`tooltip ${isTooltipVisible ? "show" : ""}`}>
@@ -67,12 +68,15 @@ const Importance = () => {
 					</div>
 				)}
 			</h1>
-			<section className="question-container">
-				<p className="question">
+			<section className="border-decision-framework-pages">
+				<p>
 					How important is the decision?
-					<button className="btn-tooltip" onClick={handleSecondTooltipClick}>
-						<img src={tooltipIcon} alt="Tooltip" className="tooltip-icon" />
-					</button>
+					<img
+						src={tooltipIcon}
+						alt="Tooltip"
+						className="question-mark-pages"
+						onClick={handleSecondTooltipClick}
+					/>
 					{/* tooltip for question */}
 					{isTooltipOpen && (
 						<div className={`tooltip ${isTooltipOpen ? "show" : ""}`}>
@@ -104,7 +108,7 @@ const Importance = () => {
 							value="low"
 							checked={selectedOption === "low"}
 							onChange={handleOptionChange}
-							className="radio-input"
+							className="radio-input low-rdb"
 						/>
 						Low
 					</label>
@@ -115,27 +119,32 @@ const Importance = () => {
 							value="high"
 							checked={selectedOption === "high"}
 							onChange={handleOptionChange}
-							className="radio-input"
+							className="radio-input high-rdb"
 						/>
 						High
 					</label>
 				</form>
 			</section>
 			{/* btn sections */}
-			<section className="btn-container">
+			<section id="button-same-line">
 				{isStarted}
-				<button onClick={handleBackClick} className="btn-back">
+				<button onClick={handleBackClick} className="inner">
 					<Link to="/decision-makers"></Link>
 					Back
 				</button>
-				<button onClick={handleNextClick} className="btn-next">
+				<button onClick={handleNextClick} className="inner">
 					<Link to="/Capacity"></Link>Next
 				</button>
 				{isModalOpen && (
 					<div className="modal">
 						<div className="modal-content">
 							<p>Please select a response</p>
-							<button onClick={() => setIsModalOpen(false)}>OK</button>
+							<button
+								onClick={() => setIsModalOpen(false)}
+								className="modal-btn"
+							>
+								OK
+							</button>
 						</div>
 					</div>
 				)}
