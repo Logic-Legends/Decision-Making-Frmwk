@@ -59,11 +59,12 @@ const Step1 = () => {
               required
             />
 
-          <div id="button-same-line">
+
+        </div>
+        <div id="button-same-line">
 				<Link to="/">	<button className="inner">BACK</button></Link>
 				<Link to="/decision-makers"><button className="inner">NEXT</button>	</Link>
 			</div>
-        </div>
     </div>
   );
 };
