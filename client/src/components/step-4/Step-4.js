@@ -13,6 +13,11 @@ function MyVerticallyCenteredModal(props) {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
+		<Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          <h6>Time and Resource Allocation</h6>
+        </Modal.Title>
+      </Modal.Header>
       <Modal.Body>
         <p>Spending more time on decisions creates an opportunity to gather and use more information, leading to higher specificity and detail in the voting method.</p>
       </Modal.Body>

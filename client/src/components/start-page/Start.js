@@ -16,9 +16,11 @@ const Start = () => {
           <h4>How much time will I need? </h4>
           <p>We advise you spend up to 30 minutes in using the tool. </p>
 
+
       <button className="link-start">
-      <Link className="link-start" to="/goal">Start</Link>
+      <Link className="link-start" to="/define-goal">Start</Link>
       </button>
+
     </div>
   );
 };
