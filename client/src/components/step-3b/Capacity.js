@@ -73,14 +73,14 @@ const Capacity = () => {
 			<section className="border-decision-framework-pages">
 				<p>
 					What is the decision-making teams capacity?
-					
+
 						<img
 							src={tooltipIcon}
 							alt="Tooltip"
 							className="question-mark-pages"
 							onClick={handleSecondTooltipClick}
 						/>
-					
+
 					{/* tooltip for question */}
 					{isTooltipOpen && (
 						<div className={`tooltip ${isTooltipOpen ? "show" : ""}`}>
@@ -145,7 +145,7 @@ const Capacity = () => {
 				</button>
 				{isModalOpen && (
 					<div className="modal">
-						<div className="modal-content">
+						<div className="modal-display">
 							<p>Please select a response</p>
 							<button onClick={() => setIsModalOpen(false)} className="modal-btn">OK</button>
 						</div>

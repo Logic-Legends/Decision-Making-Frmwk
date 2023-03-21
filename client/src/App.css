@@ -8722,7 +8722,7 @@ Luan CSS
 
 
   /* Mohammed CSS */
-  .step-container {
+  /* .step-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -8766,7 +8766,7 @@ Luan CSS
   padding: auto;
   justify-content: center;
   border-radius:10%;
-}
+} */
 /* Leila CSS -3b */
 .radio-btn-section{
 margin-bottom: 20px;
@@ -8791,7 +8791,7 @@ margin-bottom: 20px;
 	justify-content: center;
 }
 
-.modal-content {
+.modal-display {
 	background-color: white;
 	padding: 20px;
 	border-radius: 5px;
@@ -8799,7 +8799,7 @@ margin-bottom: 20px;
      width: 280px;
 }
 
-.modal-content p {
+.modal-display p {
 	margin-bottom: 15px;
 }
 .modal-btn {
