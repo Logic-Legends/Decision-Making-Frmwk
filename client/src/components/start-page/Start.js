@@ -20,7 +20,7 @@ const Start = () => {
       <Link className="inner" to="/define-goal"><button>Start </button></Link>
           </div>
       <br></br>
-      <PDFDownloadLink document={<Pdf />} fileName="decision.pdf">
+       <PDFDownloadLink document={<Pdf />} fileName="decision.pdf">
         {({ loading }) =>
           loading ? "Loading document..." : "Download as a PDF!"
         }
