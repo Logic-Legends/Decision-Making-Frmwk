@@ -17,10 +17,10 @@ const Start = () => {
           <p>We advise you spend up to 30 minutes in using the tool. </p>
 
 
-      <button className="link-start">
+      {/* <button className="link-start">
       <Link className="link-start" to="/define-goal">Start</Link>
-      </button>
-
+      </button> */}
+      <Link to="/define-goal">	<button className="inner">START</button></Link>
     </div>
   );
 };
