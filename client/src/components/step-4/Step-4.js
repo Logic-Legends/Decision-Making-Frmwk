@@ -50,7 +50,7 @@ const Step4 = () => {
 			<div className="border-decision-framework-pages">
 				<table>
 					<tr className="table-background">
-						<th>teste</th>
+						<th>Low importance and high capacity</th>
 					</tr>
 					<tr>
 						<td>
