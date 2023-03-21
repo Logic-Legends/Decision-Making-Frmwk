@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import tooltipIcon from "./images/tooltipicon.png";
 import HandleFirstTooltipClick from "./HandleFirstTooltipImportance";
 import HandleSecondTooltipClick from "./HandleSecondTooltipImportance";
@@ -23,11 +23,22 @@ const Importance = () => {
 	//state for error handling
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
+	//Local storage for storing RB value
 	const navigate = useNavigate();
+
+	 useEffect(() => {
+			const storedValue = localStorage.getItem("importanceSelection");
+			if (storedValue) {
+				setSelectedOption(storedValue);
+			} else {
+				setSelectedOption(null); // Clear the selection when no value is stored in localStorage
+			}
+		}, []);
 
 	//click back btn handler
 	const handleBackClick = () => {
 		setIsStarted(true);
+	    localStorage.setItem("importanceSelection", selectedOption);
 		navigate("/decision-makers");
 	};
 
@@ -44,6 +55,8 @@ const Importance = () => {
 	//radio btn handler
 	const handleOptionChange = (event) => {
 		setSelectedOption(event.target.value);
+	    localStorage.setItem("importanceSelection", event.target.value);
+
 	};
 
 	return (

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import tooltipIcon from "./images/tooltipicon.png";
 import HandleFirstTooltipClick from "./HandleFirstTooltipCapacity";
 import HandleSecondTooltipClick from "./HandleSecondTooltipCapacity";
@@ -24,10 +24,21 @@ const Capacity = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	const navigate = useNavigate();
+	
+	//Local storage for storing RB value
+	useEffect(() => {
+		const storedValue = localStorage.getItem("capacitySelection");
+		if (storedValue) {
+			setSelectedOption(storedValue);
+		} else {
+			setSelectedOption(null); // Clear the selection when no value is stored in localStorage
+		}
+	}, []);
 
 	//click back btn handler
 	const handleBackClick = () => {
 		setIsStarted(true);
+		localStorage.setItem("capacitySelection", selectedOption);
 		navigate("/Importance");
 	};
 	//click next btn handler
@@ -42,6 +53,7 @@ const Capacity = () => {
 	//radio btn handler
 	const handleOptionChange = (event) => {
 		setSelectedOption(event.target.value);
+		localStorage.setItem("capacitySelection", event.target.value);
 	};
 
 	return (
@@ -74,7 +86,6 @@ const Capacity = () => {
 						className="question-mark-pages"
 						onClick={() => setsecondModalShow(true)}
 					/>
-					
 				</p>
 				{/* Radio btn section */}
 				<form className="radio-btn-section">
