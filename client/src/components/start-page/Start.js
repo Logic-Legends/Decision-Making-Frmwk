@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import Pdf from "../pdf-generation/Pdf";
-// import { PDFDownloadLink } from "@react-pdf/renderer";
+import Pdf from "../pdf-generation/Pdf";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 const Start = () => {
   return (
     <div>
