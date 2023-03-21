@@ -1,29 +1,7 @@
 import React from "react";
 import QuestionMark from "./images/question-mark.png";
-import Modal from "react-bootstrap/Modal";
 import { Link } from "react-router-dom";
-
-//function that calls the popup on the screen
-
-function MyVerticallyCenteredModal(props) {
-  return (
-    <Modal
-      {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-		<Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          <h6>Time and Resource Allocation</h6>
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <p>Spending more time on decisions creates an opportunity to gather and use more information, leading to higher specificity and detail in the voting method.</p>
-      </Modal.Body>
-    </Modal>
-  );
-}
+import HandleTooltip from "./HandleTooltip";
 
 const Step4 = () => {
 
@@ -32,7 +10,7 @@ const Step4 = () => {
   return (
 		<div className="container">
 			{/* Call popup function*/}
-			<MyVerticallyCenteredModal
+			<HandleTooltip
 				show={modalShow}
 				onHide={() => setModalShow(false)}
 			/>
