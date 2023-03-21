@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import DecisionMakersForm from "./DicisionMakersForm";
-import { Container, Table, Button } from "react-bootstrap";
+import { Container, Table } from "react-bootstrap";
 import QuestionMark from "../step-1/images/question-mark.png";
 import ModalComponent from "./ModalComponent";
 import { Link } from "react-router-dom#";
@@ -38,21 +38,23 @@ function DecisionMakers() {
   };
 
 
-  const qIconStyle = {
-    width:"1.5em",
-    height:"1.5em",
-    cursor:"pointer",
-  };
+  // const qIconStyle = {
+  //   width:"1.5em",
+  //   height:"1.5em",
+  //   cursor:"pointer",
+  // };
 
   return (
 
-    <Container  className="pt-5">
+    <Container  className="container">
       {showModal&&<ModalComponent showModal={showModal} handleClose={handleClose} />}
 
-      <div className="d-flex">
-      <h1 className="mb-5">Who are the decision-makers</h1>
-      <img style={qIconStyle} src={QuestionMark} alt="Qusestion Mark" border="0" onClick={ handleShow }></img>
-      </div>
+      {/* <div className="d-flex"> */}
+
+      <h1>Who are the decision-makers<img className="question-mark-pages" src={QuestionMark} alt="Qusestion Mark" border="0" onClick={ handleShow }></img></h1>
+
+      {/* </div> */}
+      <div className="border-decision-framework-pages">
       <DecisionMakersForm
         addUser={addUser}
         editUser={users[editIndex]}
@@ -72,30 +74,36 @@ function DecisionMakers() {
               <td className="w-50">{user.name}</td>
               <td className="w-50">{user.role}</td>
               <td className="d-flex justify-content-end">
-                <Button
+                {/* <Button
                 className="px-3"
                   variant="warning"
                   onClick={() => editUser(index)}
                 >
                   Edit
-                </Button>
-                <Button className="ms-2 "  variant="danger" onClick={() => deleteUser(index)}>
+                </Button> */}
+                <button className="inner" onClick={() => editUser(index)}>EDIT</button>
+                <button className="inner button-delete-team" onClick={() => deleteUser(index)}>DELETE</button>
+                {/* <Button className="ms-2 "  variant="danger" onClick={() => deleteUser(index)}>
                   Delete
-                </Button>
+                </Button> */}
               </td>
             </tr>
           ))}
         </tbody>
       </Table>
-      <div className="d-flex justify-content-center mt-5">
+      {/* <div className="d-flex justify-content-center mt-5"> */}
 
-      <Link to="/define-goal"><Button variant="success"  className="px-3"> Back </Button></Link>
+      {/* <Link to="/define-goal"><Button variant="success"  className="inner"> Back </Button></Link>
 
-      <Link to="/Importance"><Button variant="success"  className="ms-2 px-4"> Next </Button></Link>
-
+      <Link to="/Importance"><Button variant="success"  className="ms-2 px-4"> Next </Button></Link> */}
+      <div id="button-same-line">
+				<Link to="/define-goal">	<button className="inner">BACK</button></Link>
+				<Link to="/Importance"><button className="inner">NEXT</button>	</Link>
+			</div>
             {/* <Button variant="success"  className="ms-2 px-4">
 Next
             </Button> */}
+            {/* </div> */}
             </div>
     </Container>
   );
