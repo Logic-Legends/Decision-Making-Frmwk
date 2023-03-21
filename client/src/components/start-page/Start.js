@@ -4,8 +4,9 @@ import Pdf from "../pdf-generation/Pdf";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 const Start = () => {
   return (
-    <div>
+    <div className="container">
         <h1>Voting Method For Group Decision</h1>
+      <div className="border-decision-framework-pages">
         <p>This tool is designed to help facilitate group decisions that involve voting.</p>
         <ul>
             <li>It for team of 2 or more people.</li>
@@ -16,6 +17,7 @@ const Start = () => {
           <p>You will receive a recommendation of the type of voting method to use in your group decision. </p>
           <h4>How much time will I need? </h4>
           <p>We advise you spend up to 30 minutes in using the tool. </p>
+      </div>
           <div className="start-btn">
       <Link className="inner" to="/define-goal"><button>Start </button></Link>
           </div>
