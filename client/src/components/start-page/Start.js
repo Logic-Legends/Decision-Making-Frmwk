@@ -6,7 +6,7 @@ const Start = () => {
   return (
     <div>
         <h1>Voting Method For Group Decision</h1>
-        <p>This tool is designed to help facilities group decision that involve voting.</p>
+        <p>This tool is designed to help facilitate group decisions that involve voting.</p>
         <ul>
             <li>It for team of 2 or more people.</li>
         </ul>
