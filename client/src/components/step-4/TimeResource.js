@@ -46,7 +46,7 @@ const TimeResource = () => {
 
 			<div id="button-same-line">
 				<Link to="/Capacity">	<button className="inner">BACK</button></Link>
-				<Link to="/step5" state= {{ capacitySelection: "teste" }} ><button className="inner">NEXT</button>	</Link>
+				<Link to="/type-of-decision" state= {{ capacitySelection: "teste" }} ><button className="inner">NEXT</button>	</Link>
 			</div>
 		</div>
 	);

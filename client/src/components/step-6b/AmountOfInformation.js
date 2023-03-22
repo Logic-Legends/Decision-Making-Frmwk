@@ -1,14 +1,26 @@
 import React,{ useState } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link,useNavigate,useLocation } from "react-router-dom";
+import { Alert } from "react-bootstrap";
 import FirstHandleTooltip from "./FirstHandleTooltip";
 import SecondHandleTooltip from "./SecondHandleTooltip";
 import ThirdHandleTooltip from "./ThirdHandleTooltip";
 import FourthHandleTooltip from "./FourthHandleTooltip";
 import FifthHandleTooltip from "./FifthHandleTooltip";
 import QuestionMark from "./images/question-mark.png";
-import { Alert } from "react-bootstrap";
 
 const TypeOfInformation = () => {
+
+    //Get data from another page
+    const location = useLocation();
+    const dataStep1 = location.state?.GoalData;
+    const dataStep2 = location.state?.TeamData;
+    const dataStep3a = location.state?.ImportanceData;
+    const dataStep3b = location.state?.CapacityData;
+    const dataStep4 = location.state?.TimeAndResourcelData;
+    const dataStep5 = location.state?.TypeOfDecisionData;
+    const dataStep6a = location.state?.TypeOfInformationData;
+    const dataStep6b = location.state?.AmountOfInformationData;
+    const dataStep7 = location.state?.VotingMethodsData;
 
     //FirstHandleTooltip
     const [FirstModalShow, FirstSetModalShow] = React.useState(false);
@@ -167,7 +179,7 @@ const TypeOfInformation = () => {
                                                     src={QuestionMark}
                                                     alt="Qusestion Mark"
                                                     border="0"
-                                                    onClick={() => FourthSetModalShow(true)}
+                                                    onClick={() => FifthSetModalShow(true)}
                                                 ></img>
                                 </form>
                             </td>
@@ -177,7 +189,7 @@ const TypeOfInformation = () => {
 			</div>
 
 			<div id="button-same-line">
-				<Link to="/Capacity" state= {{ capacitySelection: "teste" }}>	<button className="inner">BACK</button></Link>
+				<Link to="/type-of-information" state= {{ TypeOfInformationData:dataStep6a }}>	<button className="inner">BACK</button></Link>
 				<button className="inner" onClick={handleButtonClick}>NEXT</button>
 			</div>
 		</div>

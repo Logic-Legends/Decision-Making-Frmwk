@@ -1,5 +1,5 @@
 import React,{ useState } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link,useNavigate,useLocation } from "react-router-dom";
 import FirstHandleTooltip from "./FirstHandleTooltip";
 import SecondHandleTooltip from "./SecondHandleTooltip";
 import ThirdHandleTooltip from "./ThirdHandleTooltip";
@@ -8,6 +8,28 @@ import QuestionMark from "./images/question-mark.png";
 import { Alert } from "react-bootstrap";
 
 const TypeOfInformation = () => {
+
+    //Get data from another page
+    const location = useLocation();
+    const dataStep1 = location.state?.GoalData;
+    const dataStep2 = location.state?.TeamData;
+    const dataStep3a = location.state?.ImportanceData;
+    const dataStep3b = location.state?.CapacityData;
+    const dataStep4 = location.state?.TimeAndResourcelData;
+    const dataStep5 = location.state?.TypeOfDecisionData;
+    const dataStep6a = location.state?.TypeOfInformationData;
+    const dataStep6b = location.state?.AmountOfInformationData;
+    const dataStep7 = location.state?.VotingMethodsData;
+
+    console.log(dataStep1);
+    console.log(dataStep2);
+    console.log(dataStep3a);
+    console.log(dataStep3b);
+    console.log(dataStep4);
+    console.log(dataStep5);
+    console.log(dataStep6a);
+    console.log(dataStep6b);
+    console.log(dataStep7);
 
     //FirstHandleTooltip
     const [FirstModalShow, FirstSetModalShow] = React.useState(false);
@@ -32,23 +54,23 @@ const TypeOfInformation = () => {
 
 
 
-    //Used to check the value of radio button
-    const [selectedOption, setSelectedOption] = useState("");
+    //Used to get data
+    const [data, setData] = useState(dataStep6a);
 
 
     //When change the option from radio button
   const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
+    setData(event.target.value);
   };
 
   //Check if any button was choosen
   const handleButtonClick = () => {
-    if (selectedOption === "") {
+    if (data === undefined) {
       // show the error message when field is empty
       setError("Please select a response.");
       setShow(true);
     } else {
-        navigate("/amount-of-information", { state: { selectedOption } }); //Go to page and pass data
+        navigate("/amount-of-information", { state: { TypeOfInformationData:data } }); //Go to page and pass data
     }
   };
 
@@ -88,7 +110,7 @@ const TypeOfInformation = () => {
 				<table>
                     <tbody>
                         <tr className="table-background">
-                            <th>How much
+                            <th>Type of Information
                                 <img className="question-mark-pages"
                                     src={QuestionMark}
                                     alt="Qusestion Mark"
@@ -105,18 +127,18 @@ const TypeOfInformation = () => {
                                 {error}
                                 </Alert>
                                 )}
-                                <p>How much information will we have?</p>
+                                <p>What type of information will we have?</p>
                                 <form className="radio-btn-section">
                                         <label>
                                             <input
                                                 type="radio"
                                                 name="option"
                                                 value="explicit"
-                                                checked={selectedOption === "explicit"}
+                                                checked={data === "explicit"}
                                                 onChange={handleOptionChange}
                                                 className="radio-input low-rdb"
                                             />
-                                            High
+                                            Explicit
                                         </label>
                                                 <img className="question-mark-pages"
                                                     src={QuestionMark}
@@ -129,29 +151,11 @@ const TypeOfInformation = () => {
                                                 type="radio"
                                                 name="option"
                                                 value="relative"
-                                                checked={selectedOption === "relative"}
+                                                checked={data === "relative"}
                                                 onChange={handleOptionChange}
                                                 className="radio-input high-rdb"
                                             />
-                                            Medium
-
-                                        </label>
-                                        <img className="question-mark-pages"
-                                                    src={QuestionMark}
-                                                    alt="Qusestion Mark"
-                                                    border="0"
-                                                    onClick={() => FourthSetModalShow(true)}
-                                                ></img>
-                                        <label>
-                                            <input
-                                                type="radio"
-                                                name="option"
-                                                value="relative"
-                                                checked={selectedOption === "relative"}
-                                                onChange={handleOptionChange}
-                                                className="radio-input high-rdb"
-                                            />
-                                            Low
+                                            Relative
 
                                         </label>
                                         <img className="question-mark-pages"
@@ -168,7 +172,7 @@ const TypeOfInformation = () => {
 			</div>
 
 			<div id="button-same-line">
-				<Link to="/Capacity" state= {{ capacitySelection: "teste" }}>	<button className="inner">BACK</button></Link>
+				<Link to="/type-of-decision" state= {{ capacitySelection: "teste" }}>	<button className="inner">BACK</button></Link>
 				<button className="inner" onClick={handleButtonClick}>NEXT</button>
 			</div>
 		</div>

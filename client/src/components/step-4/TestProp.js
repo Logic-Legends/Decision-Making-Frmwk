@@ -3,10 +3,10 @@ import { useLocation } from "react-router-dom";
 const TestProp = () => {
 
 const location = useLocation();
-const capacitySelection = location.state?.selectedOption;
+const selectedOptionTypeStep6a = location.state?.selectedOptionType;
 
 return(
-   console.log({ capacitySelection })
+   console.log({ selectedOptionTypeStep6a })
 );
 };
 
