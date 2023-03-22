@@ -61,6 +61,7 @@ const TypeOfInformation = () => {
 			</h1>
 			<div className="border-decision-framework-pages">
 				<table>
+                    <tbody>
 					<tr className="table-background">
 						<th>Type of information
                             <img className="question-mark-pages"
@@ -68,13 +69,14 @@ const TypeOfInformation = () => {
                                 alt="Qusestion Mark"
                                 border="0"
                                 onClick={() => SecondSetModalShow(true)}
-                            ></img></th>
+                            ></img>
+                        </th>
 					</tr>
 					<tr>
 						<td>
 							<p>What type of information will we have?</p>
 							<form className="radio-btn-section">
-                                <tr>
+                                {/* <tr> */}
                                     <label>
                                         <input
                                             type="radio"
@@ -110,10 +112,11 @@ const TypeOfInformation = () => {
                                                 border="0"
                                                 onClick={() => FourthSetModalShow(true)}
                                             ></img>
-                                </tr>
-				</form>
+                                {/* </tr> */}
+				            </form>
 						</td>
 					</tr>
+                    </tbody>
 				</table>
 			</div>
 
