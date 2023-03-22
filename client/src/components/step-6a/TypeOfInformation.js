@@ -1,4 +1,7 @@
 import React from "react";
+import FirstHandleTooltip from "./FirstHandleTooltip";
+import QuestionMark from "./images/question-mark.png";
+import { Link } from "react-router-dom";
 
 const TypeOfInformation = () => {
 
@@ -7,7 +10,7 @@ const TypeOfInformation = () => {
     return (
 		<div className="container">
 			{/* Call popup function*/}
-			<HandleTooltip
+			<FirstHandleTooltip
 				show={modalShow}
 				onHide={() => setModalShow(false)}
 			/>
