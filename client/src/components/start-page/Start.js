@@ -5,7 +5,7 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 const Start = () => {
   return (
     <div className="container">
-        <h1>Voting Method For Group Decision</h1>
+      <h1>Voting Methods for Group Decisions</h1>
       <div className="border-decision-framework-pages">
         <p>This tool is designed to help facilitate group decisions that involve voting.</p>
         <ul>
