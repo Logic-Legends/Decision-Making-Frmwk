@@ -15,8 +15,7 @@ const TypeOfInformation = () => {
 				onHide={() => setModalShow(false)}
 			/>
 
-			<h1>
-				Time and Resource allocation{" "}
+			<h1>Plan to gather information needed to make the decision{" "}
 				<img
 					className="question-mark-pages"
 					src={QuestionMark}
@@ -28,15 +27,35 @@ const TypeOfInformation = () => {
 			<div className="border-decision-framework-pages">
 				<table>
 					<tr className="table-background">
-						<th>Low importance and high capacity:</th>
+						<th>Type of information</th>
 					</tr>
 					<tr>
 						<td>
-							<h6>Advice:</h6>
-							<p>
-								Start the decision-making process later, take more time to
-								gather information, or use a more complex voting method.
-							</p>
+							<p>What type of information will we have?</p>
+							<form className="radio-btn-section">
+					<label>
+						<input
+							type="radio"
+							name="importance"
+							value="low"
+							// checked={selectedOption === "low"}
+							// onChange={handleOptionChange}
+							className="radio-input low-rdb"
+						/>
+						Explicit Values (Cardinal info)
+					</label>
+					<label>
+						<input
+							type="radio"
+							name="importance"
+							value="high"
+							// checked={selectedOption === "high"}
+							// onChange={handleOptionChange}
+							className="radio-input high-rdb"
+						/>
+						Relative Values (Ordinal info)
+					</label>
+				</form>
 						</td>
 					</tr>
 				</table>
