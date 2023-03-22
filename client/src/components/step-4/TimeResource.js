@@ -27,18 +27,20 @@ const TimeResource = () => {
 			</h1>
 			<div className="border-decision-framework-pages">
 				<table>
-					<tr className="table-background">
-						<th>Low importance and high capacity:</th>
-					</tr>
-					<tr>
-						<td>
-							<h6>Advice:</h6>
-							<p>
-								Start the decision-making process later, take more time to
-								gather information, or use a more complex voting method.
-							</p>
-						</td>
-					</tr>
+					<tbody>
+						<tr className="table-background">
+							<th>Low importance and high capacity:</th>
+						</tr>
+						<tr>
+							<td>
+								<h6>Advice:</h6>
+								<p>
+									Start the decision-making process later, take more time to
+									gather information, or use a more complex voting method.
+								</p>
+							</td>
+						</tr>
+					</tbody>
 				</table>
 			</div>
 
