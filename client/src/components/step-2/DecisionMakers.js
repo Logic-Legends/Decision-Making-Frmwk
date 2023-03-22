@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import DecisionMakersForm from "./DicisionMakersForm";
-import { Container, Table } from "react-bootstrap";
+import { Container, Table,Alert } from "react-bootstrap";
 import QuestionMark from "../step-1/images/question-mark.png";
 import ModalComponent from "./ModalComponent";
 import { Link } from "react-router-dom#";
@@ -8,6 +8,8 @@ function DecisionMakers() {
   const [users, setUsers] = useState([]);
   const [editIndex, setEditIndex] = useState(-1);
   const [showModal, setShowModal] = useState(false);
+  const [error, setError] = useState("");
+  const [show, setShow] = useState(true);
 
   const addUser = (newUser) => {
     if (editIndex === -1) {
@@ -38,10 +40,24 @@ function DecisionMakers() {
   };
 
 
+const handleNextBtn=()=>{
+console.log("users:",users);
+if (!users.length) {
+console.log("Next Button Clicked"+users);
+  setError("Please complete this step!");
+  setShow(true);
+}
+
+};
 
   return (
 
     <Container  className="container">
+      {error &&show&& (
+        <Alert variant="danger" onClose={() => setShow(false)} dismissible>
+          {error}
+        </Alert>
+      )}
       {showModal&&<ModalComponent showModal={showModal} handleClose={handleClose} />}
 
       {/* <div className="d-flex"> */}
@@ -93,7 +109,7 @@ function DecisionMakers() {
       <Link to="/Importance"><Button variant="success"  className="ms-2 px-4"> Next </Button></Link> */}
       <div id="button-same-line">
 				<Link to="/define-goal">	<button className="inner">BACK</button></Link>
-				<Link to="/Importance"><button className="inner">NEXT</button>	</Link>
+				<button className="inner"  onClick={handleNextBtn}><Link to="/Importance"></Link>NEXT</button>
 			</div>
             {/* <Button variant="success"  className="ms-2 px-4">
 Next
