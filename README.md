@@ -17,9 +17,9 @@ We welcome any and all contributions! Here are some ways you can get started:
 5. If make sure you meet DOD, wait for pull request to be merged on `main` branch
 
 # Install and run project
-1.run `npm install` command on the terminal to install all dependencies
-2.run `cd client` and then run `npm run dev`
-2-1. or run `npm run dev:client` from the root
+1. run `npm install` command on the terminal to install all dependencies
+2. run `cd client` and then run `npm run dev`
+2-1.  or run `npm run dev:client` from the root
 
 # Sample prototype of this project
 https://www.figma.com/proto/9rJSROPIeYhrtHArqIPWwp/Decision-Making-Framework-Luan?node-id=243%3A173&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=243%3A173
