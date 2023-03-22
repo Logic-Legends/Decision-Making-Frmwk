@@ -64,8 +64,8 @@ function DecisionMakersForm({ addUser, editUser, editIndex }) {
               />
             </Form.Group>
           </Col>
-          <Col className="d-flex align-items-end">
-            <button className="inner" type="submit">
+          <Col className="d-flex align-items-end ">
+            <button className="inner mb-0 py-2" type="submit">
               {editIndex === -1 ? "Add" : "Update"}
             </button>
           </Col>

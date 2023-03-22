@@ -1,16 +1,16 @@
 import React from "react";
+import FirstHandleTooltip from "./FirstHandleTooltip";
 import QuestionMark from "./images/question-mark.png";
 import { Link } from "react-router-dom";
-import HandleTooltip from "./HandleTooltip";
 
-const TimeResource = () => {
+const TypeOfInformation = () => {
 
-  const [modalShow, setModalShow] = React.useState(false);
+    const [modalShow, setModalShow] = React.useState(false);
 
-  return (
+    return (
 		<div className="container">
 			{/* Call popup function*/}
-			<HandleTooltip
+			<FirstHandleTooltip
 				show={modalShow}
 				onHide={() => setModalShow(false)}
 			/>
@@ -50,4 +50,4 @@ const TimeResource = () => {
 	);
 };
 
-export default TimeResource;
+export default TypeOfInformation;
