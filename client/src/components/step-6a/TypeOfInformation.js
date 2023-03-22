@@ -1,5 +1,8 @@
 import React from "react";
 import FirstHandleTooltip from "./FirstHandleTooltip";
+import SecondHandleTooltip from "./SecondHandleTooltip";
+import ThirdHandleTooltip from "./ThirdHandleTooltip";
+import FourthHandleTooltip from "./FourthHandleTooltip";
 import QuestionMark from "./images/question-mark.png";
 import { Link } from "react-router-dom";
 
@@ -23,6 +26,21 @@ const TypeOfInformation = () => {
 			<FirstHandleTooltip
 				show={FirstModalShow}
 				onHide={() => FirstSetModalShow(false)}
+			/>
+
+            <SecondHandleTooltip
+				show={SecondModalShow}
+				onHide={() => SecondSetModalShow(false)}
+			/>
+
+            <ThirdHandleTooltip
+				show={ThirdModalShow}
+				onHide={() => ThirdSetModalShow(false)}
+			/>
+
+            <FourthHandleTooltip
+				show={FourthModalShow}
+				onHide={() => FourthSetModalShow(false)}
 			/>
 
 			<h1>Plan to gather information needed to make the decision{" "}
