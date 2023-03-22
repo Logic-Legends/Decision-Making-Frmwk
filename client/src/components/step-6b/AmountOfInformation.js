@@ -1,11 +1,12 @@
 import React,{ useState } from "react";
 import { Link,useNavigate,useLocation } from "react-router-dom";
+import { Alert } from "react-bootstrap";
 import FirstHandleTooltip from "./FirstHandleTooltip";
 import SecondHandleTooltip from "./SecondHandleTooltip";
 import ThirdHandleTooltip from "./ThirdHandleTooltip";
 import FourthHandleTooltip from "./FourthHandleTooltip";
+import FifthHandleTooltip from "./FifthHandleTooltip";
 import QuestionMark from "./images/question-mark.png";
-import { Alert } from "react-bootstrap";
 
 const TypeOfInformation = () => {
 
@@ -21,16 +22,6 @@ const TypeOfInformation = () => {
     const dataStep6b = location.state?.AmountOfInformationData;
     const dataStep7 = location.state?.VotingMethodsData;
 
-    console.log(dataStep1);
-    console.log(dataStep2);
-    console.log(dataStep3a);
-    console.log(dataStep3b);
-    console.log(dataStep4);
-    console.log(dataStep5);
-    console.log(dataStep6a);
-    console.log(dataStep6b);
-    console.log(dataStep7);
-
     //FirstHandleTooltip
     const [FirstModalShow, FirstSetModalShow] = React.useState(false);
 
@@ -43,6 +34,9 @@ const TypeOfInformation = () => {
     //FourthHandleTooltip
     const [FourthModalShow, FourthSetModalShow] = React.useState(false);
 
+    //FifthHandleTooltip
+    const [FifthModalShow, FifthSetModalShow] = React.useState(false);
+
 
 
     //Used for message error
@@ -54,23 +48,23 @@ const TypeOfInformation = () => {
 
 
 
-    //Used to get data
-    const [data, setData] = useState(dataStep6a);
+    //Used to check the value of radio button
+    const [selectedOption, setSelectedOption] = useState("");
 
 
     //When change the option from radio button
   const handleOptionChange = (event) => {
-    setData(event.target.value);
+    setSelectedOption(event.target.value);
   };
 
   //Check if any button was choosen
   const handleButtonClick = () => {
-    if (data === undefined) {
+    if (selectedOption === "") {
       // show the error message when field is empty
       setError("Please select a response.");
       setShow(true);
     } else {
-        navigate("/amount-of-information", { state: { TypeOfInformationData:data } }); //Go to page and pass data
+        navigate("/voting-method", { state: { selectedOption } }); //Go to page and pass data
     }
   };
 
@@ -97,6 +91,11 @@ const TypeOfInformation = () => {
 				onHide={() => FourthSetModalShow(false)}
 			/>
 
+            <FifthHandleTooltip
+				show={FifthModalShow}
+				onHide={() => FifthSetModalShow(false)}
+			/>
+
 			<h1>Plan to gather information needed to make the decision{" "}
 				<img
 					className="question-mark-pages"
@@ -110,7 +109,7 @@ const TypeOfInformation = () => {
 				<table>
                     <tbody>
                         <tr className="table-background">
-                            <th>Type of Information
+                            <th>Amount of Information
                                 <img className="question-mark-pages"
                                     src={QuestionMark}
                                     alt="Qusestion Mark"
@@ -127,18 +126,18 @@ const TypeOfInformation = () => {
                                 {error}
                                 </Alert>
                                 )}
-                                <p>What type of information will we have?</p>
+                                <p>How much information will we have?</p>
                                 <form className="radio-btn-section">
                                         <label>
                                             <input
                                                 type="radio"
                                                 name="option"
-                                                value="explicit"
-                                                checked={data === "explicit"}
+                                                value="high"
+                                                checked={selectedOption === "high"}
                                                 onChange={handleOptionChange}
                                                 className="radio-input low-rdb"
                                             />
-                                            Explicit
+                                            High
                                         </label>
                                                 <img className="question-mark-pages"
                                                     src={QuestionMark}
@@ -150,12 +149,12 @@ const TypeOfInformation = () => {
                                             <input
                                                 type="radio"
                                                 name="option"
-                                                value="relative"
-                                                checked={data === "relative"}
+                                                value="medium"
+                                                checked={selectedOption === "medium"}
                                                 onChange={handleOptionChange}
                                                 className="radio-input high-rdb"
                                             />
-                                            Relative
+                                            Medium
 
                                         </label>
                                         <img className="question-mark-pages"
@@ -163,6 +162,24 @@ const TypeOfInformation = () => {
                                                     alt="Qusestion Mark"
                                                     border="0"
                                                     onClick={() => FourthSetModalShow(true)}
+                                                ></img>
+                                        <label>
+                                            <input
+                                                type="radio"
+                                                name="option"
+                                                value="low"
+                                                checked={selectedOption === "low"}
+                                                onChange={handleOptionChange}
+                                                className="radio-input high-rdb"
+                                            />
+                                            Low
+
+                                        </label>
+                                        <img className="question-mark-pages"
+                                                    src={QuestionMark}
+                                                    alt="Qusestion Mark"
+                                                    border="0"
+                                                    onClick={() => FifthSetModalShow(true)}
                                                 ></img>
                                 </form>
                             </td>
@@ -172,7 +189,7 @@ const TypeOfInformation = () => {
 			</div>
 
 			<div id="button-same-line">
-				<Link to="/type-of-decision" state= {{ capacitySelection: "teste" }}>	<button className="inner">BACK</button></Link>
+				<Link to="/type-of-information" state= {{ TypeOfInformationData:dataStep6a }}>	<button className="inner">BACK</button></Link>
 				<button className="inner" onClick={handleButtonClick}>NEXT</button>
 			</div>
 		</div>

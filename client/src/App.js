@@ -7,6 +7,7 @@ import Importance from "./components/step-3a/Importance";
 import Capacity from "./components/step-3b/Capacity";
 import DefineGoal from "./components/step-1/DefineGoal";
 import TypeOfInformation from "./components/step-6a/TypeOfInformation";
+import AmountOfInformation from "./components/step-6b/AmountOfInformation";
 
 const App = () => (
 	<div>
@@ -20,6 +21,7 @@ const App = () => (
 			<Route path="/Capacity" element={<Capacity />} />
 			<Route path="/time-resource" element={<TimeResource />} />
 			<Route path="/type-of-information" element={<TypeOfInformation />} />
+			<Route path="/amount-of-information" element={<AmountOfInformation />} />
 		</Routes>
 		<footer></footer>
 	</div>
