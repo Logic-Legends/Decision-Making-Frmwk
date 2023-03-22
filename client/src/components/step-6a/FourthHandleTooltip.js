@@ -13,9 +13,7 @@ function FourthHandleTooltip(props) {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <p>Relational information that is not relevant to an objective, external metric.</p>
-
-            <p><strong>Example:</strong> Comparing different inter- ventions to each other and choosing which one to pursue based on how easy they seem to implement.</p>
+            <p>Information that lets you compare factors being considered in relation to another another.</p>
           </Modal.Body>
         </Modal>
       );

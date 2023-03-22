@@ -13,7 +13,7 @@ function SecondHandleTooltip(props) {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <p>The type of information you need will help determine the ideal voting method. There are two types of information that can help you decide: explicit values (cardinal information) and relative values (ordinal information).</p>
+            <p>The type of information you have will help determine the ideal voting method.</p>
           </Modal.Body>
         </Modal>
       );

@@ -13,9 +13,8 @@ function ThirdHandleTooltip(props) {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <p>Information that lets you assign a value to an objective, external metric.</p>
-            <p><strong>Example:</strong> Finding out how many animals each intervention saves per year and choosing which one to pursue based on this information.</p>
-          </Modal.Body>
+            <p>Information that lets you assign numerical values to the factors being considered.</p>
+            </Modal.Body>
         </Modal>
       );
 }

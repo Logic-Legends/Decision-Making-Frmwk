@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useState } from "react";
 import FirstHandleTooltip from "./FirstHandleTooltip";
 import SecondHandleTooltip from "./SecondHandleTooltip";
 import ThirdHandleTooltip from "./ThirdHandleTooltip";
@@ -19,6 +19,13 @@ const TypeOfInformation = () => {
 
     //FourthHandleTooltip
     const [FourthModalShow, FourthSetModalShow] = React.useState(false);
+
+    //Check the value of radio button
+    const [selectedOption, setSelectedOption] = useState("");
+
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
 
     return (
 		<div className="container">
@@ -71,13 +78,13 @@ const TypeOfInformation = () => {
                                     <label>
                                         <input
                                             type="radio"
-                                            name="importance"
-                                            value="low"
-                                            // checked={selectedOption === "low"}
-                                            // onChange={handleOptionChange}
+                                            name="explicit"
+                                            value="explicit"
+                                            checked={selectedOption === "explicit"}
+                                            onChange={handleOptionChange}
                                             className="radio-input low-rdb"
                                         />
-                                        Explicit Values (Cardinal info)
+                                        Explicit
                                     </label>
                                             <img className="question-mark-pages"
                                                 src={QuestionMark}
@@ -88,13 +95,13 @@ const TypeOfInformation = () => {
                                     <label>
                                         <input
                                             type="radio"
-                                            name="importance"
-                                            value="high"
-                                            // checked={selectedOption === "high"}
-                                            // onChange={handleOptionChange}
+                                            name="relative"
+                                            value="relative"
+                                            checked={selectedOption === "relative"}
+                                            onChange={handleOptionChange}
                                             className="radio-input high-rdb"
                                         />
-                                        Relative Values (Ordinal info)
+                                        Relative
 
                                     </label>
                                     <img className="question-mark-pages"
@@ -111,8 +118,8 @@ const TypeOfInformation = () => {
 			</div>
 
 			<div id="button-same-line">
-				<Link to="/Capacity">	<button className="inner">BACK</button></Link>
-				<Link to="/step5" state= {{ capacitySelection: "teste" }} ><button className="inner">NEXT</button>	</Link>
+				<Link to="/Capacity" state= {{ capacitySelection: "teste" }}>	<button className="inner">BACK</button></Link>
+				<Link to="/step5" state= {{  selectedOption   }} ><button className="inner">NEXT</button>	</Link>
 			</div>
 		</div>
 	);
