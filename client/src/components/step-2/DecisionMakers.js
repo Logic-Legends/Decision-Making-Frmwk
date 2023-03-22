@@ -3,7 +3,7 @@ import DecisionMakersForm from "./DicisionMakersForm";
 import { Container, Table,Alert } from "react-bootstrap";
 import QuestionMark from "../step-1/images/question-mark.png";
 import ModalComponent from "./ModalComponent";
-import { Link } from "react-router-dom#";
+import { Link,useNavigate } from "react-router-dom#";
 function DecisionMakers() {
   const [users, setUsers] = useState([]);
   const [editIndex, setEditIndex] = useState(-1);
@@ -11,6 +11,8 @@ function DecisionMakers() {
   const [error, setError] = useState("");
   const [show, setShow] = useState(true);
 
+
+  const navigate=useNavigate();
   const addUser = (newUser) => {
     if (editIndex === -1) {
       setUsers((prevUsers) => [...prevUsers, newUser]);
@@ -46,9 +48,12 @@ if (!users.length) {
 console.log("Next Button Clicked"+users);
   setError("Please complete this step!");
   setShow(true);
+}else{
+  navigate("/Importance");
 }
 
 };
+
 
   return (
 
@@ -74,17 +79,17 @@ console.log("Next Button Clicked"+users);
       <Table striped  hover responsive  >
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Role</th>
-            <th></th>
+            <th className="border">Name</th>
+            <th className="border border-end-0">Role</th>
+            <th className="border border-start-0"></th>
           </tr>
         </thead>
         <tbody>
           {users.map((user, index) => (
-            <tr key={index} className="vh-auto">
-              <td className="w-50">{user.name}</td>
-              <td className="w-50">{user.role}</td>
-              <td className="d-flex justify-content-end">
+            <tr key={index} className="vh-auto border">
+              <td className="w-50 border pt-4">{user.name}</td>
+              <td className="w-50 border pt-4 border-end-0">{user.role}</td>
+              <td className="d-flex justify-content-end border  border-start-0">
                 {/* <Button
                 className="px-3"
                   variant="warning"
@@ -92,8 +97,8 @@ console.log("Next Button Clicked"+users);
                 >
                   Edit
                 </Button> */}
-                <button className="inner" onClick={() => editUser(index)}>EDIT</button>
-                <button className="inner button-delete-team" onClick={() => deleteUser(index)}>DELETE</button>
+                <button className="inner  mb-0 py-2" onClick={() => editUser(index)}>EDIT</button>
+                <button className="inner button-delete-team  mb-0 py-2" onClick={() => deleteUser(index)}>DELETE</button>
                 {/* <Button className="ms-2 "  variant="danger" onClick={() => deleteUser(index)}>
                   Delete
                 </Button> */}
