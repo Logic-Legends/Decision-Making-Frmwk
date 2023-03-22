@@ -13,7 +13,7 @@ function FourthHandleTooltip(props) {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <p>Information that lets you compare factors being considered in relation to another another.</p>
+            <p>You have enough information to...</p>
           </Modal.Body>
         </Modal>
       );

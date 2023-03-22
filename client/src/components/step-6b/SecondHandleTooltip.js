@@ -13,7 +13,7 @@ function SecondHandleTooltip(props) {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <p>The type of information you have will help determine the ideal voting method.</p>
+            <p>Consider how much evidence, facts and data related to the decision you have gathered.</p>
           </Modal.Body>
         </Modal>
       );

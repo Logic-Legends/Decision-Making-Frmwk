@@ -13,7 +13,7 @@ function ThirdHandleTooltip(props) {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <p>Information that lets you assign numerical values to the factors being considered.</p>
+            <p>You have enough information to rank or assign values to all options</p>
             </Modal.Body>
         </Modal>
       );
