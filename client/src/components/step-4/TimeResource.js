@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import QuestionMark from "./images/question-mark.png";
 import { Link } from "react-router-dom";
 import HandleTooltip from "./HandleTooltip";
