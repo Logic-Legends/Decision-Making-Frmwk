@@ -4,6 +4,7 @@ import FirstHandleTooltip from "./FirstHandleTooltip";
 import SecondHandleTooltip from "./SecondHandleTooltip";
 import ThirdHandleTooltip from "./ThirdHandleTooltip";
 import FourthHandleTooltip from "./FourthHandleTooltip";
+import FifthHandleTooltip from "./FifthHandleTooltip";
 import QuestionMark from "./images/question-mark.png";
 import { Alert } from "react-bootstrap";
 
@@ -48,7 +49,7 @@ const TypeOfInformation = () => {
       setError("Please select a response.");
       setShow(true);
     } else {
-        navigate("/amount-of-information", { state: { selectedOption } }); //Go to page and pass data
+        navigate("/step5", { state: { selectedOption } }); //Go to page and pass data
     }
   };
 
@@ -88,7 +89,7 @@ const TypeOfInformation = () => {
 				<table>
                     <tbody>
                         <tr className="table-background">
-                            <th>How much
+                            <th>Type of information
                                 <img className="question-mark-pages"
                                     src={QuestionMark}
                                     alt="Qusestion Mark"
@@ -105,7 +106,7 @@ const TypeOfInformation = () => {
                                 {error}
                                 </Alert>
                                 )}
-                                <p>How much information will we have?</p>
+                                <p>What type of information will we have?</p>
                                 <form className="radio-btn-section">
                                         <label>
                                             <input
@@ -116,7 +117,7 @@ const TypeOfInformation = () => {
                                                 onChange={handleOptionChange}
                                                 className="radio-input low-rdb"
                                             />
-                                            High
+                                            Explicit
                                         </label>
                                                 <img className="question-mark-pages"
                                                     src={QuestionMark}
@@ -133,25 +134,7 @@ const TypeOfInformation = () => {
                                                 onChange={handleOptionChange}
                                                 className="radio-input high-rdb"
                                             />
-                                            Medium
-
-                                        </label>
-                                        <img className="question-mark-pages"
-                                                    src={QuestionMark}
-                                                    alt="Qusestion Mark"
-                                                    border="0"
-                                                    onClick={() => FourthSetModalShow(true)}
-                                                ></img>
-                                        <label>
-                                            <input
-                                                type="radio"
-                                                name="option"
-                                                value="relative"
-                                                checked={selectedOption === "relative"}
-                                                onChange={handleOptionChange}
-                                                className="radio-input high-rdb"
-                                            />
-                                            Low
+                                            Relative
 
                                         </label>
                                         <img className="question-mark-pages"
