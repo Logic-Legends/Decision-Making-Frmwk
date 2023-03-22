@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import QuestionMark from "./images/question-mark.png";
 import { Link } from "react-router-dom";
 import HandleTooltip from "./HandleTooltip";
@@ -28,7 +28,7 @@ const TimeResource = () => {
 			<div className="border-decision-framework-pages">
 				<table>
 					<tr className="table-background">
-						<th>Low importance and high capacity</th>
+						<th>Low importance and high capacity:</th>
 					</tr>
 					<tr>
 						<td>
@@ -44,7 +44,7 @@ const TimeResource = () => {
 
 			<div id="button-same-line">
 				<Link to="/Capacity">	<button className="inner">BACK</button></Link>
-				<Link to="/step5"><button className="inner">NEXT</button>	</Link>
+				<Link to="/step5" state= {{ capacitySelection: "teste" }} ><button className="inner">NEXT</button>	</Link>
 			</div>
 		</div>
 	);
