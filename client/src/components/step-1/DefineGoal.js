@@ -55,7 +55,7 @@ const DefineGoal = () => {
       )}
 
           <p>Defining the goal will help you determine what kind of information you need to make a decision.
-            <img className="question-mark-pages" src={QuestionMark} alt="Qusestion Mark" border="0" onClick={() => setModalShow(true)}></img>
+            <img className="question-mark-pages" src={QuestionMark} alt="Question Mark" border="0" onClick={() => setModalShow(true)}></img>
           </p>
 
             <input

@@ -5,14 +5,24 @@ import { Link } from "react-router-dom";
 
 const TypeOfInformation = () => {
 
-    const [modalShow, setModalShow] = React.useState(false);
+    //FirstHandleTooltip
+    const [FirstModalShow, FirstSetModalShow] = React.useState(false);
+
+    //SecondtHandleTooltip
+    const [SecondModalShow, SecondSetModalShow] = React.useState(false);
+
+    //ThirdHandleTooltip
+    const [ThirdModalShow, ThirdSetModalShow] = React.useState(false);
+
+    //FourthHandleTooltip
+    const [FourthModalShow, FourthSetModalShow] = React.useState(false);
 
     return (
 		<div className="container">
 			{/* Call popup function*/}
 			<FirstHandleTooltip
-				show={modalShow}
-				onHide={() => setModalShow(false)}
+				show={FirstModalShow}
+				onHide={() => FirstSetModalShow(false)}
 			/>
 
 			<h1>Plan to gather information needed to make the decision{" "}
@@ -21,40 +31,61 @@ const TypeOfInformation = () => {
 					src={QuestionMark}
 					alt="Qusestion Mark"
 					border="0"
-					onClick={() => setModalShow(true)}
+					onClick={() => FirstSetModalShow(true)}
 				></img>
 			</h1>
 			<div className="border-decision-framework-pages">
 				<table>
 					<tr className="table-background">
-						<th>Type of information</th>
+						<th>Type of information
+                            <img className="question-mark-pages"
+                                src={QuestionMark}
+                                alt="Qusestion Mark"
+                                border="0"
+                                onClick={() => SecondSetModalShow(true)}
+                            ></img></th>
 					</tr>
 					<tr>
 						<td>
 							<p>What type of information will we have?</p>
 							<form className="radio-btn-section">
-					<label>
-						<input
-							type="radio"
-							name="importance"
-							value="low"
-							// checked={selectedOption === "low"}
-							// onChange={handleOptionChange}
-							className="radio-input low-rdb"
-						/>
-						Explicit Values (Cardinal info)
-					</label>
-					<label>
-						<input
-							type="radio"
-							name="importance"
-							value="high"
-							// checked={selectedOption === "high"}
-							// onChange={handleOptionChange}
-							className="radio-input high-rdb"
-						/>
-						Relative Values (Ordinal info)
-					</label>
+                                <tr>
+                                    <label>
+                                        <input
+                                            type="radio"
+                                            name="importance"
+                                            value="low"
+                                            // checked={selectedOption === "low"}
+                                            // onChange={handleOptionChange}
+                                            className="radio-input low-rdb"
+                                        />
+                                        Explicit Values (Cardinal info)
+                                    </label>
+                                            <img className="question-mark-pages"
+                                                src={QuestionMark}
+                                                alt="Qusestion Mark"
+                                                border="0"
+                                                onClick={() => ThirdSetModalShow(true)}
+                                            ></img>
+                                    <label>
+                                        <input
+                                            type="radio"
+                                            name="importance"
+                                            value="high"
+                                            // checked={selectedOption === "high"}
+                                            // onChange={handleOptionChange}
+                                            className="radio-input high-rdb"
+                                        />
+                                        Relative Values (Ordinal info)
+
+                                    </label>
+                                    <img className="question-mark-pages"
+                                                src={QuestionMark}
+                                                alt="Qusestion Mark"
+                                                border="0"
+                                                onClick={() => FourthSetModalShow(true)}
+                                            ></img>
+                                </tr>
 				</form>
 						</td>
 					</tr>
