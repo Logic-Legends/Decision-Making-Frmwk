@@ -1,12 +1,15 @@
-import React,{ useState } from "react";
+import React,{ useState,useRef } from "react";
 import FirstHandleTooltip from "./FirstHandleTooltip";
 import SecondHandleTooltip from "./SecondHandleTooltip";
 import ThirdHandleTooltip from "./ThirdHandleTooltip";
 import FourthHandleTooltip from "./FourthHandleTooltip";
 import QuestionMark from "./images/question-mark.png";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 const TypeOfInformation = () => {
+
+    //Go to webpage
+    const navigate = useNavigate();
 
     //FirstHandleTooltip
     const [FirstModalShow, FirstSetModalShow] = React.useState(false);
@@ -23,8 +26,31 @@ const TypeOfInformation = () => {
     //Check the value of radio button
     const [selectedOption, setSelectedOption] = useState("");
 
+
+    const formRef = useRef(null);
+
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (selectedOption === "") {
+      alert("Please choose an option");
+      console.log("nao escolheu");
+    } else {
+      alert(`You chose ${selectedOption}`);
+      console.log("escolheu");
+    }
+  };
+
+  const handleButtonClick = () => {
+    if (selectedOption === "") {
+      alert("Please choose an option");
+      console.log("No option selected");
+    } else {
+        navigate("/step5", { state: { selectedOption } });
+    }
   };
 
     return (
@@ -75,12 +101,11 @@ const TypeOfInformation = () => {
 					<tr>
 						<td>
 							<p>What type of information will we have?</p>
-							<form className="radio-btn-section">
-                                {/* <tr> */}
+							<form className="radio-btn-section" ref={formRef} onSubmit={handleSubmit}>
                                     <label>
                                         <input
                                             type="radio"
-                                            name="explicit"
+                                            name="option"
                                             value="explicit"
                                             checked={selectedOption === "explicit"}
                                             onChange={handleOptionChange}
@@ -97,7 +122,7 @@ const TypeOfInformation = () => {
                                     <label>
                                         <input
                                             type="radio"
-                                            name="relative"
+                                            name="option"
                                             value="relative"
                                             checked={selectedOption === "relative"}
                                             onChange={handleOptionChange}
@@ -112,7 +137,7 @@ const TypeOfInformation = () => {
                                                 border="0"
                                                 onClick={() => FourthSetModalShow(true)}
                                             ></img>
-                                {/* </tr> */}
+                                <button type="submit" style={{ display: "none" }} />
 				            </form>
 						</td>
 					</tr>
@@ -122,7 +147,8 @@ const TypeOfInformation = () => {
 
 			<div id="button-same-line">
 				<Link to="/Capacity" state= {{ capacitySelection: "teste" }}>	<button className="inner">BACK</button></Link>
-				<Link to="/step5" state= {{  selectedOption   }} ><button className="inner">NEXT</button>	</Link>
+				<button className="inner" onClick={handleButtonClick}>NEXT</button>
+                {/* <Link to="/step5" state= {{  selectedOption   }} ><button className="inner" type="submit">NEXT</button>	</Link> */}
 			</div>
 		</div>
 	);
