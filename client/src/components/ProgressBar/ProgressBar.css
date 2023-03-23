@@ -1,6 +1,7 @@
   
 
 .circle{
+    font-size:.95em;
     width:29px;
     height: 29px;
     line-height: 25px;
@@ -15,14 +16,21 @@
 }
 
 
-/* .stepWrapper{
+.stepWrapper{
     display: flex;
-    margin-bottom:20px;  
-} */
+    margin-bottom:20px;
+    text-align: center;
 
+}
+
+.circleWrapper span {
+    font-size: 1em;
+    border: 1px navy solid;
+}
 .stepBlock .circleWrapper{
     padding:0 20px;
     position: relative;
+    text-align: center;
 }
 
 .selected .circle{
@@ -43,13 +51,13 @@
     z-index: -1;
   }
   
-  /* .stepBlock:not(:last-child) > .circleWrapper::after {
+  .stepBlock:not(:last-child) > .circleWrapper::after {
     height: 3px;
   }
    */
-  /* .stepBlock:not(:last-child).selected > .circleWrapper::after, .stepBlock:not(:last-child).selected ~ .stepBlock:not(:last-child) > .circleWrapper::after {
+ .stepBlock:not(:last-child).selected > .circleWrapper::after, .stepBlock:not(:last-child).selected ~ .stepBlock:not(:last-child) > .circleWrapper::after {
     height: 2px;
     opacity: 0.6;
-  } */
+  } 
 
 
