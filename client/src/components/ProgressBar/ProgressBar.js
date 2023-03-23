@@ -9,9 +9,9 @@ function ProgressBar(props){
 // const [currentStep,setCurrentStep]=useState(1);
 
 return(
-    <div className="container stepWrapper">
+    <Container className="stepWrapper d-flex justify-content-center">
         {props.labelArray.map((item,index)=><Step key={index} index={index} label={item} selected={props.currentStep === index + 1} setStep={props.setStep}></Step>)}
-    </div>
+    </Container>
 );
 
 }

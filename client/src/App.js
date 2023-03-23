@@ -30,9 +30,6 @@ return (
 			{ location.pathname!=="/" && (
 		<>
 		<ProgressBar labelArray={labelArray} currentStep={currentStep} setStep={setStep}></ProgressBar>
-		<p>Selected Step: {currentStep}</p>
-	    <button onClick={()=>setStep(currentStep-1)}>Previous Step</button>
-	    <button onClick={()=>setStep(currentStep+1)}>Next Step</button>
 		</>
 			)}
 
