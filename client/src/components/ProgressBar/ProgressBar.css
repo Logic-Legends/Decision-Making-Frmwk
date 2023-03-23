@@ -61,3 +61,10 @@
   } 
 
 
+  @media only screen and (max-width: 55.75em) {
+    .stepBlock .circleWrapper{
+        padding:0 10px;
+        position: relative;
+        text-align: center;
+    }
+}
