@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState,useContext } from "react";
 import tooltipIcon from "./images/tooltipicon.png";
 import HandleFirstTooltipClick from "./HandleFirstTooltipImportance";
 import HandleSecondTooltipClick from "./HandleSecondTooltipImportance";
+import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 
 
 const Importance = () => {
@@ -18,7 +19,7 @@ const Importance = () => {
 	const [secondModalShow, setsecondModalShow] = useState(false);
 
 	//state for selecting radio btn
-	const [selectedOption, setSelectedOption] = useState(null);
+	const { selectedOption, setSelectedOption } = useContext(stepProgressContext);
 
 	//state for error handling
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -26,19 +27,10 @@ const Importance = () => {
 	//Local storage for storing RB value
 	const navigate = useNavigate();
 
-	 useEffect(() => {
-			const storedValue = localStorage.getItem("importanceSelection");
-			if (storedValue) {
-				setSelectedOption(storedValue);
-			} else {
-				setSelectedOption(null); // Clear the selection when no value is stored in localStorage
-			}
-		}, []);
-
+	
 	//click back btn handler
 	const handleBackClick = () => {
 		setIsStarted(true);
-	    localStorage.setItem("importanceSelection", selectedOption);
 		navigate("/decision-makers");
 	};
 
@@ -55,7 +47,6 @@ const Importance = () => {
 	//radio btn handler
 	const handleOptionChange = (event) => {
 		setSelectedOption(event.target.value);
-	    localStorage.setItem("importanceSelection", event.target.value);
 
 	};
 
@@ -89,7 +80,6 @@ const Importance = () => {
 						className="question-mark-pages"
 						onClick={() => setsecondModalShow(true)}
 					/>
-
 				</p>
 				{/* Radio btn section */}
 				<form className="radio-btn-section">
