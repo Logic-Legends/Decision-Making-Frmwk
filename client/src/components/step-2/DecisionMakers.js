@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import DecisionMakersForm from "./DicisionMakersForm";
 import { Container, Table,Alert } from "react-bootstrap";
 import QuestionMark from "../step-1/images/question-mark.png";
 import ModalComponent from "./ModalComponent";
 import { Link,useNavigate } from "react-router-dom#";
+import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
+
 function DecisionMakers() {
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
+
+  const { users,setUsers,currentStep,labelArray,setStep }=useContext(stepProgressContext);
+
   const [editIndex, setEditIndex] = useState(-1);
   const [showModal, setShowModal] = useState(false);
   const [error, setError] = useState("");
   const [show, setShow] = useState(true);
+
+  const stepNumber=2;
 
 
   const navigate=useNavigate();
@@ -49,11 +56,23 @@ console.log("Next Button Clicked"+users);
   setError("Please complete this step!");
   setShow(true);
 }else{
+  setStep(stepNumber+1);
   navigate("/Importance");
+
+
+
 }
+
 
 };
 
+
+const handleBackBtn=()=>{
+  setStep(stepNumber-1);
+navigate("/define-goal");
+
+
+};
 
   return (
 
@@ -113,7 +132,7 @@ console.log("Next Button Clicked"+users);
 
       <Link to="/Importance"><Button variant="success"  className="ms-2 px-4"> Next </Button></Link> */}
       <div id="button-same-line">
-				<Link to="/define-goal">	<button className="inner">BACK</button></Link>
+				<Link to="/define-goal">	<button className="inner" onClick={handleBackBtn}>BACK</button></Link>
 				<button className="inner"  onClick={handleNextBtn}><Link to="/Importance"></Link>NEXT</button>
 			</div>
             {/* <Button variant="success"  className="ms-2 px-4">
