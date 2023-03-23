@@ -8723,6 +8723,9 @@ table {
   justify-content: center;
   display: flex;
 }
+.tooltip-list{
+	margin-left: 20px;
+}
 
 /* Mohammed CSS */
 /* .step-container {

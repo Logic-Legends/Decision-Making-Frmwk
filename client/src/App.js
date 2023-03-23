@@ -12,7 +12,7 @@ import AmountOfInformation from "./components/step-6b/AmountOfInformation";
 import Results from "./components/Result/Results";
 import ProgressBar  from "./components/ProgressBar/ProgressBar";
 import { stepProgressContext } from "./components/ProgressBar/ProgressBarContext";
-
+import TypeOfDecision from "./components/step-5/TypeOfDecision";
 
 
 const App = () => {
@@ -40,7 +40,8 @@ return (
 			<Route path="/time-resource" element={<TimeResource />} />
 			<Route path="/type-of-information" element={<TypeOfInformation />} />
 			<Route path="/amount-of-information" element={<AmountOfInformation />} />
-			<Route path="/Results" element={<Results/>}/>
+			<Route path="/Results" element={<Results />} />
+			<Route path="/type-of-decision" element={<TypeOfDecision />} />
 		</Routes>
 		<footer></footer>
 	</div>
