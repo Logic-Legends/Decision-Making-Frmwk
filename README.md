@@ -19,7 +19,9 @@ We welcome any and all contributions! Here are some ways you can get started:
 # Install and run project
 1. run `npm install` command on the terminal to install all dependencies
 2. run `cd client` and then run `npm run dev`
-2-1.  or run `npm run dev:client` from the root
+3. or run `npm run dev:client` from the root
+(Note : if you get any server error after installaton,make sure about your node version by running `node -v`. you need to have `16.17.0` version of node)
+
 
 # Sample prototype of this project
 https://www.figma.com/proto/9rJSROPIeYhrtHArqIPWwp/Decision-Making-Framework-Luan?node-id=243%3A173&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=243%3A173
