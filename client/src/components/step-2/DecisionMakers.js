@@ -1,15 +1,21 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import DecisionMakersForm from "./DicisionMakersForm";
 import { Container, Table,Alert } from "react-bootstrap";
 import QuestionMark from "../step-1/images/question-mark.png";
 import ModalComponent from "./ModalComponent";
 import { Link,useNavigate } from "react-router-dom#";
+import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
+
 function DecisionMakers() {
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
+
+  const { users,setUsers }=useContext(stepProgressContext);
+
   const [editIndex, setEditIndex] = useState(-1);
   const [showModal, setShowModal] = useState(false);
   const [error, setError] = useState("");
   const [show, setShow] = useState(true);
+
 
 
   const navigate=useNavigate();
