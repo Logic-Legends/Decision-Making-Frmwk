@@ -1,5 +1,5 @@
 import { useState,useContext } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes,useLocation } from "react-router-dom";
 import Start from "./components/start-page/Start";
 import DecisionMakers from "./components/step-2/DecisionMakers";
 import TimeResource from "./components/step-4/TimeResource";
@@ -15,7 +15,8 @@ import { stepProgressContext } from "./components/ProgressBar/ProgressBarContext
 
 const App = () => {
    const { currentStep,labelArray,setStep }=useContext(stepProgressContext);
-	//This is the state of the progress bar
+   const location=useLocation();
+   //This is the state of the progress bar
 	// const [currentStep,setCurrentStep]=useState(1);
 	// const labelArray=["Step 1","Step 2","Step 3","Step 4","Step 5","Step 6","Step 7"];
 
@@ -26,10 +27,14 @@ const App = () => {
 return (
 	<div>
 		<header>
+			{ location.pathname!=="/" && (
+		<>
 		<ProgressBar labelArray={labelArray} currentStep={currentStep} setStep={setStep}></ProgressBar>
 		<p>Selected Step: {currentStep}</p>
 	    <button onClick={()=>setStep(currentStep-1)}>Previous Step</button>
 	    <button onClick={()=>setStep(currentStep+1)}>Next Step</button>
+		</>
+			)}
 
 		</header>
 		<Routes>
