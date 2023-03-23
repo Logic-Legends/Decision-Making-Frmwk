@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import Start from "./components/start-page/Start";
 import DecisionMakers from "./components/step-2/DecisionMakers";
@@ -10,13 +10,18 @@ import DefineGoal from "./components/step-1/DefineGoal";
 import TypeOfInformation from "./components/step-6a/TypeOfInformation";
 import AmountOfInformation from "./components/step-6b/AmountOfInformation";
 import ProgressBar  from "./components/ProgressBar/ProgressBar";
-const App = () => {
-	const [currentStep,setCurrentStep]=useState(1);
-	const labelArray=["Step 1","Step 2","Step 3","Step 4","Step 5","Step 6","Step 7"];
+import { stepProgressContext } from "./components/ProgressBar/ProgressBarContext";
 
-	function setStep(step){
-		setCurrentStep(step);
-	}
+
+const App = () => {
+   const { currentStep,labelArray,setStep }=useContext(stepProgressContext);
+	//This is the state of the progress bar
+	// const [currentStep,setCurrentStep]=useState(1);
+	// const labelArray=["Step 1","Step 2","Step 3","Step 4","Step 5","Step 6","Step 7"];
+
+	// function setStep(step){
+	// 	setCurrentStep(step);
+	// }
 
 return (
 	<div>
