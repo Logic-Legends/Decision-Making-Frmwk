@@ -12,6 +12,7 @@ We welcome any and all contributions! Here are some ways you can get started:
 # Instruction
 1. clone the repository
 2. make your own `feature` branch
+3. to get latest changes to your local run `git pull origin <REMOTE ORIGIN BRANCH NAME>`
 3. Commit and push
 4. Wait for pull request to be merged on ``develop`` branch
 5. If make sure you meet DOD, wait for pull request to be merged on `main` branch
