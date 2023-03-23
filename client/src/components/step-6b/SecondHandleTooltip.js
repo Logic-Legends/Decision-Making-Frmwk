@@ -1,6 +1,6 @@
 import Modal from "react-bootstrap/Modal";
 
-function FourthHandleTooltip(props) {
+function SecondHandleTooltip(props) {
 	return (
         <Modal
           {...props}
@@ -13,9 +13,9 @@ function FourthHandleTooltip(props) {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <p>Information that lets you compare factors being considered in relation to another.</p>
+            <p>Consider how much evidence, facts and data related to the decision you have gathered.</p>
           </Modal.Body>
         </Modal>
       );
 }
-export default FourthHandleTooltip;
+export default SecondHandleTooltip;

@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import QuestionMark from "./images/question-mark.png";
 import HandleTooltip from "./HandleTooltip";
 import { Link,useNavigate } from "react-router-dom";
 import { Alert } from "react-bootstrap";
+import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 
 const DefineGoal = () => {
+
+const stepNumber=1;
+const { labelArray,setStep }=useContext(stepProgressContext);
+
 
   //Go to webpage
   const navigate = useNavigate();
@@ -26,6 +31,7 @@ const DefineGoal = () => {
 
     if (message.trim().length !== 0) {
       // window.location.href = "/decision-makers";
+      setStep(stepNumber+1);
       navigate("/decision-makers");
     } else {
       // show the error message when field is empty
@@ -55,7 +61,7 @@ const DefineGoal = () => {
       )}
 
           <p>Defining the goal will help you determine what kind of information you need to make a decision.
-            <img className="question-mark-pages" src={QuestionMark} alt="Qusestion Mark" border="0" onClick={() => setModalShow(true)}></img>
+            <img className="question-mark-pages" src={QuestionMark} alt="Question Mark" border="0" onClick={() => setModalShow(true)}></img>
           </p>
 
             <input

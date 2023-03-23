@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Pdf from "../pdf-generation/Pdf";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 const Start = () => {
+
   return (
     <div className="container">
       <h1>Voting Methods for Group Decisions</h1>
@@ -19,7 +20,7 @@ const Start = () => {
           <p>We advise you spend up to 30 minutes in using the tool. </p>
       </div>
           <div className="start-btn">
-      <Link className="inner" to="/define-goal"><button>Start </button></Link>
+      <Link className="inner" to="/define-goal"><button >Start </button></Link>
           </div>
       <br></br>
        <PDFDownloadLink document={<Pdf />} fileName="decision.pdf">
