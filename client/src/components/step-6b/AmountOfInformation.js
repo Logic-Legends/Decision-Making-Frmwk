@@ -1,4 +1,7 @@
-import React,{ useState } from "react";
+// import React,{ useState } from "react";
+import React, { useState,useContext } from "react";
+import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
+
 import { Link,useNavigate,useLocation } from "react-router-dom";
 import { Alert } from "react-bootstrap";
 import FirstHandleTooltip from "./FirstHandleTooltip";
@@ -9,6 +12,7 @@ import FifthHandleTooltip from "./FifthHandleTooltip";
 import QuestionMark from "./images/question-mark.png";
 
 const TypeOfInformation = () => {
+    const { users,setUsers,currentStep,labelArray,setStep }=useContext(stepProgressContext);
 
     //Get data from another page
     const location = useLocation();
