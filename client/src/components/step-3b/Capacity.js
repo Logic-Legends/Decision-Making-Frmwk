@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
 import tooltipIcon from "./images/tooltipicon.png";
 import HandleFirstTooltipClick from "./HandleFirstTooltipCapacity";
 import HandleSecondTooltipClick from "./HandleSecondTooltipCapacity";
+import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 
 
 const Capacity = () => {
@@ -18,32 +19,23 @@ const Capacity = () => {
 	const [secondModalShow, setsecondModalShow] = useState(false);
 
 	//state for selecting radio btn
-	const [selectedOption, setSelectedOption] = useState(null);
+	const { selectedOptionCapacity, setSelectedOptionCapacity } = useContext(stepProgressContext);
+
 
 	//state for error handling
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	const navigate = useNavigate();
 	
-	//Local storage for storing RB value
-	useEffect(() => {
-		const storedValue = localStorage.getItem("capacitySelection");
-		if (storedValue) {
-			setSelectedOption(storedValue);
-		} else {
-			setSelectedOption(null); // Clear the selection when no value is stored in localStorage
-		}
-	}, []);
-
+	
 	//click back btn handler
 	const handleBackClick = () => {
 		setIsStarted(true);
-		localStorage.setItem("capacitySelection", selectedOption);
 		navigate("/Importance");
 	};
 	//click next btn handler
 	const handleNextClick = () => {
-		if (selectedOption === null) {
+		if (selectedOptionCapacity === null) {
 			setIsModalOpen(true);
 		} else {
 			setIsStarted(true);
@@ -52,8 +44,7 @@ const Capacity = () => {
 	};
 	//radio btn handler
 	const handleOptionChange = (event) => {
-		setSelectedOption(event.target.value);
-		localStorage.setItem("capacitySelection", event.target.value);
+		setSelectedOptionCapacity(event.target.value);
 	};
 
 	return (
@@ -94,7 +85,7 @@ const Capacity = () => {
 							type="radio"
 							name="capacity"
 							value="low"
-							checked={selectedOption === "low"}
+							checked={selectedOptionCapacity === "low"}
 							onChange={handleOptionChange}
 							className="radio-input low-rdb"
 						/>
@@ -105,7 +96,7 @@ const Capacity = () => {
 							type="radio"
 							name="capacity"
 							value="high"
-							checked={selectedOption === "high"}
+							checked={selectedOptionCapacity === "high"}
 							onChange={handleOptionChange}
 							className="radio-input high-rdb"
 						/>
