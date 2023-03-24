@@ -60,7 +60,7 @@ const TypeOfInformation = () => {
       setError("Please select a response.");
       setShow(true);
     } else {
-        navigate("/voting-method"); //Go to page and pass data
+        navigate("/Results"); //Go to page and pass data
     }
   };
 
