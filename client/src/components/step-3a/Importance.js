@@ -27,7 +27,7 @@ const Importance = () => {
 	//Local storage for storing RB value
 	const navigate = useNavigate();
 
-	
+
 	//click back btn handler
 	const handleBackClick = () => {
 		setIsStarted(true);

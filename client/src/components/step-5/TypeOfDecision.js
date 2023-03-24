@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
 import tooltipIcon from "./images/tooltipicon.png";
 import HandleTooltipClick from "./HandleTooltipClick";
-
+import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 
 
 const TypeOfDecision = () => {
@@ -15,34 +15,24 @@ const TypeOfDecision = () => {
     const [modalShow, setModalShow] = useState(false);
 
     //state for selecting radio btn
-    const [selectedOption, setSelectedOption] = useState(null);
+    const { selectedOptionDecision, setSelectedOptionDecision } = useContext(stepProgressContext);
 
     //state for error handling
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     //Local storage for storing RB value
     const navigate = useNavigate();
-
-    useEffect(() => {
-        const storedValue = localStorage.getItem("importanceSelection");
-        if (storedValue) {
-            setSelectedOption(storedValue);
-        } else {
-            setSelectedOption(null); // Clear the selection when no value is stored in localStorage
-        }
-    }, []);
-
     //click back btn handler
     const handleBackClick = () => {
         setIsStarted(true);
-        localStorage.setItem("importanceSelection", selectedOption);
         navigate("/time-resource");
     };
 
     //click next btn handler
     const handleNextClick = () => {
-        if (selectedOption === null) {
+        if (selectedOptionDecision === null) {
             setIsModalOpen(true);
+
         } else {
             setIsStarted(true);
             navigate("/type-of-information");
@@ -51,9 +41,7 @@ const TypeOfDecision = () => {
 
     //radio btn handler
     const handleOptionChange = (event) => {
-        setSelectedOption(event.target.value);
-        localStorage.setItem("importanceSelection", event.target.value);
-
+        setSelectedOptionDecision(event.target.value);
     };
 
     return (
@@ -84,7 +72,7 @@ const TypeOfDecision = () => {
                             type="radio"
                             name="typeOfDecision"
                             value="iterative"
-                            checked={selectedOption === "iterative"}
+                            checked={selectedOptionDecision === "iterative"}
                             onChange={handleOptionChange}
                             className="radio-input low-rdb"
                         />
@@ -95,13 +83,45 @@ const TypeOfDecision = () => {
                             type="radio"
                             name="typeOfDecision"
                             value="single"
-                            checked={selectedOption === "single"}
+                            checked={selectedOptionDecision === "single"}
                             onChange={handleOptionChange}
                             className="radio-input high-rdb"
                         />
                         Single Decision
                     </label>
                 </form>
+                {(selectedOptionDecision == "single") ?
+                    <table>
+                        <tbody>
+                            <tr className="table-background">
+                                <th>Single decision:</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6>Advice:</h6>
+                                    <p>
+                                        Go through the voting methods table once.
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    :
+                    <table>
+                        <tbody>
+                            <tr className="table-background">
+                                <th>Iterative decision:</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6>Advice:</h6>
+                                    <p>
+                                        Go through the voting methods table for each stage of the decision.
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>}
             </section>
             {/* btn sections */}
             <section id="button-same-line">
