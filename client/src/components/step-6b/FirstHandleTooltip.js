@@ -13,9 +13,7 @@ function FirstHandleTooltip(props) {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <p>This could be information you already have or still need to get. The importance of the decision and team capacity determines how much time is needed to gather information.</p>
-            <strong><p>Another consideration: Should decision-making be anonymous?</p></strong>
-            <p>Should the decision makers vote anonymously? Or is open discussion important for coming to a final decision?</p>
+          <p>Consider how much evidence, facts and data related to the decision you have gathered.</p>
           </Modal.Body>
         </Modal>
       );
