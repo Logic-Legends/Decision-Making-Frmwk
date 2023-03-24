@@ -19,7 +19,7 @@ function ProgressBarContext(){
 	const [users, setUsers] = useState([]);
     const [selectedOption, setSelectedOption] = useState(null);
     const[selectedOptionCapacity, setSelectedOptionCapacity]=useState(null);
-
+	const [selectedOptionDecision, setSelectedOptionDecision] = useState(null);
 	function setStep(step) {
 		setCurrentStep(step);
 	}
@@ -42,6 +42,8 @@ function ProgressBarContext(){
 					setSelectedOption,
 					selectedOptionCapacity,
 					setSelectedOptionCapacity,
+					selectedOptionDecision,
+					setSelectedOptionDecision,
 				}}
 			>
 				<App />

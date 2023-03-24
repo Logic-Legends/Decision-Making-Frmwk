@@ -9,12 +9,14 @@ function HandleTooltipClick(props) {
 			centered
 		>
 			<Modal.Header closeButton>
-				<Modal.Title id="contained-modal-title-vcenter"></Modal.Title>
+				<Modal.Title id="contained-modal-title-vcenter">
+				<h6>
+					Questions to consider:
+				</h6>
+				</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
-				<p>
-					<strong>Questions to consider:</strong>
-				</p>
+
 				<ul className="tooltip-list">
 					<li>
 						Would it be better to do a first pass at the decision with a simple voting
