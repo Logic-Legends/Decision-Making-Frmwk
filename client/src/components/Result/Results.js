@@ -53,12 +53,12 @@ return (
 				</tbody>
 			</table>
 		</div>
-		<div className="button-same-line">
-			<button className="inner pdf-btn"><PDFDownloadLink document={<Pdf />} fileName="decision.pdf">
+		<div className="start-btn">
+			<PDFDownloadLink className="inner" document={<Pdf />} fileName="decision.pdf">
 				{({ loading }) =>
-					loading ? "Loading document..." : "Download as a PDF!"
+					loading ? <button>Loading document... </button> : <button> Download as a PDF!</button>
 				}
-			</PDFDownloadLink></button>
+			</PDFDownloadLink>
 		</div>
 
 	</div>
