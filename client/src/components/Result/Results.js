@@ -65,8 +65,10 @@ const Results=()=>{
 						<tr>
 							
 							<td>Who</td>
-							
-								<td>users</td>
+							{users.map((user)=>(
+								<td>{user.name}</td>
+							))}
+								
 														
 						</tr>
 						<tr>
