@@ -8826,6 +8826,12 @@ table {
     flex-direction: row;
   }
 
+  .container-radio-btn-long-text{
+    display: flex;
+    flex-direction: column;
+	gap:10px;
+  }
+
 .control-high-space-radio-btn{
 	margin-right: 7px;
 	margin-left: 30px;
