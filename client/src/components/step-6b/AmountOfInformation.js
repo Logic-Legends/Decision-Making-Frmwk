@@ -59,13 +59,13 @@ const TypeOfInformation = () => {
 
   //Check if any button was choosen
   const handleButtonClick = () => {
-    if (selectedOption === "") {
-      // show the error message when field is empty
-      setError("Please select a response.");
-      setShow(true);
-    } else {
-        navigate("/voting-method", { state: { selectedOption } }); //Go to page and pass data
-    }
+    if (selectedOptionAmountOfInformation === null) {
+			// show the error message when field is empty
+			setError("Please select a response.");
+			setShow(true);
+		} else {
+			navigate("/voting-method", { state: { selectedOption } }); //Go to page and pass data
+		}
   };
 
     return (

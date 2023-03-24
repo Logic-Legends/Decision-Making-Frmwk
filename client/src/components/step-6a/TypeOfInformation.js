@@ -65,13 +65,15 @@ const TypeOfInformation = () => {
 
   //Check if any button was choosen
   const handleButtonClick = () => {
-    if (data === undefined) {
-      // show the error message when field is empty
-      setError("Please select a response.");
-      setShow(true);
-    } else {
-        navigate("/amount-of-information", { state: { TypeOfInformationData:data } }); //Go to page and pass data
-    }
+    if (selectedOptionTypeOfInformation === null) {
+			// show the error message when field is empty
+			setError("Please select a response.");
+			setShow(true);
+		} else {
+			navigate("/amount-of-information", {
+				state: { TypeOfInformationData: data },
+			}); //Go to page and pass data
+		}
   };
 
     return (
