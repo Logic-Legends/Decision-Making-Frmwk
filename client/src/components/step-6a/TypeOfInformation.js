@@ -3,24 +3,12 @@ import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 import { Link,useNavigate } from "react-router-dom";
 import { Alert } from "react-bootstrap";
 import FirstHandleTooltip from "./FirstHandleTooltip";
-import SecondHandleTooltip from "./SecondHandleTooltip";
-import ThirdHandleTooltip from "./ThirdHandleTooltip";
-import FourthHandleTooltip from "./FourthHandleTooltip";
 import QuestionMark from "./images/question-mark.png";
 
 const TypeOfInformation = () => {
 
     //FirstHandleTooltip
     const [FirstModalShow, FirstSetModalShow] = React.useState(false);
-
-    //SecondtHandleTooltip
-    const [SecondModalShow, SecondSetModalShow] = React.useState(false);
-
-    //ThirdHandleTooltip
-    const [ThirdModalShow, ThirdSetModalShow] = React.useState(false);
-
-    //FourthHandleTooltip
-    const [FourthModalShow, FourthSetModalShow] = React.useState(false);
 
     //Used for message error
     const [error, setError] = useState("");
@@ -53,8 +41,6 @@ const TypeOfInformation = () => {
 // Progress Bar Step Number
   const stepNumber=7;
 
-
-
     return (
 		<div className="container">
 
@@ -63,22 +49,7 @@ const TypeOfInformation = () => {
 				onHide={() => FirstSetModalShow(false)}
 			/>
 
-            <SecondHandleTooltip
-				show={SecondModalShow}
-				onHide={() => SecondSetModalShow(false)}
-			/>
-
-            <ThirdHandleTooltip
-				show={ThirdModalShow}
-				onHide={() => ThirdSetModalShow(false)}
-			/>
-
-            <FourthHandleTooltip
-				show={FourthModalShow}
-				onHide={() => FourthSetModalShow(false)}
-			/>
-
-			<h1>Plan to gather information needed to make the decision{" "}
+			<h1>Type of Information{" "}
 				<img
 					className="question-mark-pages"
 					src={QuestionMark}
@@ -87,30 +58,16 @@ const TypeOfInformation = () => {
 					onClick={() => FirstSetModalShow(true)}
 				></img>
 			</h1>
-			<div className="border-decision-framework-pages">
-				<table>
-                    <tbody>
-                        <tr className="table-background">
-                            <th>Type of Information
-                                <img className="question-mark-pages"
-                                    src={QuestionMark}
-                                    alt="Qusestion Mark"
-                                    border="0"
-                                    onClick={() => SecondSetModalShow(true)}
-                                ></img>
-                            </th>
-                        </tr>
-                        <tr>
-                            <td>
-                                {/* Show message when field is empty*/}
-                                {show && error && (
+            <section className="border-decision-framework-pages">
+            {/* Show message when field is empty*/}
+            {show && error && (
                                 <Alert variant="danger" onClose={() => setShow(false)} dismissible>
                                 {error}
                                 </Alert>
                                 )}
                                 <p>What type of information will we have?</p>
-                                <form className="radio-btn-section container-radio-btn">
-                                        <div className="flex-row-radio-btn">
+                                <form className="radio-btn-section container-radio-btn-long-text">
+
                                         <label>
                                             <input
                                                 type="radio"
@@ -118,18 +75,11 @@ const TypeOfInformation = () => {
                                                 value="explicit"
                                                 checked={selectedOptionTypeOfInformation === "explicit"}
                                                 onChange={handleOptionChange}
-                                                className="radio-input low-rdb"
+                                                className="radio-input"
                                             />
-                                            Explicit
+                                            <strong> Explicit</strong> Information that lets you assign numerical values to the factors being considered
                                         </label>
-                                                <img className="question-mark-pages"
-                                                    src={QuestionMark}
-                                                    alt="Qusestion Mark"
-                                                    border="0"
-                                                    onClick={() => ThirdSetModalShow(true)}
-                                                ></img>
-                                         </div>
-                                         <div className="flex-row-radio-btn">
+
                                         <label>
                                            <input
                                                 type="radio"
@@ -137,24 +87,13 @@ const TypeOfInformation = () => {
                                                 value="relative"
                                                 checked={selectedOptionTypeOfInformation === "relative"}
                                                 onChange={handleOptionChange}
-                                                className="radio-input control-high-space-radio-btn"
+                                                className="radio-input"
                                             />
-                                            Relative
+                                            <strong> Relative</strong> Information that lets you compare factors being considered in relation to another another
 
                                         </label>
-                                        <img className="question-mark-pages"
-                                                    src={QuestionMark}
-                                                    alt="Qusestion Mark"
-                                                    border="0"
-                                                    onClick={() => FourthSetModalShow(true)}
-                                                ></img>
-                                        </div>
                                 </form>
-                            </td>
-                        </tr>
-                    </tbody>
-				</table>
-			</div>
+            </section>
 
 			<div id="button-same-line">
 				<Link to="/type-of-decision">	<button className="inner" onClick={()=>setStep(stepNumber-1)}>BACK</button></Link>
