@@ -8,7 +8,6 @@ import ThirdHandleTooltip from "./ThirdHandleTooltip";
 import FourthHandleTooltip from "./FourthHandleTooltip";
 import QuestionMark from "./images/question-mark.png";
 
-
 const TypeOfInformation = () => {
 
     //FirstHandleTooltip
@@ -31,7 +30,7 @@ const TypeOfInformation = () => {
     const navigate = useNavigate();
 
     //Used to get data to select radio button
-    const { selectedOptionTypeOfInformation,setSelectedOptionTypeOfInformation } = useContext( stepProgressContext );
+    const { selectedOptionTypeOfInformation,setSelectedOptionTypeOfInformation,setStep } = useContext( stepProgressContext );
 
     //When change the option from radio button
   const handleOptionChange = (event) => {
@@ -47,8 +46,14 @@ const TypeOfInformation = () => {
       setShow(true);
     } else {
         navigate("/amount-of-information"); //Go to page and pass data
+        setStep(stepNumber+1);
     }
   };
+
+// Progress Bar Step Number
+  const stepNumber=7;
+
+
 
     return (
 		<div className="container">
@@ -104,7 +109,8 @@ const TypeOfInformation = () => {
                                 </Alert>
                                 )}
                                 <p>What type of information will we have?</p>
-                                <form className="radio-btn-section">
+                                <form className="radio-btn-section container-radio-btn">
+                                        <div className="flex-row-radio-btn">
                                         <label>
                                             <input
                                                 type="radio"
@@ -122,14 +128,16 @@ const TypeOfInformation = () => {
                                                     border="0"
                                                     onClick={() => ThirdSetModalShow(true)}
                                                 ></img>
+                                         </div>
+                                         <div className="flex-row-radio-btn">
                                         <label>
-                                            <input
+                                           <input
                                                 type="radio"
                                                 name="option"
                                                 value="relative"
                                                 checked={selectedOptionTypeOfInformation === "relative"}
                                                 onChange={handleOptionChange}
-                                                className="radio-input high-rdb"
+                                                className="radio-input control-high-space-radio-btn"
                                             />
                                             Relative
 
@@ -140,6 +148,7 @@ const TypeOfInformation = () => {
                                                     border="0"
                                                     onClick={() => FourthSetModalShow(true)}
                                                 ></img>
+                                        </div>
                                 </form>
                             </td>
                         </tr>
@@ -148,7 +157,7 @@ const TypeOfInformation = () => {
 			</div>
 
 			<div id="button-same-line">
-				<Link to="/type-of-decision">	<button className="inner">BACK</button></Link>
+				<Link to="/type-of-decision">	<button className="inner" onClick={()=>setStep(stepNumber-1)}>BACK</button></Link>
 				<button className="inner" onClick={handleButtonClick}>NEXT</button>
 			</div>
 		</div>

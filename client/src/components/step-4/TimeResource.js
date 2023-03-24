@@ -6,11 +6,15 @@ import HandleTooltip from "./HandleTooltip";
 
 const TimeResource = () => {
 
+	// progress bar step number
+	const stepNumber=5;
+
+
   const [modalShow, setModalShow] = React.useState(false);
 
   //Used for get data to analyze the advice
   const { selectedOption, setSelectedOption } = useContext( stepProgressContext );
-  const { selectedOptionCapacity, setSelectedOptionCapacity } = useContext( stepProgressContext );
+  const { selectedOptionCapacity, setSelectedOptionCapacity,setStep ,currentStep } = useContext( stepProgressContext );
 
   //Used for pass value inside the table
   const[titleAdvice, setTitleAdvice] = useState();
@@ -37,6 +41,7 @@ const TimeResource = () => {
 useEffect(() => {
     checkAdvice();
   }, [selectedOption, selectedOptionCapacity]);
+
 
   return (
 		<div className="container">
@@ -74,8 +79,8 @@ useEffect(() => {
 			</div>
 
 			<div id="button-same-line">
-				<Link to="/Capacity">	<button className="inner">BACK</button></Link>
-				<Link to="/type-of-decision"><button className="inner">NEXT</button></Link>
+				<Link to="/Capacity">	<button className="inner" onClick={()=>setStep(stepNumber-1)}>BACK</button></Link>
+				<Link to="/type-of-decision"><button className="inner" onClick={()=>setStep(stepNumber+1)}>NEXT</button></Link>
 			</div>
 		</div>
 	);

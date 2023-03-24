@@ -4,9 +4,9 @@ export default function Step(props) {
   return (
     <div className={"stepBlock" + (props.selected? " selected": "")}>
     <div className={"circleWrapper" } >
-        <div className={"circle"}>{props.index+1}</div>
+        <div className={"circle"}>{props.label}</div>
+        <span>{props.currentStep}</span>
     </div>
-    <span>{props.label}</span>
     </div>
   );
 }

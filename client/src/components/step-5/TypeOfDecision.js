@@ -15,17 +15,24 @@ const TypeOfDecision = () => {
     const [modalShow, setModalShow] = useState(false);
 
     //state for selecting radio btn
-    const { selectedOptionDecision, setSelectedOptionDecision } = useContext(stepProgressContext);
+    const { selectedOptionDecision, setSelectedOptionDecision,setStep } = useContext(stepProgressContext);
 
     //state for error handling
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     //Local storage for storing RB value
     const navigate = useNavigate();
+
+      // Progress Bar Step Number
+
+      const stepNumber=6;
+
     //click back btn handler
     const handleBackClick = () => {
         setIsStarted(true);
+        setStep(stepNumber-1);
         navigate("/time-resource");
+
     };
 
     //click next btn handler
@@ -35,6 +42,7 @@ const TypeOfDecision = () => {
 
         } else {
             setIsStarted(true);
+            setStep(stepNumber+1);
             navigate("/type-of-information");
         }
     };
@@ -43,6 +51,7 @@ const TypeOfDecision = () => {
     const handleOptionChange = (event) => {
         setSelectedOptionDecision(event.target.value);
     };
+
 
     return (
         <div className="container">
