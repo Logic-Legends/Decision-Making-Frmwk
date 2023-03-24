@@ -53,7 +53,8 @@ const TypeOfInformation = () => {
 
   //Check if any button was choosen
   const handleButtonClick = () => {
-    if (selectedOptionAmountOfInformation === "") {
+
+    if (selectedOptionAmountOfInformation === null) {
       // show the error message when field is empty
       setError("Please select a response.");
       setShow(true);
