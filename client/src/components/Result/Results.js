@@ -1,5 +1,6 @@
 import React from "react";
-
+import Pdf from "../pdf-generation/Pdf";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 
 const Results=()=>{
 return (
@@ -55,6 +56,11 @@ return (
 		<div className="button-same-line">
 			<button className="inner pdf-btn">Genetate PDF</button>
 		</div>
+		<PDFDownloadLink document={<Pdf />} fileName="decision.pdf">
+			{({ loading }) =>
+				loading ? "Loading document..." : "Download as a PDF!"
+			}
+		</PDFDownloadLink>
 	</div>
 );
 };
