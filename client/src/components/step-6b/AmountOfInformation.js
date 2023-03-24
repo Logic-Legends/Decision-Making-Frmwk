@@ -1,5 +1,8 @@
-import React,{ useState } from "react";
-import { Link,useNavigate,useLocation } from "react-router-dom";
+// import React,{ useState } from "react";
+import React, { useState,useContext } from "react";
+import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
+
+import { Link,useNavigate } from "react-router-dom";
 import { Alert } from "react-bootstrap";
 import FirstHandleTooltip from "./FirstHandleTooltip";
 import SecondHandleTooltip from "./SecondHandleTooltip";
@@ -10,17 +13,8 @@ import QuestionMark from "./images/question-mark.png";
 
 const TypeOfInformation = () => {
 
-    //Get data from another page
-    const location = useLocation();
-    const dataStep1 = location.state?.GoalData;
-    const dataStep2 = location.state?.TeamData;
-    const dataStep3a = location.state?.ImportanceData;
-    const dataStep3b = location.state?.CapacityData;
-    const dataStep4 = location.state?.TimeAndResourcelData;
-    const dataStep5 = location.state?.TypeOfDecisionData;
-    const dataStep6a = location.state?.TypeOfInformationData;
-    const dataStep6b = location.state?.AmountOfInformationData;
-    const dataStep7 = location.state?.VotingMethodsData;
+    //Used to get data to select radio button
+    const { selectedOptionAmountOfInformation,setSelectedOptionAmountOfInformation } = useContext( stepProgressContext );
 
     //FirstHandleTooltip
     const [FirstModalShow, FirstSetModalShow] = React.useState(false);
@@ -49,23 +43,24 @@ const TypeOfInformation = () => {
 
 
     //Used to check the value of radio button
-    const [selectedOption, setSelectedOption] = useState("");
+    // const [selectedOption, setSelectedOption] = useState("");
 
 
     //When change the option from radio button
   const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
+    setSelectedOptionAmountOfInformation(event.target.value);
   };
 
   //Check if any button was choosen
   const handleButtonClick = () => {
+
     if (selectedOptionAmountOfInformation === null) {
-			// show the error message when field is empty
-			setError("Please select a response.");
-			setShow(true);
-		} else {
-			navigate("/voting-method", { state: { selectedOption } }); //Go to page and pass data
-		}
+      // show the error message when field is empty
+      setError("Please select a response.");
+      setShow(true);
+    } else {
+        navigate("/voting-method"); //Go to page and pass data
+    }
   };
 
     return (
@@ -133,7 +128,7 @@ const TypeOfInformation = () => {
                                                 type="radio"
                                                 name="option"
                                                 value="high"
-                                                checked={selectedOption === "high"}
+                                                checked={selectedOptionAmountOfInformation === "high"}
                                                 onChange={handleOptionChange}
                                                 className="radio-input low-rdb"
                                             />
@@ -150,7 +145,7 @@ const TypeOfInformation = () => {
                                                 type="radio"
                                                 name="option"
                                                 value="medium"
-                                                checked={selectedOption === "medium"}
+                                                checked={selectedOptionAmountOfInformation === "medium"}
                                                 onChange={handleOptionChange}
                                                 className="radio-input high-rdb"
                                             />
@@ -168,7 +163,7 @@ const TypeOfInformation = () => {
                                                 type="radio"
                                                 name="option"
                                                 value="low"
-                                                checked={selectedOption === "low"}
+                                                checked={selectedOptionAmountOfInformation === "low"}
                                                 onChange={handleOptionChange}
                                                 className="radio-input high-rdb"
                                             />
@@ -189,7 +184,7 @@ const TypeOfInformation = () => {
 			</div>
 
 			<div id="button-same-line">
-				<Link to="/type-of-information" state= {{ TypeOfInformationData:dataStep6a }}>	<button className="inner">BACK</button></Link>
+				<Link to="/type-of-information">	<button className="inner">BACK</button></Link>
 				<button className="inner" onClick={handleButtonClick}>NEXT</button>
 			</div>
 		</div>

@@ -6,6 +6,9 @@ export const stepProgressContext=React.createContext();
 function ProgressBarContext(){
 	const [currentStep, setCurrentStep] = useState(1);
 	const [enteredData, setEnteredData] = useState([]);
+	const [defineGoalText,setDefineGoalText] = useState("");//Step1
+  	const [selectedOptionTypeOfInformation,setSelectedOptionTypeOfInformation] = useState( null );//Step6a
+	const [selectedOptionAmountOfInformation,setSelectedOptionAmountOfInformation] = useState( null );//Step6b
 	const labelArray = [
 		"Step 1",
 		"Step 2",
@@ -18,7 +21,7 @@ function ProgressBarContext(){
 	const [users, setUsers] = useState([]);
     const [selectedOption, setSelectedOption] = useState(null);
     const[selectedOptionCapacity, setSelectedOptionCapacity]=useState(null);
-
+	const [selectedOptionDecision, setSelectedOptionDecision] = useState(null);
 	function setStep(step) {
 		setCurrentStep(step);
 	}
@@ -27,6 +30,12 @@ function ProgressBarContext(){
 		<>
 			<stepProgressContext.Provider
 				value={{
+					defineGoalText,
+					setDefineGoalText,
+        			selectedOptionTypeOfInformation,
+					setSelectedOptionTypeOfInformation,
+					selectedOptionAmountOfInformation,
+					setSelectedOptionAmountOfInformation,
 					currentStep,
 					setCurrentStep,
 					enteredData,
@@ -39,6 +48,8 @@ function ProgressBarContext(){
 					setSelectedOption,
 					selectedOptionCapacity,
 					setSelectedOptionCapacity,
+					selectedOptionDecision,
+					setSelectedOptionDecision,
 				}}
 			>
 				<App />
