@@ -70,6 +70,7 @@ const DefineGoal = () => {
               id="message"
               type="text"
               name="message"
+              placeholder="Enter goal"
               value={defineGoalText}
               onChange={handleChange}
               maxLength ="500"
