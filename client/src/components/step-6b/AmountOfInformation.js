@@ -10,6 +10,7 @@ import ThirdHandleTooltip from "./ThirdHandleTooltip";
 import FourthHandleTooltip from "./FourthHandleTooltip";
 import FifthHandleTooltip from "./FifthHandleTooltip";
 import QuestionMark from "./images/question-mark.png";
+import "./AmountOfInformation.css";
 
 const TypeOfInformation = () => {
 
@@ -122,7 +123,8 @@ const TypeOfInformation = () => {
                                 </Alert>
                                 )}
                                 <p>How much information will we have?</p>
-                                <form className="radio-btn-section">
+                                <form className="radio-btn-section flex-row">
+                                <div>
                                         <label>
                                             <input
                                                 type="radio"
@@ -140,6 +142,8 @@ const TypeOfInformation = () => {
                                                     border="0"
                                                     onClick={() => ThirdSetModalShow(true)}
                                                 ></img>
+                                                </div>
+                                                <div>
                                         <label>
                                             <input
                                                 type="radio"
@@ -158,6 +162,8 @@ const TypeOfInformation = () => {
                                                     border="0"
                                                     onClick={() => FourthSetModalShow(true)}
                                                 ></img>
+                                                </div>
+                                                <div>
                                         <label>
                                             <input
                                                 type="radio"
@@ -176,6 +182,7 @@ const TypeOfInformation = () => {
                                                     border="0"
                                                     onClick={() => FifthSetModalShow(true)}
                                                 ></img>
+                                                </div>
                                 </form>
                             </td>
                         </tr>

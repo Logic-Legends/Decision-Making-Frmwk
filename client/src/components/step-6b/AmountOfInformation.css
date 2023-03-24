@@ -1,0 +1,19 @@
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  @media (max-width: 427px) {
+    .flex-row {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+
+    }
+    .high-rdb {
+      margin-right: 7px;
+      margin-left: 10px;
+    }
+  }
+  
