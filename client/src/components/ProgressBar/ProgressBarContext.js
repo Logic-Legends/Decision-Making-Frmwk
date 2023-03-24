@@ -6,6 +6,7 @@ export const stepProgressContext=React.createContext();
 function ProgressBarContext(){
 	const [currentStep, setCurrentStep] = useState(1);
 	const [enteredData, setEnteredData] = useState([]);
+  const [data,setData] = useState( null );//Luan
 	const labelArray = [
 		"Step 1",
 		"Step 2",
@@ -27,6 +28,8 @@ function ProgressBarContext(){
 		<>
 			<stepProgressContext.Provider
 				value={{
+        data, 
+        setData,
 					currentStep,
 					setCurrentStep,
 					enteredData,

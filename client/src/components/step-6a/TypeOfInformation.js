@@ -1,5 +1,9 @@
-import React,{ useState } from "react";
-import { Link,useNavigate,useLocation } from "react-router-dom";
+// import React,{ useState } from "react";
+
+import React, { useState,useContext } from "react";
+import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
+
+import { Link,useNavigate } from "react-router-dom";
 import FirstHandleTooltip from "./FirstHandleTooltip";
 import SecondHandleTooltip from "./SecondHandleTooltip";
 import ThirdHandleTooltip from "./ThirdHandleTooltip";
@@ -9,27 +13,32 @@ import { Alert } from "react-bootstrap";
 
 const TypeOfInformation = () => {
 
-    //Get data from another page
-    const location = useLocation();
-    const dataStep1 = location.state?.GoalData;
-    const dataStep2 = location.state?.TeamData;
-    const dataStep3a = location.state?.ImportanceData;
-    const dataStep3b = location.state?.CapacityData;
-    const dataStep4 = location.state?.TimeAndResourcelData;
-    const dataStep5 = location.state?.TypeOfDecisionData;
-    const dataStep6a = location.state?.TypeOfInformationData;
-    const dataStep6b = location.state?.AmountOfInformationData;
-    const dataStep7 = location.state?.VotingMethodsData;
+    //const { TypeOfInformation, setTypeOfInformation, users,setUsers,currentStep,labelArray,setStep }=useContext(stepProgressContext);
 
-    console.log(dataStep1);
-    console.log(dataStep2);
-    console.log(dataStep3a);
-    console.log(dataStep3b);
-    console.log(dataStep4);
-    console.log(dataStep5);
-    console.log(dataStep6a);
-    console.log(dataStep6b);
-    console.log(dataStep7);
+    //Get data from another page
+    // const location = useLocation();
+    // const dataStep1 = location.state?.GoalData;
+    // const dataStep2 = location.state?.TeamData;
+    // const dataStep3a = location.state?.ImportanceData;
+    // const dataStep3b = location.state?.CapacityData;
+    // const dataStep4 = location.state?.TimeAndResourcelData;
+    // const dataStep5 = location.state?.TypeOfDecisionData;
+    // const dataStep6a = location.state?.TypeOfInformationData;
+    // const dataStep6b = location.state?.AmountOfInformationData;
+    // const dataStep7 = location.state?.VotingMethodsData;
+
+    // console.log(dataStep1);
+    // console.log(dataStep2);
+    // console.log(dataStep3a);
+    // console.log(dataStep3b);
+    // console.log(dataStep4);
+    // console.log(dataStep5);
+    // console.log(dataStep6a);
+    // console.log(dataStep6b);
+    // console.log(dataStep7);
+
+    // console.log({ TypeOfInformation });
+    // console.log({ setTypeOfInformation });
 
     //FirstHandleTooltip
     const [FirstModalShow, FirstSetModalShow] = React.useState(false);
@@ -54,9 +63,8 @@ const TypeOfInformation = () => {
 
 
 
-    //Used to get data
-    const [data, setData] = useState(dataStep6a);
-
+    //Used to get data to select radio button
+    const { data,setData } = useContext( stepProgressContext );
 
     //When change the option from radio button
   const handleOptionChange = (event) => {
@@ -70,9 +78,11 @@ const TypeOfInformation = () => {
       setError("Please select a response.");
       setShow(true);
     } else {
-        navigate("/amount-of-information", { state: { TypeOfInformationData:data } }); //Go to page and pass data
+        navigate("/amount-of-information"); //Go to page and pass data
     }
   };
+
+  console.log(TypeOfInformation);
 
     return (
 		<div className="container">
@@ -172,7 +182,7 @@ const TypeOfInformation = () => {
 			</div>
 
 			<div id="button-same-line">
-				<Link to="/type-of-decision" state= {{ capacitySelection: "teste" }}>	<button className="inner">BACK</button></Link>
+				<Link to="/type-of-decision">	<button className="inner">BACK</button></Link>
 				<button className="inner" onClick={handleButtonClick}>NEXT</button>
 			</div>
 		</div>
