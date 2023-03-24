@@ -1,14 +1,16 @@
 import React, { useState,useContext } from "react";
+import { Alert } from "react-bootstrap";
+import { Link,useNavigate } from "react-router-dom";
+import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 import QuestionMark from "./images/question-mark.png";
 import HandleTooltip from "./HandleTooltip";
-import { Link,useNavigate } from "react-router-dom";
-import { Alert } from "react-bootstrap";
-import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
+
 
 const DefineGoal = () => {
 
-const stepNumber=1;
-const { labelArray,setStep }=useContext(stepProgressContext);
+  //Used for progress bar
+  const stepNumber=1;
+  const { labelArray,setStep }=useContext(stepProgressContext);
 
 
   //Go to webpage
@@ -17,21 +19,22 @@ const { labelArray,setStep }=useContext(stepProgressContext);
   //Used for message error
   const [error, setError] = useState("");
   const [show, setShow] = useState(true);
-  const [message, setMessage] = useState("");
 
   //Used for Popup
   const [modalShow, setModalShow] = React.useState(false);
 
+  //Used for get data and fill input
+  const { defineGoalText,setDefineGoalText } = useContext( stepProgressContext );
+
   const handleChange = (event) => {
-    setMessage(event.target.value);
+    setDefineGoalText(event.target.value);
   };
 
   const handleClick = (event) => {
     event.preventDefault();
 
-    if (message.trim().length !== 0) {
-      // window.location.href = "/decision-makers";
-      setStep(stepNumber+1);
+    if (defineGoalText.trim().length !== 0) {
+      setStep(stepNumber+1); //Used for progress bar
       navigate("/decision-makers");
     } else {
       // show the error message when field is empty
@@ -44,7 +47,6 @@ const { labelArray,setStep }=useContext(stepProgressContext);
 
   <div className="container">
 
-      {/* Call popup function - tooltip*/}
       <HandleTooltip
         show={modalShow}
         onHide={() => setModalShow(false)}
@@ -53,7 +55,7 @@ const { labelArray,setStep }=useContext(stepProgressContext);
         <h1>What is the goal?</h1>
         <div className="border-decision-framework-pages">
 
-          {/* Show message em field is empty*/}
+          {/* Show message when field is empty*/}
         {show && error && (
         <Alert variant="danger" onClose={() => setShow(false)} dismissible>
           {error}
@@ -68,6 +70,7 @@ const { labelArray,setStep }=useContext(stepProgressContext);
               id="message"
               type="text"
               name="message"
+              value={defineGoalText}
               onChange={handleChange}
               maxLength ="500"
               required
@@ -76,7 +79,7 @@ const { labelArray,setStep }=useContext(stepProgressContext);
         </div>
           <div id="button-same-line">
 				  <Link to="/">	<button className="inner">BACK</button></Link>
-				  <button className="inner" onClick={handleClick} >NEXT</button>
+				  <button className="inner" onClick={handleClick} type="submit" >NEXT</button>
       </div>
     </div>
   );
