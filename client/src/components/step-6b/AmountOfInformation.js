@@ -15,7 +15,7 @@ import "./AmountOfInformation.css";
 const TypeOfInformation = () => {
 
     //Used to get data to select radio button
-    const { selectedOptionAmountOfInformation,setSelectedOptionAmountOfInformation } = useContext( stepProgressContext );
+    const { selectedOptionAmountOfInformation,setSelectedOptionAmountOfInformation,setStep } = useContext( stepProgressContext );
 
     //FirstHandleTooltip
     const [FirstModalShow, FirstSetModalShow] = React.useState(false);
@@ -60,9 +60,14 @@ const TypeOfInformation = () => {
       setError("Please select a response.");
       setShow(true);
     } else {
+        setStep(stepNumber+1);
         navigate("/Results"); //Go to page and pass data
     }
   };
+
+
+  // Progress Bar Step Number
+  const stepNumber=8;
 
     return (
 		<div className="container">
@@ -191,7 +196,7 @@ const TypeOfInformation = () => {
 			</div>
 
 			<div id="button-same-line">
-				<Link to="/type-of-information">	<button className="inner">BACK</button></Link>
+				<Link to="/type-of-information">	<button className="inner" onClick={()=>setStep(stepNumber-1)}>BACK</button></Link>
 				<button className="inner" onClick={handleButtonClick}>NEXT</button>
 			</div>
 		</div>

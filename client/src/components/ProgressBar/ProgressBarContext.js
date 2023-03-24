@@ -10,13 +10,15 @@ function ProgressBarContext(){
   	const [selectedOptionTypeOfInformation,setSelectedOptionTypeOfInformation] = useState( null );//Step6a
 	const [selectedOptionAmountOfInformation,setSelectedOptionAmountOfInformation] = useState( null );//Step6b
 	const labelArray = [
-		"Step 1",
-		"Step 2",
-		"Step 3",
-		"Step 4",
-		"Step 5",
-		"Step 6",
-		"Step 7",
+		"1",
+		"2",
+		"3A",
+		"3B",
+		"4",
+		"5",
+		"6A",
+		"6B",
+		"7",
 	];
 	const [users, setUsers] = useState([]);
     const [selectedOption, setSelectedOption] = useState(null);

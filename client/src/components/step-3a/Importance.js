@@ -9,6 +9,9 @@ import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 
 
 const Importance = () => {
+
+	const stepNumber=3;
+
 	//state for navigation on page by next and back btn
 	const [isStarted, setIsStarted] = useState(false);
 
@@ -19,7 +22,7 @@ const Importance = () => {
 	const [secondModalShow, setsecondModalShow] = useState(false);
 
 	//state for selecting radio btn
-	const { selectedOption, setSelectedOption } = useContext(stepProgressContext);
+	const { selectedOption, setSelectedOption,setStep } = useContext(stepProgressContext);
 
 	//state for error handling
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -32,6 +35,7 @@ const Importance = () => {
 	const handleBackClick = () => {
 		setIsStarted(true);
 		navigate("/decision-makers");
+		setStep(stepNumber-1);
 	};
 
 	//click next btn handler
@@ -41,6 +45,7 @@ const Importance = () => {
 		} else {
 			setIsStarted(true);
 			navigate("/Capacity");
+			setStep(stepNumber+1);
 		}
 	};
 
@@ -49,6 +54,9 @@ const Importance = () => {
 		setSelectedOption(event.target.value);
 
 	};
+
+
+
 
 	return (
 		<div className="container">
