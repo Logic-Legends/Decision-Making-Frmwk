@@ -10,15 +10,16 @@ function HandleTooltip(props) {
         >
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-              <h6>Your goal needs to be SMART:</h6>
+              <h6>What decision are we trying to make?</h6>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <p>Specific</p>
-            <p>Measurable</p>
-            <p>Achievable</p>
-            <p>Realistic</p>
-            <p>Time-based</p>
+            <p><strong>SMART</strong> Goals</p>
+            <p><strong>S</strong>pecific</p>
+            <p><strong>M</strong>easurable</p>
+            <p><strong>A</strong>chievable</p>
+            <p><strong>R</strong>ealistic</p>
+            <p><strong>T</strong>ime-based</p>
           </Modal.Body>
         </Modal>
       );
