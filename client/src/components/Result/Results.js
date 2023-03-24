@@ -54,13 +54,13 @@ return (
 			</table>
 		</div>
 		<div className="button-same-line">
-			<button className="inner pdf-btn">Genetate PDF</button>
+			<button className="inner pdf-btn"><PDFDownloadLink document={<Pdf />} fileName="decision.pdf">
+				{({ loading }) =>
+					loading ? "Loading document..." : "Download as a PDF!"
+				}
+			</PDFDownloadLink></button>
 		</div>
-		<PDFDownloadLink document={<Pdf />} fileName="decision.pdf">
-			{({ loading }) =>
-				loading ? "Loading document..." : "Download as a PDF!"
-			}
-		</PDFDownloadLink>
+
 	</div>
 );
 };
