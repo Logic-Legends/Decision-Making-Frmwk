@@ -5,7 +5,7 @@ import { useState, useContext } from "react";
 import tooltipIcon from "./images/tooltipicon.png";
 import HandleTooltipClick from "./HandleTooltipClick";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
-
+import "./TypeOfDecision.css";
 
 const TypeOfDecision = () => {
     //state for navigation on page by next and back btn
@@ -66,7 +66,7 @@ const TypeOfDecision = () => {
 
                 </p>
                 {/* Radio btn section */}
-                <form className="radio-btn-section d-xs-flex flex-xs-column">
+                <form className="radio-btn-section ">
                     <label>
                         <input
                             type="radio"
@@ -78,14 +78,14 @@ const TypeOfDecision = () => {
                         />
                         Iterative Decision
                     </label>
-                    <label>
+                    <label htmlFor="single">
                         <input
                             type="radio"
                             name="typeOfDecision"
                             value="single"
                             checked={selectedOptionDecision === "single"}
                             onChange={handleOptionChange}
-                            className="radio-input low-rdb"
+                            className="radio-input high-rdb"
                         />
                         Single Decision
                     </label>
