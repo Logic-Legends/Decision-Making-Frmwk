@@ -2,6 +2,7 @@
 
 .circle{
     font-size:.95em;
+    font-weight: bold;
     width:29px;
     height: 29px;
     line-height: 25px;
@@ -31,12 +32,29 @@
     position: relative;
     text-align: center;
 }
-
+/* 
 .selected .circle{
     color:black;
     background: white;
     border-color:#36949D;
+} */
+
+
+.selected .circle{
+  /* color:#055c64; */
+ color:#36949D;
+  background: white;
+  border-color:#36949D;
 }
+
+.grayed .circle{
+  /* color:#055c64; */
+  color:#36949D;
+  background:#D4D4D4;
+  border-color:#36949D;
+}
+
+
 
 .stepBlock:not(:last-child) > .circleWrapper::after {
     content: '';
