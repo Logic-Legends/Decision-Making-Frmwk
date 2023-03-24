@@ -11,19 +11,9 @@ const styles = StyleSheet.create({
         margin: 10,
         padding: 10,
     },
-    body: {
-        paddingTop: 35,
-        paddingBottom: 65,
-        paddingHorizontal: 35,
-    },
-    title: {
+    header: {
         fontSize: 24,
         textAlign: "center",
-    },
-    author: {
-        fontSize: 12,
-        textAlign: "center",
-        marginBottom: 40,
     },
     subtitle: {
         fontSize: 18,
@@ -36,15 +26,36 @@ const styles = StyleSheet.create({
         textAlign: "justify",
         fontFamily: "Times-Roman",
     },
-    image: {
-        marginVertical: 15,
-        marginHorizontal: 100,
+
+    table: {
+        display: "table",
+        width: "auto",
+        borderStyle: "solid",
+        borderWidth: 1,
+        borderRightWidth: 1,
+        borderBottomWidth: 1,
     },
-    header: {
-        fontSize: 12,
-        marginBottom: 20,
-        textAlign: "center",
-        color: "grey",
+    tableRow: {
+        margin: "auto",
+        flexDirection: "row",
+    },
+    tableCol1: {
+        width: "20%",
+        borderStyle: "solid",
+        borderWidth: 1,
+        borderLeftWidth: 1,
+        borderTopWidth: 1,
+    },
+    tableCol2: {
+        width: "65%",
+        borderStyle: "solid",
+        borderWidth: 1,
+        borderLeftWidth: 1,
+        borderTopWidth: 1,
+    },
+    tableCell: {
+        margin: "auto",
+        fontSize: 10,
     },
     pageNumber: {
         position: "absolute",
@@ -55,20 +66,103 @@ const styles = StyleSheet.create({
         textAlign: "center",
         color: "grey",
     },
+    tableTopic: {
+        margin: "auto",
+        fontSize: 12,
+        fontStyle: "bold",
+    },
 });
 
 export default function Pdf() {
-  return (
-      <Document style={styles.body }>
-          <Page  style={styles.page}>
+    return (
+        <Document>
+            <Page style={styles.page}>
+                <Text style={styles.header} fixed>
+                    Your responses are below.
+                </Text>
+                <div style={styles.body}>
+                    <View style={styles.table}>
+                        <View style={styles.tableRow}>
+                            <View style={styles.tableCol1}>
+                                <Text style={styles.tableTopic}>Voting Method</Text>
+                            </View>
+                            <View style={styles.tableCol2}>
+                                <Text style={styles.tableTopic}>Value</Text>
+                            </View>
+                        </View>
+                        <View style={styles.tableRow}>
+                            <View style={styles.tableCol1}>
+                                <Text style={styles.tableCell}>What</Text>
+                            </View>
+                            <View style={styles.tableCol2}>
+                                <Text style={styles.tableCell}>3 User </Text>
+                            </View>
+                        </View>
+                        <View style={styles.tableRow}>
+                            <View style={styles.tableCol1}>
+                                <Text style={styles.tableCell}>Who</Text>
+                            </View>
+                            <View style={styles.tableCol2}>
+                                <Text style={styles.tableCell}>Type</Text>
+                            </View>
+                        </View>
+                        <View style={styles.tableRow}>
+                            <View style={styles.tableCol1}>
+                                <Text style={styles.tableCell}>Importance</Text>
+                            </View>
+                            <View style={styles.tableCol2}>
+                                <Text style={styles.tableCell}>3 User </Text>
+                            </View>
+                        </View>
+                        <View style={styles.tableRow}>
+                            <View style={styles.tableCol1}>
+                                <Text style={styles.tableCell}>Capacity</Text>
+                            </View>
+                            <View style={styles.tableCol2}>
+                                <Text style={styles.tableCell}>Type</Text>
+                            </View>
+                        </View>
+                        <View style={styles.tableRow}>
+                            <View style={styles.tableCol1}>
+                                <Text style={styles.tableCell}>Time and Resource</Text>
+                            </View>
+                            <View style={styles.tableCol2}>
+                                <Text style={styles.tableCell}>3 User </Text>
+                            </View>
+                        </View>
+                        <View style={styles.tableRow}>
+                            <View style={styles.tableCol1}>
+                                <Text style={styles.tableCell}>Type of Decision</Text>
+                            </View>
+                            <View style={styles.tableCol2}>
+                                <Text style={styles.tableCell}>Type</Text>
+                            </View>
+                        </View>
+                        <View style={styles.tableRow}>
+                            <View style={styles.tableCol1}>
+                                <Text style={styles.tableCell}>Type of Information</Text>
+                            </View>
+                            <View style={styles.tableCol2}>
+                                <Text style={styles.tableCell}>3 User </Text>
+                            </View>
+                        </View>
+                        <View style={styles.tableRow}>
+                            <View style={styles.tableCol1}>
+                                <Text style={styles.tableCell}>Amount of Information</Text>
+                            </View>
+                            <View style={styles.tableCol2}>
+                                <Text style={styles.tableCell}>3 User </Text>
+                            </View>
+                        </View>
+                    </View>
+                </div>
+                <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
+                    `${pageNumber} / ${totalPages}`
+                )} fixed />
+            </Page>
 
- <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
-              `${pageNumber} / ${totalPages}`
-              )} fixed />
-          </Page>
-
-      </Document>
-  );
+        </Document>
+    );
 }
 
 
