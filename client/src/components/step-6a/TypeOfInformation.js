@@ -1,44 +1,15 @@
-// import React,{ useState } from "react";
-
 import React, { useState,useContext } from "react";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
-
 import { Link,useNavigate } from "react-router-dom";
+import { Alert } from "react-bootstrap";
 import FirstHandleTooltip from "./FirstHandleTooltip";
 import SecondHandleTooltip from "./SecondHandleTooltip";
 import ThirdHandleTooltip from "./ThirdHandleTooltip";
 import FourthHandleTooltip from "./FourthHandleTooltip";
 import QuestionMark from "./images/question-mark.png";
-import { Alert } from "react-bootstrap";
+
 
 const TypeOfInformation = () => {
-
-    //const { TypeOfInformation, setTypeOfInformation, users,setUsers,currentStep,labelArray,setStep }=useContext(stepProgressContext);
-
-    //Get data from another page
-    // const location = useLocation();
-    // const dataStep1 = location.state?.GoalData;
-    // const dataStep2 = location.state?.TeamData;
-    // const dataStep3a = location.state?.ImportanceData;
-    // const dataStep3b = location.state?.CapacityData;
-    // const dataStep4 = location.state?.TimeAndResourcelData;
-    // const dataStep5 = location.state?.TypeOfDecisionData;
-    // const dataStep6a = location.state?.TypeOfInformationData;
-    // const dataStep6b = location.state?.AmountOfInformationData;
-    // const dataStep7 = location.state?.VotingMethodsData;
-
-    // console.log(dataStep1);
-    // console.log(dataStep2);
-    // console.log(dataStep3a);
-    // console.log(dataStep3b);
-    // console.log(dataStep4);
-    // console.log(dataStep5);
-    // console.log(dataStep6a);
-    // console.log(dataStep6b);
-    // console.log(dataStep7);
-
-    // console.log({ TypeOfInformation });
-    // console.log({ setTypeOfInformation });
 
     //FirstHandleTooltip
     const [FirstModalShow, FirstSetModalShow] = React.useState(false);
@@ -52,8 +23,6 @@ const TypeOfInformation = () => {
     //FourthHandleTooltip
     const [FourthModalShow, FourthSetModalShow] = React.useState(false);
 
-
-
     //Used for message error
     const [error, setError] = useState("");
     const [show, setShow] = useState(true);
@@ -61,19 +30,18 @@ const TypeOfInformation = () => {
     //Go to another page function
     const navigate = useNavigate();
 
-
-
     //Used to get data to select radio button
-    const { data,setData } = useContext( stepProgressContext );
+    const { selectedOptionTypeOfInformation,setSelectedOptionTypeOfInformation } = useContext( stepProgressContext );
 
     //When change the option from radio button
   const handleOptionChange = (event) => {
-    setData(event.target.value);
+    setSelectedOptionTypeOfInformation(event.target.value);
   };
 
   //Check if any button was choosen
   const handleButtonClick = () => {
-    if (data === undefined) {
+
+    if (selectedOptionTypeOfInformation === null) {
       // show the error message when field is empty
       setError("Please select a response.");
       setShow(true);
@@ -81,8 +49,6 @@ const TypeOfInformation = () => {
         navigate("/amount-of-information"); //Go to page and pass data
     }
   };
-
-  console.log(TypeOfInformation);
 
     return (
 		<div className="container">
@@ -131,7 +97,7 @@ const TypeOfInformation = () => {
                         </tr>
                         <tr>
                             <td>
-                                {/* Show message em field is empty*/}
+                                {/* Show message when field is empty*/}
                                 {show && error && (
                                 <Alert variant="danger" onClose={() => setShow(false)} dismissible>
                                 {error}
@@ -144,7 +110,7 @@ const TypeOfInformation = () => {
                                                 type="radio"
                                                 name="option"
                                                 value="explicit"
-                                                checked={data === "explicit"}
+                                                checked={selectedOptionTypeOfInformation === "explicit"}
                                                 onChange={handleOptionChange}
                                                 className="radio-input low-rdb"
                                             />
@@ -161,7 +127,7 @@ const TypeOfInformation = () => {
                                                 type="radio"
                                                 name="option"
                                                 value="relative"
-                                                checked={data === "relative"}
+                                                checked={selectedOptionTypeOfInformation === "relative"}
                                                 onChange={handleOptionChange}
                                                 className="radio-input high-rdb"
                                             />
