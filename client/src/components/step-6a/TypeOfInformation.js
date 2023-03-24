@@ -8,7 +8,6 @@ import ThirdHandleTooltip from "./ThirdHandleTooltip";
 import FourthHandleTooltip from "./FourthHandleTooltip";
 import QuestionMark from "./images/question-mark.png";
 
-
 const TypeOfInformation = () => {
 
     //FirstHandleTooltip
@@ -110,7 +109,8 @@ const TypeOfInformation = () => {
                                 </Alert>
                                 )}
                                 <p>What type of information will we have?</p>
-                                <form className="radio-btn-section">
+                                <form className="radio-btn-section container-radio-btn">
+                                        <div className="flex-row-radio-btn">
                                         <label>
                                             <input
                                                 type="radio"
@@ -128,14 +128,16 @@ const TypeOfInformation = () => {
                                                     border="0"
                                                     onClick={() => ThirdSetModalShow(true)}
                                                 ></img>
+                                         </div>
+                                         <div className="flex-row-radio-btn">
                                         <label>
-                                            <input
+                                           <input
                                                 type="radio"
                                                 name="option"
                                                 value="relative"
                                                 checked={selectedOptionTypeOfInformation === "relative"}
                                                 onChange={handleOptionChange}
-                                                className="radio-input high-rdb"
+                                                className="radio-input control-high-space-radio-btn"
                                             />
                                             Relative
 
@@ -146,6 +148,7 @@ const TypeOfInformation = () => {
                                                     border="0"
                                                     onClick={() => FourthSetModalShow(true)}
                                                 ></img>
+                                        </div>
                                 </form>
                             </td>
                         </tr>
