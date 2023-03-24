@@ -79,10 +79,10 @@ const Results=()=>{
 							<td>Capacity</td>
 							<td>{selectedOptionCapacity}</td>
 						</tr>
-						<tr>
+						{/* <tr>
 							<td>Time and Resource</td>
 							<td></td>
-						</tr>
+						</tr> */}
 						<tr>
 							<td>Type of Decision </td>
 							<td>{selectedOptionDecision}</td>

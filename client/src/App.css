@@ -8816,8 +8816,21 @@ table {
 	text-align: center;
 	position: absolute;
 	left :45%;
+	background-color: white;
+}
+
+.vmethod-table-container{
+	/* display: flex;
+	flex-direction: row; */
 	
 }
+
+/* .table-header{
+ 	
+  width: fit-content;
+  padding: 10px;
+  margin: 20px 0 10px 0;
+} */
 /* ------------- */
 
 /*Make responsive*/
