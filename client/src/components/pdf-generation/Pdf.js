@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     header: {
         fontSize: 24,
         textAlign: "center",
+        marginTop: "40px",
     },
     subtitle: {
         fontSize: 18,
@@ -28,6 +29,7 @@ const styles = StyleSheet.create({
     },
 
     table: {
+        marginTop: "30px",
         display: "table",
         width: "auto",
         borderStyle: "solid",
@@ -41,6 +43,7 @@ const styles = StyleSheet.create({
     },
     tableCol1: {
         width: "20%",
+        height:"60px",
         borderStyle: "solid",
         borderWidth: 1,
         borderLeftWidth: 1,
@@ -48,6 +51,7 @@ const styles = StyleSheet.create({
     },
     tableCol2: {
         width: "65%",
+        height: "60px",
         borderStyle: "solid",
         borderWidth: 1,
         borderLeftWidth: 1,
