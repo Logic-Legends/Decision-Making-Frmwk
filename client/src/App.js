@@ -13,6 +13,7 @@ import Results from "./components/Result/Results";
 import ProgressBar  from "./components/ProgressBar/ProgressBar";
 import { stepProgressContext } from "./components/ProgressBar/ProgressBarContext";
 import TypeOfDecision from "./components/step-5/TypeOfDecision";
+import VotingMethod from "./components/step-7/VotingMethod";
 
 
 const App = () => {
@@ -42,6 +43,7 @@ return (
 			<Route path="/amount-of-information" element={<AmountOfInformation />} />
 			<Route path="/Results" element={<Results />} />
 			<Route path="/type-of-decision" element={<TypeOfDecision />} />
+			<Route path="/VotingMethod" element={<VotingMethod/>}/>
 		</Routes>
 		<footer></footer>
 	</div>
