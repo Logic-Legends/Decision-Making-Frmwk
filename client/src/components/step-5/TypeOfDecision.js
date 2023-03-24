@@ -66,7 +66,7 @@ const TypeOfDecision = () => {
 
                 </p>
                 {/* Radio btn section */}
-                <form className="radio-btn-section">
+                <form className="radio-btn-section d-xs-flex flex-xs-column">
                     <label>
                         <input
                             type="radio"
@@ -85,7 +85,7 @@ const TypeOfDecision = () => {
                             value="single"
                             checked={selectedOptionDecision === "single"}
                             onChange={handleOptionChange}
-                            className="radio-input high-rdb"
+                            className="radio-input low-rdb"
                         />
                         Single Decision
                     </label>
