@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Pdf from "../pdf-generation/Pdf";
-import { PDFDownloadLink } from "@react-pdf/renderer";
+
 const Start = () => {
 
   return (
@@ -23,11 +22,7 @@ const Start = () => {
       <Link className="inner" to="/define-goal"><button >Start </button></Link>
           </div>
       <br></br>
-       <PDFDownloadLink document={<Pdf />} fileName="decision.pdf">
-        {({ loading }) =>
-          loading ? "Loading document..." : "Download as a PDF!"
-        }
-      </PDFDownloadLink>
+
     </div>
   );
 };

@@ -107,6 +107,7 @@ const TypeOfDecision = () => {
                         </tbody>
                     </table>
                     :
+                    selectedOptionDecision == "iterative" ?
                     <table>
                         <tbody>
                             <tr className="table-background">
@@ -121,7 +122,10 @@ const TypeOfDecision = () => {
                                 </td>
                             </tr>
                         </tbody>
-                    </table>}
+                    </table>
+                    :
+                    null
+                    }
             </section>
             {/* btn sections */}
             <section id="button-same-line">
