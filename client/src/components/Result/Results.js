@@ -93,7 +93,6 @@ const Results = () => {
 					selectedOption={selectedOption}
 					defineGoalText={defineGoalText}
 				 	users={users}
-
 					/>} fileName="decision.pdf">
 					{({ loading }) =>
 						loading ? <button>Loading document... </button> : <button> Download as a PDF!</button>
