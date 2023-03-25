@@ -19,7 +19,7 @@ const Start = () => {
           <p>We advise you spend up to 30 minutes in using the tool. </p>
       </div>
           <div className="start-btn">
-      <Link className="inner" to="/define-goal"><button >Start </button></Link>
+      <Link className="inner" to="/define-goal"><button >Start</button></Link>
           </div>
       <br></br>
 
