@@ -1,30 +1,23 @@
 import React from "react";
 import Pdf from "../pdf-generation/Pdf";
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import { useContext,useEffect,useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
-
-
-
-const Results=()=>{
+const Results = () => {
 	//context variable
-	    const { defineGoalText, setDefineGoalText } = 	useContext(stepProgressContext);
-		const { users, setUsers } = useContext(stepProgressContext);
-		const { selectedOption, setSelectedOption } =useContext(stepProgressContext);
-		const { selectedOptionCapacity, setSelectedOptionCapacity } = useContext(stepProgressContext);
-		const { selectedOptionDecision, setSelectedOptionDecision } =useContext(stepProgressContext);
-		const {	selectedOptionTypeOfInformation,setSelectedOptionTypeOfInformation} = useContext(stepProgressContext);
-		const {	selectedOptionAmountOfInformation,setSelectedOptionAmountOfInformation} = useContext(stepProgressContext);
-
-		const [localStorageValues, setLocalStorageValues] = useState({});
-
+	const { defineGoalText, setDefineGoalText } = useContext(stepProgressContext);
+	const { users, setUsers } = useContext(stepProgressContext);
+	const { selectedOption, setSelectedOption } = useContext(stepProgressContext);
+	const { selectedOptionCapacity, setSelectedOptionCapacity } = useContext(stepProgressContext);
+	const { selectedOptionDecision, setSelectedOptionDecision } = useContext(stepProgressContext);
+	const { selectedOptionTypeOfInformation, setSelectedOptionTypeOfInformation } = useContext(stepProgressContext);
+	const { selectedOptionAmountOfInformation, setSelectedOptionAmountOfInformation } = useContext(stepProgressContext);
+	const [localStorageValues, setLocalStorageValues] = useState({});
 	// Use useEffect to save context variables to localStorage
 	useEffect(() => {
-		const localStorageData = JSON.parse(localStorage.getItem("decisionData")) ;
+		const localStorageData = JSON.parse(localStorage.getItem("decisionData"));
 		setLocalStorageValues(localStorageData);
 	}, []);
-	
-
 	useEffect(() => {
 		localStorage.setItem(
 			"decisionData",
@@ -39,10 +32,7 @@ const Results=()=>{
 			})
 		);
 	}, [
-		
 	]);
-	
-
 	return (
 		<div className="container">
 			<h1>You have completed the tool. Please check your responses below.</h1>
@@ -57,19 +47,15 @@ const Results=()=>{
 							<th>Voting Method</th>
 							<th>Value from step7</th>
 						</tr>
-
 						<tr>
 							<td>What</td>
 							<td>{defineGoalText}</td>
 						</tr>
 						<tr>
-							
 							<td>Who</td>
-							{users.map((user)=>(
+							{users.map((user) => (
 								<td>{user.name}</td>
 							))}
-								
-														
 						</tr>
 						<tr>
 							<td>Importance</td>
@@ -98,18 +84,14 @@ const Results=()=>{
 					</tbody>
 				</table>
 			</div>
-			<div className="button-same-line">
-				<button className="inner pdf-btn">
-					<PDFDownloadLink document={<Pdf />} fileName="decision.pdf">
-						{({ loading }) =>
-							loading ? "Loading document..." : "Download as a PDF!"
-						}
-					</PDFDownloadLink>
-				</button>
+			<div className="start-btn">
+				<PDFDownloadLink className="inner" document={<Pdf />} fileName="decision.pdf">
+					{({ loading }) =>
+						loading ? <button>Loading document... </button> : <button> Download as a PDF!</button>
+					}
+				</PDFDownloadLink>
 			</div>
 		</div>
 	);
 };
-
-
 export default Results;
