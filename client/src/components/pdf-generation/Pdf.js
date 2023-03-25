@@ -1,5 +1,6 @@
 import React from "react";
 import { Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+
 const styles = StyleSheet.create({
     page: {
         backgroundColor: "#E4E4E4",
@@ -75,7 +76,14 @@ const styles = StyleSheet.create({
     },
 });
 
-export default function Pdf() {
+export default function Pdf(props) {
+    const { selectedOptionAmountOfInformation } = props;
+    const { selectedOption } = props;
+    const { selectedOptionTypeOfInformation } = props;
+    const { selectedOptionDecision }= props;
+    const { selectedOptionCapacity }= props;
+    const { defineGoalText } = props;
+    const { users } = props;
     return (
         <div>
             <Page style={styles.page}>
@@ -97,7 +105,7 @@ export default function Pdf() {
                                 <Text style={styles.tableCell}>What</Text>
                             </View>
                             <View style={styles.tableCol2}>
-                                <Text style={styles.tableCell}>Define code</Text>
+                                <Text style={styles.tableCell}>{defineGoalText}</Text>
                             </View>
                         </View>
                         <View style={styles.tableRow}>
@@ -105,7 +113,8 @@ export default function Pdf() {
                                 <Text style={styles.tableCell}>Who</Text>
                             </View>
                             <View style={styles.tableCol2}>
-                                <Text style={styles.tableCell}>Type</Text>
+                                {users.map((user) => (
+                                    <Text style={styles.tableCell}> {user.name} </Text>))}
                             </View>
                         </View>
                         <View style={styles.tableRow}>
@@ -113,7 +122,7 @@ export default function Pdf() {
                                 <Text style={styles.tableCell}>Importance</Text>
                             </View>
                             <View style={styles.tableCol2}>
-                                <Text style={styles.tableCell}>selectedOption</Text>
+                                <Text style={styles.tableCell}>{selectedOption}</Text>
                             </View>
                         </View>
                         <View style={styles.tableRow}>
@@ -121,7 +130,7 @@ export default function Pdf() {
                                 <Text style={styles.tableCell}>Capacity</Text>
                             </View>
                             <View style={styles.tableCol2}>
-                                <Text style={styles.tableCell}>Type</Text>
+                                <Text style={styles.tableCell}>{selectedOptionCapacity}</Text>
                             </View>
                         </View>
                         <View style={styles.tableRow}>
@@ -129,7 +138,7 @@ export default function Pdf() {
                                 <Text style={styles.tableCell}>Time and Resource</Text>
                             </View>
                             <View style={styles.tableCol2}>
-                                <Text style={styles.tableCell}>3 User </Text>
+                                <Text style={styles.tableCell}> </Text>
                             </View>
                         </View>
                         <View style={styles.tableRow}>
@@ -137,7 +146,7 @@ export default function Pdf() {
                                 <Text style={styles.tableCell}>Type of Decision</Text>
                             </View>
                             <View style={styles.tableCol2}>
-                                <Text style={styles.tableCell}>Type</Text>
+                                <Text style={styles.tableCell}>{selectedOptionDecision}</Text>
                             </View>
                         </View>
                         <View style={styles.tableRow}>
@@ -145,7 +154,7 @@ export default function Pdf() {
                                 <Text style={styles.tableCell}>Type of Information</Text>
                             </View>
                             <View style={styles.tableCol2}>
-                                <Text style={styles.tableCell}>3 User </Text>
+                                <Text style={styles.tableCell}>{selectedOptionTypeOfInformation} </Text>
                             </View>
                         </View>
                         <View style={styles.tableRow}>
@@ -153,7 +162,7 @@ export default function Pdf() {
                                 <Text style={styles.tableCell}>Amount of Information</Text>
                             </View>
                             <View style={styles.tableCol2}>
-                                <Text style={styles.tableCell}>3 User </Text>
+                                <Text style={styles.tableCell}>{selectedOptionAmountOfInformation}</Text>
                             </View>
                         </View>
                     </View>
