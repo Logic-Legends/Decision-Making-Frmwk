@@ -1,7 +1,5 @@
 import React from "react";
-import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
-import Results from "../Result/Results";
-
+import { Page, Text, View, StyleSheet } from "@react-pdf/renderer";
 const styles = StyleSheet.create({
     page: {
         backgroundColor: "#E4E4E4",
@@ -79,7 +77,7 @@ const styles = StyleSheet.create({
 
 export default function Pdf() {
     return (
-        <Document>
+        <div>
             <Page style={styles.page}>
                 <Text style={styles.header} fixed>
                     Your responses are below.
@@ -99,7 +97,7 @@ export default function Pdf() {
                                 <Text style={styles.tableCell}>What</Text>
                             </View>
                             <View style={styles.tableCol2}>
-                                <Text style={styles.tableCell}>3 User </Text>
+                                <Text style={styles.tableCell}>Define code</Text>
                             </View>
                         </View>
                         <View style={styles.tableRow}>
@@ -115,7 +113,7 @@ export default function Pdf() {
                                 <Text style={styles.tableCell}>Importance</Text>
                             </View>
                             <View style={styles.tableCol2}>
-                                <Text style={styles.tableCell}>3 User </Text>
+                                <Text style={styles.tableCell}>selectedOption</Text>
                             </View>
                         </View>
                         <View style={styles.tableRow}>
@@ -165,7 +163,8 @@ export default function Pdf() {
                 )} fixed />
             </Page>
 
-        </Document>
+        </div>
+
     );
 }
 
