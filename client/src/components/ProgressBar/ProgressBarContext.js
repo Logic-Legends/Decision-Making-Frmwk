@@ -24,6 +24,9 @@ function ProgressBarContext(){
     const [selectedOption, setSelectedOption] = useState(null);
     const[selectedOptionCapacity, setSelectedOptionCapacity]=useState(null);
 	const [selectedOptionDecision, setSelectedOptionDecision] = useState(null);
+	const [explicitVotingMethod, setExplicitVotingMethod] = useState();
+	const [relativeVotingMethod1, setRelativeVotingMethod1] = useState();
+	const[relativeVotingMethod2, setRelativeVotingMethod2] = useState();
 	function setStep(step) {
 		setCurrentStep(step);
 	}
@@ -52,6 +55,12 @@ function ProgressBarContext(){
 					setSelectedOptionCapacity,
 					selectedOptionDecision,
 					setSelectedOptionDecision,
+					explicitVotingMethod,
+					setExplicitVotingMethod,
+					relativeVotingMethod1,
+					setRelativeVotingMethod1,
+					relativeVotingMethod2,
+					setRelativeVotingMethod2,
 				}}
 			>
 				<App />
