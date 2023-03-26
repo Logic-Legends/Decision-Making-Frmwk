@@ -90,11 +90,15 @@ const Results = () => {
 				</table>
 			</div>
 			<div className="start-btn">
-				<PDFDownloadLink
-					className="inner"
-					document={<Pdf />}
-					fileName="decision.pdf"
-					>
+				<PDFDownloadLink className="inner" document={<Pdf
+					selectedOptionAmountOfInformation={selectedOptionAmountOfInformation}
+					selectedOptionTypeOfInformation={selectedOptionTypeOfInformation}
+					selectedOptionDecision={selectedOptionDecision}
+					selectedOptionCapacity={selectedOptionCapacity}
+					selectedOption={selectedOption}
+					defineGoalText={defineGoalText}
+				 	users={users}
+					/>} fileName="decision.pdf">
 					{({ loading }) =>
 						loading ? (
 						<button>Loading document... </button>

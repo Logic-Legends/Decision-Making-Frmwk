@@ -75,31 +75,31 @@ const TypeOfDecision = () => {
 
                 </p>
                 {/* Radio btn section */}
-                <form className="radio-btn-section ">
-                    <label>
+                <form className="radio-btn-section container-radio-btn-long-text">
+                    <label >
                         <input
                             type="radio"
                             name="typeOfDecision"
-                            value="iterative"
-                            checked={selectedOptionDecision === "iterative"}
+                            value="Iterative"
+                            checked={selectedOptionDecision === "Iterative"}
                             onChange={handleOptionChange}
-                            className="radio-input low-rdb"
+                            className="radio-input"
                         />
-                        Iterative Decision
+                        <strong> Iterative Decision</strong> An ongoing decision that needs to updated on a regular schedule
                     </label>
                     <label htmlFor="single">
                         <input
                             type="radio"
                             name="typeOfDecision"
-                            value="single"
-                            checked={selectedOptionDecision === "single"}
+                            value="Single"
+                            checked={selectedOptionDecision === "Single"}
                             onChange={handleOptionChange}
-                            className="radio-input high-rdb"
+                            className="radio-input"
                         />
-                        Single Decision
+                        <strong> Single Decision</strong> A one-time decision which does not need further review
                     </label>
                 </form>
-                {(selectedOptionDecision == "single") ?
+                {(selectedOptionDecision == "Single") ?
                     <table>
                         <tbody>
                             <tr className="table-background">
@@ -116,7 +116,7 @@ const TypeOfDecision = () => {
                         </tbody>
                     </table>
                     :
-                    selectedOptionDecision == "iterative" ?
+                    selectedOptionDecision == "Iterative" ?
                     <table>
                         <tbody>
                             <tr className="table-background">
