@@ -13,12 +13,16 @@ const TimeResource = () => {
   const [modalShow, setModalShow] = React.useState(false);
 
   //Used for get data to analyze the advice
-  const { selectedOption, setSelectedOption } = useContext( stepProgressContext );
-  const { selectedOptionCapacity, setSelectedOptionCapacity,setStep ,currentStep } = useContext( stepProgressContext );
+  //const { selectedOption, setSelectedOption } = useContext( stepProgressContext );
+  //const { selectedOptionCapacity, setSelectedOptionCapacity,setStep ,currentStep } = useContext( stepProgressContext );
+  const { setStep ,currentStep } = useContext( stepProgressContext );
 
   //Used for pass value inside the table
   const[titleAdvice, setTitleAdvice] = useState();
   const[textAdvice, setTextAdvice] = useState();
+
+  const selectedOption = sessionStorage.getItem("selectedOption");
+  const selectedOptionCapacity = sessionStorage.getItem("selectedOptionCapacity");
 
   const checkAdvice = () => {
     if(selectedOption === "low" && selectedOptionCapacity === "low") {
@@ -38,9 +42,19 @@ const TimeResource = () => {
  	}
 };
 
+	//checkAdvice();
+
 useEffect(() => {
     checkAdvice();
   }, [selectedOption, selectedOptionCapacity]);
+
+  //ADD TO STORAGE SESSION LAST PAGE
+//  useEffect(() => {
+// 	const storedTimaAndResource = sessionStorage.getItem("selectedOptionAmountOfInformation");
+// 	if (storedTimaAndResource) {
+// 	  setSelectedOptionAmountOfInformation(storedTimaAndResource);
+// 	}
+//   }, []);
 
 
   return (

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState,useContext } from "react";
@@ -52,10 +52,17 @@ const Importance = () => {
 	//radio btn handler
 	const handleOptionChange = (event) => {
 		setSelectedOption(event.target.value);
+		sessionStorage.setItem("selectedOption", event.target.value);
 
 	};
 
-
+	//ADD TO STORAGE SESSION LAST PAGE
+	useEffect(() => {
+		const storedImportance = sessionStorage.getItem("selectedOption");
+		if (storedImportance) {
+			setSelectedOption(storedImportance);
+		}
+	}, []);
 
 
 	return (

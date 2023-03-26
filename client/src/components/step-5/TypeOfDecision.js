@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
@@ -50,7 +50,16 @@ const TypeOfDecision = () => {
     //radio btn handler
     const handleOptionChange = (event) => {
         setSelectedOptionDecision(event.target.value);
+        sessionStorage.setItem("selectedOptionDecision", event.target.value);
     };
+
+    //ADD TO STORAGE SESSION LAST PAGE
+    useEffect(() => {
+        const storedTypeOfDecision = sessionStorage.getItem("selectedOptionDecision");
+        if (storedTypeOfDecision) {
+            setSelectedOptionDecision(storedTypeOfDecision);
+        }
+    }, []);
 
 
     return (

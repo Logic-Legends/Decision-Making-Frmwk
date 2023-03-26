@@ -5,39 +5,48 @@ import { useContext, useEffect, useState } from "react";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 const Results = () => {
 	//context variable
-	const { defineGoalText, setDefineGoalText } = useContext(stepProgressContext);
-	const { users, setUsers } = useContext(stepProgressContext);
-	const { selectedOption, setSelectedOption } = useContext(stepProgressContext);
-	const { selectedOptionCapacity, setSelectedOptionCapacity } = useContext(stepProgressContext);
-	const { selectedOptionDecision, setSelectedOptionDecision } = useContext(stepProgressContext);
-	const { selectedOptionTypeOfInformation, setSelectedOptionTypeOfInformation } = useContext(stepProgressContext);
-	const { selectedOptionAmountOfInformation, setSelectedOptionAmountOfInformation } = useContext(stepProgressContext);
-	const{ explicitVotingMethod, setExplicitVotingMethod }=useContext(stepProgressContext);
-	const { relativeVotingMethod1, setRelativeVotingMethod1 } =
-		useContext(stepProgressContext);
-	const { relativeVotingMethod2, setRelativeVotingMethod2 } =
-		useContext(stepProgressContext);
-	const [localStorageValues, setLocalStorageValues] = useState({});
-	// Use useEffect to save context variables to localStorage
-	useEffect(() => {
-		const localStorageData = JSON.parse(localStorage.getItem("decisionData"));
-		setLocalStorageValues(localStorageData);
-	}, []);
-	useEffect(() => {
-		localStorage.setItem(
-			"decisionData",
-			JSON.stringify({
-				defineGoalText,
-				users,
-				selectedOption,
-				selectedOptionCapacity,
-				selectedOptionDecision,
-				selectedOptionTypeOfInformation,
-				selectedOptionAmountOfInformation,
-			})
-		);
-	}, [
-	]);
+	// const { defineGoalText, setDefineGoalText } = useContext(stepProgressContext);
+	// const { users, setUsers } = useContext(stepProgressContext);
+	// const { selectedOption, setSelectedOption } = useContext(stepProgressContext);
+	// const { selectedOptionCapacity, setSelectedOptionCapacity } = useContext(stepProgressContext);
+	// const { selectedOptionDecision, setSelectedOptionDecision } = useContext(stepProgressContext);
+	// const { selectedOptionTypeOfInformation, setSelectedOptionTypeOfInformation } = useContext(stepProgressContext);
+	// const { selectedOptionAmountOfInformation, setSelectedOptionAmountOfInformation } = useContext(stepProgressContext);
+	// const{ explicitVotingMethod, setExplicitVotingMethod }=useContext(stepProgressContext);
+	// const { relativeVotingMethod1, setRelativeVotingMethod1 } =
+	// 	useContext(stepProgressContext);
+	// const { relativeVotingMethod2, setRelativeVotingMethod2 } =
+	// 	useContext(stepProgressContext);
+	// const [localStorageValues, setLocalStorageValues] = useState({});
+	// // Use useEffect to save context variables to localStorage
+	// useEffect(() => {
+	// 	const localStorageData = JSON.parse(localStorage.getItem("decisionData"));
+	// 	setLocalStorageValues(localStorageData);
+	// }, []);
+	// useEffect(() => {
+	// 	localStorage.setItem(
+	// 		"decisionData",
+	// 		JSON.stringify({
+	// 			defineGoalText,
+	// 			users,
+	// 			selectedOption,
+	// 			selectedOptionCapacity,
+	// 			selectedOptionDecision,
+	// 			selectedOptionTypeOfInformation,
+	// 			selectedOptionAmountOfInformation,
+	// 		})
+	// 	);
+	// }, [
+	// ]);
+
+	const defineGoalText = sessionStorage.getItem("defineGoalText");
+	const users = JSON.parse(sessionStorage.getItem("users"));
+	const selectedOption = sessionStorage.getItem("selectedOption");
+  	const selectedOptionCapacity = sessionStorage.getItem("selectedOptionCapacity");
+	const selectedOptionDecision = sessionStorage.getItem("selectedOptionDecision");
+	const selectedOptionTypeOfInformation = sessionStorage.getItem("selectedOptionTypeOfInformation");
+	const selectedOptionAmountOfInformation = sessionStorage.getItem("selectedOptionAmountOfInformation");
+
 	return (
 		<div className="container">
 			<h1>You have completed the tool. Please check your responses below.</h1>
@@ -58,8 +67,8 @@ const Results = () => {
 						</tr>
 						<tr>
 							<td>Who</td>
-							{users.map((user) => (
-								<td>{user.name}</td>
+							{users.map((user,index) => (
+								<td key={index}>{user.name}</td>
 							))}
 						</tr>
 						<tr>

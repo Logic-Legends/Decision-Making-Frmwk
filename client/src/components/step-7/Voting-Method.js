@@ -5,14 +5,14 @@ import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 
 const VotingMethod=()=>{
 	const navigate = useNavigate();
-	const {
-		selectedOptionTypeOfInformation,
-		setSelectedOptionTypeOfInformation,
-	} = useContext(stepProgressContext);
-	const {
-		selectedOptionAmountOfInformation,
-		setSelectedOptionAmountOfInformation,
-	} = useContext(stepProgressContext);
+	// const {
+	// 	selectedOptionTypeOfInformation,
+	// 	setSelectedOptionTypeOfInformation,
+	// } = useContext(stepProgressContext);
+	// const {
+	// 	selectedOptionAmountOfInformation,
+	// 	setSelectedOptionAmountOfInformation,
+	// } = useContext(stepProgressContext);
 
 	const [explicitVotingMethod, setExplicitVotingMethod] = useState();
 	const [explicitVotingMethodDesc, setExplicitVotingMethodDesc] = useState();
@@ -23,6 +23,9 @@ const VotingMethod=()=>{
 	const [relativeVotingMethod2, setRelativeVotingMethod2] = useState();
 	const [relativeVotingMethodDesc2, setRelativeVotingMethodDesc2] = useState();
     const [isStarted, setIsStarted] = useState(false);
+
+	const selectedOptionTypeOfInformation = sessionStorage.getItem("selectedOptionTypeOfInformation");
+  	const selectedOptionAmountOfInformation = sessionStorage.getItem("selectedOptionAmountOfInformation");
 
 	const showExplicit = () => {
 		if (
