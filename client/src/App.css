@@ -8819,10 +8819,13 @@ table {
 	background-color: white;
 }
 
-.vmethod-table-container{
-	/* display: flex;
-	flex-direction: row; */
-	
+.tbl-vote{
+	border-collapse: collapse;
+  width: 100%;
+}
+.tbl-vote th,td{
+	text-align: left;
+  padding: 8px;
 }
 
 /* .table-header{
