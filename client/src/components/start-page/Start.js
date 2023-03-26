@@ -1,7 +1,17 @@
-import React from "react";
+import React,{ useContext } from "react";
 import { Link } from "react-router-dom";
+import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 
 const Start = () => {
+
+  //GET REF FROM STEP1
+    const { setDefineGoalText } = useContext( stepProgressContext );
+
+    //CLEAR SESSION STORAGE
+    const handleButtonClick = () => {
+      sessionStorage.clear();
+      setDefineGoalText(null);
+    };
 
   return (
     <div className="container">
@@ -19,7 +29,7 @@ const Start = () => {
           <p>We advise you spend up to 30 minutes in using the tool. </p>
       </div>
           <div className="start-btn">
-      <Link className="inner" to="/define-goal"><button >Start </button></Link>
+          <Link className="inner" to="/define-goal"><button onClick={handleButtonClick}>Start </button></Link>
           </div>
       <br></br>
 

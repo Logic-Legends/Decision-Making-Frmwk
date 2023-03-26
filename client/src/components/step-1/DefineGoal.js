@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState,useContext,useEffect } from "react";
 import { Alert } from "react-bootstrap";
 import { Link,useNavigate } from "react-router-dom";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
@@ -28,12 +28,13 @@ const DefineGoal = () => {
 
   const handleChange = (event) => {
     setDefineGoalText(event.target.value);
+    sessionStorage.setItem("defineGoalText", event.target.value); //ADD SESSION STORAGE
   };
 
   const handleClick = (event) => {
     event.preventDefault();
 
-    if (defineGoalText.trim().length !== 0) {
+    if (defineGoalText && defineGoalText.value !== null && defineGoalText.value !== "") {
       setStep(stepNumber+1); //Used for progress bar
       navigate("/decision-makers");
     } else {
@@ -42,6 +43,14 @@ const DefineGoal = () => {
       setShow(true);
     }
   };
+
+   //ADD TO STORAGE SESSION LAST PAGE
+   useEffect(() => {
+    const storedGoal = sessionStorage.getItem("defineGoalText");
+    if (storedGoal) {
+      setDefineGoalText(storedGoal);
+    }
+  }, []);
 
   return (
 
