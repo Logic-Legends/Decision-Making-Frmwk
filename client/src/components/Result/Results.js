@@ -12,6 +12,11 @@ const Results = () => {
 	const { selectedOptionDecision, setSelectedOptionDecision } = useContext(stepProgressContext);
 	const { selectedOptionTypeOfInformation, setSelectedOptionTypeOfInformation } = useContext(stepProgressContext);
 	const { selectedOptionAmountOfInformation, setSelectedOptionAmountOfInformation } = useContext(stepProgressContext);
+	const{ explicitVotingMethod, setExplicitVotingMethod }=useContext(stepProgressContext);
+	const { relativeVotingMethod1, setRelativeVotingMethod1 } =
+		useContext(stepProgressContext);
+	const { relativeVotingMethod2, setRelativeVotingMethod2 } =
+		useContext(stepProgressContext);
 	const [localStorageValues, setLocalStorageValues] = useState({});
 	// Use useEffect to save context variables to localStorage
 	useEffect(() => {
@@ -85,9 +90,17 @@ const Results = () => {
 				</table>
 			</div>
 			<div className="start-btn">
-				<PDFDownloadLink className="inner" document={<Pdf />} fileName="decision.pdf">
+				<PDFDownloadLink
+					className="inner"
+					document={<Pdf />}
+					fileName="decision.pdf"
+					>
 					{({ loading }) =>
-						loading ? <button>Loading document... </button> : <button> Download as a PDF!</button>
+						loading ? (
+						<button>Loading document... </button>
+						) : (
+						<button> Download as a PDF!</button>
+						)
 					}
 				</PDFDownloadLink>
 			</div>
