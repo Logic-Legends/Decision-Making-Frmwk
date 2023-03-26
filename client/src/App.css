@@ -8816,7 +8816,6 @@ table {
 	text-align: center;
 	position: absolute;
 	left :45%;
-	background-color: white;
 }
 
 .tbl-vote{
@@ -8828,18 +8827,12 @@ table {
   padding: 8px;
 }
 
-/* .table-header{
- 	
-  width: fit-content;
-  padding: 10px;
-  margin: 20px 0 10px 0;
-} */
 /* ------------- */
 
 /*Make responsive*/
 .container-radio-btn{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
 
   .container-radio-btn-long-text{
@@ -8853,6 +8846,27 @@ table {
 	margin-left: 30px;
 }
  
+.radio{
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 10px;
+  }
+
+  .input-radio-btn{
+	margin-top: 5px;
+	margin-right: 10px;
+  }
+
+  .radio-label {
+	display: flex;
+	flex-direction: column;
+  }
+
+  .radio-description{
+	color: rgb(130, 130, 130);
+  }
+
+
   @media (max-width: 480px) {
     .container-radio-btn {
       display: grid;
