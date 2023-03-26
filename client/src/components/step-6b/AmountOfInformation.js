@@ -34,7 +34,7 @@ const TypeOfInformation = () => {
       setShow(true);
     } else {
         setStep(stepNumber+1);
-        navigate("/Results"); //Go to page and pass data
+        navigate("/Voting-Method"); //Go to page and pass data
     }
   };
 
