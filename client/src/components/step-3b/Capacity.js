@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
@@ -50,7 +50,16 @@ const Capacity = () => {
 	//radio btn handler
 	const handleOptionChange = (event) => {
 		setSelectedOptionCapacity(event.target.value);
+		sessionStorage.setItem("selectedOptionCapacity", event.target.value);
 	};
+
+	 //ADD TO STORAGE SESSION LAST PAGE
+	 useEffect(() => {
+		const storedCapacity = sessionStorage.getItem("selectedOptionCapacity");
+		if (storedCapacity) {
+			setSelectedOptionCapacity(storedCapacity);
+		}
+	  }, []);
 
 
 	return (

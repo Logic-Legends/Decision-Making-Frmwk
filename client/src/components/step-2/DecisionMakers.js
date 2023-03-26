@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState,useContext,useEffect } from "react";
 import DecisionMakersForm from "./DicisionMakersForm";
 import { Container, Table,Alert } from "react-bootstrap";
 import QuestionMark from "../step-1/images/question-mark.png";
@@ -19,6 +19,7 @@ function DecisionMakers() {
   const stepNumber=2;
 
 
+  console.log(users);
   const navigate=useNavigate();
   const addUser = (newUser) => {
     if (editIndex === -1) {
@@ -58,8 +59,8 @@ console.log("Next Button Clicked"+users);
 }else{
   setStep(stepNumber+1);
   navigate("/Importance");
-
-
+  console.log(users);
+  sessionStorage.setItem("users", JSON.stringify(users)); //ADD SESSION STORAGE
 
 }
 
@@ -70,9 +71,19 @@ console.log("Next Button Clicked"+users);
 const handleBackBtn=()=>{
   setStep(stepNumber-1);
 navigate("/define-goal");
+sessionStorage.setItem("users", JSON.stringify(users)); //ADD SESSION STORAGE
 
 
 };
+
+//ADD TO STORAGE SESSION LAST PAGE
+useEffect(() => {
+  const storedUsers = sessionStorage.getItem("users");
+  console.log(storedUsers);
+  if (storedUsers) {
+    setUsers( JSON.parse(storedUsers));
+  }
+}, []);
 
   return (
 
@@ -83,8 +94,6 @@ navigate("/define-goal");
         </Alert>
       )}
       {showModal&&<ModalComponent showModal={showModal} handleClose={handleClose} />}
-
-      {/* <div className="d-flex"> */}
 
       <h1>Who are the decision-makers<img className="question-mark-pages" src={QuestionMark} alt="Qusestion Mark" border="0" onClick={ handleShow }></img></h1>
 
@@ -109,36 +118,20 @@ navigate("/define-goal");
               <td className="w-50 border pt-4">{user.name}</td>
               <td className="w-50 border pt-4 border-end-0">{user.role}</td>
               <td className="d-flex justify-content-end border  border-start-0">
-                {/* <Button
-                className="px-3"
-                  variant="warning"
-                  onClick={() => editUser(index)}
-                >
-                  Edit
-                </Button> */}
+
                 <button className="inner  mb-0 py-2" onClick={() => editUser(index)}>EDIT</button>
                 <button className="inner button-delete-team  mb-0 py-2" onClick={() => deleteUser(index)}>DELETE</button>
-                {/* <Button className="ms-2 "  variant="danger" onClick={() => deleteUser(index)}>
-                  Delete
-                </Button> */}
+
               </td>
             </tr>
           ))}
         </tbody>
       </Table>
-      {/* <div className="d-flex justify-content-center mt-5"> */}
 
-      {/* <Link to="/define-goal"><Button variant="success"  className="inner"> Back </Button></Link>
-
-      <Link to="/Importance"><Button variant="success"  className="ms-2 px-4"> Next </Button></Link> */}
       <div id="button-same-line">
 				<Link to="/define-goal">	<button className="inner" onClick={handleBackBtn}>BACK</button></Link>
 				<button className="inner"  onClick={handleNextBtn}><Link to="/Importance"></Link>NEXT</button>
 			</div>
-            {/* <Button variant="success"  className="ms-2 px-4">
-Next
-            </Button> */}
-            {/* </div> */}
             </div>
     </Container>
   );
