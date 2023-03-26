@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState,useContext,useEffect } from "react";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 import { Link,useNavigate } from "react-router-dom";
 import { Alert } from "react-bootstrap";
@@ -23,7 +23,9 @@ const TypeOfInformation = () => {
     //When change the option from radio button
   const handleOptionChange = (event) => {
     setSelectedOptionAmountOfInformation(event.target.value);
-  };
+  //ADD TO STORAGE SESSION
+  sessionStorage.setItem("selectedOptionAmountOfInformation", event.target.value);
+};
 
   //Check if any button was choosen
   const handleButtonClick = () => {
@@ -38,7 +40,13 @@ const TypeOfInformation = () => {
     }
   };
 
-
+ //ADD TO STORAGE SESSION LAST PAGE
+ useEffect(() => {
+  const storedAmountOfInformation = sessionStorage.getItem("selectedOptionAmountOfInformation");
+  if (storedAmountOfInformation) {
+    setSelectedOptionAmountOfInformation(storedAmountOfInformation);
+  }
+}, []);
   // Progress Bar Step Number
   const stepNumber=8;
 
@@ -68,45 +76,54 @@ const TypeOfInformation = () => {
                                 </Alert>
                                 )}
                                 <p>How much information will we have?</p>
-                                <form className="radio-btn-section container-radio-btn-long-text">
-                                        <label>
+                                <form className="radio-btn-section container-radio-btn">
+                                        <label className="radio">
                                             <input
                                                 type="radio"
                                                 name="option"
                                                 value="high"
                                                 checked={selectedOptionAmountOfInformation === "high"}
                                                 onChange={handleOptionChange}
-                                                className="radio-input"
+                                                className="input-radio-btn"
                                             />
-                                            <strong> High</strong> You have enough information to rank or assign values to all options
+                                            <span className="radio-label">
+                                              <span className="radio-title">High </span>
+                                              <span className="radio-description">You have enough information to rank or assign values to all options</span>
+                                            </span>
                                         </label>
-                                        <label>
+                                        <label className="radio">
                                             <input
                                                 type="radio"
                                                 name="option"
                                                 value="medium"
                                                 checked={selectedOptionAmountOfInformation === "medium"}
                                                 onChange={handleOptionChange}
-                                                className="radio-input"
+                                                className="input-radio-btn"
                                             />
-                                            <strong> Medium</strong> You have enough information to...
+                                            <span className="radio-label">
+                                              <span className="radio-title">Medium </span>
+                                              <span className="radio-description">You have enough information to...</span>
+                                            </span>
                                         </label>
-                                        <label>
+                                        <label className="radio">
                                             <input
                                                 type="radio"
                                                 name="option"
                                                 value="low"
                                                 checked={selectedOptionAmountOfInformation === "low"}
                                                 onChange={handleOptionChange}
-                                                className="radio-input"
+                                                className="input-radio-btn"
                                             />
-                                            <strong> Low</strong> You have enough information to say yes or no to each option
+                                            <span className="radio-label">
+                                              <span className="radio-title">Low </span>
+                                              <span className="radio-description">You have enough information to say yes or no to each option</span>
+                                            </span>
                                         </label>
                                 </form>
                 </section>
 
 			<div id="button-same-line">
-				<Link to="/type-of-information">	<button className="inner" onClick={()=>setStep(stepNumber-1)}>BACK</button></Link>
+      <Link to="/type-of-information">	<button className="inner">BACK</button></Link>
 				<button className="inner" onClick={handleButtonClick}>NEXT</button>
 			</div>
 		</div>
