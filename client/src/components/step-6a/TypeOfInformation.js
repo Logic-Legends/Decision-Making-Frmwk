@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState,useContext,useEffect } from "react";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 import { Link,useNavigate } from "react-router-dom";
 import { Alert } from "react-bootstrap";
@@ -23,12 +23,13 @@ const TypeOfInformation = () => {
     //When change the option from radio button
   const handleOptionChange = (event) => {
     setSelectedOptionTypeOfInformation(event.target.value);
+    sessionStorage.setItem("selectedOptionTypeOfInformation", event.target.value); //ADD SESSION STORAGE
   };
 
   //Check if any button was choosen
   const handleButtonClick = () => {
 
-    if (selectedOptionTypeOfInformation === null) {
+    if (selectedOptionTypeOfInformation === null ) {
       // show the error message when field is empty
       setError("Please select a response.");
       setShow(true);
@@ -40,6 +41,14 @@ const TypeOfInformation = () => {
 
 // Progress Bar Step Number
   const stepNumber=7;
+
+  //ADD TO STORAGE SESSION LAST PAGE
+  useEffect(() => {
+    const storedTypeOfInformation = sessionStorage.getItem("selectedOptionTypeOfInformation");
+    if (storedTypeOfInformation) {
+      setSelectedOptionTypeOfInformation(storedTypeOfInformation);
+    }
+  }, []);
 
     return (
 		<div className="container">
@@ -66,33 +75,39 @@ const TypeOfInformation = () => {
                                 </Alert>
                                 )}
                                 <p>What type of information will we have?</p>
-                                <form className="radio-btn-section container-radio-btn-long-text">
+                                <form className="radio-btn-section container-radio-btn">
 
-                                        <label>
+                                        <label className="radio">
                                             <input
                                                 type="radio"
                                                 name="option"
                                                 value="explicit"
                                                 checked={selectedOptionTypeOfInformation === "explicit"}
                                                 onChange={handleOptionChange}
-                                                className="radio-input"
+                                                className="input-radio-btn"
                                             />
-                                            <strong> Explicit</strong> Information that lets you assign numerical values to the factors being considered
+                                            <span className="radio-label">
+                                              <span className="radio-title">Explicit </span>
+                                              <span className="radio-description">Information that lets you assign numerical values to the factors being considered</span>
+                                            </span>
                                         </label>
 
-                                        <label>
+                                        <label className="radio">
                                            <input
                                                 type="radio"
                                                 name="option"
                                                 value="relative"
                                                 checked={selectedOptionTypeOfInformation === "relative"}
                                                 onChange={handleOptionChange}
-                                                className="radio-input"
+                                                className="input-radio-btn"
                                             />
-                                            <strong> Relative</strong> Information that lets you compare factors being considered in relation to another another
-
+                                            <span className="radio-label">
+                                              <span className="radio-title">Relative </span>
+                                              <span className="radio-description">Information that lets you compare factors being considered in relation to one another</span>
+                                            </span>
                                         </label>
                                 </form>
+
             </section>
 
 			<div id="button-same-line">
