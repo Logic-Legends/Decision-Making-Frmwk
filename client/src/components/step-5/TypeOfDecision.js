@@ -112,28 +112,34 @@ const TypeOfDecision = () => {
 
                 </p>
                 {/* Radio btn section */}
-                <form className="radio-btn-section container-radio-btn-long-text">
-                    <label >
+                <form className="radio-btn-section container-radio-btn">
+                    <label className="radio">
                         <input
                             type="radio"
                             name="typeOfDecision"
                             value="Iterative"
                             checked={selectedOptionDecision === "Iterative"}
                             onChange={handleOptionChange}
-                            className="radio-input"
+                            className="input-radio-btn"
                         />
-                        <strong> Iterative Decision</strong> An ongoing decision that needs to updated on a regular schedule
+                        <span className="radio-label">
+                            <span className="radio-title">Iterative Decision </span>
+                            <span className="radio-description">An ongoing decision that needs to updated on a regular schedule</span>
+                        </span>
                     </label>
-                    <label htmlFor="single">
+                    <label htmlFor="single" className="radio">
                         <input
                             type="radio"
                             name="typeOfDecision"
                             value="Single"
                             checked={selectedOptionDecision === "Single"}
                             onChange={handleOptionChange}
-                            className="radio-input"
+                            className="input-radio-btn"
                         />
-                        <strong> Single Decision</strong> A one-time decision which does not need further review
+                        <span className="radio-label">
+                            <span className="radio-title">Single Decision</span>
+                            <span className="radio-description">A one-time decision which does not need further review</span>
+                        </span>
                     </label>
                 </form>
                 {selectedOptionDecision !== "Iterative" &&  selectedOptionDecision !== "Single"
