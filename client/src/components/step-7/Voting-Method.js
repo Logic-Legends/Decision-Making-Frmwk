@@ -5,11 +5,11 @@ import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 
 const VotingMethod=()=>{
 	const navigate = useNavigate();
-	
+
 
 	const [explicitVotingMethod, setExplicitVotingMethod] = useState();
 	const [explicitVotingMethodDesc, setExplicitVotingMethodDesc] = useState();
-	
+
 
 	const [relativeVotingMethod1, setRelativeVotingMethod1] = useState();
 	const [relativeVotingMethodDesc1, setRelativeVotingMethodDesc1] = useState();
@@ -131,7 +131,7 @@ const VotingMethod=()=>{
 
     return (
 			<div className="container">
-				<h1>Recommended Voting Method</h1>
+				<h3>Recommended Voting Method</h3>
 				<div className="border-decision-framework-pages">
 				{selectedOptionTypeOfInformation === "explicit" ? (
 					<table>

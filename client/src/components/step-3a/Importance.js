@@ -77,7 +77,7 @@ const Importance = () => {
 				show={secondModalShow}
 				onHide={() => setsecondModalShow(false)}
 			/>
-			<h1>
+			<h3>
 				Importance{" "}
 				<img
 					src={tooltipIcon}
@@ -85,7 +85,7 @@ const Importance = () => {
 					className="question-mark-pages"
 					onClick={() => setModalShow(true)}
 				/>
-			</h1>
+			</h3>
 			<section className="border-decision-framework-pages">
 				<p>
 					How important is the decision?
@@ -135,7 +135,7 @@ const Importance = () => {
 				{isModalOpen && (
 					<div className="modal">
 						<div className="modal-display">
-							<p>Please select a response</p>
+							<p>Please select a response.</p>
 							<button
 								onClick={() => setIsModalOpen(false)}
 								className="modal-btn"

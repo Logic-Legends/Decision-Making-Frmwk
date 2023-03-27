@@ -13,9 +13,8 @@ const TypeOfInformation = () => {
     //FirstHandleTooltip
     const [FirstModalShow, FirstSetModalShow] = React.useState(false);
 
-    //Used for message error
-    const [error, setError] = useState("");
-    const [show, setShow] = useState(true);
+	//state for error handling
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
     //Go to another page function
     const navigate = useNavigate();
@@ -32,8 +31,7 @@ const TypeOfInformation = () => {
 
     if (selectedOptionAmountOfInformation === null) {
       // show the error message when field is empty
-      setError("Please select a response.");
-      setShow(true);
+      setIsModalOpen(true);
     } else {
         setStep(stepNumber+1);
         navigate("/Voting-Method"); //Go to page and pass data
@@ -58,7 +56,7 @@ const TypeOfInformation = () => {
 				onHide={() => FirstSetModalShow(false)}
 			/>
 
-            <h1>Amount of Information{" "}
+            <h3>Amount of Information{" "}
 				<img
 					className="question-mark-pages"
 					src={QuestionMark}
@@ -66,15 +64,9 @@ const TypeOfInformation = () => {
 					border="0"
 					onClick={() => FirstSetModalShow(true)}
 				></img>
-			</h1>
+			</h3>
             <section className="border-decision-framework-pages">
 
-                                {/* Show message em field is empty*/}
-                                {show && error && (
-                                <Alert variant="danger" onClose={() => setShow(false)} dismissible>
-                                {error}
-                                </Alert>
-                                )}
                                 <p>How much information will we have?</p>
                                 <form className="radio-btn-section container-radio-btn">
                                         <label className="radio">
@@ -125,6 +117,19 @@ const TypeOfInformation = () => {
 			<div id="button-same-line">
       <Link to="/type-of-information">	<button className="inner">BACK</button></Link>
 				<button className="inner" onClick={handleButtonClick}>NEXT</button>
+        {isModalOpen && (
+					<div className="modal">
+						<div className="modal-display">
+							<p>Please select a response.</p>
+							<button
+								onClick={() => setIsModalOpen(false)}
+								className="modal-btn"
+							>
+								OK
+							</button>
+						</div>
+					</div>
+				)}{" "}
 			</div>
 		</div>
 	);

@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{ useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 
@@ -11,7 +11,7 @@ const ResultVotingMethod=()=>{
 		};
     return (
 			<div className="container">
-				<h1>Recommended Voting Method</h1>
+				<h3>Recommended Voting Method</h3>
 				<div className="border-decision-framework-pages">
 					<h2 className="table-header">Explicit</h2>
 					<div>
@@ -28,7 +28,7 @@ const ResultVotingMethod=()=>{
 									<td>
 										Approval voting (Voters choose "Yes" or "No" for each
 										option, and the option with the most
-										
+
 										"Yes" votes wins.)
 									</td>
 									<td>
@@ -38,7 +38,7 @@ const ResultVotingMethod=()=>{
 									<td>
 										You want to narrow down a list of 100 research topics based
 										on if they meet a certain
-										
+
 										set of criteria.
 									</td>
 								</tr>
@@ -46,33 +46,33 @@ const ResultVotingMethod=()=>{
 									<td>
 										Score voting (Voters give each option a score on some
 										objective metric, and the
-										
+
 										option with the highest
-										
+
 										score wins.)
 									</td>
 									<td>
 										Enough information for voters to score each option from 1-5
 										(less information).
-										
+
 										Enough information for
-										
+
 										voters to score each
-										
+
 										option from 1-100 (more
-										
+
 										information).
 									</td>
 									<td>
 										You want to select 5 research topics to pursue this year
 										from a list of 50 options. Your
-										
+
 										metric is: "How many
-										
+
 										studies have already
-										
+
 										been published about
-										
+
 										this topic?"
 									</td>
 								</tr>
@@ -80,27 +80,27 @@ const ResultVotingMethod=()=>{
 									<td>
 										Delphi method (Involves multipleanonymous surveys followed
 										by discussions about the aggregate
-										
+
 										survey results until a
 										decision has been
-										
+
 										reached.)
 									</td>
 									<td>
 										Enough information for voters to score each option
 										individually ccording to an external,
-										
+
 										objective metric.
 									</td>
 									<td>
 										You are making a very important decision, you have a long
 										time frame and high team capacity,
-										
+
 										you would like to reach a
 										consensus, and
-										
+
 										anonymity among voters
-										
+
 										is important.
 									</td>
 								</tr>
@@ -138,7 +138,7 @@ const ResultVotingMethod=()=>{
 									</td>
 									<td>
 										You want to select 5 research topics to pursue this year
-										based on how motivated research 
+										based on how motivated research
 										staff are to investigate the topics.
 									</td>
 								</tr>
@@ -157,7 +157,7 @@ const ResultVotingMethod=()=>{
 								<tr>
 									<td>Ranked choice</td>
 									<td>
-										Enough information for voters to rank 
+										Enough information for voters to rank
 										all of the options from highest to lowest preference.
 									</td>
 									<td>
@@ -174,7 +174,7 @@ const ResultVotingMethod=()=>{
 										 external, objective metric.
 									</td>
 									<td>
-										You are making a very important 
+										You are making a very important
 										decision, you have a long time frame and high team capacity,
 										you would like to reach a consensus, and anonymity among
 										voters is important.
@@ -205,6 +205,6 @@ const ResultVotingMethod=()=>{
 				</section>
 			</div>
 		);
-}
+};
 
 export default ResultVotingMethod;
