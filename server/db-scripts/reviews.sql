@@ -4,10 +4,10 @@
 
 CREATE TABLE IF NOT EXISTS public.reviews
 (
-    id numeric NOT NULL,
-    user_review text COLLATE pg_catalog."default" NOT NULL,
-    date_time timestamp without time zone NOT NULL,
-    "user" text COLLATE pg_catalog."default" NOT NULL,
+    id integer NOT NULL DEFAULT nextval('reviews_id_seq'::regclass),
+    user_review text COLLATE pg_catalog."default",
+    date_time time without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "user" character varying(255) COLLATE pg_catalog."default",
     CONSTRAINT reviews_pkey PRIMARY KEY (id)
 )
 

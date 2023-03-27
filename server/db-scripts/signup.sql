@@ -1,16 +1,16 @@
--- Table: public.sign-up
+-- Table: public.signUp
 
--- DROP TABLE IF EXISTS public."sign-up";
+-- DROP TABLE IF EXISTS public."signUp";
 
-CREATE TABLE IF NOT EXISTS public."sign-up"
+CREATE TABLE IF NOT EXISTS public."signUp"
 (
-    id numeric NOT NULL,
-    email character varying(255) COLLATE pg_catalog."default" NOT NULL,
-    "date-time" time without time zone NOT NULL,
-    CONSTRAINT "sign-up_pkey" PRIMARY KEY (id)
+    id integer NOT NULL DEFAULT nextval('"signUp_id_seq"'::regclass),
+    email character varying(255) COLLATE pg_catalog."default",
+    date_time time without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "signUp_pkey" PRIMARY KEY (id)
 )
 
 TABLESPACE pg_default;
 
-ALTER TABLE IF EXISTS public."sign-up"
+ALTER TABLE IF EXISTS public."signUp"
     OWNER to postgres;
