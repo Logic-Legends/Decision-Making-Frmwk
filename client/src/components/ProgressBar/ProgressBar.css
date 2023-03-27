@@ -14,6 +14,9 @@
   -moz-background-clip: padding-box;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -21,6 +24,8 @@
     display: flex;
     margin-bottom:20px;
     text-align: center;
+    display: flex; 
+    align-items: center;
 
 }
 
@@ -42,15 +47,18 @@
 
 .selected .circle{
   /* color:#055c64; */
- color:#36949D;
-  background: white;
+ color:white;
+  background: #36949D;
   border-color:#36949D;
+  width:42px;
+  height: 42px;
 }
 
 .grayed .circle{
   /* color:#055c64; */
   color:#36949D;
-  background:#D4D4D4;
+  background:white;
+  /* background:#D4D4D4; */
   border-color:#36949D;
 }
 

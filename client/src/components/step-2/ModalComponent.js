@@ -3,7 +3,9 @@ import { Modal, Button } from "react-bootstrap";
 
 function ModalComponent(props) {
   return (
-    <Modal show={props.showModal} onHide={props.handleClose}>
+    <Modal show={props.showModal} onHide={props.handleClose}size="lg"
+    aria-labelledby="contained-modal-title-vcenter"
+    centered>
       <Modal.Header closeButton>
         <Modal.Title>Questions to consider</Modal.Title>
       </Modal.Header>
