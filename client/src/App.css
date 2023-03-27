@@ -8826,7 +8826,9 @@ table {
 	text-align: left;
   padding: 8px;
 }
-
+.sign-up-check{
+	margin-right: 7px;
+}
 /* ------------- */
 
 /*Make responsive*/
