@@ -3,8 +3,9 @@ import { Form, Button, Row, Col, Alert } from "react-bootstrap";
 
 function DecisionMakersForm({ addUser, editUser, editIndex }) {
   const [user, setUser] = useState({ name: "", role: "" });
-  const [error, setError] = useState("");
-  const [show, setShow] = useState(true);
+  // const [error, setError] = useState("");
+  // const [show, setShow] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     if (editUser) {
@@ -22,10 +23,11 @@ function DecisionMakersForm({ addUser, editUser, editIndex }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (user.name.trim() === "" || user.role.trim() === "") {
-      setError("Both Name and Role fields must be filled.");
-      setShow(true);
+      // setError("Both Name and Role fields must be filled.");
+      // setShow(true);
+      setIsModalOpen(true);
     } else {
-      setError("");
+      // setError("");
       addUser(user);
       setUser({ name: "", role: "" });
     }
@@ -33,11 +35,24 @@ function DecisionMakersForm({ addUser, editUser, editIndex }) {
 
   return (
     <>
-      {show && error && (
+      {/* {show && error && (
         <Alert variant="danger" onClose={() => setShow(false)} dismissible>
           {error}
         </Alert>
-      )}
+      )} */}
+      {isModalOpen && (
+					<div className="modal">
+						<div className="modal-display">
+							<p>Both Name and Role fields must be filled.</p>
+							<button
+								onClick={() => setIsModalOpen(false)}
+								className="modal-btn"
+							>
+								OK
+							</button>
+						</div>
+					</div>
+				)}
       <Form onSubmit={handleSubmit} className="mb-5" >
         <Row>
           <Col>

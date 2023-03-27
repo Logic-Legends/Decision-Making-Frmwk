@@ -10,21 +10,18 @@ const DefineGoal = () => {
 
   //Used for progress bar
   const stepNumber=1;
-  const { labelArray,setStep }=useContext(stepProgressContext);
-
 
   //Go to webpage
   const navigate = useNavigate();
 
-  //Used for message error
-  const [error, setError] = useState("");
-  const [show, setShow] = useState(true);
+  //state for error handling
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
   //Used for Popup
   const [modalShow, setModalShow] = React.useState(false);
 
   //Used for get data and fill input
-  const { defineGoalText,setDefineGoalText } = useContext( stepProgressContext );
+  const { defineGoalText,setDefineGoalText, setStep } = useContext( stepProgressContext );
 
   const handleChange = (event) => {
     setDefineGoalText(event.target.value);
@@ -38,9 +35,7 @@ const DefineGoal = () => {
       setStep(stepNumber+1); //Used for progress bar
       navigate("/decision-makers");
     } else {
-      // show the error message when field is empty
-      setError("Please define your goals before you continue.");
-      setShow(true);
+      setIsModalOpen(true);
     }
   };
 
@@ -61,15 +56,8 @@ const DefineGoal = () => {
         onHide={() => setModalShow(false)}
       />
 
-        <h1>What is the goal?</h1>
+        <h3>What is the goal?</h3>
         <div className="border-decision-framework-pages">
-
-          {/* Show message when field is empty*/}
-        {show && error && (
-        <Alert variant="danger" onClose={() => setShow(false)} dismissible>
-          {error}
-        </Alert>
-      )}
 
           <p>Defining the goal will help you determine what kind of information you need to make a decision.
             <img className="question-mark-pages" src={QuestionMark} alt="Question Mark" border="0" onClick={() => setModalShow(true)}></img>
@@ -90,6 +78,19 @@ const DefineGoal = () => {
           <div id="button-same-line">
 				  <Link to="/">	<button className="inner">BACK</button></Link>
 				  <button className="inner" onClick={handleClick} type="submit" >NEXT</button>
+          {isModalOpen && (
+					<div className="modal">
+						<div className="modal-display">
+							<p>Please define your goals before you continue.</p>
+							<button
+								onClick={() => setIsModalOpen(false)}
+								className="modal-btn"
+							>
+								OK
+							</button>
+						</div>
+					</div>
+				)}
       </div>
     </div>
   );

@@ -13,8 +13,10 @@ function DecisionMakers() {
 
   const [editIndex, setEditIndex] = useState(-1);
   const [showModal, setShowModal] = useState(false);
-  const [error, setError] = useState("");
-  const [show, setShow] = useState(true);
+  // const [error, setError] = useState("");
+  // const [show, setShow] = useState(true);
+    //state for error handling
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
   const stepNumber=2;
 
@@ -53,9 +55,10 @@ function DecisionMakers() {
 const handleNextBtn=()=>{
 console.log("users:",users);
 if (!users.length) {
-console.log("Next Button Clicked"+users);
-  setError("Please complete this step!");
-  setShow(true);
+// console.log("Next Button Clicked"+users);
+setIsModalOpen(true);
+  // setError("Please complete this step!");
+  // setShow(true);
 }else{
   setStep(stepNumber+1);
   navigate("/Importance");
@@ -88,14 +91,14 @@ useEffect(() => {
   return (
 
     <Container  className="container">
-      {error &&show&& (
+      {/* {error &&show&& (
         <Alert variant="danger" onClose={() => setShow(false)} dismissible>
           {error}
         </Alert>
-      )}
+      )} */}
       {showModal&&<ModalComponent showModal={showModal} handleClose={handleClose} />}
 
-      <h1>Who are the decision-makers<img className="question-mark-pages" src={QuestionMark} alt="Qusestion Mark" border="0" onClick={ handleShow }></img></h1>
+      <h3>Who are the decision-makers<img className="question-mark-pages" src={QuestionMark} alt="Qusestion Mark" border="0" onClick={ handleShow }></img></h3>
 
       {/* </div> */}
       <div className="border-decision-framework-pages">
@@ -131,6 +134,19 @@ useEffect(() => {
       <div id="button-same-line">
 				<Link to="/define-goal">	<button className="inner" onClick={handleBackBtn}>BACK</button></Link>
 				<button className="inner"  onClick={handleNextBtn}><Link to="/Importance"></Link>NEXT</button>
+        {isModalOpen && (
+					<div className="modal">
+						<div className="modal-display">
+							<p>Please complete this step!</p>
+							<button
+								onClick={() => setIsModalOpen(false)}
+								className="modal-btn"
+							>
+								OK
+							</button>
+						</div>
+					</div>
+				)}
 			</div>
             </div>
     </Container>
