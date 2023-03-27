@@ -75,7 +75,7 @@ const TypeOfInformation = () => {
                                 {error}
                                 </Alert>
                                 )}
-                                <p>How much information will we have?</p>
+                                <h4>How much information will we have?</h4>
                                 <form className="radio-btn-section container-radio-btn">
                                         <label className="radio">
                                             <input
