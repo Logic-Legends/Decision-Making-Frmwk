@@ -8,26 +8,50 @@ import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 import "./TypeOfDecision.css";
 
 const TypeOfDecision = () => {
-    //state for navigation on page by next and back btn
+    const stepNumber = 6;
+
     const [isStarted, setIsStarted] = useState(false);
 
-    //state for showing first topic tooltip
+
     const [modalShow, setModalShow] = useState(false);
 
-    //state for selecting radio btn
+
     const { selectedOptionDecision, setSelectedOptionDecision,setStep } = useContext(stepProgressContext);
 
-    //state for error handling
+
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    //Local storage for storing RB value
+
     const navigate = useNavigate();
 
-      // Progress Bar Step Number
+    const [advice, setAdvice] = useState();
+    const [titleAdvice, setTitleAdvice] = useState();
 
-      const stepNumber=6;
 
-    //click back btn handler
+
+    const checkOption = ()=> {
+
+        if (selectedOptionDecision === "Iterative") {
+            setAdvice("Go through the voting methods table for each stage of the decision.");
+            setTitleAdvice("Iterative decision: ");
+            sessionStorage.setItem("advice", "Go through the voting methods table for each stage of the decision.");
+        } else if (selectedOptionDecision === "Single") {
+            setAdvice("Go through the voting methods table once.");
+            setTitleAdvice("Single decision: ");
+            sessionStorage.setItem("advice", "Go through the voting methods table once.");
+        } else {
+            setAdvice( null);
+            setTitleAdvice(null);
+}
+
+    };
+
+    useEffect(() => {
+         checkOption();
+    }, [selectedOptionDecision]);
+
+
+
     const handleBackClick = () => {
         setIsStarted(true);
         setStep(stepNumber-1);
@@ -35,7 +59,7 @@ const TypeOfDecision = () => {
 
     };
 
-    //click next btn handler
+
     const handleNextClick = () => {
         if (selectedOptionDecision === null) {
             setIsModalOpen(true);
@@ -47,19 +71,23 @@ const TypeOfDecision = () => {
         }
     };
 
-    //radio btn handler
+
     const handleOptionChange = (event) => {
         setSelectedOptionDecision(event.target.value);
         sessionStorage.setItem("selectedOptionDecision", event.target.value);
     };
 
-    //ADD TO STORAGE SESSION LAST PAGE
+
     useEffect(() => {
         const storedTypeOfDecision = sessionStorage.getItem("selectedOptionDecision");
         if (storedTypeOfDecision) {
             setSelectedOptionDecision(storedTypeOfDecision);
         }
     }, []);
+
+
+
+
 
 
     return (
@@ -108,42 +136,28 @@ const TypeOfDecision = () => {
                         <strong> Single Decision</strong> A one-time decision which does not need further review
                     </label>
                 </form>
-                {(selectedOptionDecision == "Single") ?
+                {selectedOptionDecision !== "Iterative" &&  selectedOptionDecision !== "Single"
+                ?
+                <div>
+
+                </div>
+                 :
                     <table>
                         <tbody>
                             <tr className="table-background">
-                                <th>Single decision:</th>
+                                <th>{titleAdvice}</th>
                             </tr>
                             <tr>
                                 <td>
                                     <h6>Advice:</h6>
                                     <p>
-                                        Go through the voting methods table once.
+                                        {advice}
                                     </p>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    :
-                    selectedOptionDecision == "Iterative" ?
-                    <table>
-                        <tbody>
-                            <tr className="table-background">
-                                <th>Iterative decision:</th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h6>Advice:</h6>
-                                    <p>
-                                        Go through the voting methods table for each stage of the decision.
-                                    </p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    :
-                    null
-                    }
+                }
             </section>
             {/* btn sections */}
             <section id="button-same-line">

@@ -4,7 +4,7 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import Signup from "./Sign-up";
 
 const Results = () => {
-	
+
 
 	const defineGoalText = sessionStorage.getItem("defineGoalText");
 	const users = JSON.parse(sessionStorage.getItem("users"));
@@ -17,6 +17,7 @@ const Results = () => {
 	const relativeVotingMethod1 = sessionStorage.getItem("relativeVotingMethod1");
 	const relativeVotingMethod2 = sessionStorage.getItem("relativeVotingMethod2");
 	const textAdvice = sessionStorage.getItem("textAdvice");
+	const advice =sessionStorage.getItem("advice");
 	return (
 		<div className="container">
 			<h1>You have completed the tool. Please check your responses below.</h1>
@@ -59,7 +60,8 @@ const Results = () => {
 						</tr>
 						<tr>
 							<td>Type of Decision </td>
-							<td>{selectedOptionDecision}</td>
+							<td>{selectedOptionDecision
+								+" decision: "+ advice}</td>
 						</tr>
 						<tr>
 							<td>Type of Information</td>
@@ -87,6 +89,11 @@ const Results = () => {
 								selectedOption={selectedOption}
 								defineGoalText={defineGoalText}
 								users={users}
+								textAdvice={textAdvice}
+								advice={advice}
+								relativeVotingMethod1={relativeVotingMethod1}
+								relativeVotingMethod2={relativeVotingMethod2}
+								explicitVotingMethod={explicitVotingMethod}
 							/>
 						}
 						fileName="decision.pdf"
@@ -101,7 +108,7 @@ const Results = () => {
 					</PDFDownloadLink>
 				</div>
 			</div>
-			<Signup/>
+			<Signup />
 		</div>
 	);
 };
