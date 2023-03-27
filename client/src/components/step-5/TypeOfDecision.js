@@ -107,10 +107,10 @@ const TypeOfDecision = () => {
                 />
             </h1>
             <section className="border-decision-framework-pages">
-                <p>
+                <h4>
                     Are you making an iterative or single decision decision?
 
-                </p>
+                </h4>
                 {/* Radio btn section */}
                 <form className="radio-btn-section container-radio-btn">
                     <label className="radio">

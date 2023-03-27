@@ -87,7 +87,7 @@ const Importance = () => {
 				/>
 			</h1>
 			<section className="border-decision-framework-pages">
-				<p>
+				<h4>
 					How important is the decision?
 					<img
 						src={tooltipIcon}
@@ -95,7 +95,7 @@ const Importance = () => {
 						className="question-mark-pages"
 						onClick={() => setsecondModalShow(true)}
 					/>
-				</p>
+				</h4>
 				{/* Radio btn section */}
 				<form className="radio-btn-section">
 					<label>

@@ -74,7 +74,7 @@ const TypeOfInformation = () => {
                                 {error}
                                 </Alert>
                                 )}
-                                <p>What type of information will we have?</p>
+                                <h4>What type of information will we have?</h4>
                                 <form className="radio-btn-section container-radio-btn">
 
                                         <label className="radio">
