@@ -1,6 +1,7 @@
 import React from "react";
 import Pdf from "../pdf-generation/Pdf";
 import { PDFDownloadLink } from "@react-pdf/renderer";
+import Signup from "./Sign-up";
 
 const Results = () => {
 	
@@ -31,7 +32,7 @@ const Results = () => {
 							{selectedOptionTypeOfInformation === "explicit" ? (
 								<th>{explicitVotingMethod}</th>
 							) : (
-								<th>{relativeVotingMethod1 + " " + relativeVotingMethod2}</th>
+								<th>{relativeVotingMethod1 + " | " + relativeVotingMethod2}</th>
 							)}
 						</tr>
 						<tr>
@@ -70,34 +71,37 @@ const Results = () => {
 						</tr>
 					</tbody>
 				</table>
+				<div className="start-btn">
+					<PDFDownloadLink
+						className="inner"
+						document={
+							<Pdf
+								selectedOptionAmountOfInformation={
+									selectedOptionAmountOfInformation
+								}
+								selectedOptionTypeOfInformation={
+									selectedOptionTypeOfInformation
+								}
+								selectedOptionDecision={selectedOptionDecision}
+								selectedOptionCapacity={selectedOptionCapacity}
+								selectedOption={selectedOption}
+								defineGoalText={defineGoalText}
+								users={users}
+							/>
+						}
+						fileName="decision.pdf"
+					>
+						{({ loading }) =>
+							loading ? (
+								<button>Loading document... </button>
+							) : (
+								<button> Download as a PDF</button>
+							)
+						}
+					</PDFDownloadLink>
+				</div>
 			</div>
-			<div className="start-btn">
-				<PDFDownloadLink
-					className="inner"
-					document={
-						<Pdf
-							selectedOptionAmountOfInformation={
-								selectedOptionAmountOfInformation
-							}
-							selectedOptionTypeOfInformation={selectedOptionTypeOfInformation}
-							selectedOptionDecision={selectedOptionDecision}
-							selectedOptionCapacity={selectedOptionCapacity}
-							selectedOption={selectedOption}
-							defineGoalText={defineGoalText}
-							users={users}
-						/>
-					}
-					fileName="decision.pdf"
-				>
-					{({ loading }) =>
-						loading ? (
-							<button>Loading document... </button>
-						) : (
-							<button> Download as a PDF!</button>
-						)
-					}
-				</PDFDownloadLink>
-			</div>
+			<Signup/>
 		</div>
 	);
 };
