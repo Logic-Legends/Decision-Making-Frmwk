@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     text: {
         margin: 12,
         fontSize: 14,
-        textAlign: "justify",
+        textAlign: "center",
         fontFamily: "Times-Roman",
     },
 
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     },
     tableCol1: {
         width: "20%",
-        height:"60px",
+        height: "60px",
         borderStyle: "solid",
         borderWidth: 1,
         borderLeftWidth: 1,
@@ -80,10 +80,15 @@ export default function Pdf(props) {
     const { selectedOptionAmountOfInformation } = props;
     const { selectedOption } = props;
     const { selectedOptionTypeOfInformation } = props;
-    const { selectedOptionDecision }= props;
-    const { selectedOptionCapacity }= props;
+    const { selectedOptionDecision } = props;
+    const { selectedOptionCapacity } = props;
     const { defineGoalText } = props;
     const { users } = props;
+    const { textAdvice } = props;
+    const { advice } = props;
+    const { explicitVotingMethod } = props;
+    const { relativeVotingMethod1 } = props;
+    const { relativeVotingMethod2 } = props;
     return (
         <div>
             <Page style={styles.page}>
@@ -94,7 +99,11 @@ export default function Pdf(props) {
                     <View style={styles.table}>
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol1}>
-                                <Text style={styles.tableTopic}>Voting Method</Text>
+                                {selectedOptionTypeOfInformation === "explicit" ? (
+                                    <Text style={styles.tableTopic}>{explicitVotingMethod}</Text>
+                                    ) : (
+                                        <Text style={styles.tableTopic}>{relativeVotingMethod1 + " | " + relativeVotingMethod2}</Text>)
+                                }
                             </View>
                             <View style={styles.tableCol2}>
                                 <Text style={styles.tableTopic}>Value</Text>
@@ -138,7 +147,7 @@ export default function Pdf(props) {
                                 <Text style={styles.tableCell}>Time and Resource</Text>
                             </View>
                             <View style={styles.tableCol2}>
-                                <Text style={styles.tableCell}> </Text>
+                                <Text style={styles.tableCell}> {textAdvice}</Text>
                             </View>
                         </View>
                         <View style={styles.tableRow}>
@@ -146,7 +155,8 @@ export default function Pdf(props) {
                                 <Text style={styles.tableCell}>Type of Decision</Text>
                             </View>
                             <View style={styles.tableCol2}>
-                                <Text style={styles.tableCell}>{selectedOptionDecision}</Text>
+                                <Text style={styles.tableCell}>{selectedOptionDecision
+                                    + " decision: " + advice}</Text>
                             </View>
                         </View>
                         <View style={styles.tableRow}>
@@ -171,8 +181,6 @@ export default function Pdf(props) {
                     `${pageNumber} / ${totalPages}`
                 )} fixed />
             </Page>
-
         </div>
-
     );
 }
