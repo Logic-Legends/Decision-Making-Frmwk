@@ -25,7 +25,7 @@ const Results = () => {
 				(Info)You can click on individual steps in the progress bar to go back
 				and change any of the responses.
 			</p>
-			<div className="border-decision-framework-pages">
+			<div >
 				<table>
 					<tbody>
 						<tr className="table-background">

@@ -66,7 +66,9 @@ const TypeOfInformation = () => {
 				></img>
 			</h3>
             <section className="border-decision-framework-pages">
+
                                 <p>What type of information will we have?</p>
+
                                 <form className="radio-btn-section container-radio-btn">
 
                                         <label className="radio">

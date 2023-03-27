@@ -133,70 +133,72 @@ const VotingMethod=()=>{
 			<div className="container">
 				<h3>Recommended Voting Method</h3>
 				<div className="border-decision-framework-pages">
-				{selectedOptionTypeOfInformation === "explicit" ? (
-					<table>
-						<tbody>
-							<tr className="table-background">
-								<th>{explicitVotingMethod}</th>
-							</tr>
-							<tr>
-								<td>
-									<p>{explicitVotingMethodDesc}</p>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				) : (
-					<>
-						{" "}
-						{selectedOptionTypeOfInformation === "relative" ? (
-							<>
-								<table>
-									<tbody>
-										<tr className="table-background">
-											<th>{relativeVotingMethod1}</th>
-										</tr>
-										<tr>
-											<td>
-												<p>{relativeVotingMethodDesc1}</p>
-											</td>
-										</tr>
-									</tbody>
-								</table>
+					{selectedOptionTypeOfInformation === "explicit" ? (
+						<table>
+							<tbody>
+								<tr className="table-background">
+									<th>{explicitVotingMethod}</th>
+								</tr>
+								<tr>
+									<td>
+										<p>{explicitVotingMethodDesc}</p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					) : (
+						<>
+							{" "}
+							{selectedOptionTypeOfInformation === "relative" ? (
+								<>
+									<table>
+										<tbody>
+											<tr className="table-background">
+												<th>{relativeVotingMethod1}</th>
+											</tr>
+											<tr>
+												<td>
+													<p>{relativeVotingMethodDesc1}</p>
+												</td>
+											</tr>
+										</tbody>
+									</table>
 
-								<table>
-									<tbody>
-										<tr className="table-background">
-											<th>{relativeVotingMethod2}</th>
-										</tr>
-										<tr>
-											<td>
-												<p>{relativeVotingMethodDesc2}</p>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</>
-						) : null}
-					</>
-				)}
-				<p>
-					To consult the full voting method use this{" "}
-					<Link to="/ResultVotingMethod">link</Link>
-				</p>
+									<table>
+										<tbody>
+											<tr className="table-background">
+												<th>{relativeVotingMethod2}</th>
+											</tr>
+											<tr>
+												<td>
+													<p>{relativeVotingMethodDesc2}</p>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</>
+							) : null}
+						</>
+					)}
+					<p>
+						To consult the full voting method use this{" "}
+						<Link to="/ResultVotingMethod" target="_blank">
+							link
+						</Link>
+					</p>
+				</div>
+				{/* btn sections */}
+				<section id="button-same-line">
+					<button onClick={handleBackClick} className="inner">
+						<Link to="/amount-of-information"></Link>
+						Back
+					</button>
+					<button onClick={handleNextClick} className="inner">
+						<Link to="/Results"></Link>Next
+					</button>
+				</section>
 			</div>
-			{/* btn sections */}
-			<section id="button-same-line">
-				<button onClick={handleBackClick} className="inner">
-					<Link to="/amount-of-information"></Link>
-					Back
-				</button>
-				<button onClick={handleNextClick} className="inner">
-					<Link to="/Results"></Link>Next
-				</button>
-			</section>
-		</div>
-	);
+		);
 };
 
 

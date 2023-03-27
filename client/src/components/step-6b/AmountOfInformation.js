@@ -68,6 +68,7 @@ const TypeOfInformation = () => {
             <section className="border-decision-framework-pages">
 
                                 <p>How much information will we have?</p>
+
                                 <form className="radio-btn-section container-radio-btn">
                                         <label className="radio">
                                             <input

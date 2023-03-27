@@ -84,7 +84,7 @@ const Capacity = () => {
 				/>
 			</h3>
 			<section className="border-decision-framework-pages">
-				<p>
+				<h4>
 					What is the decision-making teams capacity?
 					<img
 						src={tooltipIcon}
@@ -92,7 +92,7 @@ const Capacity = () => {
 						className="question-mark-pages"
 						onClick={() => setsecondModalShow(true)}
 					/>
-				</p>
+				</h4>
 				{/* Radio btn section */}
 				<form className="radio-btn-section">
 					<label>
