@@ -8729,6 +8729,9 @@ table {
 .tooltip-list{
 	margin-left: 20px;
 }
+.list{
+	margin-left: 20px;
+}
 
 /* Mohammed CSS */
 /* .step-container {
@@ -8870,7 +8873,21 @@ table {
   .radio-description{
 	color: rgb(130, 130, 130);
   }
-
+  .dlt-edt-icons{
+	display: none;
+	
+  }
+  .edt-icon{
+	width: 30px;
+	padding-right: 10px;
+	
+	
+  }
+.dlt-icon{
+	width: 30px;
+	padding-left: 10px;
+	
+}
 
   @media (max-width: 480px) {
     .container-radio-btn {
@@ -8888,4 +8905,14 @@ table {
 		margin-right: 7px;
 		margin-left: 10px;
 	}
+	.mb-0, .py-2{
+	display: none;;
+	}
+	.dlt-edt-icons{
+		display: flex;
+		margin: 10px 5px auto auto;;
+		height: 40px;
+	 }
+	 
+
   }
