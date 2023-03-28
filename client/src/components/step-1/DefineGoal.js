@@ -56,7 +56,7 @@ const DefineGoal = () => {
         onHide={() => setModalShow(false)}
       />
 
-        <h3>What is the goal?</h3>
+        <h2>What is the goal?</h2>
         <div className="border-decision-framework-pages">
 
           <p>Defining the goal will help you determine what kind of information you need to make a decision.

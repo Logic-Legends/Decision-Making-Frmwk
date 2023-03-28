@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button, Row, Col, Alert } from "react-bootstrap";
+import { Form, Row, Col } from "react-bootstrap";
+import Icon from "react-crud-icons";
 
 function DecisionMakersForm({ addUser, editUser, editIndex }) {
-  const [user, setUser] = useState({ name: "", role: "" });
+  const [user, setUser] = useState({ name: "" });
   // const [error, setError] = useState("");
   // const [show, setShow] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,7 +12,7 @@ function DecisionMakersForm({ addUser, editUser, editIndex }) {
     if (editUser) {
       setUser(editUser);
     } else {
-      setUser({ name: "", role: "" });
+      setUser({ name: "" });
     }
   }, [editUser]);
 
@@ -22,14 +23,14 @@ function DecisionMakersForm({ addUser, editUser, editIndex }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (user.name.trim() === "" || user.role.trim() === "") {
+    if (user.name.trim() === "") {
       // setError("Both Name and Role fields must be filled.");
       // setShow(true);
       setIsModalOpen(true);
     } else {
       // setError("");
       addUser(user);
-      setUser({ name: "", role: "" });
+      setUser({ name: "" });
     }
   };
 
@@ -43,7 +44,7 @@ function DecisionMakersForm({ addUser, editUser, editIndex }) {
       {isModalOpen && (
 					<div className="modal">
 						<div className="modal-display">
-							<p>Both Name and Role fields must be filled.</p>
+							<p>Name fields must be filled.</p>
 							<button
 								onClick={() => setIsModalOpen(false)}
 								className="modal-btn"
@@ -67,23 +68,30 @@ function DecisionMakersForm({ addUser, editUser, editIndex }) {
               />
             </Form.Group>
           </Col>
-          <Col>
-            <Form.Group controlId="formRole">
-              <Form.Label>Role</Form.Label>
-              <Form.Control
-                type="text"
-                name="role"
-                value={user.role}
-                onChange={handleChange}
-                placeholder="Enter role"
-              />
-            </Form.Group>
-          </Col>
           <Col className="d-flex align-items-end ">
             <button className="inner mb-0 py-2" type="submit">
               {editIndex === -1 ? "Add" : "Update"}
             </button>
+            <Icon
+              name="add"
+              theme="light"
+              size="medium"
+              onClick={() => deleteUser(index)}
+              className="dlt-icon"
+
+            />
+
+
+
           </Col>
+
+
+
+
+
+
+
+
         </Row>
       </Form>
     </>
