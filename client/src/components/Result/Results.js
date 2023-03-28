@@ -108,19 +108,21 @@ const Results = () => {
 						}
 						fileName="decision.pdf"
 					>
+
 						{({ loading }) =>
 							loading ? (
-								<button>Loading document... </button>
+								<button className="inner">Loading document... </button>
 							) : (
-								<button> Download as a PDF</button>
+									<button className=" inner"> Download as a PDF</button>
 							)
 						}
+
 					</PDFDownloadLink>
 				</div>
 
 			</div>
-			<button onClick={()=>navigate("/review")}> Leave review</button>
-			<Signup />
+			<button className="inner" onClick={()=>navigate("/review")}> Leave review</button>
+			<Signup className="inner" />
 		</div>
 	);
 };
