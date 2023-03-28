@@ -61,7 +61,7 @@ const TypeOfInformation = () => {
 				onHide={() => FirstSetModalShow(false)}
 			/>
 
-            <h3>Amount of Information{" "}
+            <h2>Amount of Information{" "}
 				<img
 					className="question-mark-pages"
 					src={QuestionMark}
@@ -69,18 +69,18 @@ const TypeOfInformation = () => {
 					border="0"
 					onClick={() => FirstSetModalShow(true)}
 				></img>
-			</h3>
+			</h2>
             <section className="border-decision-framework-pages">
 
-                                <p>How much information will we have?</p>
+                                <h6>How much information will we have?</h6>
 
                                 <form className="radio-btn-section container-radio-btn">
                                         <label className="radio">
                                             <input
                                                 type="radio"
                                                 name="option"
-                                                value="high"
-                                                checked={selectedOptionAmountOfInformation === "high"}
+                                                value="High"
+                                                checked={selectedOptionAmountOfInformation === "High"}
                                                 onChange={handleOptionChange}
                                                 className="input-radio-btn"
                                             />
@@ -93,8 +93,8 @@ const TypeOfInformation = () => {
                                             <input
                                                 type="radio"
                                                 name="option"
-                                                value="medium"
-                                                checked={selectedOptionAmountOfInformation === "medium"}
+                                                value="Medium"
+                                                checked={selectedOptionAmountOfInformation === "Medium"}
                                                 onChange={handleOptionChange}
                                                 className="input-radio-btn"
                                             />
@@ -107,8 +107,8 @@ const TypeOfInformation = () => {
                                             <input
                                                 type="radio"
                                                 name="option"
-                                                value="low"
-                                                checked={selectedOptionAmountOfInformation === "low"}
+                                                value="Low"
+                                                checked={selectedOptionAmountOfInformation === "Low"}
                                                 onChange={handleOptionChange}
                                                 className="input-radio-btn"
                                             />

@@ -77,7 +77,7 @@ const Importance = () => {
 				show={secondModalShow}
 				onHide={() => setsecondModalShow(false)}
 			/>
-			<h3>
+			<h2>
 				Importance{" "}
 				<img
 					src={tooltipIcon}
@@ -85,9 +85,9 @@ const Importance = () => {
 					className="question-mark-pages"
 					onClick={() => setModalShow(true)}
 				/>
-			</h3>
+			</h2>
 			<section className="border-decision-framework-pages">
-				<h4>
+				<h6>
 					How important is the decision?
 					<img
 						src={tooltipIcon}
@@ -95,30 +95,47 @@ const Importance = () => {
 						className="question-mark-pages"
 						onClick={() => setsecondModalShow(true)}
 					/>
-				</h4>
+				</h6>
 				{/* Radio btn section */}
-				<form className="radio-btn-section">
-					<label>
+				<form className="radio-btn-section container-radio-btn">
+					<label className="radio">
 						<input
 							type="radio"
 							name="importance"
-							value="low"
-							checked={selectedOption === "low"}
+							value="Low"
+							checked={selectedOption === "Low"}
 							onChange={handleOptionChange}
-							className="radio-input low-rdb"
+							className="input-radio-btn"
 						/>
-						Low
+						<span className="radio-label">
+							<span className="radio-title">Low </span>
+							<span className="radio-description">
+								<strong>Example of low importance:</strong> The decision will
+								not likely affect the broader organization or how we interact
+								with other organizations. It will probably affect a small
+								project or small team within the organization.
+							</span>
+						</span>
 					</label>
-					<label>
+					<label className="radio">
 						<input
 							type="radio"
 							name="importance"
-							value="high"
-							checked={selectedOption === "high"}
+							value="High"
+							checked={selectedOption === "High"}
 							onChange={handleOptionChange}
-							className="radio-input high-rdb"
+							className="input-radio-btn"
 						/>
-						High
+						<span className="radio-label">
+							<span className="radio-title">High </span>
+							<span className="radio-description">
+								<strong>Example of high importance:</strong> The decision will
+								likely affect the broader organization or how we interact with
+								other organizations. It will probably affect a large team within
+								the organization or how the organization operates at a high
+								level.
+							</span>
+						</span>
 					</label>
 				</form>
 			</section>

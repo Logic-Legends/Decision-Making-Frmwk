@@ -61,7 +61,7 @@ const TypeOfInformation = () => {
 				onHide={() => FirstSetModalShow(false)}
 			/>
 
-			<h3>Type of Information{" "}
+			<h2>Type of Information{" "}
 				<img
 					className="question-mark-pages"
 					src={QuestionMark}
@@ -69,10 +69,10 @@ const TypeOfInformation = () => {
 					border="0"
 					onClick={() => FirstSetModalShow(true)}
 				></img>
-			</h3>
+			</h2>
             <section className="border-decision-framework-pages">
 
-                                <p>What type of information will we have?</p>
+                                <h6>What type of information will we have?</h6>
 
                                 <form className="radio-btn-section container-radio-btn">
 
@@ -80,8 +80,8 @@ const TypeOfInformation = () => {
                                             <input
                                                 type="radio"
                                                 name="option"
-                                                value="explicit"
-                                                checked={selectedOptionTypeOfInformation === "explicit"}
+                                                value="Explicit"
+                                                checked={selectedOptionTypeOfInformation === "Explicit"}
                                                 onChange={handleOptionChange}
                                                 className="input-radio-btn"
                                             />
@@ -95,8 +95,8 @@ const TypeOfInformation = () => {
                                            <input
                                                 type="radio"
                                                 name="option"
-                                                value="relative"
-                                                checked={selectedOptionTypeOfInformation === "relative"}
+                                                value="Relative"
+                                                checked={selectedOptionTypeOfInformation === "Relative"}
                                                 onChange={handleOptionChange}
                                                 className="input-radio-btn"
                                             />
