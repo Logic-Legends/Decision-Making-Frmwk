@@ -4,20 +4,26 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import Signup from "./Sign-up";
 
 const Results = () => {
-
-
 	const defineGoalText = sessionStorage.getItem("defineGoalText");
 	const users = JSON.parse(sessionStorage.getItem("users"));
 	const selectedOption = sessionStorage.getItem("selectedOption");
-  	const selectedOptionCapacity = sessionStorage.getItem("selectedOptionCapacity");
-	const selectedOptionDecision = sessionStorage.getItem("selectedOptionDecision");
-	const selectedOptionTypeOfInformation = sessionStorage.getItem("selectedOptionTypeOfInformation");
-	const selectedOptionAmountOfInformation = sessionStorage.getItem("selectedOptionAmountOfInformation");
+	const selectedOptionCapacity = sessionStorage.getItem(
+		"selectedOptionCapacity"
+	);
+	const selectedOptionDecision = sessionStorage.getItem(
+		"selectedOptionDecision"
+	);
+	const selectedOptionTypeOfInformation = sessionStorage.getItem(
+		"selectedOptionTypeOfInformation"
+	);
+	const selectedOptionAmountOfInformation = sessionStorage.getItem(
+		"selectedOptionAmountOfInformation"
+	);
 	const explicitVotingMethod = sessionStorage.getItem("explicitVotingMethod");
 	const relativeVotingMethod1 = sessionStorage.getItem("relativeVotingMethod1");
 	const relativeVotingMethod2 = sessionStorage.getItem("relativeVotingMethod2");
 	const textAdvice = sessionStorage.getItem("textAdvice");
-	const advice =sessionStorage.getItem("advice");
+	const advice = sessionStorage.getItem("advice");
 	return (
 		<div className="container">
 			<h3>You have completed the tool. Please check your responses below.</h3>
@@ -25,7 +31,7 @@ const Results = () => {
 				(Info)You can click on individual steps in the progress bar to go back
 				and change any of the responses.
 			</p>
-			<div >
+			<div>
 				<table>
 					<tbody>
 						<tr className="table-background">
@@ -61,8 +67,7 @@ const Results = () => {
 						</tr>
 						<tr>
 							<td>Type of Decision </td>
-							<td>{selectedOptionDecision
-								+" decision: "+ advice}</td>
+							<td>{selectedOptionDecision + " decision: " + advice}</td>
 						</tr>
 						<tr>
 							<td>Type of Information</td>
