@@ -99,18 +99,19 @@ export default function Pdf(props) {
                     <View style={styles.table}>
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol1}>
+                                <Text style={styles.tableTopic}>Value</Text>
+                            </View>
+                            <View style={styles.tableCol2}>
                                 {selectedOptionTypeOfInformation === "explicit" ? (
                                     <Text style={styles.tableTopic}>{explicitVotingMethod}</Text>
                                     ) : (
                                         <Text style={styles.tableTopic}>{relativeVotingMethod1 + " | " + relativeVotingMethod2}</Text>)
                                 }
                             </View>
-                            <View style={styles.tableCol2}>
-                                <Text style={styles.tableTopic}>Value</Text>
-                            </View>
                         </View>
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol1}>
+
                                 <Text style={styles.tableCell}>What</Text>
                             </View>
                             <View style={styles.tableCol2}>
