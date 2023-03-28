@@ -91,16 +91,9 @@ useEffect(() => {
   return (
 
     <Container  className="container">
-      {/* {error &&show&& (
-        <Alert variant="danger" onClose={() => setShow(false)} dismissible>
-          {error}
-        </Alert>
-      )} */}
       {showModal&&<ModalComponent showModal={showModal} handleClose={handleClose} />}
-
       <h3>Who are the decision-makers<img className="question-mark-pages" src={QuestionMark} alt="Qusestion Mark" border="0" onClick={ handleShow }></img></h3>
 
-      {/* </div> */}
       <div className="border-decision-framework-pages">
       <DecisionMakersForm
         addUser={addUser}
@@ -110,8 +103,7 @@ useEffect(() => {
       <Table striped  hover   >
         <thead>
           <tr>
-            <th className="border">Name</th>
-            {/* <th className="border border-start-0"></th> */}
+              <th className="border nameTable">Name</th>
           </tr>
         </thead>
         <tbody>
