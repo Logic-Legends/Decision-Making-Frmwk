@@ -99,7 +99,7 @@ export default function Pdf(props) {
                     <View style={styles.table}>
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol1}>
-                                <Text style={styles.tableTopic}>Value</Text>
+                                <Text style={styles.tableTopic}>Voting Method</Text>
                             </View>
                             <View style={styles.tableCol2}>
                                 {selectedOptionTypeOfInformation === "explicit" ? (
