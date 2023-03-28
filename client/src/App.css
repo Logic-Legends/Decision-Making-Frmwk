@@ -8647,6 +8647,7 @@ Luan CSS
 	border-width: 2px;
 	border-style: solid;
 	border-color: #d9d9d9;
+	border-radius: 5px;
 }
 
 .add-goal {
@@ -8696,6 +8697,8 @@ Luan CSS
 .inner {
 	margin: 9px;
 	display: inline-block;
+
+	border-radius: 3px;
 }
 
 /* Test of table */
