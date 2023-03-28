@@ -21,4 +21,15 @@ router.get("/signups", async (req, res) => {
 	}
 });
 
+router.post("/submit-email", async (req,res)=>{
+	const {email} =req.body;
+	try{
+		await db.query("INSERT INTO email_signup (email) VALUES ($1)", [email]);
+		res.status(200).json({message :"Email saved successfully"});
+	}catch(err){
+		
+		res.status(500).json({message:"Internal server error"});
+	}
+});
+
 export default router;

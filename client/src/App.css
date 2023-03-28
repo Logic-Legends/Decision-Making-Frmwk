@@ -8832,9 +8832,25 @@ table {
 	text-align: left;
   padding: 8px;
 }
-.sign-up-check{
-	margin-right: 7px;
+.signup-modal-header{
+	display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+.signup-modal-header h2{
+	margin: 0;
+}
+.signup-modal-header button{
+	background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #000;
+}
+
 /* ------------- */
 
 /*Make responsive*/
