@@ -8888,6 +8888,10 @@ table {
 	padding-left: 10px;
 	
 }
+.add-update-icon{
+	display: none;
+	
+}
 
   @media (max-width: 480px) {
     .container-radio-btn {
@@ -8913,6 +8917,17 @@ table {
 		margin: 10px 5px auto auto;;
 		height: 40px;
 	 }
-	 
+	.add-update-icon{
+	display: flex;
+	background-color: white;
+	margin: 0%;
+	padding: 0%;
+	
+}
+	.add-icon{
+	width: 40px;
+	margin: 0%;
+	padding: 0%;
+}
 
   }

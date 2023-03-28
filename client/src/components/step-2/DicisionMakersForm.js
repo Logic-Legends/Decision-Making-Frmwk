@@ -72,26 +72,25 @@ function DecisionMakersForm({ addUser, editUser, editIndex }) {
             <button className="inner mb-0 py-2" type="submit">
               {editIndex === -1 ? "Add" : "Update"}
             </button>
-            <Icon
-              name="add"
-              theme="light"
-              size="medium"
-              onClick={() => deleteUser(index)}
-              className="dlt-icon"
 
-            />
+            <button className="add-update-icon" type="submit">
+              {editIndex === -1 ? (<Icon
+                name="add"
+                theme="light"
+                size="medium"
+                onChange={handleChange}
+                className="add-icon"
 
+              />) : (<Icon
+                name="edit"
+                theme="light"
+                size="medium"
+                onChange={handleChange}
+                className="add-icon"
 
-
+              />) }
+            </button>
           </Col>
-
-
-
-
-
-
-
-
         </Row>
       </Form>
     </>
