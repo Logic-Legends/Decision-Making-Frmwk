@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
 import ProgressBarContext from "./components/ProgressBar/ProgressBarContext";
 
-
 createRoot(document.getElementById("root")).render(
 	<BrowserRouter>
 	<ProgressBarContext>
