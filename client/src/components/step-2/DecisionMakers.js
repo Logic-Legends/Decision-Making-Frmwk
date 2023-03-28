@@ -145,24 +145,25 @@ useEffect(() => {
         </tbody>
       </Table>
 
-      <div id="button-same-line">
-				<Link to="/define-goal">	<button className="inner" onClick={handleBackBtn}>BACK</button></Link>
-				<button className="inner"  onClick={handleNextBtn}><Link to="/Importance"></Link>NEXT</button>
-        {isModalOpen && (
-					<div className="modal">
-						<div className="modal-display">
-							<p>Please complete this step!</p>
-							<button
-								onClick={() => setIsModalOpen(false)}
-								className="modal-btn"
-							>
-								OK
-							</button>
-						</div>
-					</div>
-				)}
-			</div>
+
             </div>
+      <div id="button-same-line">
+        <Link to="/define-goal">	<button className="inner" onClick={handleBackBtn}>BACK</button></Link>
+        <button className="inner" onClick={handleNextBtn}><Link to="/Importance"></Link>NEXT</button>
+        {isModalOpen && (
+          <div className="modal">
+            <div className="modal-display">
+              <p>Please complete this step!</p>
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="modal-btn"
+              >
+                OK
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
     </Container>
   );
 }

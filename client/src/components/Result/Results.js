@@ -42,9 +42,10 @@ const Results = () => {
 						</tr>
 						<tr>
 							<td>Who</td>
-							{users.map((user, index) => (
-								<td key={index}>{user.name}</td>
-							))}
+							<td> {users.map((user, index) => (
+								<p key={index}>{user.name}</p>
+							))}</td>
+
 						</tr>
 						<tr>
 							<td>Importance</td>
