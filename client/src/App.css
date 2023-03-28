@@ -8892,6 +8892,15 @@ table {
 	display: none;
 	
 }
+.nameTable{
+width: 80%;
+}
+#formName{
+	min-width: 170px;
+}
+.plus{
+	justify-content: right;
+}
 
   @media (max-width: 480px) {
     .container-radio-btn {
@@ -8920,8 +8929,8 @@ table {
 	.add-update-icon{
 	display: flex;
 	background-color: white;
-	margin: 0%;
 	padding: 0%;
+	justify-content: right;
 	
 }
 	.add-icon{
@@ -8929,5 +8938,6 @@ table {
 	margin: 0%;
 	padding: 0%;
 }
+
 
   }

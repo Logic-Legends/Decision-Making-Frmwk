@@ -58,7 +58,7 @@ function DecisionMakersForm({ addUser, editUser, editIndex }) {
         <Row>
           <Col>
             <Form.Group controlId="formName">
-              <Form.Label>Name</Form.Label>
+              <Form.Label className="nameInput">Name</Form.Label>
               <Form.Control
                 type="text"
                 name="name"
@@ -68,7 +68,7 @@ function DecisionMakersForm({ addUser, editUser, editIndex }) {
               />
             </Form.Group>
           </Col>
-          <Col className="d-flex align-items-end ">
+          <Col className="d-flex align-items-end plus">
             <button className="inner mb-0 py-2" type="submit">
               {editIndex === -1 ? "Add" : "Update"}
             </button>
@@ -90,6 +90,7 @@ function DecisionMakersForm({ addUser, editUser, editIndex }) {
 
               />) }
             </button>
+
           </Col>
         </Row>
       </Form>
