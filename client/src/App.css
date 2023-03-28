@@ -8832,9 +8832,25 @@ table {
 	text-align: left;
   padding: 8px;
 }
-.sign-up-check{
-	margin-right: 7px;
+.signup-modal-header{
+	display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+.signup-modal-header h2{
+	margin: 0;
+}
+.signup-modal-header button{
+	background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #000;
+}
+
 /* ------------- */
 
 /*Make responsive*/
@@ -8941,3 +8957,40 @@ width: 80%;
 
 
   }
+
+  /* Review page */
+  .review-container {
+	border: 1px solid #ccc;
+	padding: 20px;
+	text-align: center;
+  }
+  
+  .review-title {
+	margin-top: 0;
+	margin-bottom: 20px;
+  }
+
+  .review-ul {
+	margin-top: 20px;
+	list-style: none;
+	justify-content: space-between;
+  }
+
+  .review-header {
+	margin-top: 1rem;
+	display: flex;
+	align-items: center;
+  }
+  
+  .review-header strong {
+	margin-right: 1rem;
+  }
+  
+  .review-comment {
+	/* margin-bottom: 1rem; */
+	display: flex;
+	align-items: center;
+	color: rgb(130, 130, 130); 
+  }
+
+  
