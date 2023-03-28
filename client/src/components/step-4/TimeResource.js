@@ -68,7 +68,7 @@ useEffect(() => {
 				onHide={() => setModalShow(false)}
 			/>
 
-			<h3>
+			<h2>
 				Time and Resource allocation{" "}
 				<img
 					className="question-mark-pages"
@@ -77,7 +77,7 @@ useEffect(() => {
 					border="0"
 					onClick={() => setModalShow(true)}
 				></img>
-			</h3>
+			</h2>
 			<div className="border-decision-framework-pages">
 				<table>
 					<tbody>

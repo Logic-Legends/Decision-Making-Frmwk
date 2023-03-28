@@ -77,7 +77,7 @@ const Importance = () => {
 				show={secondModalShow}
 				onHide={() => setsecondModalShow(false)}
 			/>
-			<h3>
+			<h2>
 				Importance{" "}
 				<img
 					src={tooltipIcon}
@@ -85,9 +85,9 @@ const Importance = () => {
 					className="question-mark-pages"
 					onClick={() => setModalShow(true)}
 				/>
-			</h3>
+			</h2>
 			<section className="border-decision-framework-pages">
-				<h4>
+				<h6>
 					How important is the decision?
 					<img
 						src={tooltipIcon}
@@ -95,7 +95,7 @@ const Importance = () => {
 						className="question-mark-pages"
 						onClick={() => setsecondModalShow(true)}
 					/>
-				</h4>
+				</h6>
 				{/* Radio btn section */}
 				<form className="radio-btn-section">
 					<label>
