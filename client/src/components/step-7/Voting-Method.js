@@ -26,8 +26,8 @@ const VotingMethod=()=>{
 
 	const showExplicit = () => {
 		if (
-			selectedOptionTypeOfInformation === "explicit" &&
-			selectedOptionAmountOfInformation === "low"
+			selectedOptionTypeOfInformation === "Explicit" &&
+			selectedOptionAmountOfInformation === "Low"
 		) {
 			setExplicitVotingMethod("Approval voting");
 			setExplicitVotingMethodDesc(
@@ -35,8 +35,8 @@ const VotingMethod=()=>{
 			);
             sessionStorage.setItem("explicitVotingMethod","Approval voting");
 		} else if (
-			selectedOptionTypeOfInformation === "explicit" &&
-			selectedOptionAmountOfInformation === "medium"
+			selectedOptionTypeOfInformation === "Explicit" &&
+			selectedOptionAmountOfInformation === "Medium"
 		) {
 			setExplicitVotingMethod("Score voting");
 			setExplicitVotingMethodDesc(
@@ -44,8 +44,8 @@ const VotingMethod=()=>{
 			);
            sessionStorage.setItem("explicitVotingMethod","Score voting");
 		} else if (
-			selectedOptionTypeOfInformation === "explicit" &&
-			selectedOptionAmountOfInformation === "high"
+			selectedOptionTypeOfInformation === "Explicit" &&
+			selectedOptionAmountOfInformation === "High"
 		) {
 			setExplicitVotingMethod("Delphi method");
 			setExplicitVotingMethodDesc(
@@ -63,8 +63,8 @@ const VotingMethod=()=>{
 
 	const showRelative = () => {
 		if (
-			selectedOptionTypeOfInformation === "relative" &&
-			selectedOptionAmountOfInformation === "low"
+			selectedOptionTypeOfInformation === "Relative" &&
+			selectedOptionAmountOfInformation === "Low"
 		) {
 			setRelativeVotingMethod1("First past the post");
 			setRelativeVotingMethodDesc1(
@@ -83,8 +83,8 @@ const VotingMethod=()=>{
 							"Multivoting"
 						);
 		} else if (
-			selectedOptionTypeOfInformation === "relative" &&
-			selectedOptionAmountOfInformation === "medium"
+			selectedOptionTypeOfInformation === "Relative" &&
+			selectedOptionAmountOfInformation === "Medium"
 		) {
 			setRelativeVotingMethod1("STAR voting");
 			setRelativeVotingMethodDesc1(
@@ -102,8 +102,8 @@ const VotingMethod=()=>{
 							"Ranked choice"
 						);
 		} else if (
-			selectedOptionTypeOfInformation === "relative" &&
-			selectedOptionAmountOfInformation === "high"
+			selectedOptionTypeOfInformation === "Relative" &&
+			selectedOptionAmountOfInformation === "High"
 		) {
 			setRelativeVotingMethod1("Delphi method");
 			setRelativeVotingMethodDesc1(
@@ -139,7 +139,7 @@ const VotingMethod=()=>{
 			<div className="container">
 				<h2>Recommended Voting Method</h2>
 				<div className="border-decision-framework-pages">
-					{selectedOptionTypeOfInformation === "explicit" ? (
+					{selectedOptionTypeOfInformation === "Explicit" ? (
 						<table>
 							<tbody>
 								<tr className="table-background">
@@ -155,7 +155,7 @@ const VotingMethod=()=>{
 					) : (
 						<>
 							{" "}
-							{selectedOptionTypeOfInformation === "relative" ? (
+							{selectedOptionTypeOfInformation === "Relative" ? (
 								<>
 									<table>
 										<tbody>

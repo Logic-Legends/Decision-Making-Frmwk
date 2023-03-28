@@ -10,30 +10,19 @@ function HandleSecondTooltipClick(props) {
 		>
 			<Modal.Header closeButton>
 				<Modal.Title id="contained-modal-title-vcenter">
-					<h6>
-						Guiding questions:
-					</h6>
+					<p>
+						<strong>Guiding questions:</strong>
+					</p>
 				</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
 				<p>
-				
 					Will it affect how we operate as an organization or as a team within
 					the organization? Will it affect how we interact with other
 					organizations?
 				</p>
-				<p>
-					<strong>Example of low importance:</strong> The decision will not
-					likely affect the broader organization or how we interact with other
-					organizations. It will probably affect a small project or small team
-					within the organization.
-				</p>
-				<p>
-					<strong>Example of high importance:</strong> The decision will likely
-					affect the broader organization or how we interact with other
-					organizations. It will probably affect a large team within the
-					organization or how the organization operates at a high level.
-				</p>
+
+				<p></p>
 			</Modal.Body>
 		</Modal>
 	);

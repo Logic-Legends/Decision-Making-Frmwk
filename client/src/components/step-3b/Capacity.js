@@ -94,28 +94,47 @@ const Capacity = () => {
 					/>
 				</h6>
 				{/* Radio btn section */}
-				<form className="radio-btn-section">
-					<label>
+				<form className="radio-btn-section container-radio-btn">
+					<label className="radio">
 						<input
 							type="radio"
 							name="capacity"
-							value="low"
-							checked={selectedOptionCapacity === "low"}
+							value="Low"
+							checked={selectedOptionCapacity === "Low"}
 							onChange={handleOptionChange}
-							className="radio-input low-rdb"
+							className="input-radio-btn"
 						/>
-						Low
+						<span className="radio-label">
+							<span className="radio-title">Low </span>
+							<span className="radio-description">
+								<strong>Example of low capacity:</strong> The deadline for
+								making the decision is very soon, and all of the people who need
+								to be involved have other outstanding projects that are
+								time-consuming and cannot be delayed. It would be hard for the
+								team to find time to learn relevant information and attend
+								decision-making meetings.
+							</span>
+						</span>
 					</label>
-					<label>
+					<label className="radio">
 						<input
 							type="radio"
 							name="capacity"
-							value="high"
-							checked={selectedOptionCapacity === "high"}
+							value="High"
+							checked={selectedOptionCapacity === "High"}
 							onChange={handleOptionChange}
-							className="radio-input high-rdb"
+							className="input-radio-btn"
 						/>
-						High
+						<span className="radio-label">
+							<span className="radio-title">High </span>
+							<span className="radio-description">
+								<strong>Example of high capacity:</strong> The deadline for
+								making the decision is further out, and all of the people who
+								need to be involved in the decision have open time in their
+								schedules. It would be easy for the team to find time to learn
+								relevant information and attend decision-making meetings.
+							</span>
+						</span>
 					</label>
 				</form>
 			</section>
