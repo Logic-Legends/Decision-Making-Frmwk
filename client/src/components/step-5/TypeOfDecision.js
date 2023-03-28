@@ -9,28 +9,14 @@ import "./TypeOfDecision.css";
 
 const TypeOfDecision = () => {
     const stepNumber = 6;
-
     const [isStarted, setIsStarted] = useState(false);
-
-
     const [modalShow, setModalShow] = useState(false);
-
-
     const { selectedOptionDecision, setSelectedOptionDecision,setStep } = useContext(stepProgressContext);
-
-
     const [isModalOpen, setIsModalOpen] = useState(false);
-
-
     const navigate = useNavigate();
-
     const [advice, setAdvice] = useState();
     const [titleAdvice, setTitleAdvice] = useState();
-
-
-
     const checkOption = ()=> {
-
         if (selectedOptionDecision === "Iterative") {
             setAdvice("Go through the voting methods table for each stage of the decision.");
             setTitleAdvice("Iterative decision: ");
@@ -43,24 +29,16 @@ const TypeOfDecision = () => {
             setAdvice( null);
             setTitleAdvice(null);
 }
-
     };
-
     useEffect(() => {
          checkOption();
     }, [selectedOptionDecision]);
-
-
-
     const handleBackClick = () => {
         setIsStarted(true);
         setStep(stepNumber-1);
         navigate("/time-resource");
-
     };
-
-
-    const handleNextClick = () => {
+ const handleNextClick = () => {
         if (selectedOptionDecision === null) {
             setIsModalOpen(true);
 
@@ -70,27 +48,17 @@ const TypeOfDecision = () => {
             navigate("/type-of-information");
         }
     };
-
-
     const handleOptionChange = (event) => {
         setSelectedOptionDecision(event.target.value);
         sessionStorage.setItem("selectedOptionDecision", event.target.value);
     };
-
-
-    useEffect(() => {
+useEffect(() => {
         const storedTypeOfDecision = sessionStorage.getItem("selectedOptionDecision");
         if (storedTypeOfDecision) {
             setSelectedOptionDecision(storedTypeOfDecision);
         }
     }, []);
-
-
-
-
-
-
-    return (
+ return (
         <div className="container">
             {/* call first tooltip component */}
             <HandleTooltipClick
@@ -142,28 +110,6 @@ const TypeOfDecision = () => {
                         </span>
                     </label>
                 </form>
-                {selectedOptionDecision !== "Iterative" &&  selectedOptionDecision !== "Single"
-                ?
-                <div>
-
-                </div>
-                 :
-                    <table>
-                        <tbody>
-                            <tr className="table-background">
-                                <th>{titleAdvice}</th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h6>Advice:</h6>
-                                    <p>
-                                        {advice}
-                                    </p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                }
             </section>
             {/* btn sections */}
             <section id="button-same-line">
