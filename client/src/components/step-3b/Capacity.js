@@ -99,8 +99,8 @@ const Capacity = () => {
 						<input
 							type="radio"
 							name="capacity"
-							value="low"
-							checked={selectedOptionCapacity === "low"}
+							value="Low"
+							checked={selectedOptionCapacity === "Low"}
 							onChange={handleOptionChange}
 							className="input-radio-btn"
 						/>
@@ -120,8 +120,8 @@ const Capacity = () => {
 						<input
 							type="radio"
 							name="capacity"
-							value="high"
-							checked={selectedOptionCapacity === "high"}
+							value="High"
+							checked={selectedOptionCapacity === "High"}
 							onChange={handleOptionChange}
 							className="input-radio-btn"
 						/>

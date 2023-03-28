@@ -102,8 +102,8 @@ const Importance = () => {
 						<input
 							type="radio"
 							name="importance"
-							value="low"
-							checked={selectedOption === "low"}
+							value="Low"
+							checked={selectedOption === "Low"}
 							onChange={handleOptionChange}
 							className="input-radio-btn"
 						/>
@@ -121,8 +121,8 @@ const Importance = () => {
 						<input
 							type="radio"
 							name="importance"
-							value="high"
-							checked={selectedOption === "high"}
+							value="High"
+							checked={selectedOption === "High"}
 							onChange={handleOptionChange}
 							className="input-radio-btn"
 						/>
