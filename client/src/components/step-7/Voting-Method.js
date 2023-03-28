@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from "react";
+import React, {  useEffect, useState,useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 
@@ -6,6 +6,10 @@ import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 const VotingMethod=()=>{
 	const navigate = useNavigate();
 
+	//Used to get data to select radio button
+    const { setStep } = useContext( stepProgressContext );
+
+	const stepNumber=9;
 
 	const [explicitVotingMethod, setExplicitVotingMethod] = useState();
 	const [explicitVotingMethodDesc, setExplicitVotingMethodDesc] = useState();
@@ -122,11 +126,13 @@ const VotingMethod=()=>{
 
 			setIsStarted(true);
 			navigate("/Results");
+			setStep(stepNumber+1);
 
 	};
      const handleBackClick = () => {
 				setIsStarted(true);
 				navigate("/amount-of-information");
+				setStep(stepNumber-1);
 			};
 
     return (

@@ -12,13 +12,14 @@ function ProgressBarContext(){
 	const labelArray = [
 		"1",
 		"2",
-		"3A",
-		"3B",
+		"3",
 		"4",
 		"5",
-		"6A",
-		"6B",
+		"6",
 		"7",
+		"8",
+		"9",
+		"10",
 	];
 	const [users, setUsers] = useState([]);
     const [selectedOption, setSelectedOption] = useState(null);

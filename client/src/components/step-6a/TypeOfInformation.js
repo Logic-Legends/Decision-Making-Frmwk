@@ -37,6 +37,11 @@ const TypeOfInformation = () => {
     }
   };
 
+  const handleBackClick = () => {
+    setStep(stepNumber-1);
+    navigate("/type-of-decision");
+};
+
 // Progress Bar Step Number
   const stepNumber=7;
 
@@ -105,7 +110,7 @@ const TypeOfInformation = () => {
             </section>
 
 			<div id="button-same-line">
-				<Link to="/type-of-decision">	<button className="inner" onClick={()=>setStep(stepNumber-1)}>BACK</button></Link>
+				<button className="inner" onClick={handleBackClick}>BACK</button>
 				<button className="inner" onClick={handleButtonClick}>NEXT</button>
         {isModalOpen && (
 					<div className="modal">
