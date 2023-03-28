@@ -13,7 +13,7 @@ router.get("/", (_, res) => {
 router.get("/signups", async (req, res) => {
 	logger.debug("Welcoming everyone...");
 	try {
-		const { rows } = await db.query("SELECT * FROM reviews");
+		const { rows } = await db.query("SELECT * FROM user_reviews");
 		res.json(rows);
 	} catch (err) {
 		logger.error("%O", err);
