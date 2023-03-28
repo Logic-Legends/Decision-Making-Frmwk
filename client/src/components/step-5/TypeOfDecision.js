@@ -127,7 +127,7 @@ const TypeOfDecision = () => {
                             <span className="radio-description">An ongoing decision that needs to updated on a regular schedule</span>
                         </span>
                     </label>
-                    <label htmlFor="single" className="radio">
+                    <label className="radio">
                         <input
                             type="radio"
                             name="typeOfDecision"
