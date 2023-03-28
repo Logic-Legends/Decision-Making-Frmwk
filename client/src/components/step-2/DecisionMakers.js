@@ -20,7 +20,6 @@ function DecisionMakers() {
 
   const stepNumber=2;
 
-
   console.log(users);
   const navigate=useNavigate();
   const addUser = (newUser) => {

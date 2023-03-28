@@ -9,8 +9,10 @@ const Start = () => {
 
     //CLEAR SESSION STORAGE
     const handleButtonClick = () => {
-      sessionStorage.clear();
-      setDefineGoalText(null);
+      if (sessionStorage.length > 0) {
+        sessionStorage.clear();
+        setDefineGoalText("");
+      }
     };
 
   return (

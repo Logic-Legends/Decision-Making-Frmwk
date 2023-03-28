@@ -38,6 +38,11 @@ const TypeOfInformation = () => {
     }
   };
 
+  const handleBackClick = () => {
+    setStep(stepNumber-1);
+    navigate("/type-of-information");
+};
+
  //ADD TO STORAGE SESSION LAST PAGE
  useEffect(() => {
   const storedAmountOfInformation = sessionStorage.getItem("selectedOptionAmountOfInformation");
@@ -116,7 +121,7 @@ const TypeOfInformation = () => {
                 </section>
 
 			<div id="button-same-line">
-      <Link to="/type-of-information">	<button className="inner">BACK</button></Link>
+      <button className="inner" onClick={handleBackClick}>BACK</button>
 				<button className="inner" onClick={handleButtonClick}>NEXT</button>
         {isModalOpen && (
 					<div className="modal">
