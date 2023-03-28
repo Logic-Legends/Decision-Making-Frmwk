@@ -8647,6 +8647,7 @@ Luan CSS
 	border-width: 2px;
 	border-style: solid;
 	border-color: #d9d9d9;
+	border-radius: 5px;
 }
 
 .add-goal {
@@ -8696,6 +8697,8 @@ Luan CSS
 .inner {
 	margin: 9px;
 	display: inline-block;
+
+	border-radius: 3px;
 }
 
 /* Test of table */
@@ -8724,6 +8727,9 @@ table {
   display: flex;
 }
 .tooltip-list{
+	margin-left: 20px;
+}
+.list{
 	margin-left: 20px;
 }
 
@@ -8867,7 +8873,21 @@ table {
   .radio-description{
 	color: rgb(130, 130, 130);
   }
-
+  .dlt-edt-icons{
+	display: none;
+	
+  }
+  .edt-icon{
+	width: 30px;
+	padding-right: 10px;
+	
+	
+  }
+.dlt-icon{
+	width: 30px;
+	padding-left: 10px;
+	
+}
 
   @media (max-width: 480px) {
     .container-radio-btn {
@@ -8885,4 +8905,14 @@ table {
 		margin-right: 7px;
 		margin-left: 10px;
 	}
+	.mb-0, .py-2{
+	display: none;;
+	}
+	.dlt-edt-icons{
+		display: flex;
+		margin: 10px 5px auto auto;;
+		height: 40px;
+	 }
+	 
+
   }

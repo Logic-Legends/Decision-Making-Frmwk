@@ -3,7 +3,7 @@ import { Page, Text, View, StyleSheet } from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({
     page: {
-        backgroundColor: "#E4E4E4",
+        backgroundColor: "white",
         flexDirection: "flex",
     },
     section: {
@@ -99,7 +99,7 @@ export default function Pdf(props) {
                     <View style={styles.table}>
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol1}>
-                                <Text style={styles.tableTopic}>Vothing Method</Text>
+                                <Text style={styles.tableTopic}>Voting Method</Text>
                             </View>
                             <View style={styles.tableCol2}>
                                 {selectedOptionTypeOfInformation === "explicit" ? (
@@ -111,6 +111,7 @@ export default function Pdf(props) {
                         </View>
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol1}>
+
                                 <Text style={styles.tableCell}>What</Text>
                             </View>
                             <View style={styles.tableCol2}>

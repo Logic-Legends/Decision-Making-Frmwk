@@ -23,14 +23,14 @@ const TimeResource = () => {
 
 
   const checkAdvice = () => {
-    if(selectedOption === "low" && selectedOptionCapacity === "low") {
+    if(selectedOption === "Low" && selectedOptionCapacity === "Low") {
 		setTitleAdvice("Low Importance and Low Capacity");
 		setTextAdvice("Choose a single iteration, low complexity voting method. Don't spend too much time gathering information.");
 		sessionStorage.setItem(
 			"textAdvice",
 			"Choose a single iteration, low complexity voting method. Don't spend too much time gathering information."
 		);
-    } else if(selectedOption === "low" && selectedOptionCapacity === "high"){
+    } else if(selectedOption === "Low" && selectedOptionCapacity === "High"){
 		setTitleAdvice("Low Importance and High Capacity");
 		setTextAdvice("Start the decision-making process later, take more time to gather information, or use a more complex voting method.");
 		sessionStorage.setItem(
@@ -38,7 +38,7 @@ const TimeResource = () => {
 			"Start the decision-making process later, take more time to gather information, or use a more complex voting method."
 		);
 
-    } else if(selectedOption === "high" && selectedOptionCapacity === "low"){
+    } else if(selectedOption === "High" && selectedOptionCapacity === "Low"){
 		setTitleAdvice("High Importance and Low Capacity");
 		setTextAdvice("Start sooner, de-prioritize other tasks that are taking up capacity, or use a less complex voting method that requires less information.");
 		sessionStorage.setItem(
@@ -46,7 +46,7 @@ const TimeResource = () => {
 			"Start sooner, de-prioritize other tasks that are taking up capacity, or use a less complex voting method that requires less information."
 		);
 
-	} else if(selectedOption === "high" && selectedOptionCapacity === "high"){
+	} else if(selectedOption === "High" && selectedOptionCapacity === "High"){
 		setTitleAdvice("High Importance and High Capacity");
 		setTextAdvice("Allocate as much time as you can to gather information and make a good decision. You could use a more complex voting method.");
 		sessionStorage.setItem(

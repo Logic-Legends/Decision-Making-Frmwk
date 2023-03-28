@@ -12,8 +12,8 @@ const ResultVotingMethod=()=>{
     return (
 			<div className="container">
 				<h3>Recommended Voting Method</h3>
-				<div className="border-decision-framework-pages">
-					<h2 className="table-header">Explicit</h2>
+				<hr/>
+					<h6 className="table-header">Explicit</h6>
 					<div>
 						<table className="tbl-vote">
 							<thead>
@@ -82,7 +82,7 @@ const ResultVotingMethod=()=>{
 							</tbody>
 						</table>
 					</div>
-					<h2 className="table-header">Relative</h2>
+					<h6 className="table-header">Relative</h6>
 					<div>
 						<table className="tbl-vote">
 							<thead>
@@ -174,7 +174,7 @@ const ResultVotingMethod=()=>{
 							</tbody>
 						</table>
 					</div>
-				</div>
+				
 				<section id="button-same-line">
 					<button onClick={handleBackClick} className="inner">
 						<Link to="/Voting-Method"></Link>

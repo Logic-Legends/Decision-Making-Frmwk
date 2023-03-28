@@ -80,8 +80,8 @@ const TypeOfInformation = () => {
                                             <input
                                                 type="radio"
                                                 name="option"
-                                                value="explicit"
-                                                checked={selectedOptionTypeOfInformation === "explicit"}
+                                                value="Explicit"
+                                                checked={selectedOptionTypeOfInformation === "Explicit"}
                                                 onChange={handleOptionChange}
                                                 className="input-radio-btn"
                                             />
@@ -95,8 +95,8 @@ const TypeOfInformation = () => {
                                            <input
                                                 type="radio"
                                                 name="option"
-                                                value="relative"
-                                                checked={selectedOptionTypeOfInformation === "relative"}
+                                                value="Relative"
+                                                checked={selectedOptionTypeOfInformation === "Relative"}
                                                 onChange={handleOptionChange}
                                                 className="input-radio-btn"
                                             />
