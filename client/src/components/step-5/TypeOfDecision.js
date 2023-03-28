@@ -97,7 +97,7 @@ const TypeOfDecision = () => {
                 show={modalShow}
                 onHide={() => setModalShow(false)}
             />
-            <h3>
+            <h2>
                 Type Of Decision{" "}
                 <img
                     src={tooltipIcon}
@@ -105,12 +105,12 @@ const TypeOfDecision = () => {
                     className="question-mark-pages"
                     onClick={() => setModalShow(true)}
                 />
-            </h3>
+            </h2>
             <section className="border-decision-framework-pages">
-                <h4>
+                <h6>
                     Are you making an iterative or single decision decision?
 
-                </h4>
+                </h6>
                 {/* Radio btn section */}
                 <form className="radio-btn-section container-radio-btn">
                     <label className="radio">

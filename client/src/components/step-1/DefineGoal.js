@@ -48,40 +48,46 @@ const DefineGoal = () => {
   }, []);
 
   return (
+		<div className="container">
+			<HandleTooltip show={modalShow} onHide={() => setModalShow(false)} />
 
-  <div className="container">
+			<h3>What is the goal?</h3>
+			<div className="border-decision-framework-pages">
+				<p>
+					Defining the goal will help you determine what kind of information you
+					need to make a decision.
+					<img
+						className="question-mark-pages"
+						src={QuestionMark}
+						alt="Question Mark"
+						border="0"
+						onClick={() => setModalShow(true)}
+					></img>
+				</p>
 
-      <HandleTooltip
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-      />
-
-        <h3>What is the goal?</h3>
-        <div className="border-decision-framework-pages">
-
-          <p>Defining the goal will help you determine what kind of information you need to make a decision.
-            <img className="question-mark-pages" src={QuestionMark} alt="Question Mark" border="0" onClick={() => setModalShow(true)}></img>
-          </p>
-
-            <input
-              id="message"
-              type="text"
-              name="message"
-              placeholder="Enter goal"
-              value={defineGoalText}
-              onChange={handleChange}
-              maxLength ="500"
-              required
-            />
-
-        </div>
-          <div id="button-same-line">
-				  <Link to="/">	<button className="inner">BACK</button></Link>
-				  <button className="inner" onClick={handleClick} type="submit" >NEXT</button>
-          {isModalOpen && (
+				<input
+					id="message"
+					type="text"
+					name="message"
+					placeholder="Enter goal"
+					value={defineGoalText}
+					onChange={handleChange}
+					maxLength="500"
+					required
+				/>
+			</div>
+			<div id="button-same-line">
+				<Link to="/">
+					{" "}
+					<button className="inner">BACK</button>
+				</Link>
+				<button className="inner" onClick={handleClick} type="submit">
+					NEXT
+				</button>
+				{isModalOpen && (
 					<div className="modal">
 						<div className="modal-display">
-							<p>Please define your goals before you continue.</p>
+							<p>Please complete this step!</p>
 							<button
 								onClick={() => setIsModalOpen(false)}
 								className="modal-btn"
@@ -91,9 +97,9 @@ const DefineGoal = () => {
 						</div>
 					</div>
 				)}
-      </div>
-    </div>
-  );
+			</div>
+		</div>
+	);
 };
 
 export default DefineGoal;

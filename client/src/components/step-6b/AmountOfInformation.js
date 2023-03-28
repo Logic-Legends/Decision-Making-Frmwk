@@ -61,7 +61,7 @@ const TypeOfInformation = () => {
 				onHide={() => FirstSetModalShow(false)}
 			/>
 
-            <h3>Amount of Information{" "}
+            <h2>Amount of Information{" "}
 				<img
 					className="question-mark-pages"
 					src={QuestionMark}
@@ -69,10 +69,10 @@ const TypeOfInformation = () => {
 					border="0"
 					onClick={() => FirstSetModalShow(true)}
 				></img>
-			</h3>
+			</h2>
             <section className="border-decision-framework-pages">
 
-                                <p>How much information will we have?</p>
+                                <h6>How much information will we have?</h6>
 
                                 <form className="radio-btn-section container-radio-btn">
                                         <label className="radio">
