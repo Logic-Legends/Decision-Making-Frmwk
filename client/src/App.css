@@ -8656,7 +8656,7 @@ Luan CSS
 }
 
 .question-mark-pages {
-	height: 25px;
+	height: 20px;
 	padding-left: 5px;
 	border: 0px;
 	cursor: pointer;
@@ -8691,10 +8691,10 @@ Luan CSS
 
 #button-same-line {
 	width: 100%;
-	text-align: center;
+	text-align: left;
 }
 .inner {
-	margin: 10px;
+	margin: 9px;
 	display: inline-block;
 }
 

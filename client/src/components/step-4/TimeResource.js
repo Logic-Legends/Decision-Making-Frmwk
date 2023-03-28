@@ -12,9 +12,6 @@ const TimeResource = () => {
 
   const [modalShow, setModalShow] = React.useState(false);
 
-  //Used for get data to analyze the advice
-  //const { selectedOption, setSelectedOption } = useContext( stepProgressContext );
-  //const { selectedOptionCapacity, setSelectedOptionCapacity,setStep ,currentStep } = useContext( stepProgressContext );
   const { setStep ,currentStep } = useContext( stepProgressContext );
 
   //Used for pass value inside the table
@@ -23,7 +20,7 @@ const TimeResource = () => {
 
   const selectedOption = sessionStorage.getItem("selectedOption");
   const selectedOptionCapacity = sessionStorage.getItem("selectedOptionCapacity");
-  
+
 
   const checkAdvice = () => {
     if(selectedOption === "low" && selectedOptionCapacity === "low") {
@@ -59,19 +56,9 @@ const TimeResource = () => {
  	}
 };
 
-	//checkAdvice();
-
 useEffect(() => {
     checkAdvice();
   }, [selectedOption, selectedOptionCapacity]);
-
-  //ADD TO STORAGE SESSION LAST PAGE
-//  useEffect(() => {
-// 	const storedTimaAndResource = sessionStorage.getItem("selectedOptionAmountOfInformation");
-// 	if (storedTimaAndResource) {
-// 	  setSelectedOptionAmountOfInformation(storedTimaAndResource);
-// 	}
-//   }, []);
 
 
   return (
@@ -81,7 +68,7 @@ useEffect(() => {
 				onHide={() => setModalShow(false)}
 			/>
 
-			<h1>
+			<h3>
 				Time and Resource allocation{" "}
 				<img
 					className="question-mark-pages"
@@ -90,7 +77,7 @@ useEffect(() => {
 					border="0"
 					onClick={() => setModalShow(true)}
 				></img>
-			</h1>
+			</h3>
 			<div className="border-decision-framework-pages">
 				<table>
 					<tbody>

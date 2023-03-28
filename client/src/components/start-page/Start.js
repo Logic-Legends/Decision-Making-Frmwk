@@ -15,7 +15,7 @@ const Start = () => {
 
   return (
     <div className="container">
-      <h1>Voting Methods for Group Decisions</h1>
+      <h3>Voting Methods for Group Decisions</h3>
       <div className="border-decision-framework-pages">
         <p>This tool is designed to help facilitate group decisions that involve voting.</p>
         <ul>

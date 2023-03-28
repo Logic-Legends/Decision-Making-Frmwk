@@ -20,12 +20,12 @@ const Results = () => {
 	const advice =sessionStorage.getItem("advice");
 	return (
 		<div className="container">
-			<h1>You have completed the tool. Please check your responses below.</h1>
+			<h3>You have completed the tool. Please check your responses below.</h3>
 			<p>
 				(Info)You can click on individual steps in the progress bar to go back
 				and change any of the responses.
 			</p>
-			<div className="border-decision-framework-pages">
+			<div >
 				<table>
 					<tbody>
 						<tr className="table-background">

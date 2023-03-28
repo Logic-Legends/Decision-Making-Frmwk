@@ -74,7 +74,7 @@ const Capacity = () => {
 				show={secondModalShow}
 				onHide={() => setsecondModalShow(false)}
 			/>
-			<h1>
+			<h3>
 				Capacity{" "}
 				<img
 					src={tooltipIcon}
@@ -82,9 +82,9 @@ const Capacity = () => {
 					className="question-mark-pages"
 					onClick={() => setModalShow(true)}
 				/>
-			</h1>
+			</h3>
 			<section className="border-decision-framework-pages">
-				<p>
+				<h4>
 					What is the decision-making teams capacity?
 					<img
 						src={tooltipIcon}
@@ -92,7 +92,7 @@ const Capacity = () => {
 						className="question-mark-pages"
 						onClick={() => setsecondModalShow(true)}
 					/>
-				</p>
+				</h4>
 				{/* Radio btn section */}
 				<form className="radio-btn-section">
 					<label>
@@ -131,7 +131,7 @@ const Capacity = () => {
 				{isModalOpen && (
 					<div className="modal">
 						<div className="modal-display">
-							<p>Please select a response</p>
+							<p>Please select a response.</p>
 							<button
 								onClick={() => setIsModalOpen(false)}
 								className="modal-btn"
