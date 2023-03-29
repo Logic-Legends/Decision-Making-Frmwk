@@ -31,7 +31,7 @@ function SignUp() {
 			body: JSON.stringify({
 				email: email,
 			}),
-		})
+		});
 		if(response.ok){
 			setEmail("");
 			setShowModal(false);
@@ -41,13 +41,13 @@ function SignUp() {
 			const errorData=await response.json();
 			setErrorMessage(errorData.message);
 		}
-			
+
 	};
 
 	return (
 		<div>
-			<button onClick={() => setShowModal(true)} className="inner">
-				Sign-up to newsletter
+			<button onClick={() => setShowModal(true)} className="inner-sing-up inner-pdf-button">
+				Sign-up
 			</button>
 			<Modal
 				isOpen={showModal}
@@ -62,7 +62,7 @@ function SignUp() {
 				}}
 			>
 				<div className="signup-modal-header">
-					<h2>Sign Up</h2>
+					<h2>Sign Up to Newsletter</h2>
 					<button onClick={() => setShowModal(false)}>
 						<FaTimes />
 					</button>
@@ -88,7 +88,7 @@ function SignUp() {
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 						placeholder="Please enter your email"
-						
+
 					/>
 					<button type="submit" className="inner" >
 						Submit
