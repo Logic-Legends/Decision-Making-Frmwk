@@ -8917,7 +8917,9 @@ width: 80%;
 .plus{
 	justify-content: right;
 }
-
+.result-buttons-container{
+	display:flex;
+}
   @media (max-width: 480px) {
     .container-radio-btn {
       display: grid;

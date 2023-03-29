@@ -123,8 +123,8 @@ export default function Pdf(props) {
                                 <Text style={styles.tableCell}>Who</Text>
                             </View>
                             <View style={styles.tableCol2}>
-                                {users.map((user) => (
-                                    <Text style={styles.tableCell}> {user.name} </Text>))}
+                                {users.map((user, index) => (
+                                    <Text key={index} style={styles.tableCell}> {user.name} </Text>))}
                             </View>
                         </View>
                         <View style={styles.tableRow}>

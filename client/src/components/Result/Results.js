@@ -83,7 +83,8 @@ const Results = () => {
 						</tr>
 					</tbody>
 				</table>
-				<div className="start-btn">
+				<div className="result-buttons-container start-btn">
+					<button className="inner" onClick={() => navigate("/review")}> Review</button>
 					<PDFDownloadLink
 						className="inner"
 						document={
@@ -113,16 +114,16 @@ const Results = () => {
 							loading ? (
 								<button className="inner">Loading document... </button>
 							) : (
-									<button className=" inner"> Download as a PDF</button>
+									<button className="inner"> Download as a PDF</button>
 							)
 						}
 
 					</PDFDownloadLink>
-				</div>
 
-			</div>
-			<button className="inner" onClick={()=>navigate("/review")}> Leave review</button>
+
 			<Signup className="inner" />
+				</div>
+			</div>
 		</div>
 	);
 };
