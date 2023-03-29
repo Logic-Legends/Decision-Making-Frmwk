@@ -76,7 +76,7 @@ useEffect(() => {
             </h2>
             <section className="border-decision-framework-pages">
                 <h6>
-                    Are we making an iterative or single decision decision?
+                    Are we making an iterative or single decision?
 
                 </h6>
                 {/* Radio btn section */}
