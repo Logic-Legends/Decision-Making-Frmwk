@@ -89,12 +89,14 @@ const Importance = () => {
 			<section className="border-decision-framework-pages">
 				<h6>
 					How important is the decision?
-					<img
-						src={tooltipIcon}
-						alt="Tooltip"
-						className="question-mark-pages"
-						onClick={() => setsecondModalShow(true)}
-					/>
+					
+					<span className="radio-label">
+						<span className="radio-title"> </span>
+						<span className="radio-description question-hint">
+							Will it affect how we operate as an organisation or a team or the
+							way we interact with other organisations?
+						</span>
+					</span>
 				</h6>
 				{/* Radio btn section */}
 				<form className="radio-btn-section container-radio-btn">
@@ -110,10 +112,8 @@ const Importance = () => {
 						<span className="radio-label">
 							<span className="radio-title">Low </span>
 							<span className="radio-description">
-								<strong>Example of low importance:</strong> The decision will
-								not likely affect the broader organization or how we interact
-								with other organizations. It will probably affect a small
-								project or small team within the organization.
+								The decision will affect small project or team within the
+								organisation
 							</span>
 						</span>
 					</label>
@@ -129,11 +129,8 @@ const Importance = () => {
 						<span className="radio-label">
 							<span className="radio-title">High </span>
 							<span className="radio-description">
-								<strong>Example of high importance:</strong> The decision will
-								likely affect the broader organization or how we interact with
-								other organizations. It will probably affect a large team within
-								the organization or how the organization operates at a high
-								level.
+								The decision will affect the broader organisation or how we
+								interact with other organisations
 							</span>
 						</span>
 					</label>

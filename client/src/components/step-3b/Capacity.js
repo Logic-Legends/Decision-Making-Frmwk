@@ -86,12 +86,15 @@ const Capacity = () => {
 			<section className="border-decision-framework-pages">
 				<h6>
 					What is the decision-making teams capacity?
-					<img
-						src={tooltipIcon}
-						alt="Tooltip"
-						className="question-mark-pages"
-						onClick={() => setsecondModalShow(true)}
-					/>
+					
+					<span className="radio-label">
+						<span className="radio-title"> </span>
+						<span className="radio-description question-hint">
+							Will we be affected by factors such as team members on leave,
+							decision makers' ability to commit to meetings and decision
+							deadline?
+						</span>
+					</span>
 				</h6>
 				{/* Radio btn section */}
 				<form className="radio-btn-section container-radio-btn">
@@ -107,12 +110,8 @@ const Capacity = () => {
 						<span className="radio-label">
 							<span className="radio-title">Low </span>
 							<span className="radio-description">
-								<strong>Example of low capacity:</strong> The deadline for
-								making the decision is very soon, and all of the people who need
-								to be involved have other outstanding projects that are
-								time-consuming and cannot be delayed. It would be hard for the
-								team to find time to learn relevant information and attend
-								decision-making meetings.
+								The deadline for making the decision is very soon and team
+								members are unable to attend decision making meetings
 							</span>
 						</span>
 					</label>
@@ -128,11 +127,8 @@ const Capacity = () => {
 						<span className="radio-label">
 							<span className="radio-title">High </span>
 							<span className="radio-description">
-								<strong>Example of high capacity:</strong> The deadline for
-								making the decision is further out, and all of the people who
-								need to be involved in the decision have open time in their
-								schedules. It would be easy for the team to find time to learn
-								relevant information and attend decision-making meetings.
+								The deadline for making the decision is further out and team
+								members have time to attend decision making meetings
 							</span>
 						</span>
 					</label>
