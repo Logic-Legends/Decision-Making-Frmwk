@@ -40,7 +40,7 @@ const Results = () => {
 					<tbody>
 						<tr className="table-background">
 							<th>Voting Method</th>
-							{selectedOptionTypeOfInformation === "explicit" ? (
+							{selectedOptionTypeOfInformation === "Explicit" ? (
 								<th>{explicitVotingMethod}</th>
 							) : (
 								<th>{relativeVotingMethod1 + " | " + relativeVotingMethod2}</th>
