@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     subtitle: {
         fontSize: 18,
         textAlign:"left",
-        margin:"12px",
+        margin:"30px auto 0px 40px",
 
     },
     text: {
@@ -54,7 +54,6 @@ const styles = StyleSheet.create({
     },
     tableCol21: {
         width: "29%",
-
         borderStyle: "solid",
         borderWidth: "1px",
     },
@@ -94,6 +93,12 @@ const styles = StyleSheet.create({
         fontSize: 12,
         fontStyle: "bold",
     },
+    tableHeader:{
+        backgroundColor: "#d9d9d9",
+        margin: "auto",
+        flexDirection: "row",
+        minHeight: "50px",
+    },
 });
 
 export default function Pdf(props) {
@@ -118,7 +123,7 @@ export default function Pdf(props) {
 
                 <div>
                     <View style={styles.table}>
-                        <View style={styles.tableRow}>
+                        <View style={styles.tableHeader}>
                             <View style={styles.tableCol1}>
                                 <Text style={styles.tableTopic}>Voting Method</Text>
                             </View>
@@ -209,11 +214,130 @@ export default function Pdf(props) {
                     Recommended Voting Method
                 </Text>
                 <Text style={styles.subtitle}>
+                    Relative
+                </Text>
+                <div>
+                    <View style={styles.table}>
+                        <View style={styles.tableHeader}>
+                            <View style={styles.tableCol21}>
+                                <Text style={styles.tableTopic}>Voting Method</Text>
+                            </View>
+                            <View style={styles.tableCol22}>
+                                <Text style={styles.tableTopic}>Amount of Information Needed</Text>
+                            </View>
+                            <View style={styles.tableCol23}>
+                                <Text style={styles.tableTopic}>Examples</Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.tableRow}>
+                            <View style={styles.tableCol21}>
+                                <Text style={styles.tableCell2}>First past the post</Text>
+                            </View>
+                            <View style={styles.tableCol22}>
+                                <Text style={styles.tableCell2}>Enough information for voters to pick a top 1 or 2 from the
+                                    list of options.</Text>
+                            </View>
+                            <View style={styles.tableCol23}>
+                                <Text style={styles.tableCell2}>You want to select the target for your next campaign from a
+                                    list of 10 options based on how they compare to each other
+                                    on estimated tractability for your organization.</Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.tableRow}>
+                            <View style={styles.tableCol21}>
+                                <Text style={styles.tableCell2}>Multivoting</Text>
+                            </View>
+                            <View style={styles.tableCol22}>
+                                <Text style={styles.tableCell2}>Enough information for voters to pick a top 5 from the list
+                                    of options.</Text>
+                            </View>
+                            <View style={styles.tableCol23}>
+                                <Text style={styles.tableCell2}>	You want to select 5 research topics to pursue this year
+
+                                    based on how motivated research staff are to investigate the
+                                    topics.</Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.tableRow}>
+                            <View style={styles.tableCol21}>
+                                <Text style={styles.tableCell2}>STAR voting</Text>
+                            </View>
+                            <View style={styles.tableCol22}>
+                                <Text style={styles.tableCell2}>Enough information for voters to score the options, and the
+                                    one the majority prefers wins.</Text>
+                            </View>
+                            <View style={styles.tableCol23}>
+                                <Text style={styles.tableCell2}>You want to select 5 research topics to pursue this year
+                                    based on how motivated research staff are to investigate the
+                                    topics.</Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.tableRow}>
+                            <View style={styles.tableCol21}>
+                                <Text style={styles.tableCell2}>Ranked choice</Text>
+                            </View>
+                            <View style={styles.tableCol22}>
+                                <Text style={styles.tableCell2}>Enough information for voters to rank all of the options
+                                    from highest to lowest preference.</Text>
+                            </View>
+                            <View style={styles.tableCol23}>
+                                <Text style={styles.tableCell2}>You want to see which research topics are the most and least
+                                    preferred by allowing team members to rank them all.</Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.tableRow}>
+                            <View style={styles.tableCol21}>
+                                <Text style={styles.tableCell2}>Delphi method</Text>
+                            </View>
+                            <View style={styles.tableCol22}>
+                                <Text style={styles.tableCell2}>Enough information for voters to score each option
+                                    individually according to an external, objective metric.</Text>
+                            </View>
+                            <View style={styles.tableCol23}>
+                                <Text style={styles.tableCell2}>You are making a very important decision, you have a long
+                                    time frame and high team capacity, you would like to reach a
+                                    consensus, and anonymity among voters is important.</Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.tableRow}>
+                            <View style={styles.tableCol21}>
+                                <Text style={styles.tableCell2}>Quadratic voting</Text>
+                            </View>
+                            <View style={styles.tableCol22}>
+                                <Text style={styles.tableCell2}>Enough information for voters to understand subtle
+                                    differences between options so they can express a higher
+                                    preference for a select few options over many others.</Text>
+                            </View>
+                            <View style={styles.tableCol23}>
+                                <Text style={styles.tableCell2}>You would like to capture more details about voter
+                                    preferences. You want to allow team members to vote multiple
+                                    times for the same option if they feel strongly about it.</Text>
+                            </View>
+                        </View>
+
+                    </View>
+                </div>
+
+                <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
+                    `${pageNumber} / ${totalPages}`
+                )} fixed />
+            </Page>
+            <Page style={styles.page}>
+                <Text style={styles.header} fixed>
+                    Recommended Voting Method
+                </Text>
+                <Text style={styles.subtitle}>
                     Explicit
                 </Text>
                 <div>
                     <View style={styles.table}>
-                        <View style={styles.tableRow}>
+                        <View style={styles.tableHeader}>
                             <View style={styles.tableCol21}>
                                 <Text style={styles.tableTopic}>Voting Method</Text>
                             </View>
