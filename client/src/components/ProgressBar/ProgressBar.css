@@ -108,3 +108,8 @@
 } */
     
     }
+     @media (max-width: 480px) {
+.stepWrapper{
+  padding-bottom: 0%;
+}
+     }

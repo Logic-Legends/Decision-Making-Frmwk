@@ -8639,7 +8639,7 @@ Luan CSS
 ---------------------------------------------------------------------------------------------------- */
 
 .container {
-	padding: 10px 30px;
+	padding: 15px 30px;
 }
 
 .border-decision-framework-pages {
@@ -8721,7 +8721,7 @@ table {
 
   .button-delete-team {background-color: #e61c1c;}
   
-  /* Ekrem CSS */
+
 .start-btn{
   justify-content: center;
   display: flex;
@@ -8733,56 +8733,7 @@ table {
 	margin-left: 20px;
 }
 
-/* Mohammed CSS */
-/* .step-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 1rem;
-  }
-  
 
-  div
-  table {
-    border-collapse: collapse;
-    width: 90%;
-  }
-  
-  th,
-  td {
-    border: 1px solid #ffffff;
-    text-align: left;
-    padding: 8px;
-    font-size: 1.25em;
-  }
-   
-  form {
-    display: flex;
-    gap: 5px;
-  }
-  
-  form td:last-child {
-    display: flex;
-    justify-content: space-evenly;
-  }
-    form * {
-    font-size: 1em;
-  }
-  
-  .link-start{
-  width: auto;
-  height: auto;
-  text-decoration: none;
-  color: white;
-  margin: auto;
-  padding: auto;
-  justify-content: center;
-  border-radius:10%;
-} */
-/* Leila CSS -3b */
-/* .radio-btn-section {
-	margin-bottom: 20px;
-} */
 .low-rdb {
 	margin-right: 7px;
 	margin-left: 10px;
@@ -9026,6 +8977,10 @@ margin: auto;
 	grid-column:2/3;
 	border-radius: 3px;
 	margin: auto;
+}
+.container {
+	padding: 5px 15px;
+	margin:auto;
 }
 
 
