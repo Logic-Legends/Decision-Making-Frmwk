@@ -87,17 +87,16 @@ const Importance = () => {
 				/>
 			</h2>
 			<section className="border-decision-framework-pages">
-				<h6>
-					How important is the decision?
-					
-					<span className="radio-label">
-						<span className="radio-title"> </span>
-						<span className="radio-description question-hint">
-							Will it affect how we operate as an organisation or a team or the
-							way we interact with other organisations?
-						</span>
+				<h6>How important is the decision?</h6>
+
+				<span className="radio-label">
+					<span className="radio-title"> </span>
+					<span className="radio-description question-hint">
+						Will it affect how we operate as an organisation or a team or the
+						way we interact with other organisations?
 					</span>
-				</h6>
+				</span>
+
 				{/* Radio btn section */}
 				<form className="radio-btn-section container-radio-btn">
 					<label className="radio">
