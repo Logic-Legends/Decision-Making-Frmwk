@@ -22,10 +22,20 @@ router.get("/", (_, res) => {
 // });
 
 router.post("/submit-email", async (req,res)=>{
-	const { email } =req.body;
+
+	const email =req.body.email;
+	const existingEmail = await db.query(
+		"SELECT * FROM email_signup WHERE email=$1",
+		[email]
+	);
+	if (existingEmail.rows.length > 0) {
+		return res.status(400).json({ message: "Email already exists" });
+	}
+
 	try{
-		await db.query("INSERT INTO email_signup (email) VALUES ($1)", [email]);
-		res.status(200).json({ message :"Email saved successfully" });
+		const result =await db.query("INSERT INTO email_signup (email) VALUES ($1) " ,[email]);
+		res.status(201).json(result.rows[0]);
+
 	}catch(err){
 
 		res.status(500).json({ message:"Internal server error" });
