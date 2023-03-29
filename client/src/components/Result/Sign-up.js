@@ -6,10 +6,24 @@ import { FaTimes } from "react-icons/fa";
 function SignUp() {
 	const [showModal, setShowModal] = useState(false);
 	const [email, setEmail] = useState("");
+	const [errorMessage, setErrorMessage] = useState("");
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	const handleSubmit =async (e) => {
 		e.preventDefault();
-		fetch("/api/submit-email", {
+		if (email.trim() === "") {
+			setErrorMessage("Please enter your email");
+			setIsModalOpen(true);
+			return;
+		}
+
+		const emailRegex = /^\S+@\S+\.\S+$/;
+		if (!emailRegex.test(email)) {
+			setErrorMessage("Invalid email format");
+			setIsModalOpen(true);
+			return;
+		}
+		const response= await fetch("/api/submit-email", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -18,20 +32,23 @@ function SignUp() {
 				email: email,
 			}),
 		})
-			.then((response) => response.json())
-			.then((data) => {
-				console.log(data);
-				setEmail("");
-				setShowModal(false);
-			})
-			.catch((error) => {
-				console.error(error);
-			});
+		if(response.ok){
+			setEmail("");
+			setShowModal(false);
+			setErrorMessage("");
+		}else{
+			setIsModalOpen(true);
+			const errorData=await response.json();
+			setErrorMessage(errorData.message);
+		}
+			
 	};
 
 	return (
 		<div>
-			<button onClick={() => setShowModal(true)} className="inner">Sign-up to newsletter</button>
+			<button onClick={() => setShowModal(true)} className="inner">
+				Sign-up to newsletter
+			</button>
 			<Modal
 				isOpen={showModal}
 				onRequestClose={() => setShowModal(false)}
@@ -50,17 +67,32 @@ function SignUp() {
 						<FaTimes />
 					</button>
 				</div>
+				{errorMessage &&
+					isModalOpen &&(
+						<div className="modal">
+							<div className="modal-display">
+								<p>{errorMessage}</p>
+								<button
+									onClick={() => setIsModalOpen(false)}
+									className="modal-btn"
+								>
+									OK
+								</button>
+							</div>
+						</div>
+					)}
 				<form onSubmit={handleSubmit}>
 					<input
-						type="email"
 						id="email"
 						name="email"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 						placeholder="Please enter your email"
-						required
+						
 					/>
-					<button type="submit">Submit</button>
+					<button type="submit" className="inner" >
+						Submit
+					</button>
 				</form>
 			</Modal>
 		</div>
