@@ -71,8 +71,10 @@ const styles = StyleSheet.create({
 
     },
     tableCell: {
+        paddingLeft:"10px",
         margin: "auto",
         fontSize: 10,
+        textAlign: "left",
     },
     tableCell2: {
         margin: "10px",
