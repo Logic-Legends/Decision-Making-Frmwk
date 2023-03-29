@@ -26,7 +26,7 @@ const App = () => {
 return (
 	<div>
 		<header>
-			{ location.pathname!=="/" && (
+			{ location.pathname !== "/" && location.pathname !== "/review" && (
 		<>
 		<ProgressBar labelArray={labelArray} currentStep={currentStep} setStep={setStep}></ProgressBar>
 		</>

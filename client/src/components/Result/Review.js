@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 // import { FaTimes } from "react-icons/fa";
 
 function Review() {
@@ -52,6 +53,13 @@ function Review() {
     fetchReviews();
   }, []);
 
+  const navigate = useNavigate();
+
+  //click back btn handler
+	const handleBackClick = () => {
+		navigate("/Results");
+	};
+
 
   return (
     <div className="review-container">
@@ -85,7 +93,8 @@ function Review() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Name"
-          maxLength="500"
+          maxLength="20"
+          pattern="[a-zA-Z]+"
           required
         />
         <label htmlFor="comment">Comment:</label>
@@ -98,6 +107,9 @@ function Review() {
           maxLength="500"
           required
         ></textarea>
+        <button onClick={handleBackClick} className="inner">
+					Back
+				</button>
         <button className="inner"  type="submit">Submit</button>
       </form>
 
