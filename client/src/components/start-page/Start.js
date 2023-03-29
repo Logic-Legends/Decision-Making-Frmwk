@@ -20,9 +20,9 @@ const Start = () => {
       <h2>Voting Methods for Group Decisions</h2>
       <div className="border-decision-framework-pages">
         <p>This tool is designed to help facilitate group decisions that involve voting.</p>
-            <p>It for team of 2 or more people.</p>
+          <p>It is for teams of two or more people.</p>
           <h6>Who should complete this tool?</h6>
-          <p>1 or 2 people with good project knowledge, such as Project Manager and Team Lead. </p>
+          <p>1 or 2 people with good project knowledge, such as the Project Manager and Team Lead. </p>
           <h6>What is the outcome? </h6>
           <p>You will receive a recommendation of the type of voting method to use in your group decision. </p>
           <h6>How much time will I need? </h6>
