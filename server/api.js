@@ -27,13 +27,7 @@ router.post("/submit-email", async (req,res)=>{
 	try{
 		const result =await db.query("INSERT INTO email_signup (email) VALUES ($1) " ,[email]);
 
-		const mailOptions = {
-			from: "leilifaz39@gmail.com",
-			to: email,
-			subject: "Welcome to our website",
-			text: "Thank you for signing-up to ACE's newsletter.",
-		};
-		await transporter.sendMail(mailOptions);
+		
 
 		res.status(201).json(result.rows[0]);
 
