@@ -10,30 +10,35 @@
     color:#ffff;
     border-radius: 50%;
     border: 2px solid transparent;
-    cursor: none;
+    cursor: pointer;
   -moz-background-clip: padding-box;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
+  text-align: center;
 }
 
 
 .stepWrapper{
     display: flex;
-    margin-bottom:0px;
     text-align: center;
-    display: flex; 
     align-items: center;
+    /* margin-top:10px;
+    margin-bottom:10px; */
 
 }
+
+
+
+
 
 .stepBlock span {
     font-size: .9em;
 }
 .stepBlock .circleWrapper{
-    padding:0 20px;
+    padding:0 15px;
     position: relative;
     text-align: center;
 }
@@ -85,15 +90,21 @@
     opacity: 0.6;
   } 
 
-
-  @media only screen and (max-width: 55.75em) {
+  @media (max-width: 640px) {
+  
     .stepBlock .circleWrapper{
-        padding:0 5px;
-        position: relative;
-        text-align: center;
+      padding:0 5px;
+      position: relative;
+      text-align: center;
+  }
+
+  /* @media (max-width: 380Px) {
+  .stepWrapper{
+    margin-top:10px;
+    margin-bottom:10px;
+     margin: 20px; 
+    
+  }
+} */
+    
     }
-    .stepWrapper{
-      padding:0px;
-      margin-top: 20px;
-    }
-}

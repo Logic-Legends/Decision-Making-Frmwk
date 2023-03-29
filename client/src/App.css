@@ -8953,6 +8953,10 @@ display: inline-block;
 	margin: auto;
 }
   @media (max-width: 480px) {
+	/* .container {
+		padding: 0 10px;
+	} */
+
     .container-radio-btn {
       display: grid;
       grid-template-columns: repeat(1, 1fr);
@@ -9023,6 +9027,8 @@ margin: auto;
 	border-radius: 3px;
 	margin: auto;
 }
+
+
   }
 
   /* Review page */
