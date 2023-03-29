@@ -10,7 +10,7 @@ function HandleTooltip(props) {
         >
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-              <h6>What decision are we trying to make?</h6>
+              What decision are we trying to make?
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
