@@ -8639,7 +8639,7 @@ Luan CSS
 ---------------------------------------------------------------------------------------------------- */
 
 .container {
-	padding: 30px;
+	padding: 10px 30px;
 }
 
 .border-decision-framework-pages {
@@ -8693,6 +8693,7 @@ Luan CSS
 #button-same-line {
 	width: 100%;
 	text-align: left;
+	margin-top: 22px;
 }
 .inner {
 	margin: 9px;
@@ -8934,9 +8935,11 @@ width: 80%;
 	
 }
 .inner-pdf-button{
+text-decoration: none;
 border-radius: 3px;
 width: 100%;
 margin: auto;
+display: inline-block;
 }
 .inner-review{
 	grid-column:1/2;
@@ -8978,12 +8981,20 @@ margin: auto;
 	background-color: white;
 	padding: 0%;
 	justify-content: right;
+	text-decoration: none;
+	margin-bottom: 0%;
 	
+}
+.add-update-icon:hover {
+	background: #ffffff;
+	-webkit-box-shadow: 1px 1px 1px 0 #ffffff;
+	box-shadow: 1px 1px 1px 0 #ffffff;
 }
 	.add-icon{
 	width: 40px;
 	margin: 0%;
 	padding: 0%;
+	
 }
 .result-buttons-container{
 	display: grid;

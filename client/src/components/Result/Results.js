@@ -114,9 +114,9 @@ const Results = () => {
 
 					{({ loading }) =>
 						loading ? (
-							<button className="inner-pdf-button">Loading document... </button>
+							<button className="inner-pdf-button ">Loading document... </button>
 						) : (
-							<button className="inner-pdf-button"> Download as a PDF</button>
+							<button className="inner-pdf-button "> Download as a PDF</button>
 						)
 					}
 

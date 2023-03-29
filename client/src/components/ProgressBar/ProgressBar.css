@@ -22,7 +22,7 @@
 
 .stepWrapper{
     display: flex;
-    margin-bottom:20px;
+    margin-bottom:0px;
     text-align: center;
     display: flex; 
     align-items: center;
@@ -91,5 +91,9 @@
         padding:0 5px;
         position: relative;
         text-align: center;
+    }
+    .stepWrapper{
+      padding:0px;
+      margin-top: 20px;
     }
 }
