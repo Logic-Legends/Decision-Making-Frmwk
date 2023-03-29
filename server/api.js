@@ -10,16 +10,6 @@ router.get("/", (_, res) => {
 	res.json({ message: "Hello, world!" });
 });
 
-// router.get("/signups", async (req, res) => {
-// 	logger.debug("Welcoming everyone...");
-// 	try {
-// 		const { rows } = await db.query("SELECT * FROM user_reviews");
-// 		res.json(rows);
-// 	} catch (err) {
-// 		logger.error("%O", err);
-// 		res.status(500).json({ error: "An error occurred while fetching items" });
-// 	}
-// });
 
 router.post("/submit-email", async (req,res)=>{
 
