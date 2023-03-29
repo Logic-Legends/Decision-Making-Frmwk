@@ -10,7 +10,7 @@ function HandleTooltip(props) {
     >
 		<Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          <h6>Time and Resource Allocation</h6>
+          Time and Resource Allocation
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>

@@ -10,9 +10,9 @@ function HandleTooltipClick(props) {
 		>
 			<Modal.Header closeButton>
 				<Modal.Title id="contained-modal-title-vcenter">
-				<h6>
+				
 					Questions to consider:
-				</h6>
+				
 				</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>

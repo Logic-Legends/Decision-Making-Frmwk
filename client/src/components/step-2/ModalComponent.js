@@ -12,11 +12,11 @@ function ModalComponent(props) {
       <Modal.Body>Should we include all team members working on the project or a smaller subset?
                             <br /><br />Have we included a diverse set of viewpoints in our decision-making team?
 <br /><br />Is there any sensitive information that may influence team selection?</Modal.Body>
-      <Modal.Footer>
+      {/* <Modal.Footer>
         <Button variant="secondary" onClick={props.handleClose}>
           Close
         </Button>
-      </Modal.Footer>
+      </Modal.Footer> */}
     </Modal>
   );
 }
