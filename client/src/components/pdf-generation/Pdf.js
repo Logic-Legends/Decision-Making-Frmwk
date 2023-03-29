@@ -6,10 +6,6 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         flexDirection: "flex",
     },
-    section: {
-        margin: 10,
-        padding: 10,
-    },
     header: {
         fontSize: 20,
         textAlign: "center",
@@ -32,29 +28,52 @@ const styles = StyleSheet.create({
         display: "table",
         width: "auto",
         borderStyle: "solid",
-        borderWidth: 1,
-        borderRightWidth: 1,
-        borderBottomWidth: 1,
+
+
     },
     tableRow: {
         margin: "auto",
         flexDirection: "row",
+        borderWidth: "1px",
+        minHeight: "20px",
     },
     tableCol1: {
-        width: "20%",
-        height: "60px",
+        width: "25%",
+        height: "auto",
         borderStyle: "solid",
-        borderWidth: 1,
-        borderLeftWidth: 1,
-        borderTopWidth: 1,
+        borderWidth: "1px",
     },
     tableCol2: {
         width: "65%",
-        height: "60px",
+        height: "auto",
         borderStyle: "solid",
-        borderWidth: 1,
-        borderLeftWidth: 1,
-        borderTopWidth: 1,
+
+    },
+    tableCol3: {
+        width: "29%",
+        height: "auto",
+        borderStyle: "solid",
+        borderWidth: "1px",
+
+    },
+    tableCol21: {
+        width: "29%",
+        height: "auto",
+        borderStyle: "solid",
+        borderWidth: "1px",
+    },
+    tableCol22: {
+        width: "29%",
+        height: "auto",
+        borderStyle: "solid",
+
+    },
+    tableCol23: {
+        width: "29%",
+        height: "auto",
+        borderStyle: "solid",
+        borderWidth: "1px",
+
     },
     tableCell: {
         margin: "auto",
@@ -95,7 +114,7 @@ export default function Pdf(props) {
                 <Text style={styles.header} fixed>
                     Your responses are below.
                 </Text>
-                <div style={styles.body}>
+                <div>
                     <View style={styles.table}>
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol1}>
@@ -178,6 +197,39 @@ export default function Pdf(props) {
                         </View>
                     </View>
                 </div>
+
+                <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
+                    `${pageNumber} / ${totalPages}`
+                )} fixed />
+            </Page>
+            <Page style={styles.page}>
+                <Text style={styles.header} fixed>
+                    Your responses are below.
+                </Text>
+                <div>
+                    <View style={styles.table}>
+                        <View style={styles.tableRow}>
+                            <View style={styles.tableCol21}>
+                                <Text style={styles.tableTopic}>Voting Method</Text>
+                            </View>
+                            <View style={styles.tableCol22}>
+                                {selectedOptionTypeOfInformation === "explicit" ? (
+                                    <Text style={styles.tableTopic}>{explicitVotingMethod}</Text>
+                                ) : (
+                                    <Text style={styles.tableTopic}>{relativeVotingMethod1 + " | " + relativeVotingMethod2}</Text>)
+                                }
+                            </View>
+                            <View style={styles.tableCol23}>
+                                {selectedOptionTypeOfInformation === "explicit" ? (
+                                    <Text style={styles.tableTopic}>{explicitVotingMethod}</Text>
+                                ) : (
+                                    <Text style={styles.tableTopic}>{relativeVotingMethod1 + " | " + relativeVotingMethod2}</Text>)
+                                }
+                            </View>
+                        </View>
+                    </View>
+                </div>
+
                 <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
                     `${pageNumber} / ${totalPages}`
                 )} fixed />
