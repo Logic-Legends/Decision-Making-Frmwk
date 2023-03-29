@@ -1,4 +1,6 @@
 import { Router } from "express";
+const { transporter } = require("./mailer");
+
 
 import logger from "./utils/logger";
 import db from "./db";
@@ -24,6 +26,15 @@ router.post("/submit-email", async (req,res)=>{
 
 	try{
 		const result =await db.query("INSERT INTO email_signup (email) VALUES ($1) " ,[email]);
+
+		const mailOptions = {
+			from: "leilifaz39@gmail.com",
+			to: email,
+			subject: "Welcome to our website",
+			text: "Thank you for signing-up to ACE's newsletter.",
+		};
+		await transporter.sendMail(mailOptions);
+
 		res.status(201).json(result.rows[0]);
 
 	}catch(err){
@@ -43,16 +54,6 @@ router.post("/reviews", async (req, res) => {
 	}
   });
 
-//   router.get("/reviews", async (req, res) => {
-// 	try {
-// 	const result = await db.query("SELECT user_name, review_text FROM user_reviews");
-// 	const reviews = result.rows.map((row) => ({ name: row.user_name, comment: row.review_text }));
-// 	res.status(200).json(reviews);
-// 	} catch (err) {
-// 	logger.error("%O", err);
-// 	res.status(500).json({ error: "An error occurred while fetching reviews" });
-// 	}
-//   });
 
   router.get("/reviews", async (req, res) => {
 	try {
