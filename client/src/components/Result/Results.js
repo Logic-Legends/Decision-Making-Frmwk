@@ -83,46 +83,46 @@ const Results = () => {
 						</tr>
 					</tbody>
 				</table>
-				<div className="result-buttons-container start-btn">
-					<button className="inner" onClick={() => navigate("/review")}> Review</button>
-					<PDFDownloadLink
-						className="inner"
-						document={
-							<Pdf
-								selectedOptionAmountOfInformation={
-									selectedOptionAmountOfInformation
-								}
-								selectedOptionTypeOfInformation={
-									selectedOptionTypeOfInformation
-								}
-								selectedOptionDecision={selectedOptionDecision}
-								selectedOptionCapacity={selectedOptionCapacity}
-								selectedOption={selectedOption}
-								defineGoalText={defineGoalText}
-								users={users}
-								textAdvice={textAdvice}
-								advice={advice}
-								relativeVotingMethod1={relativeVotingMethod1}
-								relativeVotingMethod2={relativeVotingMethod2}
-								explicitVotingMethod={explicitVotingMethod}
-							/>
-						}
-						fileName="decision.pdf"
-					>
-
-						{({ loading }) =>
-							loading ? (
-								<button className="inner">Loading document... </button>
-							) : (
-									<button className="inner"> Download as a PDF</button>
-							)
-						}
-
-					</PDFDownloadLink>
 
 
-			<Signup className="inner" />
-				</div>
+			</div>
+			<div className="result-buttons-container">
+
+				<PDFDownloadLink className="pdf-grid"
+					document={
+						<Pdf
+							selectedOptionAmountOfInformation={
+								selectedOptionAmountOfInformation
+							}
+							selectedOptionTypeOfInformation={
+								selectedOptionTypeOfInformation
+							}
+							selectedOptionDecision={selectedOptionDecision}
+							selectedOptionCapacity={selectedOptionCapacity}
+							selectedOption={selectedOption}
+							defineGoalText={defineGoalText}
+							users={users}
+							textAdvice={textAdvice}
+							advice={advice}
+							relativeVotingMethod1={relativeVotingMethod1}
+							relativeVotingMethod2={relativeVotingMethod2}
+							explicitVotingMethod={explicitVotingMethod}
+						/>
+					}
+					fileName="decision.pdf"
+				>
+
+					{({ loading }) =>
+						loading ? (
+							<button className="inner-pdf-button">Loading document... </button>
+						) : (
+							<button className="inner-pdf-button"> Download as a PDF</button>
+						)
+					}
+
+				</PDFDownloadLink>
+				<button className="inner-review inner-pdf-button" onClick={() => navigate("/review")}> Review</button>
+				<Signup />
 			</div>
 		</div>
 	);

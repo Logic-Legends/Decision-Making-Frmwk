@@ -46,7 +46,7 @@ function SignUp() {
 
 	return (
 		<div>
-			<button onClick={() => setShowModal(true)} className="inner">
+			<button onClick={() => setShowModal(true)} className="inner-sing-up inner-pdf-button">
 				Sign-up
 			</button>
 			<Modal
