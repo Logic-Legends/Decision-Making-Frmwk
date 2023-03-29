@@ -8850,7 +8850,10 @@ table {
   cursor: pointer;
   color: #000;
 }
-
+.question-hint{
+	font-size: medium;
+	margin-bottom: 10px;
+}
 /* ------------- */
 
 /*Make responsive*/
