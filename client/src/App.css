@@ -8643,7 +8643,7 @@ Luan CSS
 }
 
 .border-decision-framework-pages {
-	padding: 50px 30px;
+	padding: 20px 20px;
 	border-width: 2px;
 	border-style: solid;
 	border-color: #d9d9d9;
@@ -8779,9 +8779,9 @@ table {
   border-radius:10%;
 } */
 /* Leila CSS -3b */
-.radio-btn-section {
+/* .radio-btn-section {
 	margin-bottom: 20px;
-}
+} */
 .low-rdb {
 	margin-right: 7px;
 	margin-left: 10px;
@@ -8851,7 +8851,7 @@ table {
 }
 .question-hint{
 	font-size: medium;
-	margin-bottom: 10px;
+	margin-bottom: 25px;
 }
 /* ------------- */
 
@@ -8859,6 +8859,7 @@ table {
 .container-radio-btn{
     display: flex;
     flex-direction: column;
+	padding: 0%;
   }
 
   .container-radio-btn-long-text{

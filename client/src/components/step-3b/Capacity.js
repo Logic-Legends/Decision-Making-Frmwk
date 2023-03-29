@@ -84,18 +84,17 @@ const Capacity = () => {
 				/>
 			</h2>
 			<section className="border-decision-framework-pages">
-				<h6>
-					What is the decision-making teams capacity?
-					
-					<span className="radio-label">
-						<span className="radio-title"> </span>
-						<span className="radio-description question-hint">
-							Will we be affected by factors such as team members on leave,
-							decision makers' ability to commit to meetings and decision
-							deadline?
-						</span>
+				<h6>What is the decision-making teams capacity?</h6>
+
+				<span className="radio-label">
+					<span className="radio-title"> </span>
+					<span className="radio-description question-hint">
+						Will we be affected by factors such as team members on leave,
+						decision makers' ability to commit to meetings and decision
+						deadline?
 					</span>
-				</h6>
+				</span>
+
 				{/* Radio btn section */}
 				<form className="radio-btn-section container-radio-btn">
 					<label className="radio">

@@ -12,7 +12,7 @@ const ResultVotingMethod=()=>{
     return (
 			<div className="container">
 				<h3>Recommended Voting Method</h3>
-				<hr/>
+				<hr />
 					<h6 className="table-header">Explicit</h6>
 					<div>
 						<table className="tbl-vote">
@@ -174,7 +174,7 @@ const ResultVotingMethod=()=>{
 							</tbody>
 						</table>
 					</div>
-				
+
 				<section id="button-same-line">
 					<button onClick={handleBackClick} className="inner">
 						<Link to="/Voting-Method"></Link>
