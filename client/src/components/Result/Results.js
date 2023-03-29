@@ -1,7 +1,9 @@
 import React from "react";
 import Pdf from "../pdf-generation/Pdf";
 import { PDFDownloadLink } from "@react-pdf/renderer";
+import { useNavigate } from "react-router-dom";
 import Signup from "./Sign-up";
+import Review from "./Review";
 
 const Results = () => {
 	const defineGoalText = sessionStorage.getItem("defineGoalText");
@@ -24,6 +26,8 @@ const Results = () => {
 	const relativeVotingMethod2 = sessionStorage.getItem("relativeVotingMethod2");
 	const textAdvice = sessionStorage.getItem("textAdvice");
 	const advice = sessionStorage.getItem("advice");
+
+	const navigate = useNavigate();
 	return (
 		<div className="container">
 			<h3>You have completed the tool. Please check your responses below.</h3>
@@ -48,9 +52,10 @@ const Results = () => {
 						</tr>
 						<tr>
 							<td>Who</td>
-							{users.map((user, index) => (
-								<td key={index}>{user.name}</td>
-							))}
+							<td> {users.map((user, index) => (
+								<p key={index}>{user.name}</p>
+							))}</td>
+
 						</tr>
 						<tr>
 							<td>Importance</td>
@@ -112,7 +117,9 @@ const Results = () => {
 						}
 					</PDFDownloadLink>
 				</div>
+
 			</div>
+			<button onClick={()=>navigate("/review")}> Leave review</button>
 			<Signup />
 		</div>
 	);

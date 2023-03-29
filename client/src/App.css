@@ -8904,6 +8904,19 @@ table {
 	padding-left: 10px;
 	
 }
+.add-update-icon{
+	display: none;
+	
+}
+.nameTable{
+width: 80%;
+}
+#formName{
+	min-width: 170px;
+}
+.plus{
+	justify-content: right;
+}
 
   @media (max-width: 480px) {
     .container-radio-btn {
@@ -8929,6 +8942,55 @@ table {
 		margin: 10px 5px auto auto;;
 		height: 40px;
 	 }
-	 
+	.add-update-icon{
+	display: flex;
+	background-color: white;
+	padding: 0%;
+	justify-content: right;
+	
+}
+	.add-icon{
+	width: 40px;
+	margin: 0%;
+	padding: 0%;
+}
+
 
   }
+
+  /* Review page */
+  .review-container {
+	border: 1px solid #ccc;
+	padding: 20px;
+	text-align: center;
+  }
+  
+  .review-title {
+	margin-top: 0;
+	margin-bottom: 20px;
+  }
+
+  .review-ul {
+	margin-top: 20px;
+	list-style: none;
+	justify-content: space-between;
+  }
+
+  .review-header {
+	margin-top: 1rem;
+	display: flex;
+	align-items: center;
+  }
+  
+  .review-header strong {
+	margin-right: 1rem;
+  }
+  
+  .review-comment {
+	/* margin-bottom: 1rem; */
+	display: flex;
+	align-items: center;
+	color: rgb(130, 130, 130); 
+  }
+
+  

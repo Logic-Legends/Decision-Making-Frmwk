@@ -91,16 +91,9 @@ useEffect(() => {
   return (
 
     <Container  className="container">
-      {/* {error &&show&& (
-        <Alert variant="danger" onClose={() => setShow(false)} dismissible>
-          {error}
-        </Alert>
-      )} */}
       {showModal&&<ModalComponent showModal={showModal} handleClose={handleClose} />}
-
       <h3>Who are the decision-makers<img className="question-mark-pages" src={QuestionMark} alt="Qusestion Mark" border="0" onClick={ handleShow }></img></h3>
 
-      {/* </div> */}
       <div className="border-decision-framework-pages">
       <DecisionMakersForm
         addUser={addUser}
@@ -110,8 +103,7 @@ useEffect(() => {
       <Table striped  hover   >
         <thead>
           <tr>
-            <th className="border">Name</th>
-            {/* <th className="border border-start-0"></th> */}
+              <th className="border nameTable">Name</th>
           </tr>
         </thead>
         <tbody>
@@ -145,24 +137,25 @@ useEffect(() => {
         </tbody>
       </Table>
 
-      <div id="button-same-line">
-				<Link to="/define-goal">	<button className="inner" onClick={handleBackBtn}>BACK</button></Link>
-				<button className="inner"  onClick={handleNextBtn}><Link to="/Importance"></Link>NEXT</button>
-        {isModalOpen && (
-					<div className="modal">
-						<div className="modal-display">
-							<p>Please complete this step!</p>
-							<button
-								onClick={() => setIsModalOpen(false)}
-								className="modal-btn"
-							>
-								OK
-							</button>
-						</div>
-					</div>
-				)}
-			</div>
+
             </div>
+      <div id="button-same-line">
+        <Link to="/define-goal">	<button className="inner" onClick={handleBackBtn}>BACK</button></Link>
+        <button className="inner" onClick={handleNextBtn}><Link to="/Importance"></Link>NEXT</button>
+        {isModalOpen && (
+          <div className="modal">
+            <div className="modal-display">
+              <p>Please complete this step!</p>
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="modal-btn"
+              >
+                OK
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
     </Container>
   );
 }
