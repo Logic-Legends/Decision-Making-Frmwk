@@ -54,91 +54,103 @@ const TypeOfInformation = () => {
   const stepNumber=8;
 
     return (
-		<div className="container">
+			<div className="container">
+				<FirstHandleTooltip
+					show={FirstModalShow}
+					onHide={() => FirstSetModalShow(false)}
+				/>
 
-			<FirstHandleTooltip
-				show={FirstModalShow}
-				onHide={() => FirstSetModalShow(false)}
-			/>
+				<h2>
+					Amount of Information{" "}
+					<img
+						className="question-mark-pages"
+						src={QuestionMark}
+						alt="Qusestion Mark"
+						border="0"
+						onClick={() => FirstSetModalShow(true)}
+					></img>
+				</h2>
+				<section className="border-decision-framework-pages">
+					<h6 className="question-margin">
+						How much information will we have?
+					</h6>
 
-            <h2>Amount of Information{" "}
-				<img
-					className="question-mark-pages"
-					src={QuestionMark}
-					alt="Qusestion Mark"
-					border="0"
-					onClick={() => FirstSetModalShow(true)}
-				></img>
-			</h2>
-            <section className="border-decision-framework-pages">
+					<form className="radio-btn-section container-radio-btn">
+						<label className="radio">
+							<input
+								type="radio"
+								name="option"
+								value="High"
+								checked={selectedOptionAmountOfInformation === "High"}
+								onChange={handleOptionChange}
+								className="input-radio-btn"
+							/>
+							<span className="radio-label">
+								<span className="radio-title">High </span>
+								<span className="radio-description">
+									You have enough information to rank or assign values to all
+									options
+								</span>
+							</span>
+						</label>
+						<label className="radio">
+							<input
+								type="radio"
+								name="option"
+								value="Medium"
+								checked={selectedOptionAmountOfInformation === "Medium"}
+								onChange={handleOptionChange}
+								className="input-radio-btn"
+							/>
+							<span className="radio-label">
+								<span className="radio-title">Medium </span>
+								<span className="radio-description">
+									You have enough information to...
+								</span>
+							</span>
+						</label>
+						<label className="radio">
+							<input
+								type="radio"
+								name="option"
+								value="Low"
+								checked={selectedOptionAmountOfInformation === "Low"}
+								onChange={handleOptionChange}
+								className="input-radio-btn"
+							/>
+							<span className="radio-label">
+								<span className="radio-title">Low </span>
+								<span className="radio-description">
+									You have enough information to say yes or no to each option
+								</span>
+							</span>
+						</label>
+					</form>
+				</section>
 
-                                <h6>How much information will we have?</h6>
-
-                                <form className="radio-btn-section container-radio-btn">
-                                        <label className="radio">
-                                            <input
-                                                type="radio"
-                                                name="option"
-                                                value="High"
-                                                checked={selectedOptionAmountOfInformation === "High"}
-                                                onChange={handleOptionChange}
-                                                className="input-radio-btn"
-                                            />
-                                            <span className="radio-label">
-                                              <span className="radio-title">High </span>
-                                              <span className="radio-description">You have enough information to rank or assign values to all options</span>
-                                            </span>
-                                        </label>
-                                        <label className="radio">
-                                            <input
-                                                type="radio"
-                                                name="option"
-                                                value="Medium"
-                                                checked={selectedOptionAmountOfInformation === "Medium"}
-                                                onChange={handleOptionChange}
-                                                className="input-radio-btn"
-                                            />
-                                            <span className="radio-label">
-                                              <span className="radio-title">Medium </span>
-                                              <span className="radio-description">You have enough information to...</span>
-                                            </span>
-                                        </label>
-                                        <label className="radio">
-                                            <input
-                                                type="radio"
-                                                name="option"
-                                                value="Low"
-                                                checked={selectedOptionAmountOfInformation === "Low"}
-                                                onChange={handleOptionChange}
-                                                className="input-radio-btn"
-                                            />
-                                            <span className="radio-label">
-                                              <span className="radio-title">Low </span>
-                                              <span className="radio-description">You have enough information to say yes or no to each option</span>
-                                            </span>
-                                        </label>
-                                </form>
-                </section>
-
-			<div id="button-same-line">
-      <button className="inner" onClick={handleBackClick}>BACK</button>
-				<button className="inner" onClick={handleButtonClick}>NEXT</button>
-        {isModalOpen && (
-					<div className="modal">
-						<div className="modal-display">
-							<p>Please select a response.</p>
-							<button
-								onClick={() => setIsModalOpen(false)}
-								className="modal-btn"
-							>
-								OK
-							</button>
+				<div id="button-same-line">
+					<button className="inner" onClick={handleBackClick}>
+						BACK
+					</button>
+					<button className="inner" onClick={handleButtonClick}>
+						NEXT
+					</button>
+					{isModalOpen && (
+						<div className="modal">
+							<div className="modal-display">
+								<p>Please select a response.</p>
+								<button
+									onClick={() => setIsModalOpen(false)}
+									className="modal-btn"
+								>
+									OK
+								</button>
+							</div>
 						</div>
-					</div>
-				)}{" "}
+					)}{" "}
+				</div>
 			</div>
-		</div>
-	);
+		);
 };
 
 export default TypeOfInformation;

@@ -8851,7 +8851,11 @@ table {
   color: #000;
 }
 .question-hint{
-	font-size: medium;
+	font-size: small;
+	margin-bottom: 25px;
+	
+}
+.question-margin{
 	margin-bottom: 25px;
 }
 /* ------------- */
@@ -8891,6 +8895,7 @@ table {
 
   .radio-description{
 	color: rgb(130, 130, 130);
+	
   }
   .dlt-edt-icons{
 	display: none;

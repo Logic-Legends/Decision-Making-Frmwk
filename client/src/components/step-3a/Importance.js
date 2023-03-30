@@ -91,10 +91,10 @@ const Importance = () => {
 
 				<span className="radio-label">
 					<span className="radio-title"> </span>
-					<span className="radio-description question-hint">
+					<p className="radio-description question-hint">
 						Will it affect how we operate as an organisation or a team or the
 						way we interact with other organisations?
-					</span>
+					</p>
 				</span>
 
 				{/* Radio btn section */}

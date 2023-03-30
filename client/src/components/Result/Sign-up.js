@@ -67,20 +67,19 @@ function SignUp() {
 						<FaTimes />
 					</button>
 				</div>
-				{errorMessage &&
-					isModalOpen &&(
-						<div className="modal">
-							<div className="modal-display">
-								<p>{errorMessage}</p>
-								<button
-									onClick={() => setIsModalOpen(false)}
-									className="modal-btn"
-								>
-									OK
-								</button>
-							</div>
+				{errorMessage && isModalOpen && (
+					<div className="modal">
+						<div className="modal-display">
+							<p>{errorMessage}</p>
+							<button
+								onClick={() => setIsModalOpen(false)}
+								className="modal-btn"
+							>
+								OK
+							</button>
 						</div>
-					)}
+					</div>
+				)}
 				<form onSubmit={handleSubmit}>
 					<input
 						id="email"
@@ -88,9 +87,8 @@ function SignUp() {
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 						placeholder="Please enter your email"
-						
 					/>
-					<button type="submit" className="inner" >
+					<button type="submit" className="inner">
 						Submit
 					</button>
 				</form>

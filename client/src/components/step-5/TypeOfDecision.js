@@ -66,7 +66,7 @@ useEffect(() => {
                 onHide={() => setModalShow(false)}
             />
             <h2>
-                Type Of Decision{" "}
+                Type of Decision{" "}
                 <img
                     src={tooltipIcon}
                     alt="Tooltip"
@@ -75,7 +75,7 @@ useEffect(() => {
                 />
             </h2>
             <section className="border-decision-framework-pages">
-                <h6>
+                <h6 className="question-margin">
                     Are you making an iterative or single decision decision?
 
                 </h6>
