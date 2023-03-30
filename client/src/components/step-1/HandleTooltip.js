@@ -26,11 +26,17 @@ if (props.clickedicon==="smartGoal") {
         >
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-              Define the goal.
+              What decision are we trying to make?
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body
-          dangerouslySetInnerHTML={{ __html: modalBody }} />
+          <Modal.Body>
+            <p><strong>SMART</strong> Goals</p>
+            <p><strong>S</strong>pecific</p>
+            <p><strong>M</strong>easurable</p>
+            <p><strong>A</strong>chievable</p>
+            <p><strong>R</strong>ealistic</p>
+            <p><strong>T</strong>ime-based</p>
+          </Modal.Body>
         </Modal>
       );
 }

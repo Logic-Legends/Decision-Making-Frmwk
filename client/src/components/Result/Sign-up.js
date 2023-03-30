@@ -9,7 +9,7 @@ function SignUp() {
 	const [errorMessage, setErrorMessage] = useState("");
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
-	const handleSubmit =async (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (email.trim() === "") {
 			setErrorMessage("Please enter your email");
@@ -23,7 +23,7 @@ function SignUp() {
 			setIsModalOpen(true);
 			return;
 		}
-		const response= await fetch("/api/submit-email", {
+		const response = await fetch("/api/submit-email", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -32,13 +32,13 @@ function SignUp() {
 				email: email,
 			}),
 		});
-		if(response.ok){
+		if (response.ok) {
 			setEmail("");
 			setShowModal(false);
 			setErrorMessage("");
-		}else{
+		} else {
 			setIsModalOpen(true);
-			const errorData=await response.json();
+			const errorData = await response.json();
 			setErrorMessage(errorData.message);
 		}
 
@@ -67,20 +67,20 @@ function SignUp() {
 						<FaTimes />
 					</button>
 				</div>
-				{errorMessage &&
-					isModalOpen &&(
-						<div className="modal">
-							<div className="modal-display">
-								<p>{errorMessage}</p>
-								<button
-									onClick={() => setIsModalOpen(false)}
-									className="modal-btn"
-								>
-									OK
-								</button>
-							</div>
+				{errorMessage && isModalOpen && (
+					<div className="modal">
+						<div className="modal-display">
+							<p>{errorMessage}</p>
+							<button
+								onClick={() => setIsModalOpen(false)}
+								className="modal-btn"
+							>
+								OK
+							</button>
+
 						</div>
-					)}
+					</div>
+				)}
 				<form onSubmit={handleSubmit}>
 					<input
 						id="email"
@@ -90,7 +90,7 @@ function SignUp() {
 						placeholder="Please enter your email"
 
 					/>
-					<button type="submit" className="inner" >
+					<button type="submit" className="inner">
 						Submit
 					</button>
 				</form>

@@ -1,12 +1,13 @@
 const nodemailer = require("nodemailer");
+require("dotenv").config();
 
 const transporter = nodemailer.createTransport({
-	host: "smtp.gmail.com",
-	port: 587,
-	secure: false,
+	host: "smtp.zoho.eu",
+	port: 465,
+	secure: true,
 	auth: {
-		user: "leilifaz39@gmail.com",
-		pass: "Leila29change@pass",
+		user: process.env.EMAIL,
+		pass: process.env.EMAIL_PASSWORD,
 	},
 });
 

@@ -3,7 +3,6 @@ import Pdf from "../pdf-generation/Pdf";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { useNavigate } from "react-router-dom";
 import Signup from "./Sign-up";
-import Review from "./Review";
 
 const Results = () => {
 	const defineGoalText = sessionStorage.getItem("defineGoalText");
@@ -114,9 +113,9 @@ const Results = () => {
 
 					{({ loading }) =>
 						loading ? (
-							<button className="inner-pdf-button">Loading document... </button>
+							<button className="inner-pdf-button ">Loading document... </button>
 						) : (
-							<button className="inner-pdf-button"> Download as a PDF</button>
+							<button className="inner-pdf-button "> Download as a PDF</button>
 						)
 					}
 

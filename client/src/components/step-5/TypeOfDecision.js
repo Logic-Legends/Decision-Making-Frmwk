@@ -1,4 +1,4 @@
-import React,{ useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
@@ -11,12 +11,12 @@ const TypeOfDecision = () => {
     const stepNumber = 6;
     const [isStarted, setIsStarted] = useState(false);
     const [modalShow, setModalShow] = useState(false);
-    const { selectedOptionDecision, setSelectedOptionDecision,setStep } = useContext(stepProgressContext);
+    const { selectedOptionDecision, setSelectedOptionDecision, setStep } = useContext(stepProgressContext);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const navigate = useNavigate();
     const [advice, setAdvice] = useState();
     const [titleAdvice, setTitleAdvice] = useState();
-    const checkOption = ()=> {
+    const checkOption = () => {
         if (selectedOptionDecision === "Iterative") {
             setAdvice("Go through the voting methods table for each stage of the decision.");
             setTitleAdvice("Iterative decision: ");
@@ -26,25 +26,25 @@ const TypeOfDecision = () => {
             setTitleAdvice("Single decision: ");
             sessionStorage.setItem("advice", "Go through the voting methods table once.");
         } else {
-            setAdvice( null);
+            setAdvice(null);
             setTitleAdvice(null);
-}
+        }
     };
     useEffect(() => {
-         checkOption();
+        checkOption();
     }, [selectedOptionDecision]);
     const handleBackClick = () => {
         setIsStarted(true);
-        setStep(stepNumber-1);
+        setStep(stepNumber - 1);
         navigate("/time-resource");
     };
- const handleNextClick = () => {
+    const handleNextClick = () => {
         if (selectedOptionDecision === null) {
             setIsModalOpen(true);
 
         } else {
             setIsStarted(true);
-            setStep(stepNumber+1);
+            setStep(stepNumber + 1);
             navigate("/type-of-information");
         }
     };
@@ -52,13 +52,13 @@ const TypeOfDecision = () => {
         setSelectedOptionDecision(event.target.value);
         sessionStorage.setItem("selectedOptionDecision", event.target.value);
     };
-useEffect(() => {
+    useEffect(() => {
         const storedTypeOfDecision = sessionStorage.getItem("selectedOptionDecision");
         if (storedTypeOfDecision) {
             setSelectedOptionDecision(storedTypeOfDecision);
         }
     }, []);
- return (
+    return (
         <div className="container">
             {/* call first tooltip component */}
             <HandleTooltipClick
@@ -66,7 +66,7 @@ useEffect(() => {
                 onHide={() => setModalShow(false)}
             />
             <h2>
-                Type Of Decision{" "}
+                Type of Decision{" "}
                 <img
                     src={tooltipIcon}
                     alt="Tooltip"
@@ -75,8 +75,9 @@ useEffect(() => {
                 />
             </h2>
             <section className="border-decision-framework-pages">
-                <h6>
-                    Are we making an iterative or single decision decision?
+
+                <h6 className="question-margin">
+                    Are you making an iterative or single decision decision?
 
                 </h6>
                 {/* Radio btn section */}
