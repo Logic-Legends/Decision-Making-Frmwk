@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 // import { FaTimes } from "react-icons/fa";
 
@@ -9,37 +9,37 @@ function Review() {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showErrorMessage, setShowErrorMessage] = useState(false);
 
-    //state for error handling
-	const [isModalOpen, setIsModalOpen] = useState(false);
+  //state for error handling
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (name.trim() === "" || comment.trim() === "") {
       setIsModalOpen(true);
-    }else{
-    fetch("/api/reviews", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: name,
-        comment: comment,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setName("");
-        setComment("");
-        setShowSuccessMessage(true);
+    } else {
+      fetch("/api/reviews", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: name,
+          comment: comment,
+        }),
       })
-      .catch((error) => {
-        console.error(error);
-        setShowErrorMessage(true);
-      });
-  }
-};
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          setName("");
+          setComment("");
+          setShowSuccessMessage(true);
+        })
+        .catch((error) => {
+          console.error(error);
+          setShowErrorMessage(true);
+        });
+    }
+  };
 
   //Show reviews
   const [reviews, setReviews] = useState([]);
@@ -56,9 +56,9 @@ function Review() {
   const navigate = useNavigate();
 
   //click back btn handler
-	const handleBackClick = () => {
-		navigate("/Results");
-	};
+  const handleBackClick = () => {
+    navigate("/Results");
+  };
 
 
   return (
@@ -70,18 +70,18 @@ function Review() {
         <div className="error-message">An error occurred. Please try again.</div>
       )}
       {isModalOpen && (
-      <div className="modal">
-        <div className="modal-display">
-          <p>Please enter your review before adding it.</p>
-          <button
-            onClick={() => setIsModalOpen(false)}
-            className="modal-btn"
-          >
-            OK
-          </button>
+        <div className="modal">
+          <div className="modal-display">
+            <p>Please enter your review before adding it.</p>
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="modal-btn"
+            >
+              OK
+            </button>
+          </div>
         </div>
-      </div>
-    )}
+      )}
 
       <h2 className="review-title">Leave Review</h2>
       <form onSubmit={handleSubmit} noValidate>
@@ -108,9 +108,9 @@ function Review() {
           required
         ></textarea>
         <button onClick={handleBackClick} className="inner">
-					Back
-				</button>
-        <button className="inner"  type="submit">Submit</button>
+          Back
+        </button>
+        <button className="inner" type="submit">Submit</button>
       </form>
 
 
