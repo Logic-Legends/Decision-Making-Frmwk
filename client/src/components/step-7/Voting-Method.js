@@ -1,53 +1,59 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 
 
-const VotingMethod=()=>{
+const VotingMethod = () => {
 	const navigate = useNavigate();
-	const {
-		selectedOptionTypeOfInformation,
-		setSelectedOptionTypeOfInformation,
-	} = useContext(stepProgressContext);
-	const {
-		selectedOptionAmountOfInformation,
-		setSelectedOptionAmountOfInformation,
-	} = useContext(stepProgressContext);
+
+	//Used to get data to select radio button
+	const { setStep } = useContext(stepProgressContext);
+
+	const stepNumber = 9;
 
 	const [explicitVotingMethod, setExplicitVotingMethod] = useState();
 	const [explicitVotingMethodDesc, setExplicitVotingMethodDesc] = useState();
-	const [selectedOptionVoting, setSelectedOptionVoting] = useState();
+
 
 	const [relativeVotingMethod1, setRelativeVotingMethod1] = useState();
 	const [relativeVotingMethodDesc1, setRelativeVotingMethodDesc1] = useState();
 	const [relativeVotingMethod2, setRelativeVotingMethod2] = useState();
 	const [relativeVotingMethodDesc2, setRelativeVotingMethodDesc2] = useState();
-    const [isStarted, setIsStarted] = useState(false);
+	const [isStarted, setIsStarted] = useState(false);
+
+	const selectedOptionTypeOfInformation = sessionStorage.getItem("selectedOptionTypeOfInformation");
+	const selectedOptionAmountOfInformation = sessionStorage.getItem("selectedOptionAmountOfInformation");
 
 	const showExplicit = () => {
 		if (
-			selectedOptionTypeOfInformation === "explicit" &&
-			selectedOptionAmountOfInformation === "low"
+			selectedOptionTypeOfInformation === "Explicit" &&
+			selectedOptionAmountOfInformation === "Low"
 		) {
 			setExplicitVotingMethod("Approval voting");
 			setExplicitVotingMethodDesc(
 				'Voters choose "Yes" or "No" for each option, and the option with the most "Yes" votes wins.'
 			);
+			sessionStorage.setItem("explicitVotingMethod", "Approval voting");
 		} else if (
-			selectedOptionTypeOfInformation === "explicit" &&
-			selectedOptionAmountOfInformation === "medium"
+			selectedOptionTypeOfInformation === "Explicit" &&
+			selectedOptionAmountOfInformation === "Medium"
 		) {
 			setExplicitVotingMethod("Score voting");
 			setExplicitVotingMethodDesc(
 				"Voters give each optiona score on some objective metric, and the option with the highest score wins."
 			);
+			sessionStorage.setItem("explicitVotingMethod", "Score voting");
 		} else if (
-			selectedOptionTypeOfInformation === "explicit" &&
-			selectedOptionAmountOfInformation === "high"
+			selectedOptionTypeOfInformation === "Explicit" &&
+			selectedOptionAmountOfInformation === "High"
 		) {
 			setExplicitVotingMethod("Delphi method");
 			setExplicitVotingMethodDesc(
 				"Involves multiple anonymous surveys followed by discussions about the aggregate survey results until a decision has been reached."
+			);
+			sessionStorage.setItem(
+				"explicitVotingMethod",
+				"Delphi method"
 			);
 		}
 	};
@@ -57,41 +63,58 @@ const VotingMethod=()=>{
 
 	const showRelative = () => {
 		if (
-			selectedOptionTypeOfInformation === "relative" &&
-			selectedOptionAmountOfInformation === "low"
+			selectedOptionTypeOfInformation === "Relative" &&
+			selectedOptionAmountOfInformation === "Low"
 		) {
 			setRelativeVotingMethod1("First past the post");
 			setRelativeVotingMethodDesc1(
 				"Each voter selects their favorite option, and the option with the most votes wins."
 			);
+			sessionStorage.setItem(
+				"relativeVotingMethod1",
+				"First past the post"
+			);
 			setRelativeVotingMethod2("Multivoting");
 			setRelativeVotingMethodDesc2(
 				"Each voter has a certain number of votes to place on any of the options."
 			);
+			sessionStorage.setItem(
+				"relativeVotingMethod2",
+				"Multivoting"
+			);
 		} else if (
-			selectedOptionTypeOfInformation === "relative" &&
-			selectedOptionAmountOfInformation === "medium"
+			selectedOptionTypeOfInformation === "Relative" &&
+			selectedOptionAmountOfInformation === "Medium"
 		) {
 			setRelativeVotingMethod1("STAR voting");
 			setRelativeVotingMethodDesc1(
 				"Voters score the options, and the one the majority prefers wins."
 			);
+			sessionStorage.setItem(
+				"relativeVotingMethod1", "STAR voting"
+			);
 			setRelativeVotingMethod2("Ranked choice");
 			setRelativeVotingMethodDesc2(
 				"Voters rank options based on preference, then a winner is chosen based on majority of first preference votes."
 			);
+			sessionStorage.setItem(
+				"relativeVotingMethod2",
+				"Ranked choice"
+			);
 		} else if (
-			selectedOptionTypeOfInformation === "relative" &&
-			selectedOptionAmountOfInformation === "high"
+			selectedOptionTypeOfInformation === "Relative" &&
+			selectedOptionAmountOfInformation === "High"
 		) {
 			setRelativeVotingMethod1("Delphi method");
 			setRelativeVotingMethodDesc1(
 				"Involves multiple anonymous surveys followed by discussions about the aggregate survey results until a decision has been reached."
 			);
+			sessionStorage.setItem("relativeVotingMethod1", "Delphi method");
 			setRelativeVotingMethod2("Quadratic voting");
 			setRelativeVotingMethodDesc2(
 				"Voters use credits on any option, but the marginal cost of adding an additional credit to an option is higher than adding the last credit."
 			);
+			sessionStorage.setItem("relativeVotingMethod2", "Quadratic voting");
 		}
 	};
 	useEffect(() => {
@@ -101,20 +124,22 @@ const VotingMethod=()=>{
 	//click next btn handler
 	const handleNextClick = () => {
 
-			setIsStarted(true);
-			navigate("/Results");
+		setIsStarted(true);
+		navigate("/Results");
+		setStep(stepNumber + 1);
 
 	};
-     const handleBackClick = () => {
-				setIsStarted(true);
-				navigate("/amount-of-information");
-			};
+	const handleBackClick = () => {
+		setIsStarted(true);
+		navigate("/amount-of-information");
+		setStep(stepNumber - 1);
+	};
 
-    return (
-			<div className="container">
-				<h1>Recommended Voting Method</h1>
-				<div className="border-decision-framework-pages">
-				{selectedOptionTypeOfInformation === "explicit" ? (
+	return (
+		<div className="container">
+			<h2>Recommended Voting Method</h2>
+			<div className="border-decision-framework-pages">
+				{selectedOptionTypeOfInformation === "Explicit" ? (
 					<table>
 						<tbody>
 							<tr className="table-background">
@@ -130,7 +155,7 @@ const VotingMethod=()=>{
 				) : (
 					<>
 						{" "}
-						{selectedOptionTypeOfInformation === "relative" ? (
+						{selectedOptionTypeOfInformation === "Relative" ? (
 							<>
 								<table>
 									<tbody>
@@ -163,7 +188,9 @@ const VotingMethod=()=>{
 				)}
 				<p>
 					To consult the full voting method use this{" "}
-					<Link to="/ResultVotingMethod">link</Link>
+					<Link to="/ResultVotingMethod" >
+						link
+					</Link>
 				</p>
 			</div>
 			{/* btn sections */}

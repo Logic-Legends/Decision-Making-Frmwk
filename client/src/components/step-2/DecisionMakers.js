@@ -1,25 +1,28 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import DecisionMakersForm from "./DicisionMakersForm";
-import { Container, Table,Alert } from "react-bootstrap";
+import { Container, Table } from "react-bootstrap";
 import QuestionMark from "../step-1/images/question-mark.png";
 import ModalComponent from "./ModalComponent";
-import { Link,useNavigate } from "react-router-dom#";
+import { Link, useNavigate } from "react-router-dom#";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
+import Icon from "react-crud-icons";
 
 function DecisionMakers() {
   // const [users, setUsers] = useState([]);
 
-  const { users,setUsers,currentStep,labelArray,setStep }=useContext(stepProgressContext);
+  const { users, setUsers, currentStep, labelArray, setStep } = useContext(stepProgressContext);
 
   const [editIndex, setEditIndex] = useState(-1);
   const [showModal, setShowModal] = useState(false);
-  const [error, setError] = useState("");
-  const [show, setShow] = useState(true);
+  // const [error, setError] = useState("");
+  // const [show, setShow] = useState(true);
+  //state for error handling
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const stepNumber=2;
+  const stepNumber = 2;
 
-
-  const navigate=useNavigate();
+  console.log(users);
+  const navigate = useNavigate();
   const addUser = (newUser) => {
     if (editIndex === -1) {
       setUsers((prevUsers) => [...prevUsers, newUser]);
@@ -49,97 +52,110 @@ function DecisionMakers() {
   };
 
 
-const handleNextBtn=()=>{
-console.log("users:",users);
-if (!users.length) {
-console.log("Next Button Clicked"+users);
-  setError("Please complete this step!");
-  setShow(true);
-}else{
-  setStep(stepNumber+1);
-  navigate("/Importance");
+  const handleNextBtn = () => {
+    console.log("users:", users);
+    if (!users.length) {
+      // console.log("Next Button Clicked"+users);
+      setIsModalOpen(true);
+      // setError("Please complete this step!");
+      // setShow(true);
+    } else {
+      setStep(stepNumber + 1);
+      navigate("/Importance");
+      console.log(users);
+      sessionStorage.setItem("users", JSON.stringify(users)); //ADD SESSION STORAGE
+
+    }
 
 
-
-}
-
-
-};
+  };
 
 
-const handleBackBtn=()=>{
-  setStep(stepNumber-1);
-navigate("/define-goal");
+  const handleBackBtn = () => {
+    setStep(stepNumber - 1);
+    navigate("/define-goal");
+    sessionStorage.setItem("users", JSON.stringify(users)); //ADD SESSION STORAGE
 
 
-};
+  };
+
+  //ADD TO STORAGE SESSION LAST PAGE
+  useEffect(() => {
+    const storedUsers = sessionStorage.getItem("users");
+    console.log(storedUsers);
+    if (storedUsers) {
+      setUsers(JSON.parse(storedUsers));
+    }
+  }, []);
 
   return (
 
-    <Container  className="container">
-      {error &&show&& (
-        <Alert variant="danger" onClose={() => setShow(false)} dismissible>
-          {error}
-        </Alert>
-      )}
-      {showModal&&<ModalComponent showModal={showModal} handleClose={handleClose} />}
+    <Container className="container">
+      {showModal && <ModalComponent showModal={showModal} handleClose={handleClose} />}
+      <h3>Who are the decision-makers<img className="question-mark-pages" src={QuestionMark} alt="Qusestion Mark" border="0" onClick={handleShow}></img></h3>
 
-      {/* <div className="d-flex"> */}
-
-      <h1>Who are the decision-makers<img className="question-mark-pages" src={QuestionMark} alt="Qusestion Mark" border="0" onClick={ handleShow }></img></h1>
-
-      {/* </div> */}
       <div className="border-decision-framework-pages">
-      <DecisionMakersForm
-        addUser={addUser}
-        editUser={users[editIndex]}
-        editIndex={editIndex}
-      />
-      <Table striped  hover responsive  >
-        <thead>
-          <tr>
-            <th className="border">Name</th>
-            <th className="border border-end-0">Role</th>
-            <th className="border border-start-0"></th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user, index) => (
-            <tr key={index} className="vh-auto border">
-              <td className="w-50 border pt-4">{user.name}</td>
-              <td className="w-50 border pt-4 border-end-0">{user.role}</td>
-              <td className="d-flex justify-content-end border  border-start-0">
-                {/* <Button
-                className="px-3"
-                  variant="warning"
-                  onClick={() => editUser(index)}
-                >
-                  Edit
-                </Button> */}
-                <button className="inner  mb-0 py-2" onClick={() => editUser(index)}>EDIT</button>
-                <button className="inner button-delete-team  mb-0 py-2" onClick={() => deleteUser(index)}>DELETE</button>
-                {/* <Button className="ms-2 "  variant="danger" onClick={() => deleteUser(index)}>
-                  Delete
-                </Button> */}
-              </td>
+        <DecisionMakersForm
+          addUser={addUser}
+          editUser={users[editIndex]}
+          editIndex={editIndex}
+        />
+        <Table striped hover   >
+          <thead>
+            <tr>
+              <th className="border nameTable">Name</th>
             </tr>
-          ))}
-        </tbody>
-      </Table>
-      {/* <div className="d-flex justify-content-center mt-5"> */}
+          </thead>
+          <tbody>
+            {users.map((user, index) => (
+              <tr key={index} className="vh-auto border">
+                <td className="w-50 border pt-4">{user.name}</td>
+                <td className="d-flex justify-content-end border  border-start-0" >
 
-      {/* <Link to="/define-goal"><Button variant="success"  className="inner"> Back </Button></Link>
+                  <button className="inner  mb-0 py-2 " onClick={() => editUser(index)}>EDIT</button>
+                  <button className="inner button-delete-team  mb-0 py-2" onClick={() => deleteUser(index)}>DELETE</button>
+                  <div className="dlt-edt-icons">
+                    <Icon
+                      name="edit"
+                      theme="light"
+                      size="small"
+                      onClick={() => editUser(index)}
+                      className="edt-icon"
+                    />
+                    <Icon
+                      name="delete"
+                      theme="light"
+                      size="small"
+                      onClick={() => deleteUser(index)}
+                      className="dlt-icon"
 
-      <Link to="/Importance"><Button variant="success"  className="ms-2 px-4"> Next </Button></Link> */}
+                    />
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+
+
+      </div>
       <div id="button-same-line">
-				<Link to="/define-goal">	<button className="inner" onClick={handleBackBtn}>BACK</button></Link>
-				<button className="inner"  onClick={handleNextBtn}><Link to="/Importance"></Link>NEXT</button>
-			</div>
-            {/* <Button variant="success"  className="ms-2 px-4">
-Next
-            </Button> */}
-            {/* </div> */}
+        <Link to="/define-goal">	<button className="inner" onClick={handleBackBtn}>BACK</button></Link>
+        <button className="inner" onClick={handleNextBtn}><Link to="/Importance"></Link>NEXT</button>
+        {isModalOpen && (
+          <div className="modal">
+            <div className="modal-display">
+              <p>Please complete this step!</p>
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="modal-btn"
+              >
+                OK
+              </button>
             </div>
+          </div>
+        )}
+      </div>
     </Container>
   );
 }

@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useState,useContext } from "react";
+import { useState, useContext } from "react";
 import tooltipIcon from "./images/tooltipicon.png";
 import HandleFirstTooltipClick from "./HandleFirstTooltipImportance";
 import HandleSecondTooltipClick from "./HandleSecondTooltipImportance";
@@ -10,7 +10,7 @@ import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 
 const Importance = () => {
 
-	const stepNumber=3;
+	const stepNumber = 3;
 
 	//state for navigation on page by next and back btn
 	const [isStarted, setIsStarted] = useState(false);
@@ -22,7 +22,7 @@ const Importance = () => {
 	const [secondModalShow, setsecondModalShow] = useState(false);
 
 	//state for selecting radio btn
-	const { selectedOption, setSelectedOption,setStep } = useContext(stepProgressContext);
+	const { selectedOption, setSelectedOption, setStep } = useContext(stepProgressContext);
 
 	//state for error handling
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,7 +35,7 @@ const Importance = () => {
 	const handleBackClick = () => {
 		setIsStarted(true);
 		navigate("/decision-makers");
-		setStep(stepNumber-1);
+		setStep(stepNumber - 1);
 	};
 
 	//click next btn handler
@@ -45,17 +45,24 @@ const Importance = () => {
 		} else {
 			setIsStarted(true);
 			navigate("/Capacity");
-			setStep(stepNumber+1);
+			setStep(stepNumber + 1);
 		}
 	};
 
 	//radio btn handler
 	const handleOptionChange = (event) => {
 		setSelectedOption(event.target.value);
+		sessionStorage.setItem("selectedOption", event.target.value);
 
 	};
 
-
+	//ADD TO STORAGE SESSION LAST PAGE
+	useEffect(() => {
+		const storedImportance = sessionStorage.getItem("selectedOption");
+		if (storedImportance) {
+			setSelectedOption(storedImportance);
+		}
+	}, []);
 
 
 	return (
@@ -70,7 +77,7 @@ const Importance = () => {
 				show={secondModalShow}
 				onHide={() => setsecondModalShow(false)}
 			/>
-			<h1>
+			<h2>
 				Importance{" "}
 				<img
 					src={tooltipIcon}
@@ -78,40 +85,53 @@ const Importance = () => {
 					className="question-mark-pages"
 					onClick={() => setModalShow(true)}
 				/>
-			</h1>
+			</h2>
 			<section className="border-decision-framework-pages">
-				<p>
-					How important is the decision?
-					<img
-						src={tooltipIcon}
-						alt="Tooltip"
-						className="question-mark-pages"
-						onClick={() => setsecondModalShow(true)}
-					/>
-				</p>
+				<h6>How important is the decision?</h6>
+
+				<span className="radio-label">
+					<span className="radio-title"> </span>
+					<p className="radio-description question-hint">
+						Will it affect how we operate as an organisation or a team or the
+						way we interact with other organisations?
+					</p>
+				</span>
+
 				{/* Radio btn section */}
-				<form className="radio-btn-section">
-					<label>
+				<form className="radio-btn-section container-radio-btn">
+					<label className="radio">
 						<input
 							type="radio"
 							name="importance"
-							value="low"
-							checked={selectedOption === "low"}
+							value="Low"
+							checked={selectedOption === "Low"}
 							onChange={handleOptionChange}
-							className="radio-input low-rdb"
+							className="input-radio-btn"
 						/>
-						Low
+						<span className="radio-label">
+							<span className="radio-title">Low </span>
+							<span className="radio-description">
+								The decision will affect small project or team within the
+								organisation
+							</span>
+						</span>
 					</label>
-					<label>
+					<label className="radio">
 						<input
 							type="radio"
 							name="importance"
-							value="high"
-							checked={selectedOption === "high"}
+							value="High"
+							checked={selectedOption === "High"}
 							onChange={handleOptionChange}
-							className="radio-input high-rdb"
+							className="input-radio-btn"
 						/>
-						High
+						<span className="radio-label">
+							<span className="radio-title">High </span>
+							<span className="radio-description">
+								The decision will affect the broader organisation or how we
+								interact with other organisations
+							</span>
+						</span>
 					</label>
 				</form>
 			</section>
@@ -128,7 +148,7 @@ const Importance = () => {
 				{isModalOpen && (
 					<div className="modal">
 						<div className="modal-display">
-							<p>Please select a response</p>
+							<p>Please select a response.</p>
 							<button
 								onClick={() => setIsModalOpen(false)}
 								className="modal-btn"

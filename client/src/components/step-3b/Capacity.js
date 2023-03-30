@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
@@ -10,7 +10,7 @@ import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 
 const Capacity = () => {
 
-	const stepNumber=4;
+	const stepNumber = 4;
 
 	//state for navigation on page by next and back btn
 	const [isStarted, setIsStarted] = useState(false);
@@ -22,7 +22,7 @@ const Capacity = () => {
 	const [secondModalShow, setsecondModalShow] = useState(false);
 
 	//state for selecting radio btn
-	const { selectedOptionCapacity, setSelectedOptionCapacity ,setStep,currentStep } = useContext(stepProgressContext);
+	const { selectedOptionCapacity, setSelectedOptionCapacity, setStep, currentStep } = useContext(stepProgressContext);
 
 
 	//state for error handling
@@ -35,7 +35,7 @@ const Capacity = () => {
 	const handleBackClick = () => {
 		setIsStarted(true);
 		navigate("/Importance");
-		setStep(stepNumber-1);
+		setStep(stepNumber - 1);
 	};
 	//click next btn handler
 	const handleNextClick = () => {
@@ -43,14 +43,23 @@ const Capacity = () => {
 			setIsModalOpen(true);
 		} else {
 			setIsStarted(true);
-			setStep(currentStep+1);
+			setStep(currentStep + 1);
 			navigate("/time-resource");
 		}
 	};
 	//radio btn handler
 	const handleOptionChange = (event) => {
 		setSelectedOptionCapacity(event.target.value);
+		sessionStorage.setItem("selectedOptionCapacity", event.target.value);
 	};
+
+	//ADD TO STORAGE SESSION LAST PAGE
+	useEffect(() => {
+		const storedCapacity = sessionStorage.getItem("selectedOptionCapacity");
+		if (storedCapacity) {
+			setSelectedOptionCapacity(storedCapacity);
+		}
+	}, []);
 
 
 	return (
@@ -65,7 +74,7 @@ const Capacity = () => {
 				show={secondModalShow}
 				onHide={() => setsecondModalShow(false)}
 			/>
-			<h1>
+			<h2>
 				Capacity{" "}
 				<img
 					src={tooltipIcon}
@@ -73,40 +82,54 @@ const Capacity = () => {
 					className="question-mark-pages"
 					onClick={() => setModalShow(true)}
 				/>
-			</h1>
+			</h2>
 			<section className="border-decision-framework-pages">
-				<p>
-					What is the decision-making teams capacity?
-					<img
-						src={tooltipIcon}
-						alt="Tooltip"
-						className="question-mark-pages"
-						onClick={() => setsecondModalShow(true)}
-					/>
-				</p>
+				<h6>What is the decision-making teams capacity?</h6>
+
+				<span className="radio-label">
+					<span className="radio-title"> </span>
+					<span className="radio-description question-hint">
+						Will we be affected by factors such as team members on leave,
+						decision makers' ability to commit to meetings and decision
+						deadline?
+					</span>
+				</span>
+
 				{/* Radio btn section */}
-				<form className="radio-btn-section">
-					<label>
+				<form className="radio-btn-section container-radio-btn">
+					<label className="radio">
 						<input
 							type="radio"
 							name="capacity"
-							value="low"
-							checked={selectedOptionCapacity === "low"}
+							value="Low"
+							checked={selectedOptionCapacity === "Low"}
 							onChange={handleOptionChange}
-							className="radio-input low-rdb"
+							className="input-radio-btn"
 						/>
-						Low
+						<span className="radio-label">
+							<span className="radio-title">Low </span>
+							<span className="radio-description">
+								The deadline for making the decision is very soon and team
+								members are unable to attend decision making meetings
+							</span>
+						</span>
 					</label>
-					<label>
+					<label className="radio">
 						<input
 							type="radio"
 							name="capacity"
-							value="high"
-							checked={selectedOptionCapacity === "high"}
+							value="High"
+							checked={selectedOptionCapacity === "High"}
 							onChange={handleOptionChange}
-							className="radio-input high-rdb"
+							className="input-radio-btn"
 						/>
-						High
+						<span className="radio-label">
+							<span className="radio-title">High </span>
+							<span className="radio-description">
+								The deadline for making the decision is further out and team
+								members have time to attend decision making meetings
+							</span>
+						</span>
 					</label>
 				</form>
 			</section>
@@ -122,7 +145,7 @@ const Capacity = () => {
 				{isModalOpen && (
 					<div className="modal">
 						<div className="modal-display">
-							<p>Please select a response</p>
+							<p>Please select a response.</p>
 							<button
 								onClick={() => setIsModalOpen(false)}
 								className="modal-btn"

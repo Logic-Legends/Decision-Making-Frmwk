@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button, Row, Col, Alert } from "react-bootstrap";
+import { Form, Row, Col } from "react-bootstrap";
+import Icon from "react-crud-icons";
 
 function DecisionMakersForm({ addUser, editUser, editIndex }) {
-  const [user, setUser] = useState({ name: "", role: "" });
-  const [error, setError] = useState("");
-  const [show, setShow] = useState(true);
+  const [user, setUser] = useState({ name: "" });
+  // const [error, setError] = useState("");
+  // const [show, setShow] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     if (editUser) {
       setUser(editUser);
     } else {
-      setUser({ name: "", role: "" });
+      setUser({ name: "" });
     }
   }, [editUser]);
 
@@ -21,28 +23,42 @@ function DecisionMakersForm({ addUser, editUser, editIndex }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (user.name.trim() === "" || user.role.trim() === "") {
-      setError("Both Name and Role fields must be filled.");
-      setShow(true);
+    if (user.name.trim() === "") {
+      // setError("Both Name and Role fields must be filled.");
+      // setShow(true);
+      setIsModalOpen(true);
     } else {
-      setError("");
+      // setError("");
       addUser(user);
-      setUser({ name: "", role: "" });
+      setUser({ name: "" });
     }
   };
 
   return (
     <>
-      {show && error && (
+      {/* {show && error && (
         <Alert variant="danger" onClose={() => setShow(false)} dismissible>
           {error}
         </Alert>
+      )} */}
+      {isModalOpen && (
+        <div className="modal">
+          <div className="modal-display">
+            <p>Name fields must be filled.</p>
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="modal-btn"
+            >
+              OK
+            </button>
+          </div>
+        </div>
       )}
       <Form onSubmit={handleSubmit} className="mb-5" >
         <Row>
           <Col>
             <Form.Group controlId="formName">
-              <Form.Label>Name</Form.Label>
+              <Form.Label className="nameInput">Name</Form.Label>
               <Form.Control
                 type="text"
                 name="name"
@@ -52,22 +68,29 @@ function DecisionMakersForm({ addUser, editUser, editIndex }) {
               />
             </Form.Group>
           </Col>
-          <Col>
-            <Form.Group controlId="formRole">
-              <Form.Label>Role</Form.Label>
-              <Form.Control
-                type="text"
-                name="role"
-                value={user.role}
-                onChange={handleChange}
-                placeholder="Enter role"
-              />
-            </Form.Group>
-          </Col>
-          <Col className="d-flex align-items-end ">
+          <Col className="d-flex align-items-end plus">
             <button className="inner mb-0 py-2" type="submit">
               {editIndex === -1 ? "Add" : "Update"}
             </button>
+
+            <button className="add-update-icon" type="submit">
+              {editIndex === -1 ? (<Icon
+                name="add"
+                theme="light"
+                size="medium"
+                onChange={handleChange}
+                className="add-icon"
+
+              />) : (<Icon
+                name="edit"
+                theme="light"
+                size="medium"
+                onChange={handleChange}
+                className="add-icon"
+
+              />)}
+            </button>
+
           </Col>
         </Row>
       </Form>

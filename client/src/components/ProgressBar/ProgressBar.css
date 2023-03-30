@@ -10,25 +10,35 @@
     color:#ffff;
     border-radius: 50%;
     border: 2px solid transparent;
-    cursor: none;
+    cursor: pointer;
   -moz-background-clip: padding-box;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  text-align: center;
 }
 
 
 .stepWrapper{
     display: flex;
-    margin-bottom:20px;
     text-align: center;
+    align-items: center;
+    /* margin-top:10px;
+    margin-bottom:10px; */
 
 }
+
+
+
+
 
 .stepBlock span {
     font-size: .9em;
 }
 .stepBlock .circleWrapper{
-    padding:0 20px;
+    padding:0 15px;
     position: relative;
     text-align: center;
 }
@@ -42,15 +52,18 @@
 
 .selected .circle{
   /* color:#055c64; */
- color:#36949D;
-  background: white;
+ color:white;
+  background: #36949D;
   border-color:#36949D;
+  width:42px;
+  height: 42px;
 }
 
 .grayed .circle{
   /* color:#055c64; */
   color:#36949D;
-  background:#D4D4D4;
+  background:white;
+  /* background:#D4D4D4; */
   border-color:#36949D;
 }
 
@@ -77,11 +90,26 @@
     opacity: 0.6;
   } 
 
-
-  @media only screen and (max-width: 55.75em) {
+  @media (max-width: 640px) {
+  
     .stepBlock .circleWrapper{
-        padding:0 5px;
-        position: relative;
-        text-align: center;
+      padding:0 5px;
+      position: relative;
+      text-align: center;
+  }
+
+  /* @media (max-width: 380Px) {
+  .stepWrapper{
+    margin-top:10px;
+    margin-bottom:10px;
+     margin: 20px; 
+    
+  }
+} */
+    
     }
+     @media (max-width: 480px) {
+.stepWrapper{
+  padding-bottom: 0%;
 }
+     }
