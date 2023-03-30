@@ -67,7 +67,6 @@ const TypeOfDecision = () => {
             />
             <h2>
                 Type of Decision{" "}
-                
                 <img
                     src={tooltipIcon}
                     alt="Tooltip"
