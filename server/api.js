@@ -13,9 +13,9 @@ router.get("/", (_, res) => {
 });
 
 
-router.post("/submit-email", async (req,res)=>{
+router.post("/submit-email", async (req, res) => {
 
-	const email =req.body.email;
+	const email = req.body.email;
 	const existingEmail = await db.query(
 		"SELECT * FROM email_signup WHERE email=$1",
 		[email]
@@ -24,40 +24,40 @@ router.post("/submit-email", async (req,res)=>{
 		return res.status(400).json({ message: "Email already exists" });
 	}
 
-	try{
-		const result =await db.query("INSERT INTO email_signup (email) VALUES ($1) " ,[email]);
+	try {
+		const result = await db.query("INSERT INTO email_signup (email) VALUES ($1) ", [email]);
 
-		
+
 
 		res.status(201).json(result.rows[0]);
 
-	}catch(err){
+	} catch (err) {
 
-		res.status(500).json({ message:"Internal server error" });
+		res.status(500).json({ message: "Internal server error" });
 	}
 });
 
 router.post("/reviews", async (req, res) => {
 	const { name, comment } = req.body;
 	try {
-	  await db.query("INSERT INTO user_reviews (user_name, review_text) VALUES ($1, $2)", [name, comment]);
-	  res.status(200).json({ message: "Review added successfully" });
+		await db.query("INSERT INTO user_reviews (user_name, review_text) VALUES ($1, $2)", [name, comment]);
+		res.status(200).json({ message: "Review added successfully" });
 	} catch (err) {
-	  logger.error("%O", err);
-	  res.status(500).json({ error: "An error occurred while adding review" });
+		logger.error("%O", err);
+		res.status(500).json({ error: "An error occurred while adding review" });
 	}
-  });
+});
 
 
-  router.get("/reviews", async (req, res) => {
+router.get("/reviews", async (req, res) => {
 	try {
-	const result = await db.query("SELECT user_name, review_text, date_added FROM user_reviews");
-	const reviews = result.rows.map((row) => ({ name: row.user_name, comment: row.review_text, date: row.date_added }));
-	res.status(200).json(reviews);
+		const result = await db.query("SELECT user_name, review_text, date_added FROM user_reviews");
+		const reviews = result.rows.map((row) => ({ name: row.user_name, comment: row.review_text, date: row.date_added }));
+		res.status(200).json(reviews);
 	} catch (err) {
-	logger.error("%O", err);
-	res.status(500).json({ error: "An error occurred while fetching reviews" });
+		logger.error("%O", err);
+		res.status(500).json({ error: "An error occurred while fetching reviews" });
 	}
-  });
+});
 
 export default router;
