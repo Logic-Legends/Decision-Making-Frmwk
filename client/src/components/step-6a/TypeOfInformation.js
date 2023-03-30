@@ -124,7 +124,7 @@ const TypeOfInformation = () => {
 					{isModalOpen && (
 						<div className="modal">
 							<div className="modal-display">
-								<p>Please select a response.</p>
+								<p>Please select a response!</p>
 								<button
 									onClick={() => setIsModalOpen(false)}
 									className="modal-btn"
