@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
 
     },
     tableCell: {
-        paddingLeft: "10px",
+        paddingL: "10px",
         margin: "auto",
         fontSize: 10,
         textAlign: "left",
@@ -127,10 +127,10 @@ export default function Pdf(props) {
                     <View style={styles.table}>
                         <View style={styles.tableHeader}>
                             <View style={styles.tableCol1}>
-                                <Text style={styles.tableTopic}>Voting Method</Text>
+                                <Text style={styles.tableTopic}>Recommended Voting Method(s)</Text>
                             </View>
                             <View style={styles.tableCol2}>
-                                {selectedOptionTypeOfInformation === "explicit" ? (
+                                {selectedOptionTypeOfInformation === "Explicit" ? (
                                     <Text style={styles.tableTopic}>{explicitVotingMethod}</Text>
                                 ) : (
                                     <Text style={styles.tableTopic}>{relativeVotingMethod1 + " | " + relativeVotingMethod2}</Text>)
@@ -140,7 +140,7 @@ export default function Pdf(props) {
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol1}>
 
-                                <Text style={styles.tableCell}>What</Text>
+                                <Text style={styles.tableCell}>What is the goal?</Text>
                             </View>
                             <View style={styles.tableCol2}>
                                 <Text style={styles.tableCell}>{defineGoalText}</Text>
@@ -148,7 +148,7 @@ export default function Pdf(props) {
                         </View>
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol1}>
-                                <Text style={styles.tableCell}>Who</Text>
+                                <Text style={styles.tableCell}>Who is making the decision?</Text>
                             </View>
                             <View style={styles.tableCol2}>
                                 {users.map((user, index) => (
