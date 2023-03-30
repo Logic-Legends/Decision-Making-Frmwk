@@ -34,7 +34,7 @@ const Capacity = () => {
 	//click back btn handler
 	const handleBackClick = () => {
 		setIsStarted(true);
-		navigate("/Importance");
+		navigate("/importance");
 		setStep(stepNumber - 1);
 	};
 	//click next btn handler
@@ -44,7 +44,7 @@ const Capacity = () => {
 		} else {
 			setIsStarted(true);
 			setStep(currentStep + 1);
-			navigate("/time-resource");
+			navigate("/time-and-resource");
 		}
 	};
 	//radio btn handler
@@ -137,10 +137,10 @@ const Capacity = () => {
 			<section id="button-same-line">
 				{isStarted}
 				<button onClick={handleBackClick} className="inner">
-					<Link to="/Importance"></Link>Back
+					<Link to="/importance"></Link>Back
 				</button>
 				<button onClick={handleNextClick} className="inner">
-					<Link to="/timeAndResource"></Link>Next
+					<Link to="/time-and-resource"></Link>Next
 				</button>
 				{isModalOpen && (
 					<div className="modal">

@@ -44,7 +44,7 @@ const Importance = () => {
 			setIsModalOpen(true);
 		} else {
 			setIsStarted(true);
-			navigate("/Capacity");
+			navigate("/capacity");
 			setStep(stepNumber + 1);
 		}
 	};
@@ -143,7 +143,7 @@ const Importance = () => {
 					Back
 				</button>
 				<button onClick={handleNextClick} className="inner">
-					<Link to="/Capacity"></Link>Next
+					<Link to="/capacity"></Link>Next
 				</button>
 				{isModalOpen && (
 					<div className="modal">

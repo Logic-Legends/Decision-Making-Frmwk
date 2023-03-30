@@ -8812,7 +8812,9 @@ display: flex;
 	margin-bottom: 25px;
 }
 /* ------------- */
-
+.modal-header{
+	padding: 5px 5px 0px 15px;
+}
 /*Make responsive*/
 .container-radio-btn{
       display: grid;

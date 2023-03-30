@@ -61,7 +61,7 @@ function DecisionMakers() {
       // setShow(true);
     } else {
       setStep(stepNumber + 1);
-      navigate("/Importance");
+      navigate("/importance");
       console.log(users);
       sessionStorage.setItem("users", JSON.stringify(users)); //ADD SESSION STORAGE
 
@@ -141,7 +141,7 @@ function DecisionMakers() {
       </div>
       <div id="button-same-line">
         <Link to="/define-goal">	<button className="inner" onClick={handleBackBtn}>BACK</button></Link>
-        <button className="inner" onClick={handleNextBtn}><Link to="/Importance"></Link>NEXT</button>
+        <button className="inner" onClick={handleNextBtn}><Link to="/importance"></Link>NEXT</button>
         {isModalOpen && (
           <div className="modal">
             <div className="modal-display">
