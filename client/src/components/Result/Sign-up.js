@@ -9,7 +9,7 @@ function SignUp() {
 	const [errorMessage, setErrorMessage] = useState("");
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
-	const handleSubmit =async (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (email.trim() === "") {
 			setErrorMessage("Please enter your email");
@@ -23,7 +23,7 @@ function SignUp() {
 			setIsModalOpen(true);
 			return;
 		}
-		const response= await fetch("/api/submit-email", {
+		const response = await fetch("/api/submit-email", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -31,23 +31,23 @@ function SignUp() {
 			body: JSON.stringify({
 				email: email,
 			}),
-		})
-		if(response.ok){
+		});
+		if (response.ok) {
 			setEmail("");
 			setShowModal(false);
 			setErrorMessage("");
-		}else{
+		} else {
 			setIsModalOpen(true);
-			const errorData=await response.json();
+			const errorData = await response.json();
 			setErrorMessage(errorData.message);
 		}
-			
+
 	};
 
 	return (
 		<div>
-			<button onClick={() => setShowModal(true)} className="inner">
-				Sign-up to newsletter
+			<button onClick={() => setShowModal(true)} className="inner-sing-up inner-pdf-button">
+				Sign-up
 			</button>
 			<Modal
 				isOpen={showModal}
@@ -62,7 +62,7 @@ function SignUp() {
 				}}
 			>
 				<div className="signup-modal-header">
-					<h2>Sign Up</h2>
+					<h2>Sign Up to Newsletter</h2>
 					<button onClick={() => setShowModal(false)}>
 						<FaTimes />
 					</button>

@@ -1,4 +1,4 @@
-import React,{ useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
@@ -10,7 +10,7 @@ import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 
 const Capacity = () => {
 
-	const stepNumber=4;
+	const stepNumber = 4;
 
 	//state for navigation on page by next and back btn
 	const [isStarted, setIsStarted] = useState(false);
@@ -22,7 +22,7 @@ const Capacity = () => {
 	const [secondModalShow, setsecondModalShow] = useState(false);
 
 	//state for selecting radio btn
-	const { selectedOptionCapacity, setSelectedOptionCapacity ,setStep,currentStep } = useContext(stepProgressContext);
+	const { selectedOptionCapacity, setSelectedOptionCapacity, setStep, currentStep } = useContext(stepProgressContext);
 
 
 	//state for error handling
@@ -35,7 +35,7 @@ const Capacity = () => {
 	const handleBackClick = () => {
 		setIsStarted(true);
 		navigate("/Importance");
-		setStep(stepNumber-1);
+		setStep(stepNumber - 1);
 	};
 	//click next btn handler
 	const handleNextClick = () => {
@@ -43,7 +43,7 @@ const Capacity = () => {
 			setIsModalOpen(true);
 		} else {
 			setIsStarted(true);
-			setStep(currentStep+1);
+			setStep(currentStep + 1);
 			navigate("/time-resource");
 		}
 	};
@@ -53,13 +53,13 @@ const Capacity = () => {
 		sessionStorage.setItem("selectedOptionCapacity", event.target.value);
 	};
 
-	 //ADD TO STORAGE SESSION LAST PAGE
-	 useEffect(() => {
+	//ADD TO STORAGE SESSION LAST PAGE
+	useEffect(() => {
 		const storedCapacity = sessionStorage.getItem("selectedOptionCapacity");
 		if (storedCapacity) {
 			setSelectedOptionCapacity(storedCapacity);
 		}
-	  }, []);
+	}, []);
 
 
 	return (

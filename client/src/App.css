@@ -8639,11 +8639,11 @@ Luan CSS
 ---------------------------------------------------------------------------------------------------- */
 
 .container {
-	padding: 30px;
+	padding: 15px 30px;
 }
 
 .border-decision-framework-pages {
-	padding: 50px 30px;
+	padding: 20px 20px;
 	border-width: 2px;
 	border-style: solid;
 	border-color: #d9d9d9;
@@ -8693,11 +8693,11 @@ Luan CSS
 #button-same-line {
 	width: 100%;
 	text-align: left;
+	margin-top: 22px;
 }
 .inner {
 	margin: 9px;
 	display: inline-block;
-
 	border-radius: 3px;
 }
 
@@ -8721,7 +8721,7 @@ table {
 
   .button-delete-team {background-color: #e61c1c;}
   
-  /* Ekrem CSS */
+
 .start-btn{
   justify-content: center;
   display: flex;
@@ -8733,56 +8733,7 @@ table {
 	margin-left: 20px;
 }
 
-/* Mohammed CSS */
-/* .step-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 1rem;
-  }
-  
 
-  div
-  table {
-    border-collapse: collapse;
-    width: 90%;
-  }
-  
-  th,
-  td {
-    border: 1px solid #ffffff;
-    text-align: left;
-    padding: 8px;
-    font-size: 1.25em;
-  }
-   
-  form {
-    display: flex;
-    gap: 5px;
-  }
-  
-  form td:last-child {
-    display: flex;
-    justify-content: space-evenly;
-  }
-    form * {
-    font-size: 1em;
-  }
-  
-  .link-start{
-  width: auto;
-  height: auto;
-  text-decoration: none;
-  color: white;
-  margin: auto;
-  padding: auto;
-  justify-content: center;
-  border-radius:10%;
-} */
-/* Leila CSS -3b */
-.radio-btn-section {
-	margin-bottom: 20px;
-}
 .low-rdb {
 	margin-right: 7px;
 	margin-left: 10px;
@@ -8864,6 +8815,7 @@ table {
 .container-radio-btn{
     display: flex;
     flex-direction: column;
+	padding: 0%;
   }
 
   .container-radio-btn-long-text{
@@ -8925,8 +8877,42 @@ width: 80%;
 .plus{
 	justify-content: right;
 }
+.result-buttons-container{
+	display: grid;
+	justify-content: center;
+	grid-template-columns: auto auto auto auto;
+	gap: 10px;
+	text-align: center;
+	padding: 10px;
+}
 
+.pdf-grid {
+	grid-column: 2/4;
+	
+}
+.inner-pdf-button{
+text-decoration: none;
+border-radius: 3px;
+width: 100%;
+margin: auto;
+display: inline-block;
+}
+.inner-review{
+	grid-column:1/2;
+	grid-row:1/1;
+	border-radius: 3px;
+	margin: auto;
+}
+.inner-sing-up{
+	grid-column:4/5;
+	border-radius: 3px;
+	margin: auto;
+}
   @media (max-width: 480px) {
+	/* .container {
+		padding: 0 10px;
+	} */
+
     .container-radio-btn {
       display: grid;
       grid-template-columns: repeat(1, 1fr);
@@ -8955,12 +8941,51 @@ width: 80%;
 	background-color: white;
 	padding: 0%;
 	justify-content: right;
+	text-decoration: none;
+	margin-bottom: 0%;
 	
+}
+.add-update-icon:hover {
+	background: #ffffff;
+	-webkit-box-shadow: 1px 1px 1px 0 #ffffff;
+	box-shadow: 1px 1px 1px 0 #ffffff;
 }
 	.add-icon{
 	width: 40px;
 	margin: 0%;
 	padding: 0%;
+	
+}
+.result-buttons-container{
+	display: grid;
+	grid-template-columns: 50% 50%;
+	gap: 10px;
+	text-align: center;
+	width: 100%;
+	margin: auto;
+}
+
+.pdf-grid {
+	grid-column: 1 / 3;
+}
+.inner-pdf-button{
+border-radius: 3px;
+margin: auto;
+}
+.inner-review{
+	grid-row:2/2;
+	grid-column:1/2;
+	border-radius: 3px;
+	margin: auto;
+}
+.inner-sing-up{
+	grid-column:2/3;
+	border-radius: 3px;
+	margin: auto;
+}
+.container {
+	padding: 5px 15px;
+	margin:auto;
 }
 
 
@@ -9001,4 +9026,11 @@ width: 80%;
 	color: rgb(130, 130, 130); 
   }
 
+ .review-list-container {
+	/* height: 400px;  */
+	height: 100vh;
+	overflow-y: auto;
+	border: 1px solid #ccc; 
+	padding: 10px;
+  }
   

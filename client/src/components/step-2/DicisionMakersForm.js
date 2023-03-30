@@ -42,18 +42,18 @@ function DecisionMakersForm({ addUser, editUser, editIndex }) {
         </Alert>
       )} */}
       {isModalOpen && (
-					<div className="modal">
-						<div className="modal-display">
-							<p>Name fields must be filled.</p>
-							<button
-								onClick={() => setIsModalOpen(false)}
-								className="modal-btn"
-							>
-								OK
-							</button>
-						</div>
-					</div>
-				)}
+        <div className="modal">
+          <div className="modal-display">
+            <p>Name fields must be filled.</p>
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="modal-btn"
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )}
       <Form onSubmit={handleSubmit} className="mb-5" >
         <Row>
           <Col>
@@ -88,7 +88,7 @@ function DecisionMakersForm({ addUser, editUser, editIndex }) {
                 onChange={handleChange}
                 className="add-icon"
 
-              />) }
+              />)}
             </button>
 
           </Col>
