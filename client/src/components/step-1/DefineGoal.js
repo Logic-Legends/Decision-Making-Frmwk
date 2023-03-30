@@ -60,7 +60,7 @@ const DefineGoal = () => {
 						onClick={() => setModalShow(true)}
 					></img></h3>
 			<div className="border-decision-framework-pages">
-				<h6>What decision are we trying to make?</h6>
+				<h6>What decision are you trying to make?</h6>
 				<p>
 				Think of SMART Goals, Specific, Measurable, Achievable, Realistic, Time-based.
 				</p>

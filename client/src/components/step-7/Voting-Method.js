@@ -125,7 +125,7 @@ const VotingMethod = () => {
 	const handleNextClick = () => {
 
 		setIsStarted(true);
-		navigate("/Results");
+		navigate("/results");
 		setStep(stepNumber + 1);
 		setStepCompleted(stepNumber+1);
 
@@ -189,7 +189,7 @@ const VotingMethod = () => {
 				)}
 				<p>
 					To consult the full voting method use this{" "}
-					<Link to="/ResultVotingMethod" >
+					<Link to="/result-voting-method" >
 						link
 					</Link>
 				</p>
@@ -201,7 +201,7 @@ const VotingMethod = () => {
 					Back
 				</button>
 				<button onClick={handleNextClick} className="inner">
-					<Link to="/Results"></Link>Next
+					<Link to="/results"></Link>Next
 				</button>
 			</section>
 		</div>

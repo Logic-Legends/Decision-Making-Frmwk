@@ -44,7 +44,7 @@ const Importance = () => {
 			setIsModalOpen(true);
 		} else {
 			setIsStarted(true);
-			navigate("/Capacity");
+			navigate("/capacity");
 			setStep(stepNumber + 1);
 			setStepCompleted(stepNumber+1);
 		}
@@ -93,8 +93,8 @@ const Importance = () => {
 				<span className="radio-label">
 					<span className="radio-title"> </span>
 					<p className="radio-description question-hint">
-						Will it affect how we operate as an organisation or a team or the
-						way we interact with other organisations?
+						Will it affect how you operate as an organisation or a team or the
+						way you interact with other organisations?
 					</p>
 				</span>
 
@@ -113,7 +113,7 @@ const Importance = () => {
 							<span className="radio-title">Low </span>
 							<span className="radio-description">
 								The decision will affect small project or team within the
-								organisation
+								organization
 							</span>
 						</span>
 					</label>
@@ -129,8 +129,8 @@ const Importance = () => {
 						<span className="radio-label">
 							<span className="radio-title">High </span>
 							<span className="radio-description">
-								The decision will affect the broader organisation or how we
-								interact with other organisations
+								The decision will affect the broader organization or how you
+								interact with other organizations
 							</span>
 						</span>
 					</label>
@@ -144,12 +144,12 @@ const Importance = () => {
 					Back
 				</button>
 				<button onClick={handleNextClick} className="inner">
-					<Link to="/Capacity"></Link>Next
+					<Link to="/capacity"></Link>Next
 				</button>
 				{isModalOpen && (
 					<div className="modal">
 						<div className="modal-display">
-							<p>Please select a response.</p>
+							<p>Please select a response!</p>
 							<button
 								onClick={() => setIsModalOpen(false)}
 								className="modal-btn"

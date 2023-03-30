@@ -62,7 +62,7 @@ function DecisionMakers() {
     } else {
       setStep(stepNumber + 1);
       setStepCompleted(stepNumber+1);
-      navigate("/Importance");
+      navigate("/importance");
       console.log(users);
       sessionStorage.setItem("users", JSON.stringify(users)); //ADD SESSION STORAGE
 
@@ -93,9 +93,10 @@ function DecisionMakers() {
 
     <Container className="container">
       {showModal && <ModalComponent showModal={showModal} handleClose={handleClose} />}
-      <h3>Who are the decision-makers<img className="question-mark-pages" src={QuestionMark} alt="Qusestion Mark" border="0" onClick={handleShow}></img></h3>
+      <h3>Who is making the decision?<img className="question-mark-pages" src={QuestionMark} alt="Qusestion Mark" border="0" onClick={handleShow}></img></h3>
 
       <div className="border-decision-framework-pages">
+        <p><strong>Please add the responsible party(ies)</strong></p>
         <DecisionMakersForm
           addUser={addUser}
           editUser={users[editIndex]}
@@ -142,7 +143,7 @@ function DecisionMakers() {
       </div>
       <div id="button-same-line">
         <Link to="/define-goal">	<button className="inner" onClick={handleBackBtn}>BACK</button></Link>
-        <button className="inner" onClick={handleNextBtn}><Link to="/Importance"></Link>NEXT</button>
+        <button className="inner" onClick={handleNextBtn}><Link to="/importance"></Link>NEXT</button>
         {isModalOpen && (
           <div className="modal">
             <div className="modal-display">
