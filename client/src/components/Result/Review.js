@@ -114,7 +114,7 @@ function Review() {
       </form>
 
 
-      <div>
+      <div className="review-list-container">
       <h2 className="review-title">Reviews:</h2>
       <ul className="review-ul">
       {reviews.map((review, index) => (
