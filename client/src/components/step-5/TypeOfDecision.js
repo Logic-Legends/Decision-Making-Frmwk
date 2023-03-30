@@ -77,7 +77,7 @@ const TypeOfDecision = () => {
             <section className="border-decision-framework-pages">
 
                 <h6 className="question-margin">
-                    Are you making an iterative or single decision decision?
+                    Are you making an iterative or single decision?
 
                 </h6>
                 {/* Radio btn section */}

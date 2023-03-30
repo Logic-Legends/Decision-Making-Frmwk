@@ -8876,7 +8876,8 @@ display: flex;
 width: 80%;
 }
 #formName{
-	min-width: 170px;
+	min-width: 180px;
+	margin-left: 0%;
 }
 .plus{
 	justify-content: right;
@@ -8912,6 +8913,10 @@ display: inline-block;
 	border-radius: 3px;
 	margin: auto;
 }
+.col{
+	padding: 0%;
+}
+
   @media (max-width: 480px) {
 	/* .container {
 		padding: 0 10px;

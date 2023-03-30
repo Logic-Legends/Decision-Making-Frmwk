@@ -92,9 +92,10 @@ function DecisionMakers() {
 
     <Container className="container">
       {showModal && <ModalComponent showModal={showModal} handleClose={handleClose} />}
-      <h3>Who are the decision-makers<img className="question-mark-pages" src={QuestionMark} alt="Qusestion Mark" border="0" onClick={handleShow}></img></h3>
+      <h3>Who is making the decision?<img className="question-mark-pages" src={QuestionMark} alt="Qusestion Mark" border="0" onClick={handleShow}></img></h3>
 
       <div className="border-decision-framework-pages">
+        <p><strong>Please add the responsible party(ies)</strong></p>
         <DecisionMakersForm
           addUser={addUser}
           editUser={users[editIndex]}

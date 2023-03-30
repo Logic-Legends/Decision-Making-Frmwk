@@ -84,7 +84,7 @@ const Capacity = () => {
 				/>
 			</h2>
 			<section className="border-decision-framework-pages">
-				<h6>What is the decision-making teams capacity?</h6>
+				<h6>What is the decision-making team&apos;s capacity?</h6>
 
 				<span className="radio-label">
 					<span className="radio-title"> </span>

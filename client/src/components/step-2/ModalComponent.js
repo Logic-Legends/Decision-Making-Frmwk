@@ -13,7 +13,7 @@ function ModalComponent(props) {
 
 		>
 			<Modal.Header closeButton>
-				<Modal.Title>Questions to consider</Modal.Title>
+				<Modal.Title>Questions to consider:</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
 				Should you include all team members working on the project or a smaller
