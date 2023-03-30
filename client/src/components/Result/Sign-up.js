@@ -52,6 +52,7 @@ function SignUp() {
 			<Modal
 				isOpen={showModal}
 				onRequestClose={() => setShowModal(false)}
+				ariaHideApp={false}
 				style={{
 					content: {
 						width: "fit-content",
