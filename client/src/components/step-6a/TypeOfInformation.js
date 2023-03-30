@@ -52,6 +52,7 @@ const TypeOfInformation = () => {
     }
   }, []);
 
+
     return (
 			<div className="container">
 				<FirstHandleTooltip
@@ -136,6 +137,7 @@ const TypeOfInformation = () => {
 				</div>
 			</div>
 		);
+
 };
 
 export default TypeOfInformation;

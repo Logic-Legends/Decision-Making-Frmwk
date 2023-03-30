@@ -76,6 +76,7 @@ const TypeOfDecision = () => {
                 />
             </h2>
             <section className="border-decision-framework-pages">
+
                 <h6 className="question-margin">
                     Are you making an iterative or single decision decision?
 

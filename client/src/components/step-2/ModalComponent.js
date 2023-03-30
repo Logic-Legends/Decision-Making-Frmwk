@@ -3,6 +3,7 @@ import { Modal } from "react-bootstrap";
 
 function ModalComponent(props) {
   return (
+
 		<Modal
 			show={props.showModal}
 			onHide={props.handleClose}
@@ -26,6 +27,7 @@ function ModalComponent(props) {
 				Is there any sensitive information that may influence team selection?
 			</Modal.Body>
 			{/* <Modal.Footer>
+
         <Button variant="secondary" onClick={props.handleClose}>
           Close
         </Button>
