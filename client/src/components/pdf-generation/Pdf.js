@@ -13,8 +13,8 @@ const styles = StyleSheet.create({
     },
     subtitle: {
         fontSize: 18,
-        textAlign:"left",
-        margin:"30px auto 0px 40px",
+        textAlign: "left",
+        margin: "30px auto 0px 40px",
 
     },
     text: {
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
 
     },
     tableCell: {
-        paddingLeft:"10px",
+        paddingLeft: "10px",
         margin: "auto",
         fontSize: 10,
         textAlign: "left",
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     tableCell2: {
         margin: "10px",
         fontSize: 10,
-        textAlign:"left",
+        textAlign: "left",
     },
     pageNumber: {
         position: "absolute",
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
         fontStyle: "bold",
     },
-    tableHeader:{
+    tableHeader: {
         backgroundColor: "#d9d9d9",
         margin: "auto",
         flexDirection: "row",
@@ -132,8 +132,8 @@ export default function Pdf(props) {
                             <View style={styles.tableCol2}>
                                 {selectedOptionTypeOfInformation === "explicit" ? (
                                     <Text style={styles.tableTopic}>{explicitVotingMethod}</Text>
-                                    ) : (
-                                        <Text style={styles.tableTopic}>{relativeVotingMethod1 + " | " + relativeVotingMethod2}</Text>)
+                                ) : (
+                                    <Text style={styles.tableTopic}>{relativeVotingMethod1 + " | " + relativeVotingMethod2}</Text>)
                                 }
                             </View>
                         </View>
@@ -353,7 +353,7 @@ export default function Pdf(props) {
 
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol21}>
-                                <Text style={styles.tableCell2}>Approval voting (Voters choose "Yes" or "No" for each option, and the option with the most "Yes" votes wins.)</Text>
+                                <Text style={styles.tableCell2}>Approval voting (Voters choose &quot;Yes&quot; or &quot;No&quot; for each option, and the option with the most &quot;Yes&quot; votes wins.)</Text>
                             </View>
                             <View style={styles.tableCol22}>
                                 <Text style={styles.tableCell2}>Enough information for voters to answer yes or no to each
@@ -376,8 +376,8 @@ export default function Pdf(props) {
                             </View>
                             <View style={styles.tableCol23}>
                                 <Text style={styles.tableCell2}>You want to select 5 research topics to pursue this year
-                                    from a list of 50 options. Your metric is: "How many studies
-                                    have already been published about this topic?"</Text>
+                                    from a list of 50 options. Your metric is: &quot;How many studies
+                                    have already been published about this topic?&quot;</Text>
                             </View>
                         </View>
 
