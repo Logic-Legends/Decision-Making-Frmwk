@@ -8643,13 +8643,15 @@ Luan CSS
 }
 
 .border-decision-framework-pages {
-	padding: 20px 20px;
+	padding: 20px 20px 30px 20px;
 	border-width: 2px;
 	border-style: solid;
 	border-color: #d9d9d9;
 	border-radius: 5px;
 }
-
+.border-decision-framework-pages h6{
+	margin-top: 0%;
+}
 .add-goal {
 	margin-top: 20px;
 	color: white;
@@ -8813,9 +8815,9 @@ display: flex;
 
 /*Make responsive*/
 .container-radio-btn{
-    display: flex;
-    flex-direction: column;
-	padding: 0%;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 20px;
   }
 
   .container-radio-btn-long-text{
@@ -8832,7 +8834,7 @@ display: flex;
 .radio{
 	display: flex;
 	align-items: flex-start;
-	margin-bottom: 10px;
+	/* margin-bottom: 10px; */
   }
 
   .input-radio-btn{
@@ -8916,7 +8918,8 @@ display: inline-block;
     .container-radio-btn {
       display: grid;
       grid-template-columns: repeat(1, 1fr);
-      grid-gap: 10px;
+      grid-gap: 15px;
+	  padding: 0%;
     }
 
     .flex-row-radio-btn{
