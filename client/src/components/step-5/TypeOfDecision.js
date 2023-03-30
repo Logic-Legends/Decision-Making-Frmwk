@@ -93,7 +93,7 @@ const TypeOfDecision = () => {
                         />
                         <span className="radio-label">
                             <span className="radio-title">Iterative Decision </span>
-                            <span className="radio-description">An ongoing decision that needs to updated on a regular schedule</span>
+                            <span className="radio-description">An ongoing decision that needs to be updated on a regular schedule</span>
                         </span>
                     </label>
                     <label className="radio">

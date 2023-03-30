@@ -8916,6 +8916,10 @@ display: inline-block;
 .col{
 	padding: 0%;
 }
+.tool-tip-bold{
+	text-align: center;
+	font-weight: bold;
+}
 
   @media (max-width: 480px) {
 	/* .container {
