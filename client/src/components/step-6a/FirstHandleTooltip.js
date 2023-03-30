@@ -1,6 +1,7 @@
 import Modal from "react-bootstrap/Modal";
 
 function FirstHandleTooltip(props) {
+
 	return (
 		<Modal
 			{...props}
@@ -20,5 +21,6 @@ function FirstHandleTooltip(props) {
 			</Modal.Body>
 		</Modal>
 	);
+
 }
 export default FirstHandleTooltip;

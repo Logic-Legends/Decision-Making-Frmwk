@@ -1,25 +1,24 @@
-import React, { useState,useContext,useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
-import { Link,useNavigate } from "react-router-dom";
-import { Alert } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import FirstHandleTooltip from "./FirstHandleTooltip";
 import QuestionMark from "./images/question-mark.png";
 
 const TypeOfInformation = () => {
 
-    //FirstHandleTooltip
-    const [FirstModalShow, FirstSetModalShow] = React.useState(false);
+  //FirstHandleTooltip
+  const [FirstModalShow, FirstSetModalShow] = React.useState(false);
 
-    //state for error handling
-	const [isModalOpen, setIsModalOpen] = useState(false);
+  //state for error handling
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-    //Go to another page function
-    const navigate = useNavigate();
+  //Go to another page function
+  const navigate = useNavigate();
 
-    //Used to get data to select radio button
-    const { selectedOptionTypeOfInformation,setSelectedOptionTypeOfInformation,setStep } = useContext( stepProgressContext );
+  //Used to get data to select radio button
+  const { selectedOptionTypeOfInformation, setSelectedOptionTypeOfInformation, setStep } = useContext(stepProgressContext);
 
-    //When change the option from radio button
+  //When change the option from radio button
   const handleOptionChange = (event) => {
     setSelectedOptionTypeOfInformation(event.target.value);
     sessionStorage.setItem("selectedOptionTypeOfInformation", event.target.value); //ADD SESSION STORAGE
@@ -28,22 +27,22 @@ const TypeOfInformation = () => {
   //Check if any button was choosen
   const handleButtonClick = () => {
 
-    if (selectedOptionTypeOfInformation === null ) {
+    if (selectedOptionTypeOfInformation === null) {
       // show the error message when field is empty
       setIsModalOpen(true);
     } else {
-        navigate("/amount-of-information"); //Go to page and pass data
-        setStep(stepNumber+1);
+      navigate("/amount-of-information"); //Go to page and pass data
+      setStep(stepNumber + 1);
     }
   };
 
   const handleBackClick = () => {
-    setStep(stepNumber-1);
+    setStep(stepNumber - 1);
     navigate("/type-of-decision");
-};
+  };
 
-// Progress Bar Step Number
-  const stepNumber=7;
+  // Progress Bar Step Number
+  const stepNumber = 7;
 
   //ADD TO STORAGE SESSION LAST PAGE
   useEffect(() => {
@@ -52,6 +51,7 @@ const TypeOfInformation = () => {
       setSelectedOptionTypeOfInformation(storedTypeOfInformation);
     }
   }, []);
+
 
     return (
 			<div className="container">
@@ -137,6 +137,7 @@ const TypeOfInformation = () => {
 				</div>
 			</div>
 		);
+
 };
 
 export default TypeOfInformation;

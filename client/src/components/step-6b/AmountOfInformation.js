@@ -1,30 +1,29 @@
-import React, { useState,useContext,useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
-import { Link,useNavigate } from "react-router-dom";
-import { Alert } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import FirstHandleTooltip from "./FirstHandleTooltip";
 import QuestionMark from "./images/question-mark.png";
 
 const TypeOfInformation = () => {
 
-    //Used to get data to select radio button
-    const { selectedOptionAmountOfInformation,setSelectedOptionAmountOfInformation,setStep } = useContext( stepProgressContext );
+  //Used to get data to select radio button
+  const { selectedOptionAmountOfInformation, setSelectedOptionAmountOfInformation, setStep } = useContext(stepProgressContext);
 
-    //FirstHandleTooltip
-    const [FirstModalShow, FirstSetModalShow] = React.useState(false);
+  //FirstHandleTooltip
+  const [FirstModalShow, FirstSetModalShow] = React.useState(false);
 
-	//state for error handling
-	const [isModalOpen, setIsModalOpen] = useState(false);
+  //state for error handling
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-    //Go to another page function
-    const navigate = useNavigate();
+  //Go to another page function
+  const navigate = useNavigate();
 
-    //When change the option from radio button
+  //When change the option from radio button
   const handleOptionChange = (event) => {
     setSelectedOptionAmountOfInformation(event.target.value);
-  //ADD TO STORAGE SESSION
-  sessionStorage.setItem("selectedOptionAmountOfInformation", event.target.value);
-};
+    //ADD TO STORAGE SESSION
+    sessionStorage.setItem("selectedOptionAmountOfInformation", event.target.value);
+  };
 
   //Check if any button was choosen
   const handleButtonClick = () => {
@@ -33,24 +32,25 @@ const TypeOfInformation = () => {
       // show the error message when field is empty
       setIsModalOpen(true);
     } else {
-        setStep(stepNumber+1);
-        navigate("/Voting-Method"); //Go to page and pass data
+      setStep(stepNumber + 1);
+      navigate("/Voting-Method"); //Go to page and pass data
     }
   };
 
   const handleBackClick = () => {
-    setStep(stepNumber-1);
+    setStep(stepNumber - 1);
     navigate("/type-of-information");
-};
+  };
 
- //ADD TO STORAGE SESSION LAST PAGE
- useEffect(() => {
-  const storedAmountOfInformation = sessionStorage.getItem("selectedOptionAmountOfInformation");
-  if (storedAmountOfInformation) {
-    setSelectedOptionAmountOfInformation(storedAmountOfInformation);
-  }
-}, []);
+  //ADD TO STORAGE SESSION LAST PAGE
+  useEffect(() => {
+    const storedAmountOfInformation = sessionStorage.getItem("selectedOptionAmountOfInformation");
+    if (storedAmountOfInformation) {
+      setSelectedOptionAmountOfInformation(storedAmountOfInformation);
+    }
+  }, []);
   // Progress Bar Step Number
+
   const stepNumber=8;
 
     return (
@@ -151,6 +151,7 @@ const TypeOfInformation = () => {
 				</div>
 			</div>
 		);
+
 };
 
 export default TypeOfInformation;

@@ -20,5 +20,6 @@ function FirstHandleTooltip(props) {
 			</Modal.Body>
 		</Modal>
 	);
+
 }
 export default FirstHandleTooltip;

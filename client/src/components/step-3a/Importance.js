@@ -1,7 +1,7 @@
-import React,{ useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useState,useContext } from "react";
+import { useState, useContext } from "react";
 import tooltipIcon from "./images/tooltipicon.png";
 import HandleFirstTooltipClick from "./HandleFirstTooltipImportance";
 import HandleSecondTooltipClick from "./HandleSecondTooltipImportance";
@@ -10,7 +10,7 @@ import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 
 const Importance = () => {
 
-	const stepNumber=3;
+	const stepNumber = 3;
 
 	//state for navigation on page by next and back btn
 	const [isStarted, setIsStarted] = useState(false);
@@ -22,7 +22,7 @@ const Importance = () => {
 	const [secondModalShow, setsecondModalShow] = useState(false);
 
 	//state for selecting radio btn
-	const { selectedOption, setSelectedOption,setStep } = useContext(stepProgressContext);
+	const { selectedOption, setSelectedOption, setStep } = useContext(stepProgressContext);
 
 	//state for error handling
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,7 +35,7 @@ const Importance = () => {
 	const handleBackClick = () => {
 		setIsStarted(true);
 		navigate("/decision-makers");
-		setStep(stepNumber-1);
+		setStep(stepNumber - 1);
 	};
 
 	//click next btn handler
@@ -45,7 +45,7 @@ const Importance = () => {
 		} else {
 			setIsStarted(true);
 			navigate("/Capacity");
-			setStep(stepNumber+1);
+			setStep(stepNumber + 1);
 		}
 	};
 

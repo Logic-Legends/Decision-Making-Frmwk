@@ -1,6 +1,7 @@
 import Modal from "react-bootstrap/Modal";
 
 function HandleTooltip(props) {
+
 	return (
 		<Modal
 			{...props}
@@ -25,5 +26,6 @@ function HandleTooltip(props) {
 			</Modal.Body>
 		</Modal>
 	);
+
 }
 export default HandleTooltip;
