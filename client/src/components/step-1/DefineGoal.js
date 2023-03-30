@@ -52,7 +52,7 @@ const DefineGoal = () => {
 		<div className="container">
 			<HandleTooltip clickedicon='defineGoal' show={modalShow} onHide={() => setModalShow(false)} />
 
-			<h3>What is the goal <img
+			<h3>What is the goal? <img
 						className="question-mark-pages"
 						src={QuestionMark}
 						alt="Question Mark"
