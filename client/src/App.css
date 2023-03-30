@@ -8784,11 +8784,11 @@ table {
   padding: 8px;
 }
 .signup-modal-header{
-	display: flex;
+display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.signup-modal-header h2{
+.signup-modal-header h6{
 	margin: 0;
 }
 .signup-modal-header button{
