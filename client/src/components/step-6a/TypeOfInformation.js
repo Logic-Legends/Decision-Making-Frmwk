@@ -72,7 +72,7 @@ const TypeOfInformation = () => {
 				</h2>
 				<section className="border-decision-framework-pages">
 					<h6 className="question-margin">
-						What type of information will we have?
+						What type of information will you have?
 					</h6>
 
 					<form className="radio-btn-section container-radio-btn">
