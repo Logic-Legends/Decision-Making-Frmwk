@@ -7,7 +7,7 @@ import QuestionMark from "./images/question-mark.png";
 const TypeOfInformation = () => {
 
   //Used to get data to select radio button
-  const { selectedOptionAmountOfInformation, setSelectedOptionAmountOfInformation, setStep } = useContext(stepProgressContext);
+  const { selectedOptionAmountOfInformation, setSelectedOptionAmountOfInformation, setStep,setStepCompleted } = useContext(stepProgressContext);
 
   //FirstHandleTooltip
   const [FirstModalShow, FirstSetModalShow] = React.useState(false);
@@ -33,7 +33,7 @@ const TypeOfInformation = () => {
       setIsModalOpen(true);
     } else {
       setStep(stepNumber + 1);
-      navigate("/Voting-Method"); //Go to page and pass data
+      navigate("/voting-method"); //Go to page and pass data
     }
   };
 
@@ -72,7 +72,7 @@ const TypeOfInformation = () => {
 				</h2>
 				<section className="border-decision-framework-pages">
 					<h6 className="question-margin">
-						How much information will we have?
+						How much information will you have?
 					</h6>
 
 					<form className="radio-btn-section container-radio-btn">

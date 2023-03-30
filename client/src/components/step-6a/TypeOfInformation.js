@@ -16,7 +16,7 @@ const TypeOfInformation = () => {
   const navigate = useNavigate();
 
   //Used to get data to select radio button
-  const { selectedOptionTypeOfInformation, setSelectedOptionTypeOfInformation, setStep } = useContext(stepProgressContext);
+  const { selectedOptionTypeOfInformation, setSelectedOptionTypeOfInformation, setStep,setStepCompleted } = useContext(stepProgressContext);
 
   //When change the option from radio button
   const handleOptionChange = (event) => {
@@ -33,6 +33,7 @@ const TypeOfInformation = () => {
     } else {
       navigate("/amount-of-information"); //Go to page and pass data
       setStep(stepNumber + 1);
+	  setStepCompleted(stepNumber+1);
     }
   };
 
@@ -72,7 +73,7 @@ const TypeOfInformation = () => {
 				</h2>
 				<section className="border-decision-framework-pages">
 					<h6 className="question-margin">
-						What type of information will we have?
+						What type of information will you have?
 					</h6>
 
 					<form className="radio-btn-section container-radio-btn">
@@ -124,7 +125,7 @@ const TypeOfInformation = () => {
 					{isModalOpen && (
 						<div className="modal">
 							<div className="modal-display">
-								<p>Please select a response.</p>
+								<p>Please select a response!</p>
 								<button
 									onClick={() => setIsModalOpen(false)}
 									className="modal-btn"

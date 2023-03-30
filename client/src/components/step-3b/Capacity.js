@@ -22,7 +22,7 @@ const Capacity = () => {
 	const [secondModalShow, setsecondModalShow] = useState(false);
 
 	//state for selecting radio btn
-	const { selectedOptionCapacity, setSelectedOptionCapacity, setStep, currentStep } = useContext(stepProgressContext);
+	const { selectedOptionCapacity, setSelectedOptionCapacity, setStep, currentStep,setStepCompleted } = useContext(stepProgressContext);
 
 
 	//state for error handling
@@ -34,7 +34,7 @@ const Capacity = () => {
 	//click back btn handler
 	const handleBackClick = () => {
 		setIsStarted(true);
-		navigate("/Importance");
+		navigate("/importance");
 		setStep(stepNumber - 1);
 	};
 	//click next btn handler
@@ -44,7 +44,7 @@ const Capacity = () => {
 		} else {
 			setIsStarted(true);
 			setStep(currentStep + 1);
-			navigate("/time-resource");
+			navigate("/time-and-resource");
 		}
 	};
 	//radio btn handler
@@ -84,13 +84,13 @@ const Capacity = () => {
 				/>
 			</h2>
 			<section className="border-decision-framework-pages">
-				<h6>What is the decision-making teams capacity?</h6>
+				<h6>What is the decision-making team&apos;s capacity?</h6>
 
 				<span className="radio-label">
 					<span className="radio-title"> </span>
 					<span className="radio-description question-hint">
-						Will we be affected by factors such as team members on leave,
-						decision makers' ability to commit to meetings and decision
+						Will you be affected by factors such as team members on leave,
+						decision makers&apos; ability to commit to meetings and decision
 						deadline?
 					</span>
 				</span>
@@ -110,7 +110,7 @@ const Capacity = () => {
 							<span className="radio-title">Low </span>
 							<span className="radio-description">
 								The deadline for making the decision is very soon and team
-								members are unable to attend decision making meetings
+								members are unable to attend decision-making meetings
 							</span>
 						</span>
 					</label>
@@ -127,7 +127,7 @@ const Capacity = () => {
 							<span className="radio-title">High </span>
 							<span className="radio-description">
 								The deadline for making the decision is further out and team
-								members have time to attend decision making meetings
+								members have time to attend decision-making meetings
 							</span>
 						</span>
 					</label>
@@ -137,15 +137,15 @@ const Capacity = () => {
 			<section id="button-same-line">
 				{isStarted}
 				<button onClick={handleBackClick} className="inner">
-					<Link to="/Importance"></Link>Back
+					<Link to="/importance"></Link>Back
 				</button>
 				<button onClick={handleNextClick} className="inner">
-					<Link to="/timeAndResource"></Link>Next
+					<Link to="/time-and-resource"></Link>Next
 				</button>
 				{isModalOpen && (
 					<div className="modal">
 						<div className="modal-display">
-							<p>Please select a response.</p>
+							<p>Please select a response!</p>
 							<button
 								onClick={() => setIsModalOpen(false)}
 								className="modal-btn"

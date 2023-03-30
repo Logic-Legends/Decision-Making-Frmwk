@@ -17,8 +17,8 @@ function HandleSecondTooltipClick(props) {
 			</Modal.Header>
 			<Modal.Body>
 				<p>
-					Will it affect how we operate as an organization or as a team within
-					the organization? Will it affect how we interact with other
+					Will it affect how you operate as an organization or as a team within
+					the organization? Will it affect how you interact with other
 					organizations?
 				</p>
 

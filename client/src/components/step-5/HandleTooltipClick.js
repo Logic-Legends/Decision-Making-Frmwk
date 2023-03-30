@@ -33,8 +33,9 @@ function HandleTooltipClick(props) {
 						schedule?
 					</li>
 				</ul>
-				<p>
-					If you answered YES to any of these questions, consider categorized it
+				<br></br>
+				<p className="tool-tip-bold">
+					If you answered YES to any of these questions, consider categorizing it
 					as iterative.
 				</p>
 			</Modal.Body>

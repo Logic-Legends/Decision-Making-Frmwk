@@ -20,7 +20,7 @@ const DefineGoal = () => {
 	const [modalShow, setModalShow] = React.useState(false);
 
 	//Used for get data and fill input
-	const { defineGoalText, setDefineGoalText, setStep } = useContext(stepProgressContext);
+	const { defineGoalText, setDefineGoalText, setStep,setStepCompleted } = useContext(stepProgressContext);
 
 	const handleChange = (event) => {
 		setDefineGoalText(event.target.value);
@@ -32,6 +32,7 @@ const DefineGoal = () => {
 
 		if (defineGoalText && defineGoalText.value !== null && defineGoalText.value !== "") {
 			setStep(stepNumber + 1); //Used for progress bar
+			setStepCompleted(stepNumber+1);
 			navigate("/decision-makers");
 		} else {
 			setIsModalOpen(true);
@@ -51,7 +52,7 @@ const DefineGoal = () => {
 		<div className="container">
 			<HandleTooltip clickedicon='defineGoal' show={modalShow} onHide={() => setModalShow(false)} />
 
-			<h3>What is the goal <img
+			<h3>What is the goal? <img
 						className="question-mark-pages"
 						src={QuestionMark}
 						alt="Question Mark"
@@ -59,7 +60,7 @@ const DefineGoal = () => {
 						onClick={() => setModalShow(true)}
 					></img></h3>
 			<div className="border-decision-framework-pages">
-				<h6>What decision are we trying to make?</h6>
+				<h6>What decision are you trying to make?</h6>
 				<p>
 				Think of SMART Goals, Specific, Measurable, Achievable, Realistic, Time-based.
 				</p>

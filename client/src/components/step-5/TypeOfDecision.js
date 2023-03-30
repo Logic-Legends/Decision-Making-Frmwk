@@ -11,7 +11,7 @@ const TypeOfDecision = () => {
     const stepNumber = 6;
     const [isStarted, setIsStarted] = useState(false);
     const [modalShow, setModalShow] = useState(false);
-    const { selectedOptionDecision, setSelectedOptionDecision, setStep } = useContext(stepProgressContext);
+    const { selectedOptionDecision, setSelectedOptionDecision, setStep,setStepCompleted } = useContext(stepProgressContext);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const navigate = useNavigate();
     const [advice, setAdvice] = useState();
@@ -36,7 +36,7 @@ const TypeOfDecision = () => {
     const handleBackClick = () => {
         setIsStarted(true);
         setStep(stepNumber - 1);
-        navigate("/time-resource");
+        navigate("/time-and-resource");
     };
     const handleNextClick = () => {
         if (selectedOptionDecision === null) {
@@ -45,6 +45,7 @@ const TypeOfDecision = () => {
         } else {
             setIsStarted(true);
             setStep(stepNumber + 1);
+            setStepCompleted(stepNumber+1);
             navigate("/type-of-information");
         }
     };
@@ -77,7 +78,7 @@ const TypeOfDecision = () => {
             <section className="border-decision-framework-pages">
 
                 <h6 className="question-margin">
-                    Are you making an iterative or single decision decision?
+                    Are you making an iterative or single decision?
 
                 </h6>
                 {/* Radio btn section */}
@@ -93,7 +94,7 @@ const TypeOfDecision = () => {
                         />
                         <span className="radio-label">
                             <span className="radio-title">Iterative Decision </span>
-                            <span className="radio-description">An ongoing decision that needs to updated on a regular schedule</span>
+                            <span className="radio-description">An ongoing decision that needs to be updated on a regular schedule</span>
                         </span>
                     </label>
                     <label className="radio">
@@ -116,7 +117,7 @@ const TypeOfDecision = () => {
             <section id="button-same-line">
                 {isStarted}
                 <button onClick={handleBackClick} className="inner">
-                    <Link to="/time-resource"></Link>
+                    <Link to="/time-and-resource"></Link>
                     Back
                 </button>
                 <button onClick={handleNextClick} className="inner">
@@ -125,7 +126,7 @@ const TypeOfDecision = () => {
                 {isModalOpen && (
                     <div className="modal">
                         <div className="modal-display">
-                            <p>Please select a response</p>
+                            <p>Please select a response!</p>
                             <button
                                 onClick={() => setIsModalOpen(false)}
                                 className="modal-btn"
