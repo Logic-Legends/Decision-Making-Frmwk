@@ -50,31 +50,31 @@ const DefineGoal = () => {
 	return (
 
 		<div className="container">
-			<HandleTooltip show={modalShow} onHide={() => setModalShow(false)} />
+			<HandleTooltip clickedicon='defineGoal' show={modalShow} onHide={() => setModalShow(false)} />
 
-			<h3>What is the goal?</h3>
-			<div className="border-decision-framework-pages">
-				<p>
-					Defining the goal will help you determine what kind of information you
-					need to make a decision.
-					<img
+			<h3>What is the goal <img
 						className="question-mark-pages"
 						src={QuestionMark}
 						alt="Question Mark"
 						border="0"
 						onClick={() => setModalShow(true)}
-					></img>
+					></img></h3>
+			<div className="border-decision-framework-pages">
+				<h6>What decision are we trying to make?</h6>
+				<p>
+				Think of SMART Goals, Specific, Measurable, Achievable, Realistic, Time-based.
 				</p>
 
-				<input
+				<textarea
 					id="message"
-					type="text"
+					type="textarea"
 					name="message"
 					placeholder="Enter your goal"
 					value={defineGoalText}
 					onChange={handleChange}
 					maxLength="500"
 					required
+					rows="3"
 				/>
 			</div>
 			<div id="button-same-line">
