@@ -52,81 +52,92 @@ const TypeOfInformation = () => {
     }
   }, []);
 
-  return (
-    <div className="container">
 
-      <FirstHandleTooltip
-        show={FirstModalShow}
-        onHide={() => FirstSetModalShow(false)}
-      />
+    return (
+			<div className="container">
+				<FirstHandleTooltip
+					show={FirstModalShow}
+					onHide={() => FirstSetModalShow(false)}
+				/>
 
-      <h2>Type of Information{" "}
-        <img
-          className="question-mark-pages"
-          src={QuestionMark}
-          alt="Qusestion Mark"
-          border="0"
-          onClick={() => FirstSetModalShow(true)}
-        ></img>
-      </h2>
-      <section className="border-decision-framework-pages">
+				<h2>
+					Type of Information{" "}
+					<img
+						className="question-mark-pages"
+						src={QuestionMark}
+						alt="Qusestion Mark"
+						border="0"
+						onClick={() => FirstSetModalShow(true)}
+					></img>
+				</h2>
+				<section className="border-decision-framework-pages">
+					<h6 className="question-margin">
+						What type of information will we have?
+					</h6>
 
-        <h6>What type of information will we have?</h6>
+					<form className="radio-btn-section container-radio-btn">
+						<label className="radio">
+							<input
+								type="radio"
+								name="option"
+								value="Explicit"
+								checked={selectedOptionTypeOfInformation === "Explicit"}
+								onChange={handleOptionChange}
+								className="input-radio-btn"
+							/>
+							<span className="radio-label">
+								<span className="radio-title">Explicit </span>
+								<span className="radio-description">
+									Information that lets you assign numerical values to the
+									factors being considered
+								</span>
+							</span>
+						</label>
 
-        <form className="radio-btn-section container-radio-btn">
+						<label className="radio">
+							<input
+								type="radio"
+								name="option"
+								value="Relative"
+								checked={selectedOptionTypeOfInformation === "Relative"}
+								onChange={handleOptionChange}
+								className="input-radio-btn"
+							/>
+							<span className="radio-label">
+								<span className="radio-title">Relative </span>
+								<span className="radio-description">
+									Information that lets you compare factors being considered in
+									relation to one another
+								</span>
+							</span>
+						</label>
+					</form>
+				</section>
 
-          <label className="radio">
-            <input
-              type="radio"
-              name="option"
-              value="Explicit"
-              checked={selectedOptionTypeOfInformation === "Explicit"}
-              onChange={handleOptionChange}
-              className="input-radio-btn"
-            />
-            <span className="radio-label">
-              <span className="radio-title">Explicit </span>
-              <span className="radio-description">Information that lets you assign numerical values to the factors being considered</span>
-            </span>
-          </label>
+				<div id="button-same-line">
+					<button className="inner" onClick={handleBackClick}>
+						BACK
+					</button>
+					<button className="inner" onClick={handleButtonClick}>
+						NEXT
+					</button>
+					{isModalOpen && (
+						<div className="modal">
+							<div className="modal-display">
+								<p>Please select a response.</p>
+								<button
+									onClick={() => setIsModalOpen(false)}
+									className="modal-btn"
+								>
+									OK
+								</button>
+							</div>
+						</div>
+					)}
+				</div>
+			</div>
+		);
 
-          <label className="radio">
-            <input
-              type="radio"
-              name="option"
-              value="Relative"
-              checked={selectedOptionTypeOfInformation === "Relative"}
-              onChange={handleOptionChange}
-              className="input-radio-btn"
-            />
-            <span className="radio-label">
-              <span className="radio-title">Relative </span>
-              <span className="radio-description">Information that lets you compare factors being considered in relation to one another</span>
-            </span>
-          </label>
-        </form>
-
-      </section>
-
-      <div id="button-same-line">
-        <button className="inner" onClick={handleBackClick}>BACK</button>
-        <button className="inner" onClick={handleButtonClick}>NEXT</button>
-        {isModalOpen && (
-          <div className="modal">
-            <div className="modal-display">
-              <p>Please select a response.</p>
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="modal-btn"
-              >
-                OK
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-  );
 };
 
 export default TypeOfInformation;
