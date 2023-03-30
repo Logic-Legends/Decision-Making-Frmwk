@@ -114,20 +114,20 @@ function Review() {
       </form>
 
 
-      <div>
-        <h2 className="review-title">Reviews:</h2>
-        <ul className="review-ul">
-          {reviews.map((review, index) => (
-            <li key={index}>
-              <div className="review-header">
-                {review.name}
-              </div>
-              <div className="review-comment">{new Date(review.date).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}</div>
-              <div className="review-comment">{review.comment}</div>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <div className="review-list-container">
+      <h2 className="review-title">Reviews:</h2>
+      <ul className="review-ul">
+      {reviews.map((review, index) => (
+        <li key={index}>
+          <div className="review-header">
+            {review.name}
+          </div>
+          <div className="review-comment">{new Date(review.date).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}</div>
+          <div className="review-comment">{review.comment}</div>
+        </li>
+      ))}
+    </ul>
+    </div>
     </div>
   );
 }
