@@ -90,7 +90,7 @@ const Capacity = () => {
 					<span className="radio-title"> </span>
 					<span className="radio-description question-hint">
 						Will you be affected by factors such as team members on leave,
-						decision makers' ability to commit to meetings and decision
+						decision makers&apos; ability to commit to meetings and decision
 						deadline?
 					</span>
 				</span>

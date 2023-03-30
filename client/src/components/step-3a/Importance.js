@@ -112,7 +112,7 @@ const Importance = () => {
 							<span className="radio-title">Low </span>
 							<span className="radio-description">
 								The decision will affect small project or team within the
-								organisation
+								organization
 							</span>
 						</span>
 					</label>
@@ -128,8 +128,8 @@ const Importance = () => {
 						<span className="radio-label">
 							<span className="radio-title">High </span>
 							<span className="radio-description">
-								The decision will affect the broader organisation or how you
-								interact with other organisations
+								The decision will affect the broader organization or how you
+								interact with other organizations
 							</span>
 						</span>
 					</label>

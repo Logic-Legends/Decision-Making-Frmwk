@@ -36,7 +36,7 @@ const TypeOfDecision = () => {
     const handleBackClick = () => {
         setIsStarted(true);
         setStep(stepNumber - 1);
-        navigate("/time-resource");
+        navigate("/time-and-resource");
     };
     const handleNextClick = () => {
         if (selectedOptionDecision === null) {
@@ -116,7 +116,7 @@ const TypeOfDecision = () => {
             <section id="button-same-line">
                 {isStarted}
                 <button onClick={handleBackClick} className="inner">
-                    <Link to="/time-resource"></Link>
+                    <Link to="/time-and-resource"></Link>
                     Back
                 </button>
                 <button onClick={handleNextClick} className="inner">
