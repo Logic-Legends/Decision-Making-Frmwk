@@ -18,7 +18,7 @@ We welcome any and all contributions! Here are some ways you can get started:
 5. If make sure you meet DOD, wait for pull request to be merged on `main` branch
 
 # Client-side(React)
-# Installation  run project
+# Installation  
 1. Navigate to your project directory in the terminal.
 2. run `npm install` command 
 # Running the Client-side
@@ -27,6 +27,7 @@ We welcome any and all contributions! Here are some ways you can get started:
 (Note : if you get any server error after installaton,make sure about your node version by running `node -v`. you need to have `16.17.0` version of node)
 
 # Server-side(Node.js)
+# Installation
 1. Navigate to your project directory in the terminal.
 2. run `npm install` command 
 # Running the Server-side
