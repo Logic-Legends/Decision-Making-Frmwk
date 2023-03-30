@@ -110,7 +110,7 @@ const Capacity = () => {
 							<span className="radio-title">Low </span>
 							<span className="radio-description">
 								The deadline for making the decision is very soon and team
-								members are unable to attend decision making meetings
+								members are unable to attend decision-making meetings
 							</span>
 						</span>
 					</label>
@@ -127,7 +127,7 @@ const Capacity = () => {
 							<span className="radio-title">High </span>
 							<span className="radio-description">
 								The deadline for making the decision is further out and team
-								members have time to attend decision making meetings
+								members have time to attend decision-making meetings
 							</span>
 						</span>
 					</label>
