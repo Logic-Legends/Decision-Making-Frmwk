@@ -22,7 +22,7 @@ const Importance = () => {
 	const [secondModalShow, setsecondModalShow] = useState(false);
 
 	//state for selecting radio btn
-	const { selectedOption, setSelectedOption, setStep } = useContext(stepProgressContext);
+	const { selectedOption, setSelectedOption, setStep,setStepCompleted } = useContext(stepProgressContext);
 
 	//state for error handling
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -46,6 +46,7 @@ const Importance = () => {
 			setIsStarted(true);
 			navigate("/capacity");
 			setStep(stepNumber + 1);
+			setStepCompleted(stepNumber+1);
 		}
 	};
 

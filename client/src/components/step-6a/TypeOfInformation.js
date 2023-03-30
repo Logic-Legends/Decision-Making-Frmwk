@@ -16,7 +16,7 @@ const TypeOfInformation = () => {
   const navigate = useNavigate();
 
   //Used to get data to select radio button
-  const { selectedOptionTypeOfInformation, setSelectedOptionTypeOfInformation, setStep } = useContext(stepProgressContext);
+  const { selectedOptionTypeOfInformation, setSelectedOptionTypeOfInformation, setStep,setStepCompleted } = useContext(stepProgressContext);
 
   //When change the option from radio button
   const handleOptionChange = (event) => {
@@ -33,6 +33,7 @@ const TypeOfInformation = () => {
     } else {
       navigate("/amount-of-information"); //Go to page and pass data
       setStep(stepNumber + 1);
+	  setStepCompleted(stepNumber+1);
     }
   };
 

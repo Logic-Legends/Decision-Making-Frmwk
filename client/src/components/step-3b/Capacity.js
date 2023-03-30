@@ -22,7 +22,7 @@ const Capacity = () => {
 	const [secondModalShow, setsecondModalShow] = useState(false);
 
 	//state for selecting radio btn
-	const { selectedOptionCapacity, setSelectedOptionCapacity, setStep, currentStep } = useContext(stepProgressContext);
+	const { selectedOptionCapacity, setSelectedOptionCapacity, setStep, currentStep,setStepCompleted } = useContext(stepProgressContext);
 
 
 	//state for error handling

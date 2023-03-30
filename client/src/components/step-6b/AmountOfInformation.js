@@ -7,7 +7,7 @@ import QuestionMark from "./images/question-mark.png";
 const TypeOfInformation = () => {
 
   //Used to get data to select radio button
-  const { selectedOptionAmountOfInformation, setSelectedOptionAmountOfInformation, setStep } = useContext(stepProgressContext);
+  const { selectedOptionAmountOfInformation, setSelectedOptionAmountOfInformation, setStep,setStepCompleted } = useContext(stepProgressContext);
 
   //FirstHandleTooltip
   const [FirstModalShow, FirstSetModalShow] = React.useState(false);

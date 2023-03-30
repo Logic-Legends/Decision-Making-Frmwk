@@ -7,7 +7,7 @@ const VotingMethod = () => {
 	const navigate = useNavigate();
 
 	//Used to get data to select radio button
-	const { setStep } = useContext(stepProgressContext);
+	const { setStep,setStepCompleted } = useContext(stepProgressContext);
 
 	const stepNumber = 9;
 
@@ -127,6 +127,7 @@ const VotingMethod = () => {
 		setIsStarted(true);
 		navigate("/results");
 		setStep(stepNumber + 1);
+		setStepCompleted(stepNumber+1);
 
 	};
 	const handleBackClick = () => {

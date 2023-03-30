@@ -20,7 +20,7 @@ const DefineGoal = () => {
 	const [modalShow, setModalShow] = React.useState(false);
 
 	//Used for get data and fill input
-	const { defineGoalText, setDefineGoalText, setStep } = useContext(stepProgressContext);
+	const { defineGoalText, setDefineGoalText, setStep,setStepCompleted } = useContext(stepProgressContext);
 
 	const handleChange = (event) => {
 		setDefineGoalText(event.target.value);
@@ -32,6 +32,7 @@ const DefineGoal = () => {
 
 		if (defineGoalText && defineGoalText.value !== null && defineGoalText.value !== "") {
 			setStep(stepNumber + 1); //Used for progress bar
+			setStepCompleted(stepNumber+1);
 			navigate("/decision-makers");
 		} else {
 			setIsModalOpen(true);
@@ -51,7 +52,7 @@ const DefineGoal = () => {
 		<div className="container">
 			<HandleTooltip clickedicon='defineGoal' show={modalShow} onHide={() => setModalShow(false)} />
 
-			<h3>What is the goal <img
+			<h3>What is the goal? <img
 						className="question-mark-pages"
 						src={QuestionMark}
 						alt="Question Mark"

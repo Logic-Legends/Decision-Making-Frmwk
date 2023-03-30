@@ -10,7 +10,7 @@ import Icon from "react-crud-icons";
 function DecisionMakers() {
   // const [users, setUsers] = useState([]);
 
-  const { users, setUsers, currentStep, labelArray, setStep } = useContext(stepProgressContext);
+  const { users, setUsers, currentStep, labelArray, setStep,setStepCompleted } = useContext(stepProgressContext);
 
   const [editIndex, setEditIndex] = useState(-1);
   const [showModal, setShowModal] = useState(false);
@@ -61,6 +61,7 @@ function DecisionMakers() {
       // setShow(true);
     } else {
       setStep(stepNumber + 1);
+      setStepCompleted(stepNumber+1);
       navigate("/importance");
       console.log(users);
       sessionStorage.setItem("users", JSON.stringify(users)); //ADD SESSION STORAGE

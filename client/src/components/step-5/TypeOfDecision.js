@@ -11,7 +11,7 @@ const TypeOfDecision = () => {
     const stepNumber = 6;
     const [isStarted, setIsStarted] = useState(false);
     const [modalShow, setModalShow] = useState(false);
-    const { selectedOptionDecision, setSelectedOptionDecision, setStep } = useContext(stepProgressContext);
+    const { selectedOptionDecision, setSelectedOptionDecision, setStep,setStepCompleted } = useContext(stepProgressContext);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const navigate = useNavigate();
     const [advice, setAdvice] = useState();
@@ -45,6 +45,7 @@ const TypeOfDecision = () => {
         } else {
             setIsStarted(true);
             setStep(stepNumber + 1);
+            setStepCompleted(stepNumber+1);
             navigate("/type-of-information");
         }
     };
