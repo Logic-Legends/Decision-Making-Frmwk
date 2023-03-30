@@ -20,7 +20,7 @@ const DefineGoal = () => {
 	const [modalShow, setModalShow] = React.useState(false);
 
 	//Used for get data and fill input
-	const { defineGoalText, setDefineGoalText, setStep } = useContext(stepProgressContext);
+	const { defineGoalText, setDefineGoalText, setStep,setStepCompleted } = useContext(stepProgressContext);
 
 	const handleChange = (event) => {
 		setDefineGoalText(event.target.value);
@@ -32,6 +32,7 @@ const DefineGoal = () => {
 
 		if (defineGoalText && defineGoalText.value !== null && defineGoalText.value !== "") {
 			setStep(stepNumber + 1); //Used for progress bar
+			setStepCompleted(stepNumber+1);
 			navigate("/decision-makers");
 		} else {
 			setIsModalOpen(true);

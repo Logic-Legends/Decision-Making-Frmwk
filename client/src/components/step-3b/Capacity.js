@@ -22,7 +22,7 @@ const Capacity = () => {
 	const [secondModalShow, setsecondModalShow] = useState(false);
 
 	//state for selecting radio btn
-	const { selectedOptionCapacity, setSelectedOptionCapacity, setStep, currentStep } = useContext(stepProgressContext);
+	const { selectedOptionCapacity, setSelectedOptionCapacity, setStep, currentStep,setStepCompleted } = useContext(stepProgressContext);
 
 
 	//state for error handling
@@ -43,7 +43,8 @@ const Capacity = () => {
 			setIsModalOpen(true);
 		} else {
 			setIsStarted(true);
-			setStep(currentStep + 1);
+			setStep(stepNumber + 1);
+			setStepCompleted(stepNumber+1);
 			navigate("/time-resource");
 		}
 	};
