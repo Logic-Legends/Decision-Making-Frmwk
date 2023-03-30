@@ -26,9 +26,9 @@ const ResultVotingMethod = () => {
 					<tbody>
 						<tr>
 							<td>
-								Approval voting (Voters choose "Yes" or "No" for each
+								Approval voting (Voters choose &quot;Yes&quot; or &quot;No&quot; for each
 
-								option, and the option with the most "Yes" votes wins.)
+								option, and the option with the most &quot;Yes&quot; votes wins.)
 
 							</td>
 							<td>
@@ -56,8 +56,8 @@ const ResultVotingMethod = () => {
 							</td>
 							<td>
 								You want to select 5 research topics to pursue this year
-								from a list of 50 options. Your metric is: "How many studies
-								have already been published about this topic?"
+								from a list of 50 options. Your metric is: &quot;How many studies
+								have already been published about this topic?&quot;
 
 							</td>
 						</tr>

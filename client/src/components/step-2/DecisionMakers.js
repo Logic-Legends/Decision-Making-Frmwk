@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import DecisionMakersForm from "./DicisionMakersForm";
-import { Container, Table, Alert } from "react-bootstrap";
+import { Container, Table } from "react-bootstrap";
 import QuestionMark from "../step-1/images/question-mark.png";
 import ModalComponent from "./ModalComponent";
 import { Link, useNavigate } from "react-router-dom#";

@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
-import { Link, useNavigate } from "react-router-dom";
-import { Alert } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import FirstHandleTooltip from "./FirstHandleTooltip";
 import QuestionMark from "./images/question-mark.png";
 

@@ -1,4 +1,5 @@
 import { Router } from "express";
+require("dotenv").config();
 const { transporter } = require("./mailer");
 
 
@@ -27,7 +28,20 @@ router.post("/submit-email", async (req, res) => {
 	try {
 		const result = await db.query("INSERT INTO email_signup (email) VALUES ($1) ", [email]);
 
+		const mailOptions = {
+			from: process.env.EMAIL,
+			to: email,
+			subject: "Welcome to our website",
+			text: "Thank you for signing-up to ACE's newsletter.",
+		};
 
+		transporter.sendMail(mailOptions, function (error, info) {
+			if (error) {
+				console.error(error);
+			} else {
+				console.error("Email sent: " + info.response);
+			}
+		});
 
 		res.status(201).json(result.rows[0]);
 
