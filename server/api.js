@@ -27,7 +27,7 @@ router.post("/submit-email", async (req,res)=>{
 	try{
 		const result =await db.query("INSERT INTO email_signup (email) VALUES ($1) " ,[email]);
 
-		
+
 
 		res.status(201).json(result.rows[0]);
 
@@ -51,7 +51,7 @@ router.post("/reviews", async (req, res) => {
 
   router.get("/reviews", async (req, res) => {
 	try {
-	const result = await db.query("SELECT user_name, review_text, date_added FROM user_reviews");
+	const result = await db.query("SELECT user_name, review_text, date_added FROM user_reviews ORDER BY date_added DESC");
 	const reviews = result.rows.map((row) => ({ name: row.user_name, comment: row.review_text, date: row.date_added }));
 	res.status(200).json(reviews);
 	} catch (err) {

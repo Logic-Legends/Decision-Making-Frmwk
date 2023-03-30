@@ -9055,4 +9055,11 @@ margin: auto;
 	color: rgb(130, 130, 130); 
   }
 
+ .review-list-container {
+	/* height: 400px;  */
+	height: 100vh;
+	overflow-y: auto;
+	border: 1px solid #ccc; 
+	padding: 10px;
+  }
   
