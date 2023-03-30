@@ -1,6 +1,22 @@
 import Modal from "react-bootstrap/Modal";
 
 function HandleTooltip(props) {
+  let modalBody="";
+if (props.clickedicon==="smartGoal") {
+   modalBody=`
+  <p><strong>SMART</strong> Goals</p>
+  <p><strong>S</strong>pecific</p>
+  <p><strong>M</strong>easurable</p>
+  <p><strong>A</strong>chievable</p>
+  <p><strong>R</strong>ealistic</p>
+  <p><strong>T</strong>ime-based</p>
+  `;
+} else{
+  modalBody=`<p> Defining the goal will help you determine what kind of information you
+  need to make a decision</p>`;
+}
+
+
 	return (
         <Modal
           {...props}
@@ -10,17 +26,11 @@ function HandleTooltip(props) {
         >
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-              What decision are we trying to make?
+              Define the goal.
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body>
-            <p><strong>SMART</strong> Goals</p>
-            <p><strong>S</strong>pecific</p>
-            <p><strong>M</strong>easurable</p>
-            <p><strong>A</strong>chievable</p>
-            <p><strong>R</strong>ealistic</p>
-            <p><strong>T</strong>ime-based</p>
-          </Modal.Body>
+          <Modal.Body
+          dangerouslySetInnerHTML={{ __html: modalBody }} />
         </Modal>
       );
 }
