@@ -39,7 +39,8 @@ We welcome any and all contributions! Here are some ways you can get started:
 1. Navigate to your project directory in the terminal.
 2. Run the command `npm install nodemailer` to install Nodemailer
 
-# Database (postgreSQL)----(Note: this setting is just for Linux based system if you have MAC you should follow this [link](https://syllabus.codeyourfuture.io/db/prep#macos))
+# Database (postgreSQL)
+(Note: this setting is just for Linux based system if you have MAC you should follow this [link](https://syllabus.codeyourfuture.io/db/prep#macos))
 # Installation
 1. Run the command `$ sudo apt-get install postgresql postgresql-contrib` for installing postgreSQL
 2. Run the command `$ sudo -u postgres createuser -P --createdb <username>` for creating database user
