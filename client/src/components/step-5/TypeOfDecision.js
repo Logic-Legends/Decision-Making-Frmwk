@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import { useState, useContext } from "react";
 import tooltipIcon from "./images/tooltipicon.png";
 import HandleTooltipClick from "./HandleTooltipClick";
@@ -9,9 +9,12 @@ import "./TypeOfDecision.css";
 
 const TypeOfDecision = () => {
     const stepNumber = 6;
+    const location = useLocation();
+	const { pathname } = location;
+
     const [isStarted, setIsStarted] = useState(false);
     const [modalShow, setModalShow] = useState(false);
-    const { selectedOptionDecision, setSelectedOptionDecision, setStep,setStepCompleted } = useContext(stepProgressContext);
+    const { selectedOptionDecision, setSelectedOptionDecision, setStep,setStepCompleted,getStepIdFromLocation } = useContext(stepProgressContext);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const navigate = useNavigate();
     const [advice, setAdvice] = useState();
@@ -59,6 +62,12 @@ const TypeOfDecision = () => {
             setSelectedOptionDecision(storedTypeOfDecision);
         }
     }, []);
+
+      // update the step number when using browser navigation or refreshing the component
+	useEffect(() => {
+		setStep(getStepIdFromLocation(pathname));
+	  }, [pathname]);
+
     return (
         <div className="container">
             {/* call first tooltip component */}

@@ -11,14 +11,14 @@ function ProgressBarContext() {
 	const labelArray = [
 		{ id: "1", location: "/define-goal" },
 		{ id: "2", location: "/decision-makers" },
-		{ id: "3", location: "/Importance" },
-		{ id: "4", location: "/Capacity" },
-		{ id: "5", location: "/time-resource" },
+		{ id: "3", location: "/importance" },
+		{ id: "4", location: "/capacity" },
+		{ id: "5", location: "/time-and-resource" },
 		{ id: "6", location: "/type-of-decision" },
 		{ id: "7", location: "/type-of-information" },
 		{ id: "8", location: "/amount-of-information" },
-		{ id: "9", location: "/Voting-Method" },
-		{ id: "10", location: "/Results" },
+		{ id: "9", location: "/voting-method" },
+		{ id: "10", location: "/results" },
 	];
 	const [users, setUsers] = useState([]);
 	const [selectedOption, setSelectedOption] = useState(null);
@@ -34,6 +34,11 @@ function ProgressBarContext() {
 	function setStepCompleted(step){
 		setCompletedStep(step);
 	}
+
+	function getStepIdFromLocation(location) {
+		const label = labelArray.find((label) => label.location === location);
+		return label ? label.id : null;
+	  }
 	return (
 		<>
 			<stepProgressContext.Provider
@@ -50,6 +55,7 @@ function ProgressBarContext() {
 					setEnteredData,
 					labelArray,
 					setStep,
+					getStepIdFromLocation,
 					completedStep,
 					setStepCompleted,
 					users,
