@@ -8856,10 +8856,13 @@ display: flex;
 	color: rgb(130, 130, 130);
 	
   }
+
   .dlt-edt-icons{
-	display: none;
-	
-  }
+	display: flex;
+	justify-content: space-around;
+	margin: 10px 5px auto auto;
+	height: 40px;
+ }
   .edt-icon{
 	width: 30px;
 	padding-right: 10px;
@@ -8962,11 +8965,7 @@ max-width: 180px;
 	.mb-0, .py-2{
 	display: none;;
 	}
-	.dlt-edt-icons{
-		display: flex;
-		margin: 10px 5px auto auto;;
-		height: 40px;
-	 }
+
 	.add-update-icon{
 	display: flex;
 	background-color: white;
