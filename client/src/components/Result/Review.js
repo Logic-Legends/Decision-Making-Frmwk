@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// import { FaTimes } from "react-icons/fa";
+// import { FaTimes } from "react-icons/fa";+
 
 function Review() {
   const [name, setName] = useState("");
@@ -33,6 +33,7 @@ function Review() {
           setName("");
           setComment("");
           setShowSuccessMessage(true);
+          setReviews((prevReviews) => [...prevReviews, data]);
         })
         .catch((error) => {
           console.error(error);
@@ -51,7 +52,19 @@ function Review() {
       setReviews(data);
     }
     fetchReviews();
-  }, []);
+  }, [reviews]);
+
+  useEffect(() => {
+    let timeoutId;
+    if (showSuccessMessage) {
+      timeoutId = setTimeout(() => {
+        setShowSuccessMessage(false);
+      },2000); // set the time interval here (in milliseconds)
+    }
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [showSuccessMessage]);
 
   const navigate = useNavigate();
 
@@ -61,13 +74,41 @@ function Review() {
   };
 
 
+
+
   return (
     <div className="review-container">
-      {showSuccessMessage && (
+      {/* {showSuccessMessage && (
         <div className="success-message">Thank you for your review!</div>
       )}
       {showErrorMessage && (
         <div className="error-message">An error occurred. Please try again.</div>
+      )} */}
+      {showSuccessMessage && (
+        <div className="modal">
+        <div className="modal-display">
+          <p>Thank you for your review!</p>
+          <button
+            onClick={() => setIsModalOpen(false)}
+            className="modal-btn"
+          >
+            OK
+          </button>
+        </div>
+      </div>
+      )}
+      {showErrorMessage && (
+        <div className="modal">
+        <div className="modal-display">
+          <p>An error occurred. Please try again.</p>
+          <button
+            onClick={() => setIsModalOpen(false)}
+            className="modal-btn"
+          >
+            OK
+          </button>
+        </div>
+      </div>
       )}
       {isModalOpen && (
         <div className="modal">
@@ -85,20 +126,27 @@ function Review() {
 
       <h2 className="review-title">Leave Review</h2>
       <form onSubmit={handleSubmit} noValidate>
-        <label htmlFor="name">Name:</label>
+        <label className= "review-name-label" htmlFor="name">Name:</label>
         <input
+          className="input-review"
           type="text"
           id="name"
           name="name"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setName(e.target.value.replace(/[^a-z]/gi, ""))}
+          onKeyPress={(event) => {
+          if (event.key === "Enter") {
+          event.preventDefault();
+          }
+          }}
           placeholder="Name"
           maxLength="20"
-          pattern="[a-zA-Z]+"
+          pattern="[A-Za-z\s]+"
           required
         />
-        <label htmlFor="comment">Comment:</label>
+        <label className="review-comment-label" htmlFor="comment">Comment:</label>
         <textarea
+          className="input-review"
           id="comment"
           name="comment"
           value={comment}
@@ -115,18 +163,20 @@ function Review() {
 
 
       <div className="review-list-container">
-      <h2 className="review-title">Reviews:</h2>
+      <h2 className="review-title">Reviews</h2>
       <ul className="review-ul">
-      {reviews.map((review, index) => (
-        <li key={index}>
-          <div className="review-header">
-            {review.name}
-          </div>
-          <div className="review-comment">{new Date(review.date).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}</div>
-          <div className="review-comment">{review.comment}</div>
-        </li>
-      ))}
-    </ul>
+        {reviews.map((review, index) => (
+          <li key={index}>
+            <div className="review-card border">
+                <div className="review-header">
+                  <div className="review-name">{review.name}</div>
+                  <div className="review-date">{new Date(review.date).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}</div>
+                </div>
+              <div className="review-comment">{review.comment}</div>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
     </div>
   );
