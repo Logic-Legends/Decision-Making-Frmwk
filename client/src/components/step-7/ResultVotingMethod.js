@@ -28,7 +28,7 @@ const ResultVotingMethod = () => {
 							<td>
 								Approval voting (Voters choose &quot;Yes&quot; or &quot;No&quot; for each
 
-								option, and the option with the most &quot;Yes&quot; votes wins.)
+								option, and the option with the most &quot;Yes&quot; votes wins).
 
 							</td>
 							<td>
@@ -47,7 +47,7 @@ const ResultVotingMethod = () => {
 								Score voting (Voters give each option a score on some
 
 								objective metric, and the option with the highest score
-								wins.)
+								wins).
 							</td>
 							<td>
 								Enough information for voters to score each option from 1-5
@@ -66,7 +66,7 @@ const ResultVotingMethod = () => {
 								Delphi method (Involves multipleanonymous surveys followed
 
 								by discussions about the aggregate survey results until a
-								decision has been reached.)
+								decision has been reached).
 							</td>
 							<td>
 								Enough information for voters to score each option

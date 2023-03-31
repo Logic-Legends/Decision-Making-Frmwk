@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Modal from "react-modal";
 import { FaTimes } from "react-icons/fa";
 
@@ -8,6 +8,7 @@ function SignUp() {
 	const [email, setEmail] = useState("");
 	const [errorMessage, setErrorMessage] = useState("");
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -36,6 +37,7 @@ function SignUp() {
 			setEmail("");
 			setShowModal(false);
 			setErrorMessage("");
+			setShowSuccessMessage(true);
 		} else {
 			setIsModalOpen(true);
 			const errorData = await response.json();
@@ -43,6 +45,18 @@ function SignUp() {
 		}
 
 	};
+
+	useEffect(() => {
+		let timeoutId;
+		if (showSuccessMessage) {
+		  timeoutId = setTimeout(() => {
+			setShowSuccessMessage(false);
+		  },2000);
+		}
+		return () => {
+		  clearTimeout(timeoutId);
+		};
+	  }, [showSuccessMessage]);
 
 	return (
 		<div>
@@ -96,6 +110,13 @@ function SignUp() {
 					</button>
 				</form>
 			</Modal>
+				{showSuccessMessage && (
+					<div className="modal">
+					<div className="modal-display">
+					<p>thank you for your subscription!</p>
+					</div>
+				</div>
+				)}
 		</div>
 	);
 }
