@@ -1,22 +1,20 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Link, useNavigate,useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
-
 
 const VotingMethod = () => {
 	const navigate = useNavigate();
 
 	//Used to get data to select radio button
-	const { setStep,setStepCompleted,getStepIdFromLocation } = useContext(stepProgressContext);
+	const { setStep, setStepCompleted, getStepIdFromLocation } =
+		useContext(stepProgressContext);
 
 	const stepNumber = 9;
 	const location = useLocation();
 	const { pathname } = location;
 
-
 	const [explicitVotingMethod, setExplicitVotingMethod] = useState();
 	const [explicitVotingMethodDesc, setExplicitVotingMethodDesc] = useState();
-
 
 	const [relativeVotingMethod1, setRelativeVotingMethod1] = useState();
 	const [relativeVotingMethodDesc1, setRelativeVotingMethodDesc1] = useState();
@@ -24,8 +22,12 @@ const VotingMethod = () => {
 	const [relativeVotingMethodDesc2, setRelativeVotingMethodDesc2] = useState();
 	const [isStarted, setIsStarted] = useState(false);
 
-	const selectedOptionTypeOfInformation = sessionStorage.getItem("selectedOptionTypeOfInformation");
-	const selectedOptionAmountOfInformation = sessionStorage.getItem("selectedOptionAmountOfInformation");
+	const selectedOptionTypeOfInformation = sessionStorage.getItem(
+		"selectedOptionTypeOfInformation"
+	);
+	const selectedOptionAmountOfInformation = sessionStorage.getItem(
+		"selectedOptionAmountOfInformation"
+	);
 
 	const showExplicit = () => {
 		if (
@@ -54,10 +56,7 @@ const VotingMethod = () => {
 			setExplicitVotingMethodDesc(
 				"Involves multiple anonymous surveys followed by discussions about the aggregate survey results until a decision has been reached."
 			);
-			sessionStorage.setItem(
-				"explicitVotingMethod",
-				"Delphi method"
-			);
+			sessionStorage.setItem("explicitVotingMethod", "Delphi method");
 		}
 	};
 	useEffect(() => {
@@ -73,18 +72,12 @@ const VotingMethod = () => {
 			setRelativeVotingMethodDesc1(
 				"Each voter selects their favorite option, and the option with the most votes wins."
 			);
-			sessionStorage.setItem(
-				"relativeVotingMethod1",
-				"First past the post"
-			);
+			sessionStorage.setItem("relativeVotingMethod1", "First past the post");
 			setRelativeVotingMethod2("Multivoting");
 			setRelativeVotingMethodDesc2(
 				"Each voter has a certain number of votes to place on any of the options."
 			);
-			sessionStorage.setItem(
-				"relativeVotingMethod2",
-				"Multivoting"
-			);
+			sessionStorage.setItem("relativeVotingMethod2", "Multivoting");
 		} else if (
 			selectedOptionTypeOfInformation === "Relative" &&
 			selectedOptionAmountOfInformation === "Medium"
@@ -93,17 +86,12 @@ const VotingMethod = () => {
 			setRelativeVotingMethodDesc1(
 				"Voters score the options, and the one the majority prefers wins."
 			);
-			sessionStorage.setItem(
-				"relativeVotingMethod1", "STAR voting"
-			);
+			sessionStorage.setItem("relativeVotingMethod1", "STAR voting");
 			setRelativeVotingMethod2("Ranked choice");
 			setRelativeVotingMethodDesc2(
 				"Voters rank options based on preference, then a winner is chosen based on majority of first preference votes."
 			);
-			sessionStorage.setItem(
-				"relativeVotingMethod2",
-				"Ranked choice"
-			);
+			sessionStorage.setItem("relativeVotingMethod2", "Ranked choice");
 		} else if (
 			selectedOptionTypeOfInformation === "Relative" &&
 			selectedOptionAmountOfInformation === "High"
@@ -126,12 +114,10 @@ const VotingMethod = () => {
 
 	//click next btn handler
 	const handleNextClick = () => {
-
 		setIsStarted(true);
 		navigate("/results");
 		setStep(stepNumber + 1);
-		setStepCompleted(stepNumber+1);
-
+		setStepCompleted(stepNumber + 1);
 	};
 	const handleBackClick = () => {
 		setIsStarted(true);
@@ -139,12 +125,11 @@ const VotingMethod = () => {
 		setStep(stepNumber - 1);
 	};
 
-
-	  // update the step number when using browser navigation or refreshing the component
-	  useEffect(() => {
+	// update the step number when using browser navigation or refreshing the component
+	useEffect(() => {
 		setStep(getStepIdFromLocation(pathname));
-	  }, [pathname]);
-
+		console.log(getStepIdFromLocation(pathname));
+	}, [pathname]);
 
 	return (
 		<div className="container">
@@ -198,10 +183,8 @@ const VotingMethod = () => {
 					</>
 				)}
 				<p>
-					<Link to="/result-voting-method" >
-						Click here
-					</Link>
-					{" "}to view the full list of voting methods.
+					<Link to="/result-voting-method">Click here</Link> to view the full
+					list of voting methods.
 				</p>
 			</div>
 			{/* btn sections */}
@@ -217,6 +200,5 @@ const VotingMethod = () => {
 		</div>
 	);
 };
-
 
 export default VotingMethod;
