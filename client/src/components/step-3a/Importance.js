@@ -1,16 +1,18 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import { useState, useContext } from "react";
 import tooltipIcon from "./images/tooltipicon.png";
 import HandleFirstTooltipClick from "./HandleFirstTooltipImportance";
 import HandleSecondTooltipClick from "./HandleSecondTooltipImportance";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
-
+import HandleToolTip from "../ProgressBar/HandToolTip";
 
 const Importance = () => {
 
 	const stepNumber = 3;
+	const location = useLocation();
+	const { pathname } = location;
 
 	//state for navigation on page by next and back btn
 	const [isStarted, setIsStarted] = useState(false);
@@ -22,7 +24,7 @@ const Importance = () => {
 	const [secondModalShow, setsecondModalShow] = useState(false);
 
 	//state for selecting radio btn
-	const { selectedOption, setSelectedOption, setStep,setStepCompleted } = useContext(stepProgressContext);
+	const { selectedOption, setSelectedOption, setStep,setStepCompleted,getStepIdFromLocation } = useContext(stepProgressContext);
 
 	//state for error handling
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -65,13 +67,24 @@ const Importance = () => {
 		}
 	}, []);
 
+  // update the step number when using browser navigation or refreshing the component
+  useEffect(() => {
+	setStep(getStepIdFromLocation(pathname));
+  }, [pathname]);
+
+  /*  Modal Title and Text */
+
+  const modalTitle = "";
+  const modalText = "<strong>Importance</strong> = the significance and/or value of the decision at hand.";
 
 	return (
 		<div className="container">
 			{/* call first tooltip component */}
-			<HandleFirstTooltipClick
+			<HandleToolTip
 				show={modalShow}
 				onHide={() => setModalShow(false)}
+				title={modalTitle}
+				text={modalText}
 			/>
 			{/* call second tooltip component */}
 			<HandleSecondTooltipClick

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import { useState, useContext } from "react";
 import tooltipIcon from "./images/tooltipicon.png";
 import HandleFirstTooltipClick from "./HandleFirstTooltipCapacity";
@@ -11,7 +11,8 @@ import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 const Capacity = () => {
 
 	const stepNumber = 4;
-
+	const location = useLocation();
+	const { pathname } = location;
 	//state for navigation on page by next and back btn
 	const [isStarted, setIsStarted] = useState(false);
 
@@ -22,7 +23,7 @@ const Capacity = () => {
 	const [secondModalShow, setsecondModalShow] = useState(false);
 
 	//state for selecting radio btn
-	const { selectedOptionCapacity, setSelectedOptionCapacity, setStep, currentStep,setStepCompleted } = useContext(stepProgressContext);
+	const { selectedOptionCapacity, setSelectedOptionCapacity, setStep, currentStep,setStepCompleted,getStepIdFromLocation } = useContext(stepProgressContext);
 
 
 	//state for error handling
@@ -44,6 +45,7 @@ const Capacity = () => {
 		} else {
 			setIsStarted(true);
 			setStep(currentStep + 1);
+			setStepCompleted(stepNumber+1);
 			navigate("/time-and-resource");
 		}
 	};
@@ -61,6 +63,10 @@ const Capacity = () => {
 		}
 	}, []);
 
+  // update the step number when using browser navigation or refreshing the component
+  useEffect(() => {
+	setStep(getStepIdFromLocation(pathname));
+  }, [pathname]);
 
 	return (
 		<div className="container">

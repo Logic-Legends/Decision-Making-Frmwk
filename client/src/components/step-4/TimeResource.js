@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Link ,useNavigate } from "react-router-dom";
+import { Link ,useNavigate,useLocation } from "react-router-dom";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 import QuestionMark from "./images/question-mark.png";
 import HandleTooltip from "./HandleTooltip";
@@ -9,11 +9,12 @@ const TimeResource = () => {
 	// progress bar step number
 	const stepNumber = 5;
 	const navigate = useNavigate();
-
+	const location = useLocation();
+	const { pathname } = location;
 
 	const [modalShow, setModalShow] = React.useState(false);
 
-	const { setStep, currentStep ,setStepCompleted } = useContext(stepProgressContext);
+	const { setStep, currentStep ,setStepCompleted,getStepIdFromLocation } = useContext(stepProgressContext);
 
 	//Used for pass value inside the table
 	const [titleAdvice, setTitleAdvice] = useState();
@@ -67,7 +68,10 @@ const TimeResource = () => {
 			navigate("/type-of-decision");
 		};
 
-
+  // update the step number when using browser navigation or refreshing the component
+  useEffect(() => {
+	setStep(getStepIdFromLocation(pathname));
+  }, [pathname]);
 	return (
 		<div className="container">
 			<HandleTooltip
@@ -104,7 +108,7 @@ const TimeResource = () => {
 			</div>
 
 			<div id="button-same-line">
-				<Link to="/Capacity">	<button className="inner" onClick={() => setStep(stepNumber - 1)}>BACK</button></Link>
+				<Link to="/capacity">	<button className="inner" onClick={() => setStep(stepNumber - 1)}>BACK</button></Link>
 				<Link to="/type-of-decision"><button className="inner" onClick={handleNextClick}>NEXT</button></Link>
 			</div>
 		</div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate,useLocation } from "react-router-dom";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 
 
@@ -7,9 +7,12 @@ const VotingMethod = () => {
 	const navigate = useNavigate();
 
 	//Used to get data to select radio button
-	const { setStep,setStepCompleted } = useContext(stepProgressContext);
+	const { setStep,setStepCompleted,getStepIdFromLocation } = useContext(stepProgressContext);
 
 	const stepNumber = 9;
+	const location = useLocation();
+	const { pathname } = location;
+
 
 	const [explicitVotingMethod, setExplicitVotingMethod] = useState();
 	const [explicitVotingMethodDesc, setExplicitVotingMethodDesc] = useState();
@@ -135,6 +138,13 @@ const VotingMethod = () => {
 		navigate("/amount-of-information");
 		setStep(stepNumber - 1);
 	};
+
+
+	  // update the step number when using browser navigation or refreshing the component
+	  useEffect(() => {
+		setStep(getStepIdFromLocation(pathname));
+	  }, [pathname]);
+
 
 	return (
 		<div className="container">
