@@ -1,10 +1,12 @@
-import React from "react";
+import React,{ useContext ,useEffect } from "react";
 import Pdf from "../pdf-generation/Pdf";
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
+import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 import Signup from "./Sign-up";
 
 const Results = () => {
+
 	const defineGoalText = sessionStorage.getItem("defineGoalText");
 	const users = JSON.parse(sessionStorage.getItem("users"));
 	const selectedOption = sessionStorage.getItem("selectedOption");
@@ -25,13 +27,24 @@ const Results = () => {
 	const relativeVotingMethod2 = sessionStorage.getItem("relativeVotingMethod2");
 	const textAdvice = sessionStorage.getItem("textAdvice");
 	const advice = sessionStorage.getItem("advice");
-
 	const navigate = useNavigate();
+	const { setStep,setStepCompleted,getStepIdFromLocation  } = useContext(stepProgressContext);
+
+	const stepNumber = 10;
+	const location = useLocation();
+	const { pathname } = location;
+
+  // update the step number when using browser navigation or refreshing the component
+  useEffect(() => {
+	setStep(getStepIdFromLocation(pathname));
+  }, [pathname]);
+
+
 	return (
 		<div className="container">
 			<h3>Results</h3>
 			<p>
-				Thank you for using the <strong>Voting Methods for Group Decisions tool!</strong> We hope the recommended voting method(s) below will help you make an informed decision. 
+				Thank you for using the <strong>Voting Methods for Group Decisions tool!</strong> We hope the recommended voting method(s) below will help you make an informed decision.
 			</p>
 			<h6>Summary</h6>
 			<p>Below is a summary of all your responses. You can click on individual steps in the progress bar to go back and change any of the responses.</p>
