@@ -78,22 +78,10 @@ function Review() {
 
   return (
     <div className="review-container">
-      {/* {showSuccessMessage && (
-        <div className="success-message">Thank you for your review!</div>
-      )}
-      {showErrorMessage && (
-        <div className="error-message">An error occurred. Please try again.</div>
-      )} */}
       {showSuccessMessage && (
         <div className="modal">
         <div className="modal-display">
           <p>Thank you for your review!</p>
-          <button
-            onClick={() => setIsModalOpen(false)}
-            className="modal-btn"
-          >
-            OK
-          </button>
         </div>
       </div>
       )}

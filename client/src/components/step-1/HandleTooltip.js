@@ -15,7 +15,7 @@ function HandleTooltip(props) {
           </Modal.Header>
           <Modal.Body>
           <p> Defining the goal will help you determine what kind of information you
-  need to make a decision</p>
+  need to make a decision.</p>
           </Modal.Body>
         </Modal>
       );
