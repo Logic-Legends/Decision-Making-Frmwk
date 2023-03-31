@@ -52,6 +52,7 @@ function SignUp() {
 			<Modal
 				isOpen={showModal}
 				onRequestClose={() => setShowModal(false)}
+				ariaHideApp={false}
 				style={{
 					content: {
 						width: "fit-content",
@@ -62,7 +63,7 @@ function SignUp() {
 				}}
 			>
 				<div className="signup-modal-header">
-					<h2>Sign Up to Newsletter</h2>
+					<h6>Sign Up to Newsletter</h6>
 					<button onClick={() => setShowModal(false)}>
 						<FaTimes />
 					</button>

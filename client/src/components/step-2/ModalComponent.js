@@ -10,17 +10,17 @@ function ModalComponent(props) {
 			size="lg"
 			aria-labelledby="contained-modal-title-vcenter"
 			centered
-			
+
 		>
 			<Modal.Header closeButton>
-				<Modal.Title>Questions to consider</Modal.Title>
+				<Modal.Title>Questions to consider:</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
-				Should we include all team members working on the project or a smaller
+				Should you include all team members working on the project or a smaller
 				subset?
 				<br />
 				<br />
-				Have we included a diverse set of viewpoints in our decision-making
+				Have you included a diverse set of viewpoints in our decision-making
 				team?
 				<br />
 				<br />

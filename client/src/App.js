@@ -38,15 +38,15 @@ const App = () => {
 				<Route path="/" element={<Start />} exact />
 				<Route path="/define-goal" element={<DefineGoal />} />
 				<Route path="/decision-makers" element={<DecisionMakers />} />
-				<Route path="/Importance" element={<Importance />} />
-				<Route path="/Capacity" element={<Capacity />} />
-				<Route path="/time-resource" element={<TimeResource />} />
+				<Route path="importance" element={<Importance />} />
+				<Route path="/capacity" element={<Capacity />} />
+				<Route path="/time-and-resource" element={<TimeResource />} />
 				<Route path="/type-of-information" element={<TypeOfInformation />} />
 				<Route path="/amount-of-information" element={<AmountOfInformation />} />
-				<Route path="/Results" element={<Results />} />
+				<Route path="/results" element={<Results />} />
 				<Route path="/type-of-decision" element={<TypeOfDecision />} />
-				<Route path="/Voting-Method" element={<VotingMethod />} />
-				<Route path="/ResultVotingMethod" element={<ResultVotingMethod />} />
+				<Route path="/voting-method" element={<VotingMethod />} />
+				<Route path="/result-voting-method" element={<ResultVotingMethod />} />
 				<Route path="/review" element={<ReviewPage />} />
 			</Routes>
 			<footer></footer>

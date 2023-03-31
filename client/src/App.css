@@ -8643,13 +8643,15 @@ Luan CSS
 }
 
 .border-decision-framework-pages {
-	padding: 20px 20px;
+	padding: 20px 20px 30px 20px;
 	border-width: 2px;
 	border-style: solid;
 	border-color: #d9d9d9;
 	border-radius: 5px;
 }
-
+.border-decision-framework-pages h6{
+	margin-top: 0%;
+}
 .add-goal {
 	margin-top: 20px;
 	color: white;
@@ -8784,11 +8786,11 @@ table {
   padding: 8px;
 }
 .signup-modal-header{
-	display: flex;
+display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.signup-modal-header h2{
+.signup-modal-header h6{
 	margin: 0;
 }
 .signup-modal-header button{
@@ -8810,12 +8812,14 @@ table {
 	margin-bottom: 25px;
 }
 /* ------------- */
-
+.modal-header{
+	padding: 5px 5px 0px 15px;
+}
 /*Make responsive*/
 .container-radio-btn{
-    display: flex;
-    flex-direction: column;
-	padding: 0%;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 20px;
   }
 
   .container-radio-btn-long-text{
@@ -8832,7 +8836,7 @@ table {
 .radio{
 	display: flex;
 	align-items: flex-start;
-	margin-bottom: 10px;
+	/* margin-bottom: 10px; */
   }
 
   .input-radio-btn{
@@ -8872,7 +8876,8 @@ table {
 width: 80%;
 }
 #formName{
-	min-width: 170px;
+	min-width: 180px;
+	margin-left: 0%;
 }
 .plus{
 	justify-content: right;
@@ -8908,6 +8913,14 @@ display: inline-block;
 	border-radius: 3px;
 	margin: auto;
 }
+.col{
+	padding: 0%;
+}
+.tool-tip-bold{
+	text-align: center;
+	font-weight: bold;
+}
+
   @media (max-width: 480px) {
 	/* .container {
 		padding: 0 10px;
@@ -8916,7 +8929,8 @@ display: inline-block;
     .container-radio-btn {
       display: grid;
       grid-template-columns: repeat(1, 1fr);
-      grid-gap: 10px;
+      grid-gap: 15px;
+	  padding: 0%;
     }
 
     .flex-row-radio-btn{
