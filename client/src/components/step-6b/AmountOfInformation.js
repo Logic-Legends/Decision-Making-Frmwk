@@ -88,8 +88,7 @@ const TypeOfInformation = () => {
 							<span className="radio-label">
 								<span className="radio-title">High </span>
 								<span className="radio-description">
-									You have enough information to rank or assign values to all
-									options
+								Example: You have enough information to rank all of the options from highest to lowest preference OR score every option from 1-100.
 								</span>
 							</span>
 						</label>
@@ -105,7 +104,7 @@ const TypeOfInformation = () => {
 							<span className="radio-label">
 								<span className="radio-title">Medium </span>
 								<span className="radio-description">
-									You have enough information to...
+								Example: You have enough information to score every option from 1-5.
 								</span>
 							</span>
 						</label>
@@ -121,7 +120,7 @@ const TypeOfInformation = () => {
 							<span className="radio-label">
 								<span className="radio-title">Low </span>
 								<span className="radio-description">
-									You have enough information to say yes or no to each option
+								Example: You have enough information to answer yes or no to each option OR pick one favorite option.
 								</span>
 							</span>
 						</label>
