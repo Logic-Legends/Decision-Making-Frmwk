@@ -114,7 +114,7 @@ function Review() {
 
       <h2 className="review-title">Leave Review</h2>
       <form onSubmit={handleSubmit} noValidate>
-        <label className= "review-name-label" htmlFor="name">Name:</label>
+        <label className= "review-name-label" htmlFor="name">Name</label>
         <input
           className="input-review"
           type="text"
@@ -127,19 +127,19 @@ function Review() {
           event.preventDefault();
           }
           }}
-          placeholder="Name"
+          placeholder="Please enter your name"
           maxLength="20"
           pattern="[A-Za-z\s]+"
           required
         />
-        <label className="review-comment-label" htmlFor="comment">Comment:</label>
+        <label className="review-comment-label" htmlFor="comment">Comment</label>
         <textarea
           className="input-review"
           id="comment"
           name="comment"
           value={comment}
           onChange={(e) => setComment(e.target.value)}
-          placeholder="Comment"
+          placeholder="Please enter your comment"
           maxLength="500"
           required
         ></textarea>

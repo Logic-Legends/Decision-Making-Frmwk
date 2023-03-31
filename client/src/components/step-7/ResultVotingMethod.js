@@ -45,7 +45,7 @@ const ResultVotingMethod = () => {
 						<tr>
 							<td>
 
-								Score voting (Voters give each option a score on some objective metric, and the option with the highest score wins.)
+								Score voting (Voters give each option a score on some objective metric, and the option with the highest score wins).
 
 							</td>
 							<td>
@@ -63,7 +63,7 @@ const ResultVotingMethod = () => {
 						<tr>
 							<td>
 
-								Delphi method (Involves multiple anonymous surveys followed by discussions about the aggregate survey results until a decision has been reached.)
+								Delphi method (Involves multiple anonymous surveys followed by discussions about the aggregate survey results until a decision has been reached).
 
 							</td>
 							<td>
