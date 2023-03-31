@@ -120,7 +120,10 @@ export default function Pdf(props) {
         <div>
             <Page style={styles.page}>
                 <Text style={styles.header} fixed>
-                    Your responses are below.
+                    Results
+                </Text>
+                <Text style={styles.text} fixed>
+                    Thank you for using the Voting Methods for Group Decisions tool! We hope the recommended voting method(s) below will help you make an informed decision.
                 </Text>
 
                 <div>
@@ -213,7 +216,7 @@ export default function Pdf(props) {
             </Page>
             <Page style={styles.page}>
                 <Text style={styles.header} fixed>
-                    Recommended Voting Method
+                    Voting Methods
                 </Text>
                 <Text style={styles.subtitle}>
                     Relative
@@ -222,7 +225,7 @@ export default function Pdf(props) {
                     <View style={styles.table}>
                         <View style={styles.tableHeader}>
                             <View style={styles.tableCol21}>
-                                <Text style={styles.tableTopic}>Voting Method</Text>
+                                <Text style={styles.tableTopic}>Voting Methods</Text>
                             </View>
                             <View style={styles.tableCol22}>
                                 <Text style={styles.tableTopic}>Amount of Information Needed</Text>
@@ -341,7 +344,7 @@ export default function Pdf(props) {
                     <View style={styles.table}>
                         <View style={styles.tableHeader}>
                             <View style={styles.tableCol21}>
-                                <Text style={styles.tableTopic}>Voting Method</Text>
+                                <Text style={styles.tableTopic}>Voting Methods</Text>
                             </View>
                             <View style={styles.tableCol22}>
                                 <Text style={styles.tableTopic}>Amount of Information Needed</Text>
@@ -366,8 +369,7 @@ export default function Pdf(props) {
 
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol21}>
-                                <Text style={styles.tableCell2}>Score voting (Voters give each option a score on some objective metric, and the option with the highest score
-                                    wins.)</Text>
+                                <Text style={styles.tableCell2}>Score voting (Voters give each option a score on some objective metric, and the option with the highest score wins.)</Text>
                             </View>
                             <View style={styles.tableCol22}>
                                 <Text style={styles.tableCell2}>Enough information for voters to score each option from 1-5
@@ -383,12 +385,11 @@ export default function Pdf(props) {
 
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol21}>
-                                <Text style={styles.tableCell2}>Delphi method (Involves multipleanonymous surveys followed by discussions about the aggregate survey results until a
-                                    decision has been reached.)</Text>
+                                <Text style={styles.tableCell2}>Delphi method (Involves multiple anonymous surveys followed by discussions about the aggregate survey results until a decision has been reached.)</Text>
                             </View>
                             <View style={styles.tableCol22}>
                                 <Text style={styles.tableCell2}>Enough information for voters to score each option
-                                    individually ccording to an external, objective metric.</Text>
+                                    individually according to an external, objective metric.</Text>
                             </View>
                             <View style={styles.tableCol23}>
                                 <Text style={styles.tableCell2}>You are making a very important decision, you have a long
