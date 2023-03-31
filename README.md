@@ -39,16 +39,16 @@ We welcome any and all contributions! Here are some ways you can get started:
 1. Navigate to your project directory in the terminal.
 2. Run the command `npm install nodemailer` to install Nodemailer
 
-# Database (postgreSQL)
+# Database (postgreSQL)----(Note: this setting is just for Linux based system if you have MAC you should follow this [link](https://syllabus.codeyourfuture.io/db/prep#macos))
 # Installation
 1. Run the command `$ sudo apt-get install postgresql postgresql-contrib` for installing postgreSQL
 2. Run the command `$ sudo -u postgres createuser -P --createdb <username>` for creating database user
 3. Run the command `$ createdb logic-legends` for creating database
-4. create a tables by following the tables structure :
+4. for creating tables on the database you can use these scripts :
 
 
-![User_review table](./server/db-scripts/tables/user_review.png)
-![Sign-up table](./server/db-scripts/tables/email_signup.png)
+[email_signup.sql](./server/db-scripts/email_signup.sql)
+[user_reviews.sql](./server/db-scripts/user_reviews.sql.sql)
 
 
 # Running Database
