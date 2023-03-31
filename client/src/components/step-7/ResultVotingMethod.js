@@ -92,7 +92,9 @@ const ResultVotingMethod = () => {
 					</thead>
 					<tbody>
 						<tr>
-							<td>First past the post</td>
+							<td>First past the post
+								(Each voter selects their favorite option, and the option with the most votes wins.)
+							</td>
 							<td>
 								Enough information for voters to pick a top 1 or 2 from the
 								list of options.
@@ -104,7 +106,9 @@ const ResultVotingMethod = () => {
 							</td>
 						</tr>
 						<tr>
-							<td>Multivoting</td>
+							<td>Multivoting
+								(Each voter has a certain number of votes to place on any of the options.)
+								</td>
 							<td>
 								Enough information for voters to pick a top 5 from the list
 								of options.
@@ -118,7 +122,7 @@ const ResultVotingMethod = () => {
 							</td>
 						</tr>
 						<tr>
-							<td>STAR voting</td>
+							<td>STAR voting (Voters score the options, and the one the majority prefers wins.)</td>
 							<td>
 								Enough information for voters to score the options, and the
 								one the majority prefers wins.
@@ -130,7 +134,8 @@ const ResultVotingMethod = () => {
 							</td>
 						</tr>
 						<tr>
-							<td>Ranked choice</td>
+							<td>Ranked choice
+								(Voters rank options based on preference, then a winner is chosen based on majority of first preference votes.)</td>
 							<td>
 
 								Enough information for voters to rank all of the options
@@ -143,7 +148,8 @@ const ResultVotingMethod = () => {
 							</td>
 						</tr>
 						<tr>
-							<td>Delphi method</td>
+							<td>Delphi method
+								(Involves multiple anonymous surveys followed by discussions about the aggregate survey results until a decision has been reached.)</td>
 							<td>
 								Enough information for voters to score each option
 								individually according to an external, objective metric.
@@ -157,7 +163,8 @@ const ResultVotingMethod = () => {
 							</td>
 						</tr>
 						<tr>
-							<td>Quadratic voting</td>
+							<td>Quadratic voting
+								(Voters use credits on any option, but the marginal cost of adding an additional credit to an option is higher than adding the last credit.)</td>
 							<td>
 								Enough information for voters to understand subtle
 								differences between options so they can express a higher

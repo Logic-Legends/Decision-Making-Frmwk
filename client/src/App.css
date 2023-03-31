@@ -8807,7 +8807,7 @@ display: flex;
   color: #000;
 }
 .question-hint{
-	font-size: small;
+	font-size: 14px;
 	margin-bottom: 25px;
 	
 }
