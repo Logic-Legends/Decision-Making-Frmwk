@@ -43,10 +43,10 @@ const Capacity = () => {
 		if (selectedOptionCapacity === null) {
 			setIsModalOpen(true);
 		} else {
-			setIsStarted(true);
 			setStep(currentStep + 1);
 			setStepCompleted(stepNumber+1);
-			navigate("/time-and-resource");
+			navigate("/time-resource");
+			setIsStarted(true);
 		}
 	};
 	//radio btn handler

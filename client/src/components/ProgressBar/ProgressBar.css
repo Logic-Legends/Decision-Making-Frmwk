@@ -85,8 +85,8 @@
   .stepBlock:not(:last-child) > .circleWrapper::after {
     height: 3px;
   }
-   */
- .stepBlock:not(:last-child).selected > .circleWrapper::after, .stepBlock:not(:last-child).selected ~ .stepBlock:not(:last-child) > .circleWrapper::after {
+
+  .stepBlock:not(:last-child).selected > .circleWrapper::after, .stepBlock:not(:last-child).selected ~ .stepBlock:not(:last-child) > .circleWrapper::after {
     height: 2px;
     opacity: 0.6;
   } 
