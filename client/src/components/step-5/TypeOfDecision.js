@@ -3,9 +3,12 @@ import { Link } from "react-router-dom";
 import { useNavigate,useLocation } from "react-router-dom";
 import { useState, useContext } from "react";
 import tooltipIcon from "./images/tooltipicon.png";
-import HandleTooltipClick from "./HandleTooltipClick";
+// import HandleTooltipClick from "./HandleTooltipClick";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 import "./TypeOfDecision.css";
+import HandleToolTip from "../ProgressBar/HandleToolTip";
+
+
 
 const TypeOfDecision = () => {
     const stepNumber = 6;
@@ -68,12 +71,39 @@ const TypeOfDecision = () => {
 		setStep(getStepIdFromLocation(pathname));
 	  }, [pathname]);
 
+
+      const modalTitle = "Question to consider:";
+      const modalText = `				<ul className="tooltip-list">
+      <li>
+          Would it be better to do a first pass at the decision with a simple
+          voting method (e.g., yes/no to each option) and then do a second
+          pass with a more complex voting method (e.g., scale of 1-5 for each
+          option)?
+      </li>
+      <li>
+          Would it be good for decision-makers to share their views before
+          making a final decision?
+      </li>
+      <li>
+          Is this an ongoing decision that needs to be updated on a regular
+          schedule?
+      </li>
+  </ul>
+  <br></br>
+  <p className="tool-tip-bold">
+      If you answered YES to any of these questions, consider categorizing it
+      as iterative.
+  </p>`;
+
+
     return (
         <div className="container">
             {/* call first tooltip component */}
-            <HandleTooltipClick
+            <HandleToolTip
                 show={modalShow}
                 onHide={() => setModalShow(false)}
+                title={modalTitle}
+				text={modalText}
             />
             <h2>
                 Type of Decision{" "}

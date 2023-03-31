@@ -13,7 +13,7 @@ function ProgressBarContext() {
 		{ id: "2", location: "/decision-makers" },
 		{ id: "3", location: "/importance" },
 		{ id: "4", location: "/capacity" },
-		{ id: "5", location: "/time-and-resource" },
+		{ id: "5", location: "/time-resource" },
 		{ id: "6", location: "/type-of-decision" },
 		{ id: "7", location: "/type-of-information" },
 		{ id: "8", location: "/amount-of-information" },

@@ -40,7 +40,7 @@ const App = () => {
 				<Route path="/decision-makers" element={<DecisionMakers />} />
 				<Route path="importance" element={<Importance />} />
 				<Route path="/capacity" element={<Capacity />} />
-				<Route path="/time-and-resource" element={<TimeResource />} />
+				<Route path="/time-resource" element={<TimeResource />} />
 				<Route path="/type-of-information" element={<TypeOfInformation />} />
 				<Route path="/amount-of-information" element={<AmountOfInformation />} />
 				<Route path="/results" element={<Results />} />

@@ -2,10 +2,10 @@ import React, { useState, useContext, useEffect } from "react";
 import DecisionMakersForm from "./DicisionMakersForm";
 import { Container, Table } from "react-bootstrap";
 import QuestionMark from "../step-1/images/question-mark.png";
-import ModalComponent from "./ModalComponent";
 import { Link, useNavigate ,useLocation } from "react-router-dom#";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 import Icon from "react-crud-icons";
+import HandleTooltip from "../ProgressBar/HandleToolTip";
 
 function DecisionMakers() {
   // const [users, setUsers] = useState([]);
@@ -13,10 +13,9 @@ function DecisionMakers() {
   const { users, setUsers, currentStep, labelArray, setStep,setStepCompleted,getStepIdFromLocation } = useContext(stepProgressContext);
 
   const [editIndex, setEditIndex] = useState(-1);
-  const [showModal, setShowModal] = useState(false);
-  // const [error, setError] = useState("");
-  // const [show, setShow] = useState(true);
-  //state for error handling
+  // const [showModal, setShowModal] = useState(false);
+
+  const [modalShow, setModalShow] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const stepNumber = 2;
@@ -45,13 +44,7 @@ function DecisionMakers() {
   };
 
 
-  const handleShow = () => {
-    setShowModal(true);
-  };
 
-  const handleClose = () => {
-    setShowModal(false);
-  };
 
 
   const handleNextBtn = () => {
@@ -97,11 +90,29 @@ function DecisionMakers() {
 		setStep(getStepIdFromLocation(pathname));
 	  }, [pathname]);
 
+
+    const modalTitle = "<strong>Questions to consider:</strong>";
+    const modalText = `Should you include all team members working on the project or a smaller
+    subset?
+    <br />
+    <br />
+    Have you included a diverse set of viewpoints in our decision-making
+    team?
+    <br />
+    <br />
+    Is there any sensitive information that may influence team selection?`;
+
   return (
 
     <Container className="container">
-      {showModal && <ModalComponent showModal={showModal} handleClose={handleClose} />}
-      <h3>Who is making the decision?<img className="question-mark-pages" src={QuestionMark} alt="Qusestion Mark" border="0" onClick={handleShow}></img></h3>
+			<HandleTooltip
+         title={modalTitle}
+         text={modalText}
+         show={modalShow}
+         onHide={() => setModalShow(false)}
+         />
+
+      <h3>Who is making the decision?<img className="question-mark-pages" src={QuestionMark} alt="Qusestion Mark" border="0" onClick={() => setModalShow(true)}></img></h3>
 
       <div className="border-decision-framework-pages">
         <p><strong>Please add the responsible party(ies)</strong></p>
