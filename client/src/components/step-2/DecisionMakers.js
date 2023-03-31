@@ -121,6 +121,7 @@ function DecisionMakers() {
           editUser={users[editIndex]}
           editIndex={editIndex}
         />
+          {users.length > 0 && (
         <Table striped hover   >
           <thead>
             <tr>
@@ -131,10 +132,10 @@ function DecisionMakers() {
             {users.map((user, index) => (
               <tr key={index} className="vh-auto border">
                 <td className="w-50 border pt-4">{user.name}</td>
-                <td className="d-flex justify-content-end border  border-start-0" >
-
+                <td className="border  border-start-0" >
+{/*
                   <button className="inner  mb-0 py-2 " onClick={() => editUser(index)}>EDIT</button>
-                  <button className="inner button-delete-team  mb-0 py-2" onClick={() => deleteUser(index)}>DELETE</button>
+                  <button className="inner button-delete-team  mb-0 py-2" onClick={() => deleteUser(index)}>DELETE</button> */}
                   <div className="dlt-edt-icons">
                     <Icon
                       name="edit"
@@ -157,7 +158,7 @@ function DecisionMakers() {
             ))}
           </tbody>
         </Table>
-
+ )}
 
       </div>
       <div id="button-same-line">
