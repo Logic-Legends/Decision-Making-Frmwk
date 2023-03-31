@@ -111,7 +111,7 @@ function SignUp() {
 				{showSuccessMessage && (
 					<div className="modal">
 					<div className="modal-display">
-					<p>thank you for your subscription!</p>
+					<p>Thank you for your subscription!</p>
 					</div>
 				</div>
 				)}

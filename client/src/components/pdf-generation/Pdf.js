@@ -335,7 +335,7 @@ export default function Pdf(props) {
             </Page>
             <Page style={styles.page}>
                 <Text style={styles.header} fixed>
-                    Recommended Voting Method
+                    Voting Methods
                 </Text>
                 <Text style={styles.subtitle}>
                     Explicit
@@ -356,7 +356,7 @@ export default function Pdf(props) {
 
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol21}>
-                                <Text style={styles.tableCell2}>Approval voting (Voters choose &quot;Yes&quot; or &quot;No&quot; for each option, and the option with the most &quot;Yes&quot; votes wins.)</Text>
+                                <Text style={styles.tableCell2}>Approval voting (Voters choose &quot;Yes&quot; or &quot;No&quot; for each option, and the option with the most &quot;Yes&quot; votes wins).</Text>
                             </View>
                             <View style={styles.tableCol22}>
                                 <Text style={styles.tableCell2}>Enough information for voters to answer yes or no to each
@@ -369,7 +369,7 @@ export default function Pdf(props) {
 
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol21}>
-                                <Text style={styles.tableCell2}>Score voting (Voters give each option a score on some objective metric, and the option with the highest score wins.)</Text>
+                                <Text style={styles.tableCell2}>Score voting (Voters give each option a score on some objective metric, and the option with the highest score wins).</Text>
                             </View>
                             <View style={styles.tableCol22}>
                                 <Text style={styles.tableCell2}>Enough information for voters to score each option from 1-5
@@ -385,7 +385,7 @@ export default function Pdf(props) {
 
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol21}>
-                                <Text style={styles.tableCell2}>Delphi method (Involves multiple anonymous surveys followed by discussions about the aggregate survey results until a decision has been reached.)</Text>
+                                <Text style={styles.tableCell2}>Delphi method (Involves multiple anonymous surveys followed by discussions about the aggregate survey results until a decision has been reached).</Text>
                             </View>
                             <View style={styles.tableCol22}>
                                 <Text style={styles.tableCell2}>Enough information for voters to score each option

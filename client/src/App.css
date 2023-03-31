@@ -9088,9 +9088,10 @@ margin: auto;
   }
 
   .review-comment {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
+	/* display: flex; */
+	/* justify-content: flex-start; */
+	/* align-items: center; */
+	text-align: left;
 	color: rgb(130, 130, 130); 
   }
 

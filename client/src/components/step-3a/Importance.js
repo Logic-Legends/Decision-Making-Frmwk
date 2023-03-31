@@ -6,7 +6,7 @@ import tooltipIcon from "./images/tooltipicon.png";
 import HandleFirstTooltipClick from "./HandleFirstTooltipImportance";
 import HandleSecondTooltipClick from "./HandleSecondTooltipImportance";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
-import HandleToolTip from "../ProgressBar/HandToolTip";
+import HandleToolTip from "../ProgressBar/HandleToolTip";
 
 const Importance = () => {
 

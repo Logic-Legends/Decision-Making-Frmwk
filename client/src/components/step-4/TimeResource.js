@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { Link ,useNavigate,useLocation } from "react-router-dom";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 import QuestionMark from "./images/question-mark.png";
-import HandleTooltip from "./HandleTooltip";
+import HandleToolTip from "../ProgressBar/HandleToolTip";
 
 const TimeResource = () => {
 
@@ -72,11 +72,18 @@ const TimeResource = () => {
   useEffect(() => {
 	setStep(getStepIdFromLocation(pathname));
   }, [pathname]);
+
+  const modalTitle = "<strong>Time and Resource Allocation</strong>  ";
+  const modalText = "Spending more time on decisions creates an opportunity to gather and  use more information, leading to higher specificity and detail in the voting method.";
+
+
 	return (
 		<div className="container">
-			<HandleTooltip
+			<HandleToolTip
 				show={modalShow}
 				onHide={() => setModalShow(false)}
+				title={modalTitle}
+				text={modalText}
 			/>
 
 			<h2>

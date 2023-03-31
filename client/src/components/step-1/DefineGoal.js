@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { Link, useNavigate,useLocation } from "react-router-dom";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 import QuestionMark from "./images/question-mark.png";
-import HandleTooltip from "./HandleTooltip";
+import HandleTooltip from "../ProgressBar/HandleToolTip";
 
 
 const DefineGoal = () => {
@@ -55,11 +55,15 @@ const DefineGoal = () => {
 		setStep(getStepIdFromLocation(pathname));
 	  }, [pathname]);
 
+/*  Modal Title and Text */
+
+const modalTitle = "<strong>Define the goal</strong>";
+const modalText = "Defining the goal will help you determine what kind of information you need to make a decision..";
 
 	return (
 
 		<div className="container">
-			<HandleTooltip clickedicon='defineGoal' show={modalShow} onHide={() => setModalShow(false)} />
+			<HandleTooltip title={modalTitle} text={modalText} clickedicon='defineGoal' show={modalShow} onHide={() => setModalShow(false)} />
 
 			<h3>What is the goal? <img
 						className="question-mark-pages"
