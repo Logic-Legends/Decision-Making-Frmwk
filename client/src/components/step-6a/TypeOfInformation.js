@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import FirstHandleTooltip from "./FirstHandleTooltip";
 import QuestionMark from "./images/question-mark.png";
 
@@ -16,7 +16,7 @@ const TypeOfInformation = () => {
   const navigate = useNavigate();
 
   //Used to get data to select radio button
-  const { selectedOptionTypeOfInformation, setSelectedOptionTypeOfInformation, setStep,setStepCompleted } = useContext(stepProgressContext);
+  const { selectedOptionTypeOfInformation, setSelectedOptionTypeOfInformation, setStep,setStepCompleted,getStepIdFromLocation } = useContext(stepProgressContext);
 
   //When change the option from radio button
   const handleOptionChange = (event) => {
@@ -44,6 +44,8 @@ const TypeOfInformation = () => {
 
   // Progress Bar Step Number
   const stepNumber = 7;
+  const location = useLocation();
+  const { pathname } = location;
 
   //ADD TO STORAGE SESSION LAST PAGE
   useEffect(() => {
@@ -52,6 +54,11 @@ const TypeOfInformation = () => {
       setSelectedOptionTypeOfInformation(storedTypeOfInformation);
     }
   }, []);
+
+  // update the step number when using browser navigation or refreshing the component
+  useEffect(() => {
+	setStep(getStepIdFromLocation(pathname));
+  }, [pathname]);
 
 
     return (

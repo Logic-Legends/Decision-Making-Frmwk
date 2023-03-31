@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate,useLocation } from "react-router-dom";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 import QuestionMark from "./images/question-mark.png";
 import HandleTooltip from "./HandleTooltip";
@@ -9,6 +9,9 @@ const DefineGoal = () => {
 
 	//Used for progress bar
 	const stepNumber = 1;
+	const location = useLocation();
+	const { pathname } = location;
+
 
 	//Go to webpage
 	const navigate = useNavigate();
@@ -20,7 +23,7 @@ const DefineGoal = () => {
 	const [modalShow, setModalShow] = React.useState(false);
 
 	//Used for get data and fill input
-	const { defineGoalText, setDefineGoalText, setStep,setStepCompleted } = useContext(stepProgressContext);
+	const { defineGoalText, setDefineGoalText, setStep,setStepCompleted,getStepIdFromLocation  } = useContext(stepProgressContext);
 
 	const handleChange = (event) => {
 		setDefineGoalText(event.target.value);
@@ -47,6 +50,12 @@ const DefineGoal = () => {
 		}
 	}, []);
 
+  // update the step number when using browser navigation or refreshing the component
+	useEffect(() => {
+		setStep(getStepIdFromLocation(pathname));
+	  }, [pathname]);
+
+
 	return (
 
 		<div className="container">
@@ -62,7 +71,7 @@ const DefineGoal = () => {
 			<div className="border-decision-framework-pages">
 				<h6>What decision are you trying to make?</h6>
 				<p>
-				Think of SMART Goals, Specific, Measurable, Achievable, Realistic, Time-based.
+				Think of SMART Goals: Specific, Measurable, Achievable, Realistic, Time-based.
 				</p>
 
 				<textarea

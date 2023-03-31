@@ -1,13 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import FirstHandleTooltip from "./FirstHandleTooltip";
 import QuestionMark from "./images/question-mark.png";
 
 const TypeOfInformation = () => {
 
   //Used to get data to select radio button
-  const { selectedOptionAmountOfInformation, setSelectedOptionAmountOfInformation, setStep,setStepCompleted } = useContext(stepProgressContext);
+  const { selectedOptionAmountOfInformation, setSelectedOptionAmountOfInformation, setStep,setStepCompleted,getStepIdFromLocation } = useContext(stepProgressContext);
 
   //FirstHandleTooltip
   const [FirstModalShow, FirstSetModalShow] = React.useState(false);
@@ -33,6 +33,7 @@ const TypeOfInformation = () => {
       setIsModalOpen(true);
     } else {
       setStep(stepNumber + 1);
+	  setStepCompleted(stepNumber+1);
       navigate("/voting-method"); //Go to page and pass data
     }
   };
@@ -52,6 +53,14 @@ const TypeOfInformation = () => {
   // Progress Bar Step Number
 
   const stepNumber=8;
+  const location = useLocation();
+  const { pathname } = location;
+
+  // update the step number when using browser navigation or refreshing the component
+  useEffect(() => {
+	setStep(getStepIdFromLocation(pathname));
+  }, [pathname]);
+
 
     return (
 			<div className="container">
