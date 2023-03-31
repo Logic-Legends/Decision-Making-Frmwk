@@ -44,7 +44,9 @@ We welcome any and all contributions! Here are some ways you can get started:
 1. Run the command `$ sudo apt-get install postgresql postgresql-contrib` for installing postgreSQL
 2. Run the command `$ sudo -u postgres createuser -P --createdb <username>` for creating database user
 3. Run the command `$ createdb logic-legends` for creating database
-4. create a tables by following the tables structure in this direction:
+4. create a tables by following the tables structure :
+
+
 ![User_review table](./server/db-scripts/tables/user_review.png)
 ![Sign-up table](./server/db-scripts/tables/email_signup.png)
 
@@ -67,7 +69,7 @@ We welcome any and all contributions! Here are some ways you can get started:
 		specPattern: "client/**/*.cy.js",
 		supportFile: "client/cypress/component.js",
 # Runing test
-1. To write and run you test you can follow the [Link](https://docs.cypress.io/guides/end-to-end-testing/writing-your-first-end-to-end-test) :
+1. To write and run you test you can follow the [Link](https://docs.cypress.io/guides/end-to-end-testing/writing-your-first-end-to-end-test) 
  
 
 # Sample prototype of this project
