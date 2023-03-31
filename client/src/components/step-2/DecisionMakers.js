@@ -44,9 +44,6 @@ function DecisionMakers() {
   };
 
 
-  const handleShow = () => {
-    setShowModal(true);
-  };
 
 
 
