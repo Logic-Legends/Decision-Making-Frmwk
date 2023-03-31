@@ -44,7 +44,7 @@ function DecisionMakersForm({ addUser, editUser, editIndex }) {
       {isModalOpen && (
         <div className="modal">
           <div className="modal-display">
-            <p>Name fields must be filled.</p>
+            <p>Name fields must be filled!</p>
             <button
               onClick={() => setIsModalOpen(false)}
               className="modal-btn"
@@ -69,7 +69,7 @@ function DecisionMakersForm({ addUser, editUser, editIndex }) {
             </Form.Group>
           </Col>
           <Col className="d-flex align-items-end plus">
-            <button className="inner mb-0 py-2" type="submit">
+            <button className="mb-0 py-2 add-btn" type="submit">
               {editIndex === -1 ? "Add" : "Update"}
             </button>
 

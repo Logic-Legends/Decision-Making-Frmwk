@@ -237,7 +237,7 @@ export default function Pdf(props) {
 
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol21}>
-                                <Text style={styles.tableCell2}>First past the post</Text>
+                                <Text style={styles.tableCell2}>First past the post (Each voter selects their favorite option, and the option with the most votes wins.)</Text>
                             </View>
                             <View style={styles.tableCol22}>
                                 <Text style={styles.tableCell2}>Enough information for voters to pick a top 1 or 2 from the
@@ -252,7 +252,7 @@ export default function Pdf(props) {
 
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol21}>
-                                <Text style={styles.tableCell2}>Multivoting</Text>
+                                <Text style={styles.tableCell2}>Multivoting (Each voter has a certain number of votes to place on any of the options.)</Text>
                             </View>
                             <View style={styles.tableCol22}>
                                 <Text style={styles.tableCell2}>Enough information for voters to pick a top 5 from the list
@@ -268,7 +268,7 @@ export default function Pdf(props) {
 
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol21}>
-                                <Text style={styles.tableCell2}>STAR voting</Text>
+                                <Text style={styles.tableCell2}>STAR voting (Voters score the options, and the one the majority prefers wins.)</Text>
                             </View>
                             <View style={styles.tableCol22}>
                                 <Text style={styles.tableCell2}>Enough information for voters to score the options, and the
@@ -283,7 +283,7 @@ export default function Pdf(props) {
 
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol21}>
-                                <Text style={styles.tableCell2}>Ranked choice</Text>
+                                <Text style={styles.tableCell2}>Ranked choice (Voters rank options based on preference, then a winner is chosen based on majority of first preference votes.)</Text>
                             </View>
                             <View style={styles.tableCol22}>
                                 <Text style={styles.tableCell2}>Enough information for voters to rank all of the options
@@ -297,7 +297,7 @@ export default function Pdf(props) {
 
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol21}>
-                                <Text style={styles.tableCell2}>Delphi method</Text>
+                                <Text style={styles.tableCell2}>Delphi method (Involves multiple anonymous surveys followed by discussions about the aggregate survey results until a decision has been reached.)</Text>
                             </View>
                             <View style={styles.tableCol22}>
                                 <Text style={styles.tableCell2}>Enough information for voters to score each option
@@ -312,7 +312,7 @@ export default function Pdf(props) {
 
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol21}>
-                                <Text style={styles.tableCell2}>Quadratic voting</Text>
+                                <Text style={styles.tableCell2}>Quadratic voting (Voters use credits on any option, but the marginal cost of adding an additional credit to an option is higher than adding the last credit.)</Text>
                             </View>
                             <View style={styles.tableCol22}>
                                 <Text style={styles.tableCell2}>Enough information for voters to understand subtle

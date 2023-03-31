@@ -26,7 +26,7 @@ const Start = () => {
         <h6>What is the outcome? </h6>
         <p>You will receive a recommendation of the type of voting method to use in your group decision. </p>
         <h6>How much time will I need? </h6>
-        <p>We advise you spend up to 30 minutes in using the tool. </p>
+        <p>We advise you to spend up to 30 minutes in using the tool. </p>
       </div>
       <div className="start-btn">
         <Link to="/define-goal"><button className="inner" onClick={handleButtonClick}>Start </button></Link>
