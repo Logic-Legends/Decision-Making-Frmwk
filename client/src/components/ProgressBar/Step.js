@@ -13,7 +13,6 @@ export default function Step(props) {
 
   const clickStep=()=>{
     let locationValue;
- console.log("currentStep:",currentStep);
   const clickedStep = labelArray.find((obj) => obj.id == props.label);
 
   if (clickedStep) {
