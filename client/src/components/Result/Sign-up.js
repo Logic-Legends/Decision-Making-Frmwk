@@ -78,7 +78,6 @@ function SignUp() {
 							>
 								OK
 							</button>
-
 						</div>
 					</div>
 				)}
@@ -89,7 +88,6 @@ function SignUp() {
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 						placeholder="Please enter your email"
-
 					/>
 					<button type="submit" className="inner">
 						Submit

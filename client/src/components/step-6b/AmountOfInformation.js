@@ -150,7 +150,6 @@ const TypeOfInformation = () => {
 				</div>
 			</div>
 		);
-
 };
 
 export default TypeOfInformation;
