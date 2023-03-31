@@ -8693,14 +8693,16 @@ Luan CSS
 /* Button back and next in the same line */
 
 #button-same-line {
+	display: flex;
 	width: 100%;
-	text-align: left;
 	margin-top: 22px;
+	justify-content: center;
 }
 .inner {
 	margin: 9px;
 	display: inline-block;
 	border-radius: 3px;
+	
 }
 
 /* Test of table */
@@ -8873,15 +8875,24 @@ display: flex;
 	display: none;
 	
 }
+.add-btn{
+	margin: 10px;
+	display: inline-block;
+	border-radius: 5px;
+	height: 37px;
+}
+	
+
 .nameTable{
 width: 80%;
 }
 #formName{
-	min-width: 180px;
+	display: flex;
 	margin-left: 0%;
 }
 .plus{
-	justify-content: right;
+	justify-content: left;
+	margin-left: 15px;
 }
 .result-buttons-container{
 	display: grid;
@@ -8915,6 +8926,7 @@ display: inline-block;
 	margin: auto;
 }
 .col{
+	
 	padding: 0%;
 }
 .tool-tip-bold{
@@ -8922,11 +8934,15 @@ display: inline-block;
 	font-weight: bold;
 }
 
+
   @media (max-width: 480px) {
 	/* .container {
 		padding: 0 10px;
 	} */
-
+.form-control{
+width: 100%;
+max-width: 180px;
+}
     .container-radio-btn {
       display: grid;
       grid-template-columns: repeat(1, 1fr);
