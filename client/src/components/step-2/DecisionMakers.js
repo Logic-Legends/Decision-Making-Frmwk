@@ -3,14 +3,14 @@ import DecisionMakersForm from "./DicisionMakersForm";
 import { Container, Table } from "react-bootstrap";
 import QuestionMark from "../step-1/images/question-mark.png";
 import ModalComponent from "./ModalComponent";
-import { Link, useNavigate } from "react-router-dom#";
+import { Link, useNavigate ,useLocation } from "react-router-dom#";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 import Icon from "react-crud-icons";
 
 function DecisionMakers() {
   // const [users, setUsers] = useState([]);
 
-  const { users, setUsers, currentStep, labelArray, setStep,setStepCompleted } = useContext(stepProgressContext);
+  const { users, setUsers, currentStep, labelArray, setStep,setStepCompleted,getStepIdFromLocation } = useContext(stepProgressContext);
 
   const [editIndex, setEditIndex] = useState(-1);
   const [showModal, setShowModal] = useState(false);
@@ -20,8 +20,10 @@ function DecisionMakers() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const stepNumber = 2;
+	const location = useLocation();
+	const { pathname } = location;
 
-  console.log(users);
+
   const navigate = useNavigate();
   const addUser = (newUser) => {
     if (editIndex === -1) {
@@ -88,6 +90,12 @@ function DecisionMakers() {
       setUsers(JSON.parse(storedUsers));
     }
   }, []);
+
+
+    // update the step number when using browser navigation or refreshing the component
+	useEffect(() => {
+		setStep(getStepIdFromLocation(pathname));
+	  }, [pathname]);
 
   return (
 
