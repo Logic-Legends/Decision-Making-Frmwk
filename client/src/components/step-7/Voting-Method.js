@@ -45,7 +45,7 @@ const VotingMethod = () => {
 		) {
 			setExplicitVotingMethod("Score voting");
 			setExplicitVotingMethodDesc(
-				"Voters give each optiona score on some objective metric, and the option with the highest score wins."
+				"Voters give each option score on some objective metric, and the option with the highest score wins."
 			);
 			sessionStorage.setItem("explicitVotingMethod", "Score voting");
 		} else if (

@@ -39,7 +39,7 @@ export default function Step(props) {
     {isModalOpen && (
 					<div className="modal">
 						<div className="modal-display">
-							<p>Please complete previous steps</p>
+							<p>Please complete previous steps!</p>
 							<button
 								onClick={() => setIsModalOpen(false)}
 								className="modal-btn"

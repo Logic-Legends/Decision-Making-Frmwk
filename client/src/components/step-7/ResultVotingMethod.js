@@ -26,7 +26,7 @@ const ResultVotingMethod = () => {
 					<tbody>
 						<tr>
 							<td>
-								Approval voting (Voters choose &quot;Yes&quot; or &quot;No&quot; for each
+								<a href="https://electionscience.org/library/approval-voting/">Approval voting</a> (Voters choose &quot;Yes&quot; or &quot;No&quot; for each
 
 								option, and the option with the most &quot;Yes&quot; votes wins).
 
@@ -44,8 +44,8 @@ const ResultVotingMethod = () => {
 						</tr>
 						<tr>
 							<td>
-
-								Score voting (Voters give each option a score on some objective metric, and the option with the highest score wins).
+								<a href="https://electionscience.org/library/score-voting/">Score voting</a>
+								 (Voters give each option a score on some objective metric, and the option with the highest score wins).
 
 							</td>
 							<td>
@@ -62,8 +62,8 @@ const ResultVotingMethod = () => {
 						</tr>
 						<tr>
 							<td>
-
-								Delphi method (Involves multiple anonymous surveys followed by discussions about the aggregate survey results until a decision has been reached).
+								<a href="https://www.bps.org.uk/psychologist/delphi-method">Delphi method</a>
+								 (Involves multiple anonymous surveys followed by discussions about the aggregate survey results until a decision has been reached).
 
 							</td>
 							<td>
@@ -92,7 +92,10 @@ const ResultVotingMethod = () => {
 					</thead>
 					<tbody>
 						<tr>
-							<td>First past the post</td>
+							<td><a href="https://en.wikipedia.org/wiki/First-past-the-post_voting">First past the post</a>
+
+								(Each voter selects their favorite option, and the option with the most votes wins.)
+							</td>
 							<td>
 								Enough information for voters to pick a top 1 or 2 from the
 								list of options.
@@ -104,7 +107,10 @@ const ResultVotingMethod = () => {
 							</td>
 						</tr>
 						<tr>
-							<td>Multivoting</td>
+							<td><a href="https://sixsigmastudyguide.com/multivoting/">Multivoting</a>
+
+								(Each voter has a certain number of votes to place on any of the options.)
+								</td>
 							<td>
 								Enough information for voters to pick a top 5 from the list
 								of options.
@@ -118,7 +124,8 @@ const ResultVotingMethod = () => {
 							</td>
 						</tr>
 						<tr>
-							<td>STAR voting</td>
+							<td><a href="https://www.starvoting.org/">STAR voting</a>
+							 (Voters score the options, and the one the majority prefers wins.)</td>
 							<td>
 								Enough information for voters to score the options, and the
 								one the majority prefers wins.
@@ -130,7 +137,9 @@ const ResultVotingMethod = () => {
 							</td>
 						</tr>
 						<tr>
-							<td>Ranked choice</td>
+							<td><a href="https://ballotpedia.org/Ranked-choice_voting_(RCV)">Ranked choice</a>
+
+								(Voters rank options based on preference, then a winner is chosen based on majority of first preference votes.)</td>
 							<td>
 
 								Enough information for voters to rank all of the options
@@ -143,7 +152,9 @@ const ResultVotingMethod = () => {
 							</td>
 						</tr>
 						<tr>
-							<td>Delphi method</td>
+							<td><a href="https://www.bps.org.uk/psychologist/delphi-method">Delphi method</a>
+
+								(Involves multiple anonymous surveys followed by discussions about the aggregate survey results until a decision has been reached.)</td>
 							<td>
 								Enough information for voters to score each option
 								individually according to an external, objective metric.
@@ -157,7 +168,9 @@ const ResultVotingMethod = () => {
 							</td>
 						</tr>
 						<tr>
-							<td>Quadratic voting</td>
+							<td><a href="https://towardsdatascience.com/what-is-quadratic-voting-4f81805d5a06">Quadratic voting</a>
+
+								(Voters use credits on any option, but the marginal cost of adding an additional credit to an option is higher than adding the last credit.)</td>
 							<td>
 								Enough information for voters to understand subtle
 								differences between options so they can express a higher

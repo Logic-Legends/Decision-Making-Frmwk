@@ -106,8 +106,8 @@ const Importance = () => {
 				<span className="radio-label">
 					<span className="radio-title"> </span>
 					<p className="radio-description question-hint">
-						Will it affect how you operate as an organisation or a team or the
-						way you interact with other organisations?
+						Will it affect how you operate as an organization or a team or the
+						way you interact with other organization?
 					</p>
 				</span>
 
