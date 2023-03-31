@@ -11,14 +11,14 @@ const ResultVotingMethod = () => {
 	};
 	return (
 		<div className="container">
-			<h3>Recommended Voting Method</h3>
+			<h3>Voting Methods</h3>
 			<hr />
 			<h6 className="table-header">Explicit</h6>
 			<div>
 				<table className="tbl-vote">
 					<thead>
 						<tr className="table-background">
-							<th>Voting Method</th>
+							<th>Voting Methods</th>
 							<th>Amount of Information Needed</th>
 							<th>Examples</th>
 						</tr>
@@ -44,10 +44,9 @@ const ResultVotingMethod = () => {
 						</tr>
 						<tr>
 							<td>
-								Score voting (Voters give each option a score on some
 
-								objective metric, and the option with the highest score
-								wins).
+								Score voting (Voters give each option a score on some objective metric, and the option with the highest score wins.)
+
 							</td>
 							<td>
 								Enough information for voters to score each option from 1-5
@@ -63,14 +62,13 @@ const ResultVotingMethod = () => {
 						</tr>
 						<tr>
 							<td>
-								Delphi method (Involves multipleanonymous surveys followed
 
-								by discussions about the aggregate survey results until a
-								decision has been reached).
+								Delphi method (Involves multiple anonymous surveys followed by discussions about the aggregate survey results until a decision has been reached.)
+
 							</td>
 							<td>
 								Enough information for voters to score each option
-								individually ccording to an external, objective metric.
+								individually according to an external, objective metric.
 							</td>
 							<td>
 								You are making a very important decision, you have a long
@@ -87,7 +85,7 @@ const ResultVotingMethod = () => {
 				<table className="tbl-vote">
 					<thead>
 						<tr className="table-background">
-							<th>Voting Method</th>
+							<th>Voting Methods</th>
 							<th>Amount of Information Needed</th>
 							<th>Examples</th>
 						</tr>

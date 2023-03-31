@@ -138,7 +138,7 @@ const VotingMethod = () => {
 
 	return (
 		<div className="container">
-			<h2>Recommended Voting Method</h2>
+			<h2>Recommended Voting Method(s)</h2>
 			<div className="border-decision-framework-pages">
 				{selectedOptionTypeOfInformation === "Explicit" ? (
 					<table>
@@ -188,10 +188,10 @@ const VotingMethod = () => {
 					</>
 				)}
 				<p>
-					To consult the full voting method use this{" "}
 					<Link to="/result-voting-method" >
-						link
+						Click here
 					</Link>
+					{" "}to view the full list of voting methods.
 				</p>
 			</div>
 			{/* btn sections */}

@@ -29,16 +29,17 @@ const Results = () => {
 	const navigate = useNavigate();
 	return (
 		<div className="container">
-			<h3>You have completed the tool. Please check your responses below.</h3>
+			<h3>Results</h3>
 			<p>
-				(Info)You can click on individual steps in the progress bar to go back
-				and change any of the responses.
+				Thank you for using the <strong>Voting Methods for Group Decisions tool!</strong> We hope the recommended voting method(s) below will help you make an informed decision. 
 			</p>
+			<h6>Summary</h6>
+			<p>Below is a summary of all your responses. You can click on individual steps in the progress bar to go back and change any of the responses.</p>
 			<div>
 				<table>
 					<tbody>
 						<tr className="table-background">
-							<th>Voting Method</th>
+							<th>Recommended Voting Method(s)</th>
 							{selectedOptionTypeOfInformation === "Explicit" ? (
 								<th>{explicitVotingMethod}</th>
 							) : (
@@ -46,11 +47,11 @@ const Results = () => {
 							)}
 						</tr>
 						<tr>
-							<td>What</td>
+							<td>What is the goal?</td>
 							<td>{defineGoalText}</td>
 						</tr>
 						<tr>
-							<td>Who</td>
+							<td>Who is making the decision?</td>
 							<td> {users.map((user, index) => (
 								<p key={index}>{user.name}</p>
 							))}</td>
