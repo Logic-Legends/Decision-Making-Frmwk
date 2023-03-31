@@ -3,6 +3,7 @@ import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 import { useNavigate,useLocation } from "react-router-dom";
 import FirstHandleTooltip from "./FirstHandleTooltip";
 import QuestionMark from "./images/question-mark.png";
+import HandleToolTip from "../ProgressBar/HandleToolTip";
 
 const TypeOfInformation = () => {
 
@@ -60,12 +61,16 @@ const TypeOfInformation = () => {
 	setStep(getStepIdFromLocation(pathname));
   }, [pathname]);
 
+  const modalTitle = "";
+  const modalText = "The type of information you have will help determine the ideal voting method.";
 
     return (
 			<div className="container">
-				<FirstHandleTooltip
+				<HandleToolTip
 					show={FirstModalShow}
 					onHide={() => FirstSetModalShow(false)}
+					title={modalTitle}
+				    text={modalText}
 				/>
 
 				<h2>

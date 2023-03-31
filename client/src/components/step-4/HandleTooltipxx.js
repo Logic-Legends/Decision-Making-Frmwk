@@ -1,6 +1,6 @@
 import Modal from "react-bootstrap/Modal";
 
-function HandleTooltip(props) {
+function HandleTooltipxx(props) {
 
 	return (
 		<Modal
@@ -12,7 +12,7 @@ function HandleTooltip(props) {
 			<Modal.Header closeButton>
 				<Modal.Title
 					id="contained-modal-title-vcenter"
-					
+
 				>
 					Time and Resource Allocation
 				</Modal.Title>
@@ -28,4 +28,4 @@ function HandleTooltip(props) {
 	);
 
 }
-export default HandleTooltip;
+export default HandleTooltipxx;

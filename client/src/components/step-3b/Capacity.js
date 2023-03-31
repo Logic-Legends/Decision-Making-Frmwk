@@ -6,7 +6,7 @@ import tooltipIcon from "./images/tooltipicon.png";
 import HandleFirstTooltipClick from "./HandleFirstTooltipCapacity";
 import HandleSecondTooltipClick from "./HandleSecondTooltipCapacity";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
-
+import HandleToolTip from "../ProgressBar/HandleToolTip";
 
 const Capacity = () => {
 
@@ -68,12 +68,19 @@ const Capacity = () => {
 	setStep(getStepIdFromLocation(pathname));
   }, [pathname]);
 
+
+  const modalTitle = "";
+  const modalText = "<strong>Capacity</strong> = how much time decision-makers can allocate to the decision-making process.";
+
+
 	return (
 		<div className="container">
 			{/* call first tooltip component */}
-			<HandleFirstTooltipClick
+			<HandleToolTip
 				show={modalShow}
 				onHide={() => setModalShow(false)}
+				title={modalTitle}
+				text={modalText}
 			/>
 			{/* call second tooltip component */}
 			<HandleSecondTooltipClick
