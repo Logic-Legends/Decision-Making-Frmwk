@@ -5,7 +5,18 @@ import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 const Start = () => {
 
   //GET REF FROM STEP1
-  const { setDefineGoalText ,setStepCompleted } = useContext(stepProgressContext);
+  const { setDefineGoalText ,setStepCompleted,
+   setSelectedOptionTypeOfInformation,
+   setSelectedOptionAmountOfInformation,
+   setEnteredData,
+   setUsers,
+    setSelectedOption,
+    setSelectedOptionCapacity,
+    setSelectedOptionDecision,
+    setExplicitVotingMethod,
+    setRelativeVotingMethod1,
+    setRelativeVotingMethod2,
+  } = useContext(stepProgressContext);
 
   //CLEAR SESSION STORAGE
   const handleButtonClick = () => {
@@ -13,6 +24,16 @@ const Start = () => {
       sessionStorage.clear();
       setDefineGoalText("");
       setStepCompleted(1);
+      setSelectedOptionTypeOfInformation("");
+      setSelectedOptionAmountOfInformation("");
+      setEnteredData("");
+      setUsers([]);
+      setSelectedOption("");
+      setSelectedOptionCapacity("");
+      setSelectedOptionDecision("");
+      setExplicitVotingMethod("");
+      setRelativeVotingMethod1("");
+      setRelativeVotingMethod2("");
     }
   };
 
