@@ -5,13 +5,14 @@ import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 const Start = () => {
 
   //GET REF FROM STEP1
-  const { setDefineGoalText } = useContext(stepProgressContext);
+  const { setDefineGoalText ,setStepCompleted } = useContext(stepProgressContext);
 
   //CLEAR SESSION STORAGE
   const handleButtonClick = () => {
     if (sessionStorage.length > 0) {
       sessionStorage.clear();
       setDefineGoalText("");
+      setStepCompleted(1);
     }
   };
 

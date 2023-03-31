@@ -37,6 +37,7 @@ const Results = () => {
   // update the step number when using browser navigation or refreshing the component
   useEffect(() => {
 	setStep(getStepIdFromLocation(pathname));
+	console.log("Step no.:",getStepIdFromLocation(pathname));
   }, [pathname]);
 
 

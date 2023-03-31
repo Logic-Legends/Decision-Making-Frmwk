@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
+
 // import { FaTimes } from "react-icons/fa";+
 
 function Review() {
@@ -8,6 +10,8 @@ function Review() {
   const [date, setDate] = useState("");
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showErrorMessage, setShowErrorMessage] = useState(false);
+
+  const { setStep,setStepCompleted } = useContext(stepProgressContext);
 
   //state for error handling
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -70,10 +74,13 @@ function Review() {
 
   //click back btn handler
   const handleBackClick = () => {
-    navigate("/Results");
+    setStep(stepNumber - 1);
+    setStepCompleted(stepNumber-1);
+    navigate("/results");
   };
 
 
+  const stepNumber=11;
 
 
   return (

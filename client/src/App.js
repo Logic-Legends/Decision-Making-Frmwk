@@ -17,21 +17,22 @@ import VotingMethod from "./components/step-7/Voting-Method";
 import ResultVotingMethod from "./components/step-7/ResultVotingMethod";
 import ReviewPage from "./components/Result/Review";
 
-
 const App = () => {
 	const { currentStep, labelArray, setStep } = useContext(stepProgressContext);
 	const location = useLocation();
-
 
 	return (
 		<div>
 			<header>
 				{location.pathname !== "/" && location.pathname !== "/review" && (
 					<>
-						<ProgressBar labelArray={labelArray} currentStep={currentStep} setStep={setStep}></ProgressBar>
+						<ProgressBar
+							labelArray={labelArray}
+							currentStep={currentStep}
+							setStep={setStep}
+						></ProgressBar>
 					</>
 				)}
-
 			</header>
 			<Routes>
 				{/* <Route path="/decision-makers" element={<DecisionMakers />} /> */}
@@ -42,7 +43,10 @@ const App = () => {
 				<Route path="/capacity" element={<Capacity />} />
 				<Route path="/time-resource" element={<TimeResource />} />
 				<Route path="/type-of-information" element={<TypeOfInformation />} />
-				<Route path="/amount-of-information" element={<AmountOfInformation />} />
+				<Route
+					path="/amount-of-information"
+					element={<AmountOfInformation />}
+				/>
 				<Route path="/results" element={<Results />} />
 				<Route path="/type-of-decision" element={<TypeOfDecision />} />
 				<Route path="/voting-method" element={<VotingMethod />} />

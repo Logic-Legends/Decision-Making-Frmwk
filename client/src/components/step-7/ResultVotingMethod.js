@@ -7,7 +7,7 @@ const ResultVotingMethod = () => {
 	const [isStarted, setIsStarted] = useState(false);
 	const handleBackClick = () => {
 		setIsStarted(true);
-		navigate("/Voting-Method");
+		navigate("/voting-method");
 	};
 	return (
 		<div className="container">
@@ -188,7 +188,7 @@ const ResultVotingMethod = () => {
 
 			<section id="button-same-line">
 				<button onClick={handleBackClick} className="inner">
-					<Link to="/Voting-Method"></Link>
+					<Link to="/voting-method"></Link>
 					Back
 				</button>
 			</section>
