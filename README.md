@@ -45,6 +45,8 @@ We welcome any and all contributions! Here are some ways you can get started:
 2. Run the command `$ sudo -u postgres createuser -P --createdb <username>` for creating database user
 3. Run the command `$ createdb logic-legends` for creating database
 4. create a tables by following the tables structure in this direction:
+
+
 ![User_review table](./server/db-scripts/tables/user_review.png)
 ![Sign-up table](./server/db-scripts/tables/email_signup.png)
 
