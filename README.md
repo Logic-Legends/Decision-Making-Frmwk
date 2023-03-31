@@ -1,5 +1,5 @@
-
 # Decision-Making Framework
+
 # Description
 Welcome to our project!
 This is a decision making framework made in React and JavaScript. This software allows users to quickly and easily choose the most appropriate voting method.
