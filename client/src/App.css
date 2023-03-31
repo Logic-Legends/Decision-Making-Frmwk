@@ -9010,7 +9010,7 @@ margin: auto;
   }
 
   .review-header {
-	margin-top: 1rem;
+	/* margin-top: 1rem; */
 	display: flex;
 	align-items: center;
   }
@@ -9019,18 +9019,60 @@ margin: auto;
 	margin-right: 1rem;
   }
   
-  .review-comment {
-	/* margin-bottom: 1rem; */
-	display: flex;
-	align-items: center;
-	color: rgb(130, 130, 130); 
-  }
+  
 
  .review-list-container {
 	/* height: 400px;  */
 	height: 100vh;
 	overflow-y: auto;
 	border: 1px solid #ccc; 
+	border-radius: 10px;
 	padding: 10px;
   }
   
+  .review-card.border {
+	background-color: #f8f8f8;
+	border: 2px solid #ddd;
+	border-radius: 10px;
+	padding: 20px;
+	margin-bottom: 20px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .input-review{
+	border-radius: 10px;
+  }
+
+  .review-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  }
+  .review-name {
+	margin-right: auto;
+  }
+
+  .review-date{
+	color: rgb(130, 130, 130); 
+  }
+
+  .review-comment {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	color: rgb(130, 130, 130); 
+  }
+
+  .review-comment-label, .review-name-label {
+	display: block;
+	text-align: left; 
+	padding-left: 10px;
+	width: 100%; 
+	margin-bottom: 5px; 
+  }
+  
+  .input-review {
+	display: block;
+	width: 100%;
+	margin-bottom: 10px; 
+  }
