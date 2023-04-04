@@ -32,7 +32,7 @@ router.post("/submit-email", async (req, res) => {
 			from: process.env.EMAIL,
 			to: email,
 			subject: "Welcome to our website",
-			text: `Thank you for signing-up to ACE's newsletter. Visit our website here "https://animalcharityevaluators.org/"`,
+			text: "Thank you for signing-up to ACE's newsletter. Visit our website here \"https://animalcharityevaluators.org/\"",
 		};
 
 		transporter.sendMail(mailOptions, function (error, info) {

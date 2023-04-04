@@ -133,10 +133,7 @@ function DecisionMakers() {
               <tr key={index} className="vh-auto border">
                 <td className="w-50 border pt-4">{user.name}</td>
                 <td className="border  border-start-0" >
-{/*
-                  <button className="inner  mb-0 py-2 " onClick={() => editUser(index)}>EDIT</button>
-                  <button className="inner button-delete-team  mb-0 py-2" onClick={() => deleteUser(index)}>DELETE</button> */}
-                  <div className="dlt-edt-icons">
+                  <div  className="dlt-edt-icons">
                     <Icon
                       name="edit"
                       theme="light"
