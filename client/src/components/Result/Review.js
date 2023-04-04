@@ -70,6 +70,10 @@ function Review() {
     };
   }, [showSuccessMessage]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const navigate = useNavigate();
 
   //click back btn handler
