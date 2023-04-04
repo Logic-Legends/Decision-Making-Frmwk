@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useNavigate,useLocation } from "react-router-dom";
 import { useState, useContext } from "react";
 import tooltipIcon from "./images/tooltipicon.png";
-// import HandleTooltipClick from "./HandleTooltipClick";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 import "./TypeOfDecision.css";
 import HandleToolTip from "../ProgressBar/HandleToolTip";
@@ -45,7 +44,7 @@ const TypeOfDecision = () => {
         navigate("/time-resource");
     };
     const handleNextClick = () => {
-        if (selectedOptionDecision === null) {
+        if (!selectedOptionDecision ) {
             setIsModalOpen(true);
 
         } else {

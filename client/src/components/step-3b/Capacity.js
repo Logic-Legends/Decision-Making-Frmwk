@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { useNavigate,useLocation } from "react-router-dom";
 import { useState, useContext } from "react";
 import tooltipIcon from "./images/tooltipicon.png";
-import HandleFirstTooltipClick from "./HandleFirstTooltipCapacity";
-import HandleSecondTooltipClick from "./HandleSecondTooltipCapacity";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 import HandleToolTip from "../ProgressBar/HandleToolTip";
 
@@ -19,8 +17,6 @@ const Capacity = () => {
 	//state for showing first topic tooltip
 	const [modalShow, setModalShow] = useState(false);
 
-	//state for showing second topic tooltip
-	const [secondModalShow, setsecondModalShow] = useState(false);
 
 	//state for selecting radio btn
 	const { selectedOptionCapacity, setSelectedOptionCapacity, setStep, currentStep,setStepCompleted,getStepIdFromLocation } = useContext(stepProgressContext);
@@ -40,7 +36,7 @@ const Capacity = () => {
 	};
 	//click next btn handler
 	const handleNextClick = () => {
-		if (selectedOptionCapacity === null) {
+		if (!selectedOptionCapacity ) {
 			setIsModalOpen(true);
 		} else {
 			setStep(currentStep + 1);
@@ -81,11 +77,6 @@ const Capacity = () => {
 				onHide={() => setModalShow(false)}
 				title={modalTitle}
 				text={modalText}
-			/>
-			{/* call second tooltip component */}
-			<HandleSecondTooltipClick
-				show={secondModalShow}
-				onHide={() => setsecondModalShow(false)}
 			/>
 			<h2>
 				Capacity{" "}

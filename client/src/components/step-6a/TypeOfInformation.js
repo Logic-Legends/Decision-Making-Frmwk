@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 import { useNavigate,useLocation } from "react-router-dom";
-import FirstHandleTooltip from "./FirstHandleTooltip";
 import QuestionMark from "./images/question-mark.png";
 import HandleToolTip from "../ProgressBar/HandleToolTip";
 
@@ -28,7 +27,7 @@ const TypeOfInformation = () => {
   //Check if any button was choosen
   const handleButtonClick = () => {
 
-    if (selectedOptionTypeOfInformation === null) {
+    if (!selectedOptionTypeOfInformation) {
       // show the error message when field is empty
       setIsModalOpen(true);
     } else {

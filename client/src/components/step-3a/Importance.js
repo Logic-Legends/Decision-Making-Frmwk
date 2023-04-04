@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { useNavigate,useLocation } from "react-router-dom";
 import { useState, useContext } from "react";
 import tooltipIcon from "./images/tooltipicon.png";
-import HandleFirstTooltipClick from "./HandleFirstTooltipImportance";
-import HandleSecondTooltipClick from "./HandleSecondTooltipImportance";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 import HandleToolTip from "../ProgressBar/HandleToolTip";
 
@@ -20,8 +18,6 @@ const Importance = () => {
 	//state for showing first topic tooltip
 	const [modalShow, setModalShow] = useState(false);
 
-	//state for showing second topic tooltip
-	const [secondModalShow, setsecondModalShow] = useState(false);
 
 	//state for selecting radio btn
 	const { selectedOption, setSelectedOption, setStep,setStepCompleted,getStepIdFromLocation } = useContext(stepProgressContext);
@@ -42,7 +38,8 @@ const Importance = () => {
 
 	//click next btn handler
 	const handleNextClick = () => {
-		if (selectedOption === null) {
+		console.log("selectedOption:",selectedOption);
+		if (!selectedOption ) {
 			setIsModalOpen(true);
 		} else {
 			setIsStarted(true);
@@ -87,10 +84,6 @@ const Importance = () => {
 				text={modalText}
 			/>
 			{/* call second tooltip component */}
-			<HandleSecondTooltipClick
-				show={secondModalShow}
-				onHide={() => setsecondModalShow(false)}
-			/>
 			<h2>
 				Importance{" "}
 				<img
