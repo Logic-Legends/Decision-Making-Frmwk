@@ -28,46 +28,94 @@ const styles = StyleSheet.create({
         marginTop: "30px",
         display: "table",
         width: "auto",
-        borderStyle: "solid",
     },
     tableRow: {
         margin: "auto",
         flexDirection: "row",
         minHeight: "50px",
+        borderWidth: "1px",
+        borderBottomStyle: "solid",
+        borderTopStyle: "solid",
+        borderRightWidth:"0px",
+        borderLeftWidth:"0px",
     },
+    tableRow1: {
+        margin: "auto",
+        flexDirection: "row",
+        minHeight: "50px",
+    },
+
     tableCol1: {
         width: "25%",
-        borderStyle: "solid",
         borderWidth: "1px",
+        borderLeftStyle: "solid",
+        borderRightStyle: "solid",
+        borderBottomWidth:"0px",
+        borderTopWidth:"0px",
+
+
+    },
+    tableColBottom: {
+        width: "25%",
+        borderWidth: "1px",
+        borderLeftStyle: "solid",
+        borderRightStyle: "solid",
+        borderTopWidth: "0px",
+    },
+    tableColBottom2: {
+        width: "65%",
+        borderWidth: "1px",
+        borderRightStyle: "solid",
+        borderTopWidth: "0px",
+        borderLeftWidth:"0px",
     },
     tableCol2: {
         width: "65%",
         borderWidth: "1px",
-        borderStyle: "solid",
-
+        borderBottomWidth: "0px",
+        borderTopWidth: "0px",
+        borderLeftWidth: "0px",
+        borderStyle:"solid",
     },
-    tableCol3: {
-        width: "29%",
-        borderStyle: "solid",
-        borderWidth: "1px",
 
-    },
     tableCol21: {
         width: "29%",
-        borderStyle: "solid",
         borderWidth: "1px",
+        borderBottomWidth: "0px",
+        borderTopWidth: "0px",
+        borderStyle: "solid",
     },
     tableCol22: {
         width: "29%",
-        borderWidth: "1px",
-        borderStyle: "solid",
+
 
     },
     tableCol23: {
         width: "29%",
-
-        borderStyle: "solid",
         borderWidth: "1px",
+        borderBottomWidth: "0px",
+        borderTopWidth: "0px",
+        borderStyle: "solid",
+
+    },
+    tableCol21Bottom: {
+        width: "29%",
+        borderWidth: "1px",
+        borderTopWidth: "0px",
+        borderStyle: "solid",
+        borderBottomWidth:"1px",
+    },
+    tableCol22Bottom: {
+        width: "29%",
+        borderBottomWidth: "1px",
+        borderStyle: "solid",
+    },
+    tableCol23Bottom: {
+        width: "29%",
+        borderWidth: "1px",
+        borderBottomWidth: "1px",
+        borderTopWidth: "0px",
+        borderStyle: "solid",
 
     },
     tableCell: {
@@ -100,6 +148,8 @@ const styles = StyleSheet.create({
         margin: "auto",
         flexDirection: "row",
         minHeight: "50px",
+        borderTopStyle:"solid",
+        borderTopWidth:"1px",
     },
 });
 
@@ -149,7 +199,7 @@ export default function Pdf(props) {
                                 <Text style={styles.tableCell}>{defineGoalText}</Text>
                             </View>
                         </View>
-                        <View style={styles.tableRow}>
+                        <View style={styles.tableRow1}>
                             <View style={styles.tableCol1}>
                                 <Text style={styles.tableCell}>Who is making the decision?</Text>
                             </View>
@@ -166,7 +216,7 @@ export default function Pdf(props) {
                                 <Text style={styles.tableCell}>{selectedOption}</Text>
                             </View>
                         </View>
-                        <View style={styles.tableRow}>
+                        <View style={styles.tableRow1}>
                             <View style={styles.tableCol1}>
                                 <Text style={styles.tableCell}>Capacity</Text>
                             </View>
@@ -182,7 +232,7 @@ export default function Pdf(props) {
                                 <Text style={styles.tableCell}> {textAdvice}</Text>
                             </View>
                         </View>
-                        <View style={styles.tableRow}>
+                        <View style={styles.tableRow1}>
                             <View style={styles.tableCol1}>
                                 <Text style={styles.tableCell}>Type of Decision</Text>
                             </View>
@@ -199,11 +249,11 @@ export default function Pdf(props) {
                                 <Text style={styles.tableCell}>{selectedOptionTypeOfInformation} </Text>
                             </View>
                         </View>
-                        <View style={styles.tableRow}>
-                            <View style={styles.tableCol1}>
+                        <View style={styles.tableRow1}>
+                            <View style={styles.tableColBottom}>
                                 <Text style={styles.tableCell}>Amount of Information</Text>
                             </View>
-                            <View style={styles.tableCol2}>
+                            <View style={styles.tableColBottom2}>
                                 <Text style={styles.tableCell}>{selectedOptionAmountOfInformation}</Text>
                             </View>
                         </View>
@@ -250,7 +300,7 @@ export default function Pdf(props) {
                             </View>
                         </View>
 
-                        <View style={styles.tableRow}>
+                        <View style={styles.tableRow1}>
                             <View style={styles.tableCol21}>
                                 <Text style={styles.tableCell2}>Multivoting (Each voter has a certain number of votes to place on any of the options.)</Text>
                             </View>
@@ -281,7 +331,7 @@ export default function Pdf(props) {
                             </View>
                         </View>
 
-                        <View style={styles.tableRow}>
+                        <View style={styles.tableRow1}>
                             <View style={styles.tableCol21}>
                                 <Text style={styles.tableCell2}>Ranked choice (Voters rank options based on preference, then a winner is chosen based on majority of first preference votes.)</Text>
                             </View>
@@ -310,16 +360,16 @@ export default function Pdf(props) {
                             </View>
                         </View>
 
-                        <View style={styles.tableRow}>
-                            <View style={styles.tableCol21}>
+                        <View style={styles.tableRow1}>
+                            <View style={styles.tableCol21Bottom}>
                                 <Text style={styles.tableCell2}>Quadratic voting (Voters use credits on any option, but the marginal cost of adding an additional credit to an option is higher than adding the last credit.)</Text>
                             </View>
-                            <View style={styles.tableCol22}>
+                            <View style={styles.tableCol22Bottom}>
                                 <Text style={styles.tableCell2}>Enough information for voters to understand subtle
                                     differences between options so they can express a higher
                                     preference for a select few options over many others.</Text>
                             </View>
-                            <View style={styles.tableCol23}>
+                            <View style={styles.tableCol23Bottom}>
                                 <Text style={styles.tableCell2}>You would like to capture more details about voter
                                     preferences. You want to allow team members to vote multiple
                                     times for the same option if they feel strongly about it.</Text>
@@ -367,7 +417,7 @@ export default function Pdf(props) {
                             </View>
                         </View>
 
-                        <View style={styles.tableRow}>
+                        <View style={styles.tableRow1}>
                             <View style={styles.tableCol21}>
                                 <Text style={styles.tableCell2}>Score voting (Voters give each option a score on some objective metric, and the option with the highest score wins).</Text>
                             </View>
