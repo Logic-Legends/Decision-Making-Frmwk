@@ -33,7 +33,7 @@ const TypeOfInformation = () => {
       setIsModalOpen(true);
     } else {
       setStep(stepNumber + 1);
-	  setStepCompleted(stepNumber+1);
+	  setStepCompleted(stepNumber+2);
       navigate("/voting-method"); //Go to page and pass data
     }
   };

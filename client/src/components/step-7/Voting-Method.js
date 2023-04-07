@@ -117,7 +117,7 @@ const VotingMethod = () => {
 		setIsStarted(true);
 		navigate("/results");
 		setStep(stepNumber + 1);
-		setStepCompleted(stepNumber + 1);
+		// setStepCompleted(stepNumber + 1);
 	};
 	const handleBackClick = () => {
 		setIsStarted(true);
