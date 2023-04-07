@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate,useLocation } from "react-router-dom";
 import { useState, useContext } from "react";
-import tooltipIcon from "./images/tooltipicon.png";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 import HandleToolTip from "../ProgressBar/HandleToolTip";
 
@@ -80,12 +79,7 @@ const Capacity = () => {
 			/>
 			<h2>
 				Capacity{" "}
-				<img
-					src={tooltipIcon}
-					alt="Tooltip"
-					className="question-mark-pages"
-					onClick={() => setModalShow(true)}
-				/>
+				<a className="question-mark-button" onClick={() => setModalShow(true)}>?</a>
 			</h2>
 			<section className="border-decision-framework-pages">
 				<h6>What is the decision-making team&apos;s capacity?</h6>

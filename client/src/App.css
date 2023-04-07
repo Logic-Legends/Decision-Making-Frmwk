@@ -8658,37 +8658,28 @@ Luan CSS
 	background-color: #36949d;
 }
 
-.question-mark-button-test{
+.question-mark-button{
 	display: inline-block;
-	width: 20px;
-	height: 20px;
+	width: 25px;
+	height: 25px;
 	border-radius: 50%;
 	background-color: red;
 	color: white;
 	font-weight: bold;
 	text-align: center;
-	line-height: 20px;
+	line-height: 25px;
 	text-decoration: none;
-	font-size: 18px;
+	font-size: 25px;
 	cursor: pointer;
 	transition: background-color 0.3s ease-in-out, filter 0.3s ease-in-out;
   }
 
-  .question-mark-button-test:hover {
+  .question-mark-button:hover {
 	background-color: rgb(132, 132, 132);
 	color: white;
 	filter: grayscale(100%);
   }
 
-.question-mark-button {
-	border: none;
-	background-color: transparent;
-}
-
-.question-mark-button:hover,
-.question-mark-button:focus:active {
-	background-color: transparent;
-}
 
 /* Button back and next in the same line */
 
