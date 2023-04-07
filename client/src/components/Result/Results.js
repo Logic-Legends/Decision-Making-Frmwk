@@ -25,7 +25,7 @@ const Results = () => {
 	const explicitVotingMethod = sessionStorage.getItem("explicitVotingMethod");
 	const relativeVotingMethod1 = sessionStorage.getItem("relativeVotingMethod1");
 	const relativeVotingMethod2 = sessionStorage.getItem("relativeVotingMethod2");
-	const textAdvice = sessionStorage.getItem("textAdvice");
+	const textAdvice = sessionStorage.getItem("textAdviceResult");
 	const advice = sessionStorage.getItem("advice");
 	const navigate = useNavigate();
 	const { setStep,setStepCompleted,getStepIdFromLocation  } = useContext(stepProgressContext);

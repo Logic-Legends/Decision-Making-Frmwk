@@ -40,7 +40,7 @@ const TypeOfDecision = () => {
     const handleBackClick = () => {
         setIsStarted(true);
         setStep(stepNumber - 1);
-        navigate("/time-resource");
+        navigate("/capacity");
     };
     const handleNextClick = () => {
         if (!selectedOptionDecision ) {
@@ -97,6 +97,45 @@ const TypeOfDecision = () => {
     </p>
   </div>`;
 
+  const selectedOption = sessionStorage.getItem("selectedOption");
+  const selectedOptionCapacity = sessionStorage.getItem("selectedOptionCapacity");
+
+  const [textAdviceResult, setTextAdviceResult] = useState();
+
+  const checkAdvice = () => {
+    if (selectedOption === "Low" && selectedOptionCapacity === "Low") {
+        setTextAdviceResult("choose a single iteration, low complexity voting method. Don't spend too much time gathering information.");
+        sessionStorage.setItem(
+            "textAdviceResult",
+            "Choose a single iteration, low complexity voting method. Don't spend too much time gathering information."
+        );
+    } else if (selectedOption === "Low" && selectedOptionCapacity === "High") {
+        setTextAdviceResult("start the decision-making process later, take more time to gather information, or use a more complex voting method.");
+        sessionStorage.setItem(
+            "textAdviceResult",
+            "Start the decision-making process later, take more time to gather information, or use a more complex voting method."
+        );
+
+    } else if (selectedOption === "High" && selectedOptionCapacity === "Low") {
+        setTextAdviceResult("start sooner, de-prioritize other tasks that are taking up capacity, or use a less complex voting method that requires less information.");
+        sessionStorage.setItem(
+            "textAdviceResult",
+            "Start sooner, de-prioritize other tasks that are taking up capacity, or use a less complex voting method that requires less information."
+        );
+
+    } else if (selectedOption === "High" && selectedOptionCapacity === "High") {
+        setTextAdviceResult("allocate as much time as you can to gather information and make a good decision. You could use a more complex voting method.");
+        sessionStorage.setItem(
+            "textAdviceResult",
+            "Allocate as much time as you can to gather information and make a good decision. You could use a more complex voting method."
+        );
+    }
+};
+
+useEffect(() => {
+    checkAdvice();
+}, [selectedOption, selectedOptionCapacity]);
+
     return (
         <div className="container">
             {/* call first tooltip component */}
@@ -106,6 +145,13 @@ const TypeOfDecision = () => {
                 title={modalTitle}
 				text={modalText}
             />
+			<section className="border-decision-framework-pages">
+				<h6>Advice:</h6>
+					<p className="radio-description">
+                    Based on your response to {selectedOption.toLowerCase()} importance and {selectedOptionCapacity.toLowerCase()} capacity we would advise you to {textAdviceResult}
+					</p>
+			</section>
+
             <h2>
                 Type of Decision{" "}
                 <a className="question-mark-button" onClick={() => setModalShow(true)}>?</a>
@@ -152,7 +198,7 @@ const TypeOfDecision = () => {
             <section id="button-same-line">
                 {isStarted}
                 <button onClick={handleBackClick} className="inner">
-                    <Link to="/time-resource"></Link>
+                    <Link to="/capacity"></Link>
                     Back
                 </button>
                 <button onClick={handleNextClick} className="inner">
