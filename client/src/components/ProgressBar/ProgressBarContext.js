@@ -18,7 +18,7 @@ function ProgressBarContext() {
 		{ id: "7", location: "/type-of-information" },
 		{ id: "8", location: "/amount-of-information" },
 		{ id: "9", location: "/voting-method" },
-		{ id: "10", location: "/results" },
+		{ id: "\u25c9", location: "/results" },
 		// { id: "11", location: "/review" },
 	];
 	const [users, setUsers] = useState([]);

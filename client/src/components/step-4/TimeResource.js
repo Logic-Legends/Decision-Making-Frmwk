@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link ,useNavigate,useLocation } from "react-router-dom";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
-import QuestionMark from "./images/question-mark.png";
 import HandleToolTip from "../ProgressBar/HandleToolTip";
 
 const TimeResource = () => {
@@ -88,13 +87,7 @@ const TimeResource = () => {
 
 			<h2>
 				Time and Resource allocation{" "}
-				<img
-					className="question-mark-pages"
-					src={QuestionMark}
-					alt="Qusestion Mark"
-					border="0"
-					onClick={() => setModalShow(true)}
-				></img>
+				<a className="question-mark-button" onClick={() => setModalShow(true)}>?</a>
 			</h2>
 			<div className="border-decision-framework-pages">
 				<table>

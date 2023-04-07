@@ -1,9 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Link, useNavigate,useLocation } from "react-router-dom";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
-import QuestionMark from "./images/question-mark.png";
 import HandleTooltip from "../ProgressBar/HandleToolTip";
-
 
 const DefineGoal = () => {
 
@@ -65,13 +63,9 @@ const modalText = "Defining the goal will help you determine what kind of inform
 		<div className="container">
 			<HandleTooltip title={modalTitle} text={modalText} clickedicon='defineGoal' show={modalShow} onHide={() => setModalShow(false)} />
 
-			<h3>What is the goal? <img
-						className="question-mark-pages"
-						src={QuestionMark}
-						alt="Question Mark"
-						border="0"
-						onClick={() => setModalShow(true)}
-					></img></h3>
+			<h3>What is the goal? <a className="question-mark-button" onClick={() => setModalShow(true)}>?</a></h3>
+
+
 			<div className="border-decision-framework-pages">
 				<h6>What decision are you trying to make?</h6>
 				<p>

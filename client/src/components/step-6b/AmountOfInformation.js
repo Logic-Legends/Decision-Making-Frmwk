@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 import { useNavigate,useLocation } from "react-router-dom";
-import QuestionMark from "./images/question-mark.png";
 import HandleToolTip from "../ProgressBar/HandleToolTip";
 
 const TypeOfInformation = () => {
@@ -9,8 +8,8 @@ const TypeOfInformation = () => {
   //Used to get data to select radio button
   const { selectedOptionAmountOfInformation, setSelectedOptionAmountOfInformation, setStep,setStepCompleted,getStepIdFromLocation } = useContext(stepProgressContext);
 
-  //FirstHandleTooltip
-  const [FirstModalShow, FirstSetModalShow] = React.useState(false);
+  //HandleTooltip
+  const [modalShow, setModalShow] = useState(false);
 
   //state for error handling
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,7 +32,7 @@ const TypeOfInformation = () => {
       setIsModalOpen(true);
     } else {
       setStep(stepNumber + 1);
-	  setStepCompleted(stepNumber+1);
+	  setStepCompleted(stepNumber+2);
       navigate("/voting-method"); //Go to page and pass data
     }
   };
@@ -67,21 +66,15 @@ const TypeOfInformation = () => {
     return (
 			<div className="container">
 				<HandleToolTip
-					show={FirstModalShow}
-					onHide={() => FirstSetModalShow(false)}
+					show={modalShow}
+					onHide={() => setModalShow(false)}
 					title={modalTitle}
 					text={modalText}
 				/>
 
 				<h2>
 					Amount of Information{" "}
-					<img
-						className="question-mark-pages"
-						src={QuestionMark}
-						alt="Qusestion Mark"
-						border="0"
-						onClick={() => FirstSetModalShow(true)}
-					></img>
+					<a className="question-mark-button" onClick={() => setModalShow(true)}>?</a>
 				</h2>
 				<section className="border-decision-framework-pages">
 					<h6 className="question-margin">

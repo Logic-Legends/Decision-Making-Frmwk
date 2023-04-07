@@ -8658,37 +8658,28 @@ Luan CSS
 	background-color: #36949d;
 }
 
-.question-mark-pages {
-	height: 20px;
-	padding-left: 5px;
-	border: 0px;
+.question-mark-button{
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background-color: red;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	line-height: 25px;
+	text-decoration: none;
+	font-size: 25px;
 	cursor: pointer;
-	color: transparent;
+	transition: background-color 0.3s ease-in-out, filter 0.3s ease-in-out;
+  }
 
-	transition: filter 0.3s ease-in-out;
-	-webkit-filter: grayscale(0%); /* Ch 23+, Saf 6.0+, BB 10.0+ */
-	filter: grayscale(0%);
-}
+  .question-mark-button:hover {
+	background-color: rgb(132, 132, 132);
+	color: white;
+	filter: grayscale(100%);
+  }
 
-.question-mark-pages:hover {
-	/* cursor:pointer; */
-	-webkit-filter: grayscale(100%); /* Ch 23+, Saf 6.0+, BB 10.0+ */
-	filter: grayscale(100%); /* FF 35+ */
-}
-
-.question-mark-pages:focus {
-	background-color: transparent;
-}
-
-.question-mark-button {
-	border: none;
-	background-color: transparent;
-}
-
-.question-mark-button:hover,
-.question-mark-button:focus:active {
-	background-color: transparent;
-}
 
 /* Button back and next in the same line */
 
@@ -9159,3 +9150,5 @@ margin: auto;
 	}
   }
   /* Mohammed  Chnages on Modal React-Bootstrap*/
+
+  

@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate,useLocation } from "react-router-dom";
 import { useState, useContext } from "react";
-import tooltipIcon from "./images/tooltipicon.png";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 import "./TypeOfDecision.css";
 import HandleToolTip from "../ProgressBar/HandleToolTip";
@@ -71,29 +70,32 @@ const TypeOfDecision = () => {
 	  }, [pathname]);
 
 
-      const modalTitle = "Question to consider:";
-      const modalText = `				<ul className="tooltip-list">
+      const modalTitle = "<strong>Question to consider:</strong>";
+      const modalText = `				<ul className="tooltip-list" style="list-style-type: none;">
       <li>
           Would it be better to do a first pass at the decision with a simple
           voting method (e.g., yes/no to each option) and then do a second
           pass with a more complex voting method (e.g., scale of 1-5 for each
           option)?
       </li>
+      <br>
       <li>
           Would it be good for decision-makers to share their views before
           making a final decision?
       </li>
+      <br>
       <li>
           Is this an ongoing decision that needs to be updated on a regular
           schedule?
       </li>
   </ul>
   <br></br>
-  <p className="tool-tip-bold">
-      If you answered YES to any of these questions, consider categorizing it
-      as iterative.
-  </p>`;
-
+  <div style="text-align: center;">
+    <p className="tool-tip-bold">
+        <strong>If you answered YES to any of these questions, consider categorizing it
+        as iterative.</strong>
+    </p>
+  </div>`;
 
     return (
         <div className="container">
@@ -106,12 +108,7 @@ const TypeOfDecision = () => {
             />
             <h2>
                 Type of Decision{" "}
-                <img
-                    src={tooltipIcon}
-                    alt="Tooltip"
-                    className="question-mark-pages"
-                    onClick={() => setModalShow(true)}
-                />
+                <a className="question-mark-button" onClick={() => setModalShow(true)}>?</a>
             </h2>
             <section className="border-decision-framework-pages">
 

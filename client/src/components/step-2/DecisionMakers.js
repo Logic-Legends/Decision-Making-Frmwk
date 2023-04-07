@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import DecisionMakersForm from "./DicisionMakersForm";
 import { Container, Table } from "react-bootstrap";
-import QuestionMark from "../step-1/images/question-mark.png";
 import { Link, useNavigate ,useLocation } from "react-router-dom#";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 import Icon from "react-crud-icons";
@@ -112,7 +111,7 @@ function DecisionMakers() {
          onHide={() => setModalShow(false)}
          />
 
-      <h3>Who is making the decision?<img className="question-mark-pages" src={QuestionMark} alt="Qusestion Mark" border="0" onClick={() => setModalShow(true)}></img></h3>
+      <h3>Who is making the decision? <a className="question-mark-button" onClick={() => setModalShow(true)}>?</a></h3>
 
       <div className="border-decision-framework-pages">
         <p><strong>Please add the responsible party(ies)</strong></p>
