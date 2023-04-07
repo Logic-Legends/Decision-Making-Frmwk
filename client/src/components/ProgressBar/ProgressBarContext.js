@@ -13,13 +13,11 @@ function ProgressBarContext() {
 		{ id: "2", location: "/decision-makers" },
 		{ id: "3", location: "/importance" },
 		{ id: "4", location: "/capacity" },
-		{ id: "5", location: "/time-resource" },
-		{ id: "6", location: "/type-of-decision" },
-		{ id: "7", location: "/type-of-information" },
-		{ id: "8", location: "/amount-of-information" },
-		{ id: "9", location: "/voting-method" },
+		{ id: "5", location: "/type-of-decision" },
+		{ id: "6", location: "/type-of-information" },
+		{ id: "7", location: "/amount-of-information" },
+		{ id: "8", location: "/voting-method" },
 		{ id: "\u25c9", location: "/results" },
-		// { id: "11", location: "/review" },
 	];
 	const [users, setUsers] = useState([]);
 	const [selectedOption, setSelectedOption] = useState(null);

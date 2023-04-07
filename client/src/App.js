@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Start from "./components/start-page/Start";
 import DecisionMakers from "./components/step-2/DecisionMakers";
-import TimeResource from "./components/step-4/TimeResource";
 import "./App.css";
 import Importance from "./components/step-3a/Importance";
 import Capacity from "./components/step-3b/Capacity";
@@ -41,7 +40,6 @@ const App = () => {
 				<Route path="/decision-makers" element={<DecisionMakers />} />
 				<Route path="importance" element={<Importance />} />
 				<Route path="/capacity" element={<Capacity />} />
-				<Route path="/time-resource" element={<TimeResource />} />
 				<Route path="/type-of-information" element={<TypeOfInformation />} />
 				<Route
 					path="/amount-of-information"

@@ -40,7 +40,7 @@ const Capacity = () => {
 		} else {
 			setStep(currentStep + 1);
 			setStepCompleted(stepNumber+1);
-			navigate("/time-resource");
+			navigate("/type-of-decision");
 			setIsStarted(true);
 		}
 	};
@@ -138,7 +138,7 @@ const Capacity = () => {
 					<Link to="/importance"></Link>Back
 				</button>
 				<button onClick={handleNextClick} className="inner">
-					<Link to="/time-and-resource"></Link>Next
+					<Link to="/type-of-decision"></Link>Next
 				</button>
 				{isModalOpen && (
 					<div className="modal">
