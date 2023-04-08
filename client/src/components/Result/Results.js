@@ -1,9 +1,10 @@
-import React,{ useContext ,useEffect } from "react";
+import React,{ useContext ,useEffect,useState } from "react";
 import Pdf from "../pdf-generation/Pdf";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { useNavigate,useLocation } from "react-router-dom";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
 import Signup from "./Sign-up";
+import VothingMethod from "../step-7/Voting-Method";
 
 const Results = () => {
 
@@ -40,6 +41,11 @@ const Results = () => {
 	console.log("Step no.:",getStepIdFromLocation(pathname));
   }, [pathname]);
 
+  const [activeTab, setActiveTab] = useState(1);
+
+  const handleTabClick = (tabNumber) => {
+    setActiveTab(tabNumber);
+  };
 
 	return (
 		<div className="container">
@@ -47,96 +53,117 @@ const Results = () => {
 			<p>
 				Thank you for using the <strong>Voting Methods for Group Decisions tool!</strong> We hope the recommended voting method(s) below will help you make an informed decision.
 			</p>
-			<h6>Summary</h6>
-			<p>Below is a summary of all your responses. You can click on individual steps in the progress bar to go back and change any of the responses.</p>
-			<div>
-				<table>
-					<tbody>
-						<tr className="table-background">
-							<th>Recommended Voting Method(s)</th>
-							{selectedOptionTypeOfInformation === "Explicit" ? (
-								<th>{explicitVotingMethod}</th>
-							) : (
-								<th>{relativeVotingMethod1 + " | " + relativeVotingMethod2}</th>
-							)}
-						</tr>
-						<tr>
-							<td>What is the goal?</td>
-							<td>{defineGoalText}</td>
-						</tr>
-						<tr>
-							<td>Who is making the decision?</td>
-							<td> {users.map((user, index) => (
-								<p key={index}>{user.name}</p>
-							))}</td>
 
-						</tr>
-						<tr>
-							<td>Importance</td>
-							<td>{selectedOption}</td>
-						</tr>
-						<tr>
-							<td>Capacity</td>
-							<td>{selectedOptionCapacity}</td>
-						</tr>
-						<tr>
-							<td>Time and Resource</td>
-							<td>{textAdvice}</td>
-						</tr>
-						<tr>
-							<td>Type of Decision </td>
-							<td>{selectedOptionDecision + " decision: " + advice}</td>
-						</tr>
-						<tr>
-							<td>Type of Information</td>
-							<td>{selectedOptionTypeOfInformation}</td>
-						</tr>
-						<tr>
-							<td>Amount of Information </td>
-							<td>{selectedOptionAmountOfInformation}</td>
-						</tr>
-					</tbody>
-				</table>
+			<div>
+						 <ul className="ace-tabs" role="tablist">
+						<li role="tab" tabIndex="0" className={`  ${activeTab === 1 ? "ui-tabs-active" : ""}`} aria-controls="recommended voting method()" aria-labelledby="ui-id-1" aria-selected={activeTab === 1} aria-expanded={activeTab === 1}>
+						<a tabIndex="-1" id="ui-id-1" onClick={() => handleTabClick(1)}>
+							<h4>Recommended Voting Method(s)</h4>
+						</a>
+						</li>
+						<li role="tab" tabIndex="-1" className={` ${activeTab === 2 ? "ui-tabs-active" : ""}`} aria-controls="summary" aria-labelledby="ui-id-2" aria-selected={activeTab === 2} aria-expanded={activeTab === 2}>
+						<a tabIndex="-1" id="ui-id-2" onClick={() => handleTabClick(2)}>
+							<h4>Summary</h4>
+						</a>
+						</li>
+					</ul>
+					<div className="tab-content">
+						{activeTab === 1 && <VothingMethod />}
+						{activeTab === 2 && <div>
+						{/* <h6>Summary</h6> */}
+						<p>Below is a summary of all your responses. You can click on individual steps in the progress bar to go back and change any of the responses.</p>
+						<div>
+							<table>
+								<tbody>
+									<tr className="table-background">
+										<th>Recommended Voting Method(s)</th>
+										{selectedOptionTypeOfInformation === "Explicit" ? (
+											<th>{explicitVotingMethod}</th>
+										) : (
+											<th>{relativeVotingMethod1 + " | " + relativeVotingMethod2}</th>
+										)}
+									</tr>
+									<tr>
+										<td>What is the goal?</td>
+										<td>{defineGoalText}</td>
+									</tr>
+									<tr>
+										<td>Who is making the decision?</td>
+										<td> {users.map((user, index) => (
+											<p key={index}>{user.name}</p>
+										))}</td>
+
+									</tr>
+									<tr>
+										<td>Importance</td>
+										<td>{selectedOption}</td>
+									</tr>
+									<tr>
+										<td>Capacity</td>
+										<td>{selectedOptionCapacity}</td>
+									</tr>
+									<tr>
+										<td>Time and Resource</td>
+										<td>{textAdvice}</td>
+									</tr>
+									<tr>
+										<td>Type of Decision </td>
+										<td>{selectedOptionDecision + " decision: " + advice}</td>
+									</tr>
+									<tr>
+										<td>Type of Information</td>
+										<td>{selectedOptionTypeOfInformation}</td>
+									</tr>
+									<tr>
+										<td>Amount of Information </td>
+										<td>{selectedOptionAmountOfInformation}</td>
+									</tr>
+								</tbody>
+							</table>
+
+
+						</div>
+						<div className="result-buttons-container">
+
+							<PDFDownloadLink className="pdf-grid"
+								document={
+									<Pdf
+										selectedOptionAmountOfInformation={
+											selectedOptionAmountOfInformation
+										}
+										selectedOptionTypeOfInformation={
+											selectedOptionTypeOfInformation
+										}
+										selectedOptionDecision={selectedOptionDecision}
+										selectedOptionCapacity={selectedOptionCapacity}
+										selectedOption={selectedOption}
+										defineGoalText={defineGoalText}
+										users={users}
+										textAdvice={textAdvice}
+										advice={advice}
+										relativeVotingMethod1={relativeVotingMethod1}
+										relativeVotingMethod2={relativeVotingMethod2}
+										explicitVotingMethod={explicitVotingMethod}
+									/>
+								}
+								fileName="decision.pdf"
+							>
+
+								{({ loading }) =>
+									loading ? (
+										<button className="inner-pdf-button ">Loading document... </button>
+									) : (
+										<button className="inner-pdf-button "> Download as a PDF</button>
+									)
+								}
+
+							</PDFDownloadLink>
+							</div>
+					</div>}
+
 
 
 			</div>
-			<div className="result-buttons-container">
-
-				<PDFDownloadLink className="pdf-grid"
-					document={
-						<Pdf
-							selectedOptionAmountOfInformation={
-								selectedOptionAmountOfInformation
-							}
-							selectedOptionTypeOfInformation={
-								selectedOptionTypeOfInformation
-							}
-							selectedOptionDecision={selectedOptionDecision}
-							selectedOptionCapacity={selectedOptionCapacity}
-							selectedOption={selectedOption}
-							defineGoalText={defineGoalText}
-							users={users}
-							textAdvice={textAdvice}
-							advice={advice}
-							relativeVotingMethod1={relativeVotingMethod1}
-							relativeVotingMethod2={relativeVotingMethod2}
-							explicitVotingMethod={explicitVotingMethod}
-						/>
-					}
-					fileName="decision.pdf"
-				>
-
-					{({ loading }) =>
-						loading ? (
-							<button className="inner-pdf-button ">Loading document... </button>
-						) : (
-							<button className="inner-pdf-button "> Download as a PDF</button>
-						)
-					}
-
-				</PDFDownloadLink>
-				<button className="inner-review inner-pdf-button" onClick={() => navigate("/review")}> Review</button>
-				<Signup />
 			</div>
 		</div>
 	);

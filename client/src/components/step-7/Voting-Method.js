@@ -133,7 +133,7 @@ const VotingMethod = () => {
 
 	return (
 		<div className="container">
-			<h2>Recommended Voting Method(s)</h2>
+			{/* <h2>Recommended Voting Method(s)</h2> */}
 			<div className="border-decision-framework-pages">
 				{selectedOptionTypeOfInformation === "Explicit" ? (
 					<table>
@@ -192,9 +192,6 @@ const VotingMethod = () => {
 				<button onClick={handleBackClick} className="inner">
 					<Link to="/amount-of-information"></Link>
 					Back
-				</button>
-				<button onClick={handleNextClick} className="inner">
-					<Link to="/results"></Link>Next
 				</button>
 			</section>
 		</div>

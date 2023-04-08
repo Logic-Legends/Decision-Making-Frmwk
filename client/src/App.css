@@ -9152,3 +9152,10 @@ margin: auto;
   /* Mohammed  Chnages on Modal React-Bootstrap*/
 
   
+  
+  .tab-content {
+	padding: 20px;
+	border: 2px solid #ddd;
+  }
+  
+  
