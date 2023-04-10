@@ -47,17 +47,12 @@ function DecisionMakers() {
 
 
   const handleNextBtn = () => {
-    console.log("users:", users);
     if (!users.length) {
-      // console.log("Next Button Clicked"+users);
       setIsModalOpen(true);
-      // setError("Please complete this step!");
-      // setShow(true);
     } else {
       setStep(stepNumber + 1);
       setStepCompleted(stepNumber+1);
       navigate("/importance");
-      console.log(users);
       sessionStorage.setItem("users", JSON.stringify(users)); //ADD SESSION STORAGE
 
     }
@@ -77,7 +72,6 @@ function DecisionMakers() {
   //ADD TO STORAGE SESSION LAST PAGE
   useEffect(() => {
     const storedUsers = sessionStorage.getItem("users");
-    console.log(storedUsers);
     if (storedUsers) {
       setUsers(JSON.parse(storedUsers));
     }
