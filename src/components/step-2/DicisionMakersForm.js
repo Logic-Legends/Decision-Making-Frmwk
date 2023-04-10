@@ -36,11 +36,6 @@ function DecisionMakersForm({ addUser, editUser, editIndex }) {
 
   return (
     <>
-      {/* {show && error && (
-        <Alert variant="danger" onClose={() => setShow(false)} dismissible>
-          {error}
-        </Alert>
-      )} */}
       {isModalOpen && (
         <div className="modal">
           <div className="modal-display">
@@ -68,8 +63,9 @@ function DecisionMakersForm({ addUser, editUser, editIndex }) {
               />
             </Form.Group>
           </Col>
-          <Col className="d-flex align-items-end plus">
-            <button className="mb-0 py-2 add-btn" type="submit">
+          <Col >
+            
+            <button className="add-btn" type="submit">
               {editIndex === -1 ? "Add" : "Update"}
             </button>
 
@@ -80,17 +76,14 @@ function DecisionMakersForm({ addUser, editUser, editIndex }) {
                 size="medium"
                 onChange={handleChange}
                 className="add-icon"
-
               />) : (<Icon
                 name="edit"
                 theme="light"
                 size="medium"
                 onChange={handleChange}
                 className="add-icon"
-
               />)}
             </button>
-
           </Col>
         </Row>
       </Form>
