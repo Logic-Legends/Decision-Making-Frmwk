@@ -60,8 +60,14 @@ const TypeOfInformation = () => {
 	setStep(getStepIdFromLocation(pathname));
   }, [pathname]);
 
-  const modalTitle = "";
-  const modalText = "Consider how much evidence, facts and data related to the decision you have gathered.";
+  const modalTitle =
+		"<p>Consider how much evidence, facts and data related to the decision you have gathered.</p>";
+  const modalText = `<strong>Questions to consider:</strong><br/>
+  How much information will we have after we finish gathering?<br/>
+  Will we be able to distinguish among many options or rank just a few options?<br/><br/>
+  <p>It could be helpful to think about the amount of information you have to make this decision compared to similar decisions you have made.</p>
+
+  `;
 
     return (
 			<div className="container">
