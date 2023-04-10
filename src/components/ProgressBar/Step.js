@@ -32,8 +32,8 @@ export default function Step(props) {
     <div className={"stepBlock" + (props.selected ? " selected" : "") + (props.grayed ? " grayed" : "")}>
       {/* <div className={"stepBlock" +(props.grayed? " grayed":"") }> */}
       <div className={"circleWrapper"} >
-        <div className={"circle"} onClick={clickStep}>{props.label}</div>
-        <span>{props.currentStep}</span>
+        <div className={"circle"} onClick={clickStep}>{props.display}</div>
+        {/* <span>{props.currentStep}</span> */}
       </div>
     </div>
     {isModalOpen && (

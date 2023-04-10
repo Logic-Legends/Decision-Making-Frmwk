@@ -9,15 +9,15 @@ function ProgressBarContext() {
 	const [selectedOptionTypeOfInformation, setSelectedOptionTypeOfInformation] = useState(null);//Step6a
 	const [selectedOptionAmountOfInformation, setSelectedOptionAmountOfInformation] = useState(null);//Step6b
 	const labelArray = [
-		{ id: "1", location: "/define-goal" },
-		{ id: "2", location: "/decision-makers" },
-		{ id: "3", location: "/importance" },
-		{ id: "4", location: "/capacity" },
-		{ id: "5", location: "/type-of-decision" },
-		{ id: "6", location: "/type-of-information" },
-		{ id: "7", location: "/amount-of-information" },
-		// { id: "\u25c9", location: "/results" },
-		{ id: "8", location: "/results" },
+		{ id: "1", display:"1",location: "/define-goal" },
+		{ id: "2", display:"2", location: "/decision-makers" },
+		{ id: "3", display:"3", location: "/importance" },
+		{ id: "4", display:"4", location: "/capacity" },
+		{ id: "5", display:"5", location: "/type-of-decision" },
+		{ id: "6", display:"6", location: "/type-of-information" },
+		{ id: "7", display:"7", location: "/amount-of-information" },
+		{ id:"8", display: "\u25c9", location: "/results" },
+		// { id: "8", location: "/results" },
 
 	];
 	const [users, setUsers] = useState([]);
