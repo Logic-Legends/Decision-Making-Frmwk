@@ -59,8 +59,9 @@ const TypeOfInformation = () => {
 	setStep(getStepIdFromLocation(pathname));
   }, [pathname]);
 
-  const modalTitle = "";
-  const modalText = `<p>The type of information you have will help determine the ideal voting method.</p> 
+  const modalTitle =
+		"<p>The type of information you have will help determine the ideal voting method.</p>";
+  const modalText = ` 
 <p>There are two types of information that can help you decide:</p>		
   		1.Explicit values (cardinal info)<br/><strong>Example</strong>: Finding out how many animals each intervention saves per year and choosing which one to pursue based on this information.
 		<br/>
