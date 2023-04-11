@@ -22,6 +22,10 @@ const TypeOfInformation = () => {
     setSelectedOptionAmountOfInformation(event.target.value);
     //ADD TO STORAGE SESSION
     sessionStorage.setItem("selectedOptionAmountOfInformation", event.target.value);
+	sessionStorage.setItem(
+    "questionStep7",
+    "How much information will you have?"
+  );
   };
 
   //Check if any button was choosen

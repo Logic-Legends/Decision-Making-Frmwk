@@ -26,6 +26,10 @@ const DefineGoal = () => {
 	const handleChange = (event) => {
 		setDefineGoalText(event.target.value);
 		sessionStorage.setItem("defineGoalText", event.target.value); //ADD SESSION STORAGE
+		sessionStorage.setItem(
+      "questionStep1",
+      "What decision are you trying to make?"
+    );
 	};
 
 	const handleClick = (event) => {

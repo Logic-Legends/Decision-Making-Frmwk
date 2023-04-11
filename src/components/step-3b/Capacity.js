@@ -48,6 +48,10 @@ const Capacity = () => {
 	const handleOptionChange = (event) => {
 		setSelectedOptionCapacity(event.target.value);
 		sessionStorage.setItem("selectedOptionCapacity", event.target.value);
+		sessionStorage.setItem(
+      "questionStep4",
+      "What is the decision-making team's capacity?"
+    );
 	};
 
 	//ADD TO STORAGE SESSION LAST PAGE

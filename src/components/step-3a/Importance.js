@@ -52,6 +52,7 @@ const Importance = () => {
 	const handleOptionChange = (event) => {
 		setSelectedOption(event.target.value);
 		sessionStorage.setItem("selectedOption", event.target.value);
+		sessionStorage.setItem("questionStep3", "How important is the decision?");
 
 	};
 
