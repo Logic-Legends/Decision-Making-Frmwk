@@ -21,6 +21,10 @@ const TypeOfInformation = () => {
   const handleOptionChange = (event) => {
     setSelectedOptionTypeOfInformation(event.target.value);
     sessionStorage.setItem("selectedOptionTypeOfInformation", event.target.value); //ADD SESSION STORAGE
+	sessionStorage.setItem(
+    "questionStep6",
+    "What type of information will you have?"
+  );
   };
 
   //Check if any button was choosen

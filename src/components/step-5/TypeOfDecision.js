@@ -56,6 +56,10 @@ const TypeOfDecision = () => {
     const handleOptionChange = (event) => {
         setSelectedOptionDecision(event.target.value);
         sessionStorage.setItem("selectedOptionDecision", event.target.value);
+        sessionStorage.setItem(
+          "questionStep5",
+          "Are you making an iterative or single decision?"
+        );
     };
     useEffect(() => {
         const storedTypeOfDecision = sessionStorage.getItem("selectedOptionDecision");
@@ -137,88 +141,98 @@ useEffect(() => {
 }, [selectedOption, selectedOptionCapacity]);
 
     return (
-        <div className="container">
-            {/* call first tooltip component */}
-            <HandleToolTip
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-                title={modalTitle}
-				text={modalText}
-            />
-			<section className="border-decision-framework-pages">
-				<h6>Advice:</h6>
-					<p className="radio-description">
-                    Based on your response to {selectedOption.toLowerCase()} importance and {selectedOptionCapacity.toLowerCase()} capacity we would advise you to {textAdviceResult}
-					</p>
-			</section>
+      <div className="container">
+        {/* call first tooltip component */}
+        <HandleToolTip
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+          title={modalTitle}
+          text={modalText}
+        />
+        <section className="border-decision-framework-pages">
+          <h6>Advice:</h6>
+          <p className="radio-description">
+            Based on your selection of {selectedOption.toLowerCase()} importance
+            and {selectedOptionCapacity.toLowerCase()} capacity we would advise
+            you to {textAdviceResult}
+          </p>
+        </section>
 
-            <h2>
-                Type of Decision{" "}
-                <a className="question-mark-button" onClick={() => setModalShow(true)}>?</a>
-            </h2>
-            <section className="border-decision-framework-pages">
-
-                <h6 className="question-margin">
-                    Are you making an iterative or single decision?
-
-                </h6>
-                {/* Radio btn section */}
-                <form className="radio-btn-section container-radio-btn">
-                    <label className="radio">
-                        <input
-                            type="radio"
-                            name="typeOfDecision"
-                            value="Iterative"
-                            checked={selectedOptionDecision === "Iterative"}
-                            onChange={handleOptionChange}
-                            className="input-radio-btn"
-                        />
-                        <span className="radio-label">
-                            <span className="radio-title">Iterative Decision </span>
-                            <span className="radio-description">An ongoing decision that needs to be updated on a regular schedule</span>
-                        </span>
-                    </label>
-                    <label className="radio">
-                        <input
-                            type="radio"
-                            name="typeOfDecision"
-                            value="Single"
-                            checked={selectedOptionDecision === "Single"}
-                            onChange={handleOptionChange}
-                            className="input-radio-btn"
-                        />
-                        <span className="radio-label">
-                            <span className="radio-title">Single Decision</span>
-                            <span className="radio-description">A one-time decision which does not need further review</span>
-                        </span>
-                    </label>
-                </form>
-            </section>
-            {/* btn sections */}
-            <section id="button-same-line">
-                {isStarted}
-                <button onClick={handleBackClick} className="inner">
-                    <Link to="/capacity"></Link>
-                    Back
+        <h2>
+          Type of Decision{" "}
+          <a
+            className="question-mark-button"
+            onClick={() => setModalShow(true)}
+          >
+            ?
+          </a>
+        </h2>
+        <section className="border-decision-framework-pages">
+          <h6 className="question-margin">
+            Are you making an iterative or single decision?
+          </h6>
+          {/* Radio btn section */}
+          <form className="radio-btn-section container-radio-btn">
+            <label className="radio">
+              <input
+                type="radio"
+                name="typeOfDecision"
+                value="Iterative"
+                checked={selectedOptionDecision === "Iterative"}
+                onChange={handleOptionChange}
+                className="input-radio-btn"
+              />
+              <span className="radio-label">
+                <span className="radio-title">Iterative Decision </span>
+                <span className="radio-description">
+                  An ongoing decision that needs to be updated on a regular
+                  schedule
+                </span>
+              </span>
+            </label>
+            <label className="radio">
+              <input
+                type="radio"
+                name="typeOfDecision"
+                value="Single"
+                checked={selectedOptionDecision === "Single"}
+                onChange={handleOptionChange}
+                className="input-radio-btn"
+              />
+              <span className="radio-label">
+                <span className="radio-title">Single Decision</span>
+                <span className="radio-description">
+                  A one-time decision which does not need further review
+                </span>
+              </span>
+            </label>
+          </form>
+        </section>
+        {/* btn sections */}
+        <section id="button-same-line">
+          {isStarted}
+          <button onClick={handleBackClick} className="inner">
+            <Link to="/capacity"></Link>
+            Back
+          </button>
+          <button onClick={handleNextClick} className="inner">
+            <Link to="/type-of-information"></Link>Next
+          </button>
+          {isModalOpen && (
+            <div className="modal">
+              <div className="modal-display">
+                <p>Please select a response!</p>
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  className="modal-btn"
+                >
+                  OK
                 </button>
-                <button onClick={handleNextClick} className="inner">
-                    <Link to="/type-of-information"></Link>Next
-                </button>
-                {isModalOpen && (
-                    <div className="modal">
-                        <div className="modal-display">
-                            <p>Please select a response!</p>
-                            <button
-                                onClick={() => setIsModalOpen(false)}
-                                className="modal-btn"
-                            >
-                                OK
-                            </button>
-                        </div>
-                    </div>
-                )}
-            </section>
-        </div>
+              </div>
+            </div>
+          )}
+        </section>
+      </div>
     );
 };
 

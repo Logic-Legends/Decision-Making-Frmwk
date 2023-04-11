@@ -54,6 +54,7 @@ function DecisionMakers() {
       setStepCompleted(stepNumber+1);
       navigate("/importance");
       sessionStorage.setItem("users", JSON.stringify(users)); //ADD SESSION STORAGE
+      sessionStorage.setItem("questionStep2", "Who is making the decision?");
 
     }
 
@@ -65,6 +66,7 @@ function DecisionMakers() {
     setStep(stepNumber - 1);
     navigate("/define-goal");
     sessionStorage.setItem("users", JSON.stringify(users)); //ADD SESSION STORAGE
+    sessionStorage.setItem("questionStep2", "Who is making the decision?");
 
 
   };
