@@ -166,6 +166,14 @@ export default function Pdf(props) {
     const { explicitVotingMethod } = props;
     const { relativeVotingMethod1 } = props;
     const { relativeVotingMethod2 } = props;
+    const {questionStep1} = props;
+    const { questionStep2 } = props;
+    const { questionStep3 } = props;
+    const { questionStep4 } = props;
+    const { questionStep5 } = props;
+    const { questionStep6 } = props;
+    const { questionStep7 } = props;
+
     return (
         <div>
             <Page style={styles.page}>
@@ -175,7 +183,6 @@ export default function Pdf(props) {
                 <Text style={styles.text} fixed>
                     Thank you for using the Voting Methods for Group Decisions tool! We hope the recommended voting method(s) below will help you make an informed decision.
                 </Text>
-
                 <div>
                     <View style={styles.table}>
                         <View style={styles.tableHeader}>
@@ -193,7 +200,7 @@ export default function Pdf(props) {
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol1}>
 
-                                <Text style={styles.tableCell}>What is the goal?</Text>
+                                <Text style={styles.tableCell}>{questionStep1}</Text>
                             </View>
                             <View style={styles.tableCol2}>
                                 <Text style={styles.tableCell}>{defineGoalText}</Text>
@@ -201,7 +208,7 @@ export default function Pdf(props) {
                         </View>
                         <View style={styles.tableRow1}>
                             <View style={styles.tableCol1}>
-                                <Text style={styles.tableCell}>Who is making the decision?</Text>
+                                <Text style={styles.tableCell}>{questionStep2}</Text>
                             </View>
                             <View style={styles.tableCol2}>
                                 {users.map((user, index) => (
@@ -210,7 +217,7 @@ export default function Pdf(props) {
                         </View>
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol1}>
-                                <Text style={styles.tableCell}>Importance</Text>
+                                <Text style={styles.tableCell}>{questionStep3}</Text>
                             </View>
                             <View style={styles.tableCol2}>
                                 <Text style={styles.tableCell}>{selectedOption}</Text>
@@ -218,7 +225,7 @@ export default function Pdf(props) {
                         </View>
                         <View style={styles.tableRow1}>
                             <View style={styles.tableCol1}>
-                                <Text style={styles.tableCell}>Capacity</Text>
+                                <Text style={styles.tableCell}>{questionStep4}</Text>
                             </View>
                             <View style={styles.tableCol2}>
                                 <Text style={styles.tableCell}>{selectedOptionCapacity}</Text>
@@ -226,7 +233,7 @@ export default function Pdf(props) {
                         </View>
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol1}>
-                                <Text style={styles.tableCell}>Time and Resource</Text>
+                                <Text style={styles.tableCell}>Time and Resource Advice</Text>
                             </View>
                             <View style={styles.tableCol2}>
                                 <Text style={styles.tableCell}> {textAdvice}</Text>
@@ -234,7 +241,7 @@ export default function Pdf(props) {
                         </View>
                         <View style={styles.tableRow1}>
                             <View style={styles.tableCol1}>
-                                <Text style={styles.tableCell}>Type of Decision</Text>
+                                <Text style={styles.tableCell}>{questionStep5}</Text>
                             </View>
                             <View style={styles.tableCol2}>
                                 <Text style={styles.tableCell}>{selectedOptionDecision
@@ -243,7 +250,7 @@ export default function Pdf(props) {
                         </View>
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol1}>
-                                <Text style={styles.tableCell}>Type of Information</Text>
+                                <Text style={styles.tableCell}>{questionStep6}</Text>
                             </View>
                             <View style={styles.tableCol2}>
                                 <Text style={styles.tableCell}>{selectedOptionTypeOfInformation} </Text>
@@ -251,7 +258,7 @@ export default function Pdf(props) {
                         </View>
                         <View style={styles.tableRow1}>
                             <View style={styles.tableColBottom}>
-                                <Text style={styles.tableCell}>Amount of Information</Text>
+                                <Text style={styles.tableCell}>{questionStep7}</Text>
                             </View>
                             <View style={styles.tableColBottom2}>
                                 <Text style={styles.tableCell}>{selectedOptionAmountOfInformation}</Text>

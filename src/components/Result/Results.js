@@ -3,7 +3,6 @@ import Pdf from "../pdf-generation/Pdf";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { useNavigate,useLocation } from "react-router-dom";
 import { stepProgressContext } from "../ProgressBar/ProgressBarContext";
-import Signup from "./Sign-up";
 import VothingMethod from "../step-7/Voting-Method";
 
 const Results = () => {
@@ -28,6 +27,14 @@ const Results = () => {
 	const relativeVotingMethod2 = sessionStorage.getItem("relativeVotingMethod2");
 	const textAdvice = sessionStorage.getItem("textAdviceResult");
 	const advice = sessionStorage.getItem("advice");
+	const questionStep1 = sessionStorage.getItem("questionStep1");
+	const questionStep2 = sessionStorage.getItem("questionStep2");
+	const questionStep3 = sessionStorage.getItem("questionStep3");
+	const questionStep4 = sessionStorage.getItem("questionStep4");
+	const questionStep5 = sessionStorage.getItem("questionStep5");
+	const questionStep6 = sessionStorage.getItem("questionStep6");
+	const questionStep7 = sessionStorage.getItem("questionStep7");
+
 	const navigate = useNavigate();
 	const { setStep,setStepCompleted,getStepIdFromLocation  } = useContext(stepProgressContext);
 
@@ -84,38 +91,38 @@ const Results = () => {
 										)}
 									</tr>
 									<tr>
-										<td>What is the goal?</td>
+										<td>{questionStep1}</td>
 										<td>{defineGoalText}</td>
 									</tr>
 									<tr>
-										<td>Who is making the decision?</td>
+										<td>{questionStep2}</td>
 										<td> {users.map((user, index) => (
 											<p key={index}>{user.name}</p>
 										))}</td>
 
 									</tr>
 									<tr>
-										<td>Importance</td>
+										<td>{questionStep3}</td>
 										<td>{selectedOption}</td>
 									</tr>
 									<tr>
-										<td>Capacity</td>
+										<td>{questionStep4}</td>
 										<td>{selectedOptionCapacity}</td>
 									</tr>
 									<tr>
-										<td>Time and Resource</td>
+										<td>Time and Resource Advice</td>
 										<td>{textAdvice}</td>
 									</tr>
 									<tr>
-										<td>Type of Decision </td>
+										<td>{questionStep5} </td>
 										<td>{selectedOptionDecision + " decision: " + advice}</td>
 									</tr>
 									<tr>
-										<td>Type of Information</td>
+										<td>{questionStep6}</td>
 										<td>{selectedOptionTypeOfInformation}</td>
 									</tr>
 									<tr>
-										<td>Amount of Information </td>
+										<td>{questionStep7} </td>
 										<td>{selectedOptionAmountOfInformation}</td>
 									</tr>
 								</tbody>
@@ -144,6 +151,13 @@ const Results = () => {
 										relativeVotingMethod1={relativeVotingMethod1}
 										relativeVotingMethod2={relativeVotingMethod2}
 										explicitVotingMethod={explicitVotingMethod}
+										questionStep1={questionStep1}
+										questionStep2={questionStep2}
+										questionStep3={questionStep3}
+										questionStep4={questionStep4}
+										questionStep5={questionStep5}
+										questionStep6={questionStep6}
+										questionStep7={questionStep7}
 									/>
 								}
 								fileName="decision.pdf"

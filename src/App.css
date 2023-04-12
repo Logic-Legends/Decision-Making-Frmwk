@@ -4809,10 +4809,13 @@ ul.sub-menu li.current-page-ancestor a::after {
 
 /* In-Page Tabs
 ---------------------------------------------------------------------------------------------------- */
-
+.ace-tabs{
+	cursor: pointer;
+}
 .entry-content ul.ace-tabs {
 	margin: 0 0 -2px 0;
 	overflow: hidden;
+	
 }
 
 ul.ace-tabs li {
