@@ -39,6 +39,7 @@ const VotingMethod = () => {
 				'Voters choose "Yes" or "No" for each option, and the option with the most "Yes" votes wins.'
 			);
 			sessionStorage.setItem("explicitVotingMethod", "Approval voting");
+			sessionStorage.setItem("ApprovalDesc",`Voters choose "Yes" or "No" for each option, and the option with the most "Yes" votes wins.`)
 		} else if (
 			selectedOptionTypeOfInformation === "Explicit" &&
 			selectedOptionAmountOfInformation === "Medium"
@@ -48,6 +49,10 @@ const VotingMethod = () => {
 				"Voters give each option score on some objective metric, and the option with the highest score wins."
 			);
 			sessionStorage.setItem("explicitVotingMethod", "Score voting");
+			sessionStorage.setItem(
+        "ScoreDesc",
+        "Voters give each option score on some objective metric, and the option with the highest score wins."
+      );
 		} else if (
 			selectedOptionTypeOfInformation === "Explicit" &&
 			selectedOptionAmountOfInformation === "High"
@@ -57,6 +62,10 @@ const VotingMethod = () => {
 				"Involves multiple anonymous surveys followed by discussions about the aggregate survey results until a decision has been reached."
 			);
 			sessionStorage.setItem("explicitVotingMethod", "Delphi method");
+			sessionStorage.setItem(
+        "DelphiDesc",
+        "Involves multiple anonymous surveys followed by discussions about the aggregate survey results until a decision has been reached."
+      );
 		}
 	};
 	useEffect(() => {
@@ -73,11 +82,19 @@ const VotingMethod = () => {
 				"Each voter selects their favorite option, and the option with the most votes wins."
 			);
 			sessionStorage.setItem("relativeVotingMethod1", "First past the post");
+			sessionStorage.setItem(
+        "FirstDesc",
+        "Each voter selects their favorite option, and the option with the most votes wins."
+      );
 			setRelativeVotingMethod2("Multivoting");
 			setRelativeVotingMethodDesc2(
 				"Each voter has a certain number of votes to place on any of the options."
 			);
 			sessionStorage.setItem("relativeVotingMethod2", "Multivoting");
+			sessionStorage.setItem(
+        "MultiDesc",
+        "Each voter has a certain number of votes to place on any of the options."
+      );
 		} else if (
 			selectedOptionTypeOfInformation === "Relative" &&
 			selectedOptionAmountOfInformation === "Medium"
@@ -87,11 +104,19 @@ const VotingMethod = () => {
 				"Voters score the options, and the one the majority prefers wins."
 			);
 			sessionStorage.setItem("relativeVotingMethod1", "STAR voting");
+			sessionStorage.setItem(
+        "StarDesc",
+        "Voters score the options, and the one the majority prefers wins."
+      );
 			setRelativeVotingMethod2("Ranked choice");
 			setRelativeVotingMethodDesc2(
 				"Voters rank options based on preference, then a winner is chosen based on majority of first preference votes."
 			);
 			sessionStorage.setItem("relativeVotingMethod2", "Ranked choice");
+			sessionStorage.setItem(
+        "RankDesc",
+        "Voters rank options based on preference, then a winner is chosen based on majority of first preference votes."
+      );
 		} else if (
 			selectedOptionTypeOfInformation === "Relative" &&
 			selectedOptionAmountOfInformation === "High"
@@ -101,11 +126,19 @@ const VotingMethod = () => {
 				"Involves multiple anonymous surveys followed by discussions about the aggregate survey results until a decision has been reached."
 			);
 			sessionStorage.setItem("relativeVotingMethod1", "Delphi method");
+			sessionStorage.setItem(
+        "DelphiRDesc",
+        "Involves multiple anonymous surveys followed by discussions about the aggregate survey results until a decision has been reached."
+      );
 			setRelativeVotingMethod2("Quadratic voting");
 			setRelativeVotingMethodDesc2(
 				"Voters use credits on any option, but the marginal cost of adding an additional credit to an option is higher than adding the last credit."
 			);
 			sessionStorage.setItem("relativeVotingMethod2", "Quadratic voting");
+			sessionStorage.setItem(
+        "QDesc",
+        "Voters use credits on any option, but the marginal cost of adding an additional credit to an option is higher than adding the last credit."
+      );
 		}
 	};
 	useEffect(() => {
