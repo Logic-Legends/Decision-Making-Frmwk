@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     header: {
         fontSize: "19px",
         textAlign: "center",
-        marginTop: "100px",
+        marginTop: "10px",
     },
     subtitle: {
         fontSize: "17px",
@@ -249,6 +249,10 @@ const styles = StyleSheet.create({
         marginBottom: "15px",
 
     },
+    linkDecorations:{
+        color: "#37929b",
+        fontWeight:"bold",
+    }
 });
 
 
@@ -389,7 +393,7 @@ export default function Pdf(props) {
                     <Text style={styles.responses}>Your response: </Text>
                     <Text style={styles.textResponse}>
                         {users.map((user, index) => (
-                            <Text key={index}>{user.name}</Text>
+                            <Text key={index}>{" " + user.name}</Text>
                         ))}
                     </Text>
                 </div>
@@ -400,7 +404,6 @@ export default function Pdf(props) {
                 <Text style={styles.text}>
                     Low: The decision will affect small project or team within the
                     organization
-                    <strong>bold</strong>
                 </Text>
                 <Text style={styles.text}>
                     High: The decision will affect the broader organization or how you
@@ -411,6 +414,7 @@ export default function Pdf(props) {
                     <Text style={styles.textResponse}>{selectedOption}</Text>
                 </div>
                 <View style={styles.hr} />
+               
                 <Text style={styles.questions}>{questionStep4}</Text>
                 <Text style={styles.text}>
                     Low: The deadline for making the decision is very soon and team
@@ -476,7 +480,16 @@ export default function Pdf(props) {
                     <Text style={styles.textResponse}>{selectedOptionAmountOfInformation}</Text>
                 </div>
                 <View style={styles.hr} />
-                
+                <Text
+                    style={styles.pageNumber}
+                    render={({ pageNumber, totalPages }) =>
+                        `${pageNumber} / ${totalPages}`
+                    }
+                    fixed
+                />
+            </Page>
+            <Page style={styles.page1}>
+                <Image style={styles.image} src="https://i.ibb.co/ZM6bQtv/logo-1.png" fixed />
                 <Text style={styles.header}>
                     Voting Methods Table
                 </Text>
@@ -503,7 +516,7 @@ export default function Pdf(props) {
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol21}>
                                 <Text style={styles.tableCell2}>
-                                    First past the post (Each voter selects their favorite
+                                    <Link style={styles.linkDecorations} src="https://en.wikipedia.org/wiki/First-past-the-post_voting">First past the post</Link> First past the post (Each voter selects their favorite
                                     option, and the option with the most votes wins.)
                                 </Text>
                             </View>
@@ -525,7 +538,7 @@ export default function Pdf(props) {
                         <View style={styles.tableRow1}>
                             <View style={styles.tableCol21}>
                                 <Text style={styles.tableCell2}>
-                                    Multivoting (Each voter has a certain number of votes to
+                                    <Link style={styles.linkDecorations} src="https://sixsigmastudyguide.com/multivoting/">Multivoting</Link> (Each voter has a certain number of votes to
                                     place on any of the options.)
                                 </Text>
                             </View>
@@ -548,7 +561,7 @@ export default function Pdf(props) {
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol21}>
                                 <Text style={styles.tableCell2}>
-                                    STAR voting (Voters score the options, and the one the
+                                    <Link style={styles.linkDecorations} src="https://www.starvoting.org/">STAR voting</Link> (Voters score the options, and the one the
                                     majority prefers wins.)
                                 </Text>
                             </View>
@@ -570,7 +583,7 @@ export default function Pdf(props) {
                         <View style={styles.tableRow1}>
                             <View style={styles.tableCol21}>
                                 <Text style={styles.tableCell2}>
-                                    Ranked choice (Voters rank options based on preference, then
+                                    <Link style={styles.linkDecorations} src="https://ballotpedia.org/Ranked-choice_voting_(RCV)">Ranked choice</Link> (Voters rank options based on preference, then
                                     a winner is chosen based on majority of first preference
                                     votes.)
                                 </Text>
@@ -592,7 +605,7 @@ export default function Pdf(props) {
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol21}>
                                 <Text style={styles.tableCell2}>
-                                    Delphi method (Involves multiple anonymous surveys followed
+                                    <Link style={styles.linkDecorations} src="https://www.bps.org.uk/psychologist/delphi-method">Delphi method</Link>  (Involves multiple anonymous surveys followed
                                     by discussions about the aggregate survey results until a
                                     decision has been reached.)
                                 </Text>
@@ -615,7 +628,7 @@ export default function Pdf(props) {
                         <View style={styles.tableRow1}>
                             <View style={styles.tableCol21Bottom}>
                                 <Text style={styles.tableCell2}>
-                                    Quadratic voting (Voters use credits on any option, but the
+                                    <Link style={styles.linkDecorations} src="https://towardsdatascience.com/what-is-quadratic-voting-4f81805d5a06">Quadratic voting</Link>  (Voters use credits on any option, but the
                                     marginal cost of adding an additional credit to an option is
                                     higher than adding the last credit.)
                                 </Text>
@@ -637,6 +650,16 @@ export default function Pdf(props) {
                         </View>
                     </View>
                 </div>
+                <Text
+                    style={styles.pageNumber}
+                    render={({ pageNumber, totalPages }) =>
+                        `${pageNumber} / ${totalPages}`
+                    }
+                    fixed
+                />
+            </Page>
+            <Page style={styles.page1}>
+                <Image style={styles.image} src="https://i.ibb.co/ZM6bQtv/logo-1.png" fixed />
                 <Text style={styles.subtitle}>Explicit Values (Cardinal Information)</Text>
                 <div>
                     <View style={styles.table}>
@@ -657,7 +680,7 @@ export default function Pdf(props) {
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol21}>
                                 <Text style={styles.tableCell2}>
-                                    Approval voting (Voters choose &quot;Yes&quot; or
+                                    <Link style={styles.linkDecorations} src="https://electionscience.org/library/approval-voting/">Approval voting</Link> (Voters choose &quot;Yes&quot; or
                                     &quot;No&quot; for each option, and the option with the most
                                     &quot;Yes&quot; votes wins).
                                 </Text>
@@ -679,7 +702,7 @@ export default function Pdf(props) {
                         <View style={styles.tableRow1}>
                             <View style={styles.tableCol21}>
                                 <Text style={styles.tableCell2}>
-                                    Score voting (Voters give each option a score on some
+                                    <Link style={styles.linkDecorations} src="https://electionscience.org/library/score-voting/">Score voting</Link> (Voters give each option a score on some
                                     objective metric, and the option with the highest score
                                     wins).
                                 </Text>
@@ -703,7 +726,7 @@ export default function Pdf(props) {
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol21}>
                                 <Text style={styles.tableCell2}>
-                                    Delphi method (Involves multiple anonymous surveys followed
+                                    <Link style={styles.linkDecorations} src="https://www.bps.org.uk/psychologist/delphi-method">Delphi method</Link>  (Involves multiple anonymous surveys followed
                                     by discussions about the aggregate survey results until a
                                     decision has been reached).
                                 </Text>
@@ -727,7 +750,7 @@ export default function Pdf(props) {
 
                 <Text style={styles.subtitle}>Feedback Form</Text>
 
-                <Text style={styles.text}>Please fill out this <Link src="https://docs.google.com/forms/d/e/1FAIpQLSehZTvcZNcI7qxLhxaopufBTRgn0dqI33n8saSZpslQAWgBug/viewform">feedback form</Link>  to share your thoughts about the decision-making framework.
+                <Text style={styles.text}>Please fill out this <Link style={styles.linkDecorations} src="https://docs.google.com/forms/d/e/1FAIpQLSehZTvcZNcI7qxLhxaopufBTRgn0dqI33n8saSZpslQAWgBug/viewform">feedback form</Link>  to share your thoughts about the decision-making framework.
                     Your feedback will be taken into account in future iterations of this framework. Thank you!</Text>
 
                 <Text
