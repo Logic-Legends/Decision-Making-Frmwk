@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     header: {
         fontSize: "19px",
         textAlign: "center",
-        marginTop: "15px",
+        marginTop: "100px",
     },
     subtitle: {
         fontSize: "17px",
@@ -476,6 +476,7 @@ export default function Pdf(props) {
                     <Text style={styles.textResponse}>{selectedOptionAmountOfInformation}</Text>
                 </div>
                 <View style={styles.hr} />
+                
                 <Text style={styles.header}>
                     Voting Methods Table
                 </Text>
