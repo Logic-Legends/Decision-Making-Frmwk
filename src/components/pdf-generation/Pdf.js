@@ -516,7 +516,7 @@ export default function Pdf(props) {
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol21}>
                                 <Text style={styles.tableCell2}>
-                                    <Link style={styles.linkDecorations} src="https://en.wikipedia.org/wiki/First-past-the-post_voting">First past the post</Link> First past the post (Each voter selects their favorite
+                                    <Link style={styles.linkDecorations} src="https://en.wikipedia.org/wiki/First-past-the-post_voting">First past the post</Link> (Each voter selects their favorite
                                     option, and the option with the most votes wins.)
                                 </Text>
                             </View>
