@@ -315,8 +315,6 @@ export default function Pdf(props) {
                         </View>
                     </View>) :
 
-
-
                     (<><View style={styles.table}>
                         <View style={styles.tableHeader1}>
                             <View style={styles.tableCol3}>
