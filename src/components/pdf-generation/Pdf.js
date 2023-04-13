@@ -1,6 +1,6 @@
 import React from "react";
-import { Page, Text, View, StyleSheet } from "@react-pdf/renderer";
-import "./logo.gif";
+import { Page, Text, View, StyleSheet, Image, Link } from "@react-pdf/renderer";
+
 
 const styles = StyleSheet.create({
     page: {
@@ -13,24 +13,48 @@ const styles = StyleSheet.create({
         padding: "40px 40px 40px 40px"
     },
     header: {
-        fontSize: 20,
+        fontSize: "19px",
         textAlign: "center",
-        marginTop: "40px",
+        marginTop: "15px",
     },
     subtitle: {
-        fontSize: 18,
+        fontSize: "17px",
         textAlign: "left",
-        margin: "30px auto 0px 40px",
+        margin: "15px auto 0px 20px",
+        fontWeight: "bold"
     },
     text: {
-        margin: 12,
-        fontSize: 14,
+        margin: "10px 20px 0px 20px",
+        fontSize: "12px",
         textAlign: "left",
         fontFamily: "Times-Roman",
     },
+    textResponse: {
 
+        fontSize: "14px",
+        textAlign: "left",
+        fontFamily: "Times-Roman",
+
+
+    },
+    questions: {
+        margin: "15px auto 0px 20px",
+        fontSize: "16px",
+        textAlign: "left",
+        fontFamily: "Times-Roman",
+        fontWeight: "demibold",
+    },
+    responses: {
+
+        fontSize: "14px",
+        textAlign: "left",
+        fontFamily: "Times-Roman",
+        fontWeight: "ultrabold",
+        color: "#37929b",
+
+    },
     table: {
-        marginTop: "30px",
+        margin: "20px auto 20px auto",
         display: "table",
         width: "auto",
     },
@@ -100,7 +124,7 @@ const styles = StyleSheet.create({
         borderStyle: "solid",
     },
     tableCol3: {
-        width: "90%",
+        width: "92%",
         borderWidth: "1px",
         borderBottomWidth: "0px",
         borderTopWidth: "0px",
@@ -184,12 +208,9 @@ const styles = StyleSheet.create({
         borderTopStyle: "solid",
         borderTopWidth: "1px",
         textAlign: "left",
-        borderColor:"#d9d9d9",
+        borderColor: "#d9d9d9",
     },
-    image: {
-        marginLeft: "40px",
-        marginTop: "30px",
-    },
+
     //New
     title: {
         fontWeight: "bold",
@@ -211,9 +232,22 @@ const styles = StyleSheet.create({
         borderColor: "#000",
     },
     hr: {
-        marginTop: 10,
+        margin: "15px 20px 10px 20px",
         borderBottomWidth: 1,
         borderBottomColor: "#000",
+    },
+    displayOfResponses: {
+        flexDirection: "row",
+        marginLeft: "20px",
+        marginBottom: "10px",
+        marginTop: "15px",
+    },
+    image: {
+        height: "40px",
+        width: "170px",
+        marginLeft: "20px",
+        marginBottom: "15px",
+
     },
 });
 
@@ -226,8 +260,6 @@ export default function Pdf(props) {
     const { selectedOptionCapacity } = props;
     const { defineGoalText } = props;
     const { users } = props;
-    const { textAdvice } = props;
-    const { advice } = props;
     const { explicitVotingMethod } = props;
     const { relativeVotingMethod1 } = props;
     const { relativeVotingMethod2 } = props;
@@ -251,12 +283,12 @@ export default function Pdf(props) {
     return (
         <div>
             <Page style={styles.page1}>
-                <image src="./logo.gif" />
-                <Text style={styles.text} fixed>
-                    Thank you for using the Voting Methods for Group Decisions tool! We hope the recommended voting method(s) below will help you make an informed decision.
+                <Image style={styles.image} src="https://i.ibb.co/ZM6bQtv/logo-1.png" fixed />
+                <Text style={styles.text} >
+                    Thank you for using the Voting Methods for Group Decisions tool!
                 </Text>
-                <Text style={styles.subtitle} fixed>Recommended Voting Method(s)</Text>
-                <Text style={styles.text} fixed>
+                <Text style={styles.subtitle} >Recommended Voting Method(s)</Text>
+                <Text style={styles.text} >
                     We hope the recommended voting method(s) below will help you make
                     an informed decision.
                 </Text>
@@ -338,119 +370,121 @@ export default function Pdf(props) {
                         </View></>)
                 }
                 </div>
+                <Text style={styles.subtitle}>Summary of responses</Text>
+                <Text style={styles.text}>
+                    Below is a summary of all your responses.
+                </Text>
+                <View style={styles.hr} />
 
-                <View>
-                    <Text style={styles.subtitle1}>Summary of responses</Text>
-                    <Text style={styles.paragraph}>
-                        Below is a summary of all your responses.
-                    </Text>
-                </View>
+                <Text style={styles.questions}>{questionStep1}</Text>
+
+                <div style={styles.displayOfResponses}>
+                    <Text style={styles.responses}>Your response: </Text>
+                    <Text style={styles.textResponse}> {defineGoalText}</Text>
+                </div>
+
+
                 <View style={styles.hr} />
-                <View>
-                    <Text>{questionStep1}</Text>
-                    <Text>Your response : {defineGoalText}</Text>
-                </View>
-                <View style={styles.hr} />
-                <View>
-                    <Text>{questionStep2}</Text>
-                    <Text>
+
+                <Text style={styles.questions}>{questionStep2}</Text>
+                <div style={styles.displayOfResponses}>
+                    <Text style={styles.responses}>Your response: </Text>
+                    <Text style={styles.textResponse}>
                         {users.map((user, index) => (
-                            <Text key={index}>Your response : {user.name}</Text>
+                            <Text key={index}>{user.name}</Text>
                         ))}
                     </Text>
-                </View>
-                <Text
-                    style={styles.pageNumber}
-                    render={({ pageNumber, totalPages }) =>
-                        `${pageNumber} / ${totalPages}`
-                    }
-                    fixed
-                />
-            </Page >
-            <Page style={styles.page}>
+                </div>
+
                 <View style={styles.hr} />
-                <View>
-                    <Text>{questionStep3}</Text>
-                    <Text>
-                        Low: The decision will affect small project or team within the
-                        organization
-                    </Text>
-                    <Text>
-                        High: The decision will affect the broader organization or how you
-                        interact with other organizations
-                    </Text>
-                    <Text>Your response: {selectedOption}</Text>
-                </View>
-                <View style={styles.hr} />
-                <View>
-                    <Text>{questionStep4}</Text>
-                    <Text>
-                        Low: The deadline for making the decision is very soon and team
-                        members are unable to attend decision-making meetings
-                    </Text>
-                    <Text>
-                        High: The deadline for making the decision is further out and team
-                        members have time to attend decision-making meetings
-                    </Text>
-                    <Text>Your response: {selectedOptionCapacity}</Text>
-                </View>
-                <View style={styles.hr} />
-                <View>
-                    <Text>{questionStep5}</Text>
-                    <Text>
-                        Iterative Decision: An ongoing decision that needs to be updated
-                        on a regular schedule
-                    </Text>
-                    <Text>
-                        Single Decision: A one-time decision which does not need further
-                        review
-                    </Text>
-                    <Text>Your response :{selectedOptionDecision}</Text>
-                </View>
-                <View style={styles.hr} />
-                <View>
-                    <Text>{questionStep6}</Text>
-                    <Text>
-                        Explicit: Information that lets you assign numerical values to the
-                        factors being considered
-                    </Text>
-                    <Text>
-                        Relative: Information that lets you compare factors being
-                        considered in relation to one another
-                    </Text>
-                    <Text>Your response :{selectedOptionTypeOfInformation}</Text>
-                </View>
-                <View style={styles.hr} />
-                <View>
-                    <Text>{questionStep7}</Text>
-                    <Text>
-                        High: Example: You have enough information to rank all of the
-                        options from highest to lowest preference OR score every option
-                        from 1-100.
-                    </Text>
-                    <Text>
-                        Medium: Example: You have enough information to score every option
-                        from 1-5.
-                    </Text>
-                    <Text>
-                        Low: Example: You have enough information to answer yes or no to
-                        each option OR pick one favorite option.
-                    </Text>
-                    <Text>Your response :{selectedOptionAmountOfInformation}</Text>
-                </View>
-                <Text
-                    style={styles.pageNumber}
-                    render={({ pageNumber, totalPages }) =>
-                        `${pageNumber} / ${totalPages}`
-                    }
-                    fixed
-                />
-            </Page>
-            <Page style={styles.page}>
-                <Text style={styles.header} fixed>
-                    Voting Methods
+
+                <Text style={styles.questions}>{questionStep3}</Text>
+                <Text style={styles.text}>
+                    Low: The decision will affect small project or team within the
+                    organization
+                    <strong>bold</strong>
                 </Text>
-                <Text style={styles.subtitle}>Relative</Text>
+                <Text style={styles.text}>
+                    High: The decision will affect the broader organization or how you
+                    interact with other organizations
+                </Text>
+                <div style={styles.displayOfResponses}>
+                    <Text style={styles.responses}>Your response: </Text>
+                    <Text style={styles.textResponse}>{selectedOption}</Text>
+                </div>
+                <View style={styles.hr} />
+                <Text style={styles.questions}>{questionStep4}</Text>
+                <Text style={styles.text}>
+                    Low: The deadline for making the decision is very soon and team
+                    members are unable to attend decision-making meetings
+                </Text>
+                <Text style={styles.text}>
+                    High: The deadline for making the decision is further out and team
+                    members have time to attend decision-making meetings
+                </Text>
+                <div style={styles.displayOfResponses}>
+                    <Text style={styles.responses}>Your response: </Text>
+                    <Text style={styles.textResponse}>{selectedOptionCapacity}</Text>
+                </div>
+                <View style={styles.hr} />
+
+                <Text style={styles.questions}>{questionStep5}</Text>
+                <Text style={styles.text}>
+                    Iterative Decision: An ongoing decision that needs to be updated
+                    on a regular schedule
+                </Text>
+                <Text style={styles.text}>
+                    Single Decision: A one-time decision which does not need further
+                    review
+                </Text>
+                <div style={styles.displayOfResponses}>
+                    <Text style={styles.responses}>Your response: </Text>
+                    <Text style={styles.textResponse}>{selectedOptionDecision}</Text>
+                </div>
+                <View style={styles.hr} />
+
+                <Text style={styles.questions}>{questionStep6}</Text>
+                <Text style={styles.text}>
+                    Explicit: Information that lets you assign numerical values to the
+                    factors being considered
+                </Text>
+                <Text style={styles.text}>
+                    Relative: Information that lets you compare factors being
+                    considered in relation to one another
+                </Text>
+                <div style={styles.displayOfResponses}>
+                    <Text style={styles.responses}>Your response: </Text>
+                    <Text style={styles.textResponse}>{selectedOptionTypeOfInformation}</Text>
+                </div>
+
+                <View style={styles.hr} />
+
+                <Text style={styles.questions}>{questionStep7}</Text>
+                <Text style={styles.text}>
+                    High: Example: You have enough information to rank all of the
+                    options from highest to lowest preference OR score every option
+                    from 1-100.
+                </Text>
+                <Text style={styles.text}>
+                    Medium: Example: You have enough information to score every option
+                    from 1-5.
+                </Text>
+                <Text style={styles.text}>
+                    Low: Example: You have enough information to answer yes or no to
+                    each option OR pick one favorite option.
+                </Text>
+                <div style={styles.displayOfResponses}>
+                    <Text style={styles.responses}>Your response: </Text>
+                    <Text style={styles.textResponse}>{selectedOptionAmountOfInformation}</Text>
+                </div>
+                <View style={styles.hr} />
+                <Text style={styles.header}>
+                    Voting Methods Table
+                </Text>
+                <Text style={styles.text}>You can consult the full list of voting methods below.</Text>
+
+
+                <Text style={styles.subtitle}>Relative Values (Ordinal Information)</Text>
                 <div>
                     <View style={styles.table}>
                         <View style={styles.tableHeader}>
@@ -604,20 +638,7 @@ export default function Pdf(props) {
                         </View>
                     </View>
                 </div>
-
-                <Text
-                    style={styles.pageNumber}
-                    render={({ pageNumber, totalPages }) =>
-                        `${pageNumber} / ${totalPages}`
-                    }
-                    fixed
-                />
-            </Page>
-            <Page style={styles.page}>
-                <Text style={styles.header} fixed>
-                    Voting Methods
-                </Text>
-                <Text style={styles.subtitle}>Explicit</Text>
+                <Text style={styles.subtitle}>Explicit Values (Cardinal Information)</Text>
                 <div>
                     <View style={styles.table}>
                         <View style={styles.tableHeader}>
@@ -705,6 +726,11 @@ export default function Pdf(props) {
                     </View>
                 </div>
 
+                <Text style={styles.subtitle}>Feedback Form</Text>
+
+                <Text style={styles.text}>Please fill out this <Link src="https://docs.google.com/forms/d/e/1FAIpQLSehZTvcZNcI7qxLhxaopufBTRgn0dqI33n8saSZpslQAWgBug/viewform">feedback form</Link>  to share your thoughts about the decision-making framework.
+                    Your feedback will be taken into account in future iterations of this framework. Thank you!</Text>
+
                 <Text
                     style={styles.pageNumber}
                     render={({ pageNumber, totalPages }) =>
@@ -713,292 +739,6 @@ export default function Pdf(props) {
                     fixed
                 />
             </Page>
-            {/* <Page style={styles.page}>
-                <Text style={styles.header} fixed>
-                    Results
-                </Text>
-                <Text style={styles.text} fixed>
-                    Thank you for using the Voting Methods for Group Decisions tool! We hope the recommended voting method(s) below will help you make an informed decision.
-                </Text>
-                <div>
-                    <View style={styles.table}>
-                        <View style={styles.tableHeader}>
-                            <View style={styles.tableCol1}>
-                                <Text style={styles.tableTopic}>Recommended Voting Method(s)</Text>
-                            </View>
-                            <View style={styles.tableCol2}>
-                                {selectedOptionTypeOfInformation === "Explicit" ? (
-                                    <Text style={styles.tableTopic}>{explicitVotingMethod}</Text>
-                                ) : (
-                                    <Text style={styles.tableTopic}>{relativeVotingMethod1 + " | " + relativeVotingMethod2}</Text>)
-                                }
-                            </View>
-                        </View>
-                        <View style={styles.tableRow}>
-                            <View style={styles.tableCol1}>
-
-                                <Text style={styles.tableCell}>{questionStep1}</Text>
-                            </View>
-                            <View style={styles.tableCol2}>
-                                <Text style={styles.tableCell}>{defineGoalText}</Text>
-                            </View>
-                        </View>
-                        <View style={styles.tableRow1}>
-                            <View style={styles.tableCol1}>
-                                <Text style={styles.tableCell}>{questionStep2}</Text>
-                            </View>
-                            <View style={styles.tableCol2}>
-                                {users.map((user, index) => (
-                                    <Text key={index} style={styles.tableCell}> {user.name} </Text>))}
-                            </View>
-                        </View>
-                        <View style={styles.tableRow}>
-                            <View style={styles.tableCol1}>
-                                <Text style={styles.tableCell}>{questionStep3}</Text>
-                            </View>
-                            <View style={styles.tableCol2}>
-                                <Text style={styles.tableCell}>{selectedOption}</Text>
-                            </View>
-                        </View>
-                        <View style={styles.tableRow1}>
-                            <View style={styles.tableCol1}>
-                                <Text style={styles.tableCell}>{questionStep4}</Text>
-                            </View>
-                            <View style={styles.tableCol2}>
-                                <Text style={styles.tableCell}>{selectedOptionCapacity}</Text>
-                            </View>
-                        </View>
-                        <View style={styles.tableRow}>
-                            <View style={styles.tableCol1}>
-                                <Text style={styles.tableCell}>Time and Resource Advice</Text>
-                            </View>
-                            <View style={styles.tableCol2}>
-                                <Text style={styles.tableCell}> {textAdvice}</Text>
-                            </View>
-                        </View>
-                        <View style={styles.tableRow1}>
-                            <View style={styles.tableCol1}>
-                                <Text style={styles.tableCell}>{questionStep5}</Text>
-                            </View>
-                            <View style={styles.tableCol2}>
-                                <Text style={styles.tableCell}>{selectedOptionDecision
-                                    + " decision: " + advice}</Text>
-                            </View>
-                        </View>
-                        <View style={styles.tableRow}>
-                            <View style={styles.tableCol1}>
-                                <Text style={styles.tableCell}>{questionStep6}</Text>
-                            </View>
-                            <View style={styles.tableCol2}>
-                                <Text style={styles.tableCell}>{selectedOptionTypeOfInformation} </Text>
-                            </View>
-                        </View>
-                        <View style={styles.tableRow1}>
-                            <View style={styles.tableColBottom}>
-                                <Text style={styles.tableCell}>{questionStep7}</Text>
-                            </View>
-                            <View style={styles.tableColBottom2}>
-                                <Text style={styles.tableCell}>{selectedOptionAmountOfInformation}</Text>
-                            </View>
-                        </View>
-                    </View>
-                </div>
-
-                <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
-                    `${pageNumber} / ${totalPages}`
-                )} fixed />
-            </Page>
-            <Page style={styles.page}>
-                <Text style={styles.header} fixed>
-                    Voting Methods
-                </Text>
-                <Text style={styles.subtitle}>
-                    Relative
-                </Text>
-                <div>
-                    <View style={styles.table}>
-                        <View style={styles.tableHeader}>
-                            <View style={styles.tableCol21}>
-                                <Text style={styles.tableTopic}>Voting Methods</Text>
-                            </View>
-                            <View style={styles.tableCol22}>
-                                <Text style={styles.tableTopic}>Amount of Information Needed</Text>
-                            </View>
-                            <View style={styles.tableCol23}>
-                                <Text style={styles.tableTopic}>Examples</Text>
-                            </View>
-                        </View>
-
-                        <View style={styles.tableRow}>
-                            <View style={styles.tableCol21}>
-                                <Text style={styles.tableCell2}>First past the post (Each voter selects their favorite option, and the option with the most votes wins.)</Text>
-                            </View>
-                            <View style={styles.tableCol22}>
-                                <Text style={styles.tableCell2}>Enough information for voters to pick a top 1 or 2 from the
-                                    list of options.</Text>
-                            </View>
-                            <View style={styles.tableCol23}>
-                                <Text style={styles.tableCell2}>You want to select the target for your next campaign from a
-                                    list of 10 options based on how they compare to each other
-                                    on estimated tractability for your organization.</Text>
-                            </View>
-                        </View>
-
-                        <View style={styles.tableRow1}>
-                            <View style={styles.tableCol21}>
-                                <Text style={styles.tableCell2}>Multivoting (Each voter has a certain number of votes to place on any of the options.)</Text>
-                            </View>
-                            <View style={styles.tableCol22}>
-                                <Text style={styles.tableCell2}>Enough information for voters to pick a top 5 from the list
-                                    of options.</Text>
-                            </View>
-                            <View style={styles.tableCol23}>
-                                <Text style={styles.tableCell2}>	You want to select 5 research topics to pursue this year
-
-                                    based on how motivated research staff are to investigate the
-                                    topics.</Text>
-                            </View>
-                        </View>
-
-                        <View style={styles.tableRow}>
-                            <View style={styles.tableCol21}>
-                                <Text style={styles.tableCell2}>STAR voting (Voters score the options, and the one the majority prefers wins.)</Text>
-                            </View>
-                            <View style={styles.tableCol22}>
-                                <Text style={styles.tableCell2}>Enough information for voters to score the options, and the
-                                    one the majority prefers wins.</Text>
-                            </View>
-                            <View style={styles.tableCol23}>
-                                <Text style={styles.tableCell2}>You want to select 5 research topics to pursue this year
-                                    based on how motivated research staff are to investigate the
-                                    topics.</Text>
-                            </View>
-                        </View>
-
-                        <View style={styles.tableRow1}>
-                            <View style={styles.tableCol21}>
-                                <Text style={styles.tableCell2}>Ranked choice (Voters rank options based on preference, then a winner is chosen based on majority of first preference votes.)</Text>
-                            </View>
-                            <View style={styles.tableCol22}>
-                                <Text style={styles.tableCell2}>Enough information for voters to rank all of the options
-                                    from highest to lowest preference.</Text>
-                            </View>
-                            <View style={styles.tableCol23}>
-                                <Text style={styles.tableCell2}>You want to see which research topics are the most and least
-                                    preferred by allowing team members to rank them all.</Text>
-                            </View>
-                        </View>
-
-                        <View style={styles.tableRow}>
-                            <View style={styles.tableCol21}>
-                                <Text style={styles.tableCell2}>Delphi method (Involves multiple anonymous surveys followed by discussions about the aggregate survey results until a decision has been reached.)</Text>
-                            </View>
-                            <View style={styles.tableCol22}>
-                                <Text style={styles.tableCell2}>Enough information for voters to score each option
-                                    individually according to an external, objective metric.</Text>
-                            </View>
-                            <View style={styles.tableCol23}>
-                                <Text style={styles.tableCell2}>You are making a very important decision, you have a long
-                                    time frame and high team capacity, you would like to reach a
-                                    consensus, and anonymity among voters is important.</Text>
-                            </View>
-                        </View>
-
-                        <View style={styles.tableRow1}>
-                            <View style={styles.tableCol21Bottom}>
-                                <Text style={styles.tableCell2}>Quadratic voting (Voters use credits on any option, but the marginal cost of adding an additional credit to an option is higher than adding the last credit.)</Text>
-                            </View>
-                            <View style={styles.tableCol22Bottom}>
-                                <Text style={styles.tableCell2}>Enough information for voters to understand subtle
-                                    differences between options so they can express a higher
-                                    preference for a select few options over many others.</Text>
-                            </View>
-                            <View style={styles.tableCol23Bottom}>
-                                <Text style={styles.tableCell2}>You would like to capture more details about voter
-                                    preferences. You want to allow team members to vote multiple
-                                    times for the same option if they feel strongly about it.</Text>
-                            </View>
-                        </View>
-
-                    </View>
-                </div>
-
-                <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
-                    `${pageNumber} / ${totalPages}`
-                )} fixed />
-            </Page>
-            <Page style={styles.page}>
-                <Text style={styles.header} fixed>
-                    Voting Methods
-                </Text>
-                <Text style={styles.subtitle}>
-                    Explicit
-                </Text>
-                <div>
-                    <View style={styles.table}>
-                        <View style={styles.tableHeader}>
-                            <View style={styles.tableCol21}>
-                                <Text style={styles.tableTopic}>Voting Methods</Text>
-                            </View>
-                            <View style={styles.tableCol22}>
-                                <Text style={styles.tableTopic}>Amount of Information Needed</Text>
-                            </View>
-                            <View style={styles.tableCol23}>
-                                <Text style={styles.tableTopic}>Examples</Text>
-                            </View>
-                        </View>
-
-                        <View style={styles.tableRow}>
-                            <View style={styles.tableCol21}>
-                                <Text style={styles.tableCell2}>Approval voting (Voters choose &quot;Yes&quot; or &quot;No&quot; for each option, and the option with the most &quot;Yes&quot; votes wins).</Text>
-                            </View>
-                            <View style={styles.tableCol22}>
-                                <Text style={styles.tableCell2}>Enough information for voters to answer yes or no to each
-                                    option.</Text>
-                            </View>
-                            <View style={styles.tableCol23}>
-                                <Text style={styles.tableCell2}>You want to narrow down a list of 100 research topics based on if they meet a certain set of criteria.</Text>
-                            </View>
-                        </View>
-
-                        <View style={styles.tableRow1}>
-                            <View style={styles.tableCol21}>
-                                <Text style={styles.tableCell2}>Score voting (Voters give each option a score on some objective metric, and the option with the highest score wins).</Text>
-                            </View>
-                            <View style={styles.tableCol22}>
-                                <Text style={styles.tableCell2}>Enough information for voters to score each option from 1-5
-                                    (less information). Enough information for voters to score
-                                    each option from 1-100 (more information).</Text>
-                            </View>
-                            <View style={styles.tableCol23}>
-                                <Text style={styles.tableCell2}>You want to select 5 research topics to pursue this year
-                                    from a list of 50 options. Your metric is: &quot;How many studies
-                                    have already been published about this topic?&quot;</Text>
-                            </View>
-                        </View>
-
-                        <View style={styles.tableRow}>
-                            <View style={styles.tableCol21}>
-                                <Text style={styles.tableCell2}>Delphi method (Involves multiple anonymous surveys followed by discussions about the aggregate survey results until a decision has been reached).</Text>
-                            </View>
-                            <View style={styles.tableCol22}>
-                                <Text style={styles.tableCell2}>Enough information for voters to score each option
-                                    individually according to an external, objective metric.</Text>
-                            </View>
-                            <View style={styles.tableCol23}>
-                                <Text style={styles.tableCell2}>You are making a very important decision, you have a long
-                                    time frame and high team capacity, you would like to reach a
-                                    consensus, and anonymity among voters is important.</Text>
-                            </View>
-                        </View>
-
-                    </View>
-                </div>
-
-                <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
-                    `${pageNumber} / ${totalPages}`
-                )} fixed />
-            </Page> */}
         </div >
     );
 }
