@@ -47,7 +47,7 @@ const Results = () => {
 	const navigate = useNavigate();
 	const { setStep,setStepCompleted,getStepIdFromLocation  } = useContext(stepProgressContext);
 
-	const stepNumber = 10;
+	const stepNumber = 8;
 	const location = useLocation();
 	const { pathname } = location;
 

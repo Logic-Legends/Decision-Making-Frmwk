@@ -9,7 +9,7 @@ import HandleToolTip from "../ProgressBar/HandleToolTip";
 
 
 const TypeOfDecision = () => {
-    const stepNumber = 6;
+    const stepNumber = 5;
     const location = useLocation();
 	const { pathname } = location;
 

@@ -55,7 +55,7 @@ const TypeOfInformation = () => {
   }, []);
   // Progress Bar Step Number
 
-  const stepNumber=8;
+  const stepNumber=7;
   const location = useLocation();
   const { pathname } = location;
 
